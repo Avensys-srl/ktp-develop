@@ -49,7 +49,6 @@ export const DaySlider = (props: props) => {
 const styles = ScaledSheet.create({
     container: {
         alignItems: 'center',
-        alignItems: 'center',
         justifyContent: 'center',
         width: '80@ms',
         padding: '4@ms',

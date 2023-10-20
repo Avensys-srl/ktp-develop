@@ -1,6 +1,6 @@
-import {View, TouchableOpacity, Animated} from 'react-native'
-import {ScaledSheet} from 'react-native-size-matters'
-import {useEffect, useRef, useState} from 'react'
+import {View, TouchableOpacity, Animated} from 'react-native';
+import {ScaledSheet} from 'react-native-size-matters';
+import {useEffect, useRef, useState} from 'react';
 export const HeaterButton = props => {
   const {
     diagonalImageSource1,
@@ -17,56 +17,53 @@ export const HeaterButton = props => {
     onUpdatePreHeaterStatus = () => 0,
     onUpdatePostHeaterStatus = () => 0,
     onLongPress,
-  } = props
+  } = props;
   //--------------------------------------Declare Veriables--------------------------------
-  let lf = 1 //----------seconds
-  let bt = 30 * 60 * 1000 //-----------minutes
-  let hf = 0.5 //--------seconds
-  let t3 = 5000 //5 seconds
-  let preHeaterState = 'first'
-  let postHeaterState = 'first'
+  let lf = 1; //----------seconds
+  let bt = 30 * 60 * 1000; //-----------minutes
+  let hf = 0.5; //--------seconds
+  let t3 = 5000; //5 seconds
+  let preHeaterState = 'first';
+  let postHeaterState = 'first';
 
-  let onPressInTime = 0
-  let onPressOutTime = 0
+  let onPressInTime = 0;
+  let onPressOutTime = 0;
 
-  const [preHeatercolor, setPreHeaterColor] = useState('white')
-  const [postHeatercolor, setPostHeaterColor] = useState('white')
+  const [preHeatercolor, setPreHeaterColor] = useState('white');
+  const [postHeatercolor, setPostHeaterColor] = useState('white');
 
-  let preHeaterTimeGap = 5000
-  let postHeaterTimeGap = 5000
+  let preHeaterTimeGap = 5000;
+  let postHeaterTimeGap = 5000;
 
   // console.log('fnished data is---', postHeaterTimeGap)
-  const preHeaterOpacity = useRef(new Animated.Value(1)).current
-  const postHeaterOpacity = useRef(new Animated.Value(1)).current
+  const preHeaterOpacity = useRef(new Animated.Value(1)).current;
+  const postHeaterOpacity = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
     if (flagForAlarm) {
-      onUpdatePreHeaterStatus('Alarm')
+      onUpdatePreHeaterStatus('Alarm');
       // startPreHeaterProcess(hf)
-      startPreHeaterZeroIteration(hf)
-    }else{
-      setPreHeaterColor('white')
-      preHeaterOpacity&&preHeaterOpacity.setValue(1)
-      preHeaterOpacity&&preHeaterOpacity.stopAnimation()
-
+      startPreHeaterZeroIteration(hf);
+    } else {
+      setPreHeaterColor('white');
+      preHeaterOpacity && preHeaterOpacity.setValue(1);
+      preHeaterOpacity && preHeaterOpacity.stopAnimation();
     }
-  }, [flagForAlarm])
+  }, [flagForAlarm]);
   useEffect(() => {
     if (flagForPostHeaterAlarm) {
-      onUpdatePostHeaterStatus('Alarm')
-      startPostHeaterZeroIteration(hf)
+      onUpdatePostHeaterStatus('Alarm');
+      startPostHeaterZeroIteration(hf);
       // setPostHeaterColor('blue')
+    } else {
+      setPostHeaterColor('white');
+      postHeaterOpacity && postHeaterOpacity.setValue(1);
+      postHeaterOpacity && postHeaterOpacity.stopAnimation();
     }
-    else{
-      setPostHeaterColor('white')
-      postHeaterOpacity&&postHeaterOpacity.setValue(1)
-      postHeaterOpacity&&postHeaterOpacity.stopAnimation()
-
-    }
-  }, [flagForPostHeaterAlarm])
+  }, [flagForPostHeaterAlarm]);
   const startPreHeaterProcess = duration => {
-    setPreHeaterColor('orange')
-    const blinkSpeed = (duration * 1000) / 2
+    setPreHeaterColor('orange');
+    const blinkSpeed = (duration * 1000) / 2;
     Animated.loop(
       Animated.sequence([
         Animated.timing(preHeaterOpacity, {
@@ -85,12 +82,12 @@ export const HeaterButton = props => {
       },
     ).start(() => {
       if (preHeaterState === 'first') {
-        preHeaterState = 'second'
-        preHeaterTimeGap = 2000
-        startPreHeaterProcess(hf)
-        onUpdatePreHeaterStatus('paired after piaring process')
+        preHeaterState = 'second';
+        preHeaterTimeGap = 2000;
+        startPreHeaterProcess(hf);
+        onUpdatePreHeaterStatus('paired after piaring process');
       } else if (preHeaterState === 'second') {
-        onUpdatePreHeaterStatus('activated')
+        onUpdatePreHeaterStatus('activated');
       }
       // if (preHeaterState === 'first') {
       //   if (flagForAlarm) {
@@ -109,12 +106,12 @@ export const HeaterButton = props => {
       //     timer && clearTimeout(timer)
       //   }, 2000)
       // }
-    })
-  }
+    });
+  };
 
   const startPreHeaterZeroIteration = duration => {
-    setPreHeaterColor('orange')
-    const blinkSpeed = (duration * 1000) / 2
+    setPreHeaterColor('orange');
+    const blinkSpeed = (duration * 1000) / 2;
     Animated.loop(
       Animated.sequence([
         Animated.timing(preHeaterOpacity, {
@@ -131,12 +128,12 @@ export const HeaterButton = props => {
       {
         // iterations: preHeaterTimeGap / blinkSpeed / 2,
       },
-    ).start()
-  }
+    ).start();
+  };
 
   const startPostHeaterProcess = duration => {
-    setPostHeaterColor('blue')
-    const blinkSpeed = (duration * 1000) / 2
+    setPostHeaterColor('blue');
+    const blinkSpeed = (duration * 1000) / 2;
     Animated.loop(
       Animated.sequence([
         Animated.timing(postHeaterOpacity, {
@@ -155,19 +152,19 @@ export const HeaterButton = props => {
       },
     ).start(() => {
       if (postHeaterState === 'first') {
-        postHeaterState = 'second'
-        postHeaterTimeGap = 2000
-        startPostHeaterProcess(hf)
-        onUpdatePostHeaterStatus('pairing successful')
+        postHeaterState = 'second';
+        postHeaterTimeGap = 2000;
+        startPostHeaterProcess(hf);
+        onUpdatePostHeaterStatus('pairing successful');
       } else if (postHeaterState === 'second') {
-        const timerDiffer = onPressOutTime - onPressInTime
-        onPressInTime = 0
-        onPressOutTime = 0
+        const timerDiffer = onPressOutTime - onPressInTime;
+        onPressInTime = 0;
+        onPressOutTime = 0;
         if (timerDiffer > t3) {
-          postHeaterTimeGap = bt
-          startBoostModePostHeaterProcess()
+          postHeaterTimeGap = bt;
+          startBoostModePostHeaterProcess();
           // onUpdatePostHeaterStatus("Boost Mode On")
-          postHeaterState = 'third'
+          postHeaterState = 'third';
         } else {
           // const timer = setTimeout(() => {
           //   setPostHeaterColor('white')
@@ -176,7 +173,7 @@ export const HeaterButton = props => {
           // }, 2000)
         }
       } else if (postHeaterState === 'third') {
-        onUpdatePostHeaterStatus('activated')
+        onUpdatePostHeaterStatus('activated');
       }
       // if (postHeaterState === 'first') {
       //   if (flagForPostHeaterAlarm) {
@@ -210,11 +207,11 @@ export const HeaterButton = props => {
       //     timer && clearTimeout(timer)
       //   }, 2000)
       // }
-    })
-  }
+    });
+  };
 
   const startBoostModePostHeaterProcess = () => {
-    setPostHeaterColor('blue')
+    setPostHeaterColor('blue');
     // const blinkSpeed = (duration * 1000) / 2
     Animated.loop(
       Animated.sequence([
@@ -259,12 +256,12 @@ export const HeaterButton = props => {
         // iterations: postHeaterTimeGap / blinkSpeed / 2,
         iterations: 30 * 60 * 1000,
       },
-    ).start()
-  }
+    ).start();
+  };
 
   const startPostHeaterZeroIteration = duration => {
     // setPostHeaterColor('blue')
-    const blinkSpeed = (duration * 1000) / 2
+    const blinkSpeed = (duration * 1000) / 2;
     Animated.loop(
       Animated.sequence([
         Animated.timing(postHeaterOpacity, {
@@ -283,22 +280,22 @@ export const HeaterButton = props => {
       {
         // iterations: Infinity
       },
-    ).start()
-  }
+    ).start();
+  };
 
   useEffect(() => {
     if (flagForPairing) {
-      startPreHeaterProcess(lf)
-      onUpdatePreHeaterStatus('pairing in progress')
+      startPreHeaterProcess(lf);
+      onUpdatePreHeaterStatus('pairing in progress');
     }
-  }, [flagForPairing])
+  }, [flagForPairing]);
 
   useEffect(() => {
     if (flagForPostHeaterPairing) {
-      startPostHeaterProcess(lf)
-      onUpdatePostHeaterStatus('pairing in progress')
+      startPostHeaterProcess(lf);
+      onUpdatePostHeaterStatus('pairing in progress');
     }
-  }, [flagForPostHeaterPairing])
+  }, [flagForPostHeaterPairing]);
 
   return (
     <View style={styles.container}>
@@ -324,16 +321,15 @@ export const HeaterButton = props => {
         delayLongPress={5000}
         onLongPress={startBoostModePostHeaterProcess}
         onPressIn={({nativeEvent}) => {
-          onPressInTime = nativeEvent.timestamp
+          onPressInTime = nativeEvent.timestamp;
         }}
         onPressOut={({nativeEvent}) => {
-          onPressOutTime = nativeEvent.timestamp
+          onPressOutTime = nativeEvent.timestamp;
           if (flagForPostHeaterPairing) {
-            startPostHeaterProcess(lf)
+            startPostHeaterProcess(lf);
           }
         }}
-        style={styles.diagonalImage2}
-      >
+        style={styles.diagonalImage2}>
         <Animated.Image
           source={diagonalImageSource2}
           style={[
@@ -344,8 +340,8 @@ export const HeaterButton = props => {
         />
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
 const styles = ScaledSheet.create({
   container: {
@@ -386,4 +382,4 @@ const styles = ScaledSheet.create({
     height: '26@ms',
     width: '26@ms',
   },
-})
+});

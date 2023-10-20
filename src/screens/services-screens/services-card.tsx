@@ -17,13 +17,13 @@ interface props {
 
 export const ServicesCard = (props: props) => {
   const { title, index, onPress, disabled, values = [] } = props
-  const Navigation = useNavigation()
+  const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.card} key={index}
         disabled={disabled}
-        onPress={() => Navigation.navigate(onPress)}>
+        onPress={() => navigation.navigate(onPress)}>
         <Label style={styles.title}>{title}</Label>
         <View style={{flexDirection:'row'}}>
           <TouchableOpacity>

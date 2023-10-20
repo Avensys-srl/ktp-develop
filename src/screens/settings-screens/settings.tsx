@@ -13,7 +13,7 @@ export const Settings = () => {
 
   return (
     <>
-      <Header canGoBack={true} title='Settings' />
+      <Header canGoBack={false} title='Settings' />
       <View style={Styles.container}>
         {SettingsTab.map(item => {
           return( <SettingsCard text={item.title} />)

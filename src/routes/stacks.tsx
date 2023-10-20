@@ -17,60 +17,65 @@ import {Image} from 'react-native'
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
-export const Tabs = () => {
-  return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Tab.Screen
-        name={Routes.Home}
-        component={Home}
-        options={{
-          tabBarIcon: () => (
-            <Image source={ImageSource.home} style={styles.bottomIcons} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name={Routes.Services}
-        component={Services}
-        options={{
-          tabBarIcon: () => (
-            <Image source={ImageSource.filter1} style={styles.bottomIcons} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name={Routes.Info}
-        component={Info}
-        options={{
-          tabBarIcon: () => (
-            <Image source={ImageSource.info} style={styles.bottomIcons} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name={Routes.Settings}
-        component={Settings}
-        options={{
-          tabBarIcon: () => (
-            <Image source={ImageSource.setting} style={styles.bottomIcons} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
+
+const Tabs =() =>
+{
+  return(
+  <Tab.Navigator
+  screenOptions={{
+    headerShown: false,
+  }}>
+  <Tab.Screen
+    name={Routes.Home}
+    component={Home}
+    options={{
+      tabBarIcon: () => (
+        <Image source={ImageSource.home} style={styles.bottomIcons} />
+      ),
+    }}
+  />
+  <Tab.Screen
+    name={Routes.Services}
+    component={Services}
+    options={{
+      tabBarIcon: () => (
+        <Image source={ImageSource.filter1} style={styles.bottomIcons} />
+      ),
+    }}
+  />
+  <Tab.Screen
+    name={Routes.Info}
+    component={Info}
+    options={{
+      tabBarIcon: () => (
+        <Image source={ImageSource.info} style={styles.bottomIcons} />
+      ),
+    }}
+  />
+  <Tab.Screen
+    name={Routes.Settings}
+    component={Settings}
+    options={{
+      tabBarIcon: () => (
+        <Image source={ImageSource.setting} style={styles.bottomIcons} />
+      ),
+    }}
+  />
+</Tab.Navigator>
   )
 }
 
 export const MainStack = () => {
   return (
+<>
+
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name='hello' component={Tabs} />
+      <Stack.Screen name={'MainTabs'} component={Tabs} />
       <Stack.Screen name={Routes.Accessories} component={Accessories} />
       <Stack.Screen name={Routes.Filter} component={Filteration} />
       <Stack.Screen name={Routes.Climate} component={ClimateControl} />
     </Stack.Navigator>
+    </>
   )
 }
 

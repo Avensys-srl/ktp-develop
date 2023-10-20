@@ -12,7 +12,7 @@ const ServicesTab = [
   { title: 'bypass', route: null, disabled: true, data: ['BPD', 'EBPD2','EBPD'] },
   { title: 'probs', route: null, disabled: true, data: ['P1VOC', 'P1CO2', 'P1RH', 'P2RH', 'P2CO2', 'EXT1','EXT2','EXT3','EXT4','AWP','DPPV2'] },
   { title: 'comm. modules', route: null, disabled: true, data: ['DSC', 'MBUS'] },
-  { title: 'vantilation mode', route: null, disabled: true, data: ['FLW1', 'PCAF','PCAP','FLW2'] },
+  { title: 'ventilation mode', route: null, disabled: true, data: ['FLW1', 'PCAF','PCAP','FLW2'] },
   { title: 'I/O', route: null, disabled: true, data: ['IN', 'OUT','FKI'] },
 ]
 export const Accessories = () => {
