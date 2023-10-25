@@ -287,6 +287,8 @@ export const HeaterButton = props => {
     if (flagForPairing) {
       startPreHeaterProcess(lf);
       onUpdatePreHeaterStatus('pairing in progress');
+    } else {
+      setPreHeaterColor('white');
     }
   }, [flagForPairing]);
 
@@ -294,6 +296,8 @@ export const HeaterButton = props => {
     if (flagForPostHeaterPairing) {
       startPostHeaterProcess(lf);
       onUpdatePostHeaterStatus('pairing in progress');
+    } else {
+      setPostHeaterColor('white');
     }
   }, [flagForPostHeaterPairing]);
 

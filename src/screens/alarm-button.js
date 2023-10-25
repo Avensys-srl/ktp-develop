@@ -1,7 +1,7 @@
-import {View, TouchableOpacity, Animated} from 'react-native'
-import {ScaledSheet} from 'react-native-size-matters'
-import {useEffect, useRef, useState} from 'react'
-export const AlramButton = props => {
+import {View, TouchableOpacity, Animated} from 'react-native';
+import {ScaledSheet} from 'react-native-size-matters';
+import {useEffect, useRef, useState} from 'react';
+export const AlarmButton = props => {
   const {
     diagonalImageSource1,
     diagonalImageSource2,
@@ -11,28 +11,28 @@ export const AlramButton = props => {
     flagForTestFailedFireAlarm = false,
     flagForAccessoryFireAlarm = false,
     onUpdateStatusFireAlarm = () => 0,
-  } = props
+  } = props;
   //--------------------------------------Declare Veriables--------------------------------
-  let lf = 1 //----------seconds
-  let bt = 30 * 60 * 1000 //-----------minutes
-  let hf = 0.5 //--------seconds
-  let t3 = 5000 //5 seconds
-  let fireAlarmState = 'first'
+  let lf = 1; //----------seconds
+  let bt = 30 * 60 * 1000; //-----------minutes
+  let hf = 0.5; //--------seconds
+  let t3 = 5000; //5 seconds
+  let fireAlarmState = 'first';
 
-  let onPressInTime = 0
-  let onPressOutTime = 0
+  let onPressInTime = 0;
+  let onPressOutTime = 0;
 
-  const [genralAlarmColor, setGenralAlarmColor] = useState('white')
-  const [fireAlramColor, setFireAlarmColor] = useState('white')
+  const [genralAlarmColor, setGenralAlarmColor] = useState('white');
+  const [fireAlramColor, setFireAlarmColor] = useState('white');
 
-  let fireAlarmTimeGap = 5000
+  let fireAlarmTimeGap = 5000;
 
-  const genralAlarmOpacity = useRef(new Animated.Value(1)).current
-  const fireAlramOpacity = useRef(new Animated.Value(1)).current
+  const genralAlarmOpacity = useRef(new Animated.Value(1)).current;
+  const fireAlramOpacity = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
     if (alramRunning) {
-      startGenralAlarmProcess(lf, Infinity)
+      startGenralAlarmProcess(lf, Infinity);
     }
     //  else if (alramNotRunning) {
     //   setGenralAlarmColor('red')
@@ -40,25 +40,24 @@ export const AlramButton = props => {
     //   genralAlarmOpacity && genralAlarmOpacity.stopAnimation()
     // }
     else {
-      setGenralAlarmColor('white')
-      genralAlarmOpacity.setValue(1)
-      genralAlarmOpacity && genralAlarmOpacity.stopAnimation()
+      setGenralAlarmColor('white');
+      genralAlarmOpacity.setValue(1);
+      genralAlarmOpacity && genralAlarmOpacity.stopAnimation();
     }
-  }, [alramRunning])
+  }, [alramRunning]);
   useEffect(() => {
     if (alramNotRunning) {
-      setGenralAlarmColor('red')
-      genralAlarmOpacity.setValue(1)
-      genralAlarmOpacity && genralAlarmOpacity.stopAnimation()
+      setGenralAlarmColor('red');
+      genralAlarmOpacity.setValue(1);
+      genralAlarmOpacity && genralAlarmOpacity.stopAnimation();
+    } else {
+      setGenralAlarmColor('white');
     }
-    else{
-      setGenralAlarmColor('white')
-    }
-  }, [alramNotRunning])
+  }, [alramNotRunning]);
 
   const startGenralAlarmProcess = duration => {
-    setGenralAlarmColor('red')
-    const blinkSpeed = (duration * 1000) / 2
+    setGenralAlarmColor('red');
+    const blinkSpeed = (duration * 1000) / 2;
     Animated.loop(
       Animated.sequence([
         Animated.timing(genralAlarmOpacity, {
@@ -75,11 +74,11 @@ export const AlramButton = props => {
       {
         // iterations: preHeaterTimeGap / blinkSpeed / 2,
       },
-    ).start()
-  }
+    ).start();
+  };
 
   const startFireAlarmZeroIteration = duration => {
-    const blinkSpeed = (duration * 1000) / 2
+    const blinkSpeed = (duration * 1000) / 2;
     Animated.loop(
       Animated.sequence([
         Animated.timing(fireAlramOpacity, {
@@ -94,11 +93,11 @@ export const AlramButton = props => {
         }),
       ]),
       {},
-    ).start()
-  }
+    ).start();
+  };
 
   const startFireAlarmProcess = duration => {
-    const blinkSpeed = (duration * 1000) / 2
+    const blinkSpeed = (duration * 1000) / 2;
     Animated.loop(
       Animated.sequence([
         Animated.timing(fireAlramOpacity, {
@@ -118,67 +117,69 @@ export const AlramButton = props => {
     ).start(() => {
       if (fireAlarmState === 'first') {
         if (flagForPairingFireAlarm) {
-          onUpdateStatusFireAlarm('paired after piaring process')
+          onUpdateStatusFireAlarm('paired after piaring process');
           // fireAlarmTimeGap= 10000
-          fireAlarmTimeGap = 2000
-          startFireAlarmProcess(hf)
-          fireAlarmState = 'second'
+          fireAlarmTimeGap = 2000;
+          startFireAlarmProcess(hf);
+          fireAlarmState = 'second';
         } else {
-          fireAlarmTimeGap = 2000
-          startFireAlarmProcess(hf)
-          onUpdateStatusFireAlarm('paired after piaring process')
-          fireAlarmState = 'second'
+          fireAlarmTimeGap = 2000;
+          startFireAlarmProcess(hf);
+          onUpdateStatusFireAlarm('paired after piaring process');
+          fireAlarmState = 'second';
         }
       } else if (fireAlarmState === 'second') {
-        const timerDiffer = onPressOutTime - onPressInTime
-        onPressInTime = 0
-        onPressOutTime = 0
+        const timerDiffer = onPressOutTime - onPressInTime;
+        onPressInTime = 0;
+        onPressOutTime = 0;
         if (timerDiffer > t3) {
-          fireAlarmTimeGap = bt
-          onUpdateStatusFireAlarm('hello1')
-          startFireAlarmProcess(hf)
-          fireAlarmState = 'third'
+          fireAlarmTimeGap = bt;
+          onUpdateStatusFireAlarm('hello1');
+          startFireAlarmProcess(hf);
+          fireAlarmState = 'third';
         } else {
-          onUpdateStatusFireAlarm('activated ')
+          onUpdateStatusFireAlarm('activated ');
           const timer = setTimeout(() => {
-            setFireAlarmColor('green')
-            timer && clearTimeout(timer)
-          }, 2000)
+            setFireAlarmColor('green');
+            timer && clearTimeout(timer);
+          }, 2000);
         }
       } else if (fireAlarmState === 'third') {
-        onUpdateStatusFireAlarm('hello4')
+        onUpdateStatusFireAlarm('hello4');
         const timer = setTimeout(() => {
-          setFireAlarmColor('green')
-          timer && clearTimeout(timer)
-        }, 2000)
+          setFireAlarmColor('green');
+          timer && clearTimeout(timer);
+        }, 2000);
       }
-    })
-  }
+    });
+  };
   useEffect(() => {
     if (flagForAccessoryFireAlarm) {
-      setFireAlarmColor('red')
+      setFireAlarmColor('red');
       // startFireAlarmProcess(lf)
-      startFireAlarmZeroIteration(lf)
-      onUpdateStatusFireAlarm('Accessory Disconnected')
+      startFireAlarmZeroIteration(lf);
+      onUpdateStatusFireAlarm('Accessory Disconnected');
     }
-  }, [flagForAccessoryFireAlarm])
+  }, [flagForAccessoryFireAlarm]);
 
   useEffect(() => {
     if (flagForTestFailedFireAlarm) {
-      setFireAlarmColor('red')
+      setFireAlarmColor('red');
       // startFireAlarmProcess(hf)
-      startFireAlarmZeroIteration(hf)
-      onUpdateStatusFireAlarm('Test Failed')
+      startFireAlarmZeroIteration(hf);
+      onUpdateStatusFireAlarm('Test Failed');
     }
-  }, [flagForTestFailedFireAlarm])
+  }, [flagForTestFailedFireAlarm]);
 
   useEffect(() => {
     if (flagForPairingFireAlarm) {
-      onUpdateStatusFireAlarm('pairing in progress')
-      setFireAlarmColor('green')
-      startFireAlarmProcess(lf)
+      onUpdateStatusFireAlarm('pairing in progress');
+      setFireAlarmColor('green');
+      startFireAlarmProcess(lf);
+    } else {
+      setFireAlarmColor('white');
     }
-  }, [flagForPairingFireAlarm])
+  }, [flagForPairingFireAlarm]);
   return (
     <View style={styles.container}>
       <View style={styles.diagonalLine}></View>
@@ -193,17 +194,17 @@ export const AlramButton = props => {
       </TouchableOpacity>
       <TouchableOpacity
         onPressIn={({nativeEvent}) => {
-          onPressInTime = nativeEvent.timestamp
+          onPressInTime = nativeEvent.timestamp;
         }}
         onPressOut={({nativeEvent}) => {
-          onPressOutTime = nativeEvent.timestamp
-          const timerDiffer = onPressOutTime - onPressInTime
-          onPressInTime = 0
-          onPressOutTime = 0
+          onPressOutTime = nativeEvent.timestamp;
+          const timerDiffer = onPressOutTime - onPressInTime;
+          onPressInTime = 0;
+          onPressOutTime = 0;
           if (timerDiffer > t3) {
-            setFireAlarmColor('green')
-            startFireAlarmProcess(lf)
-            onUpdateStatusFireAlarm('Test Procedure in progress')
+            setFireAlarmColor('green');
+            startFireAlarmProcess(lf);
+            onUpdateStatusFireAlarm('Test Procedure in progress');
           }
           // else{
           //   setFireAlarmColor('green')
@@ -211,8 +212,7 @@ export const AlramButton = props => {
           //   onUpdateStatusFireAlarm('pairing in progress')
           // }
         }}
-        style={styles.diagonalImage2}
-      >
+        style={styles.diagonalImage2}>
         <Animated.Image
           source={diagonalImageSource2}
           style={[
@@ -223,8 +223,8 @@ export const AlramButton = props => {
         />
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
 const styles = ScaledSheet.create({
   container: {
@@ -264,6 +264,6 @@ const styles = ScaledSheet.create({
   diagonalImage: {
     height: '22@ms',
     width: '22@ms',
-    resizeMode:'contain'
+    resizeMode: 'contain',
   },
-})
+});

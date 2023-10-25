@@ -5,5 +5,7 @@ export const Routes = {
     Settings:'settings',
     Filter:'filter',
     Accessories:'accessories',
-    Climate:'Climate'
+    Climate:'climate',
+    Ventilation:'ventiation',
+    Bypass:'bypass'
 }

@@ -1,16 +1,20 @@
 import { Text, TouchableOpacity, View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
+import { useNavigation } from '@react-navigation/native'
 
 interface props {
   title: string
+  onPress: any
+  disabled: boolean
 }
 
 export const AccessoriesCard = (props: props) => {
-  const { title } = props
+  const { title, onPress, disabled } = props
+  const navigation = useNavigation()
   return (
 
-    <TouchableOpacity style={styles.container}>
-      <Text style={{ color: 'black' }}>{title}</Text>
+    <TouchableOpacity style={styles.container} disabled={disabled}>
+      <Text style={{ color: 'black' }} onPress={() => navigation.navigate(onPress)}>{title}</Text>
     </TouchableOpacity>
 
   )

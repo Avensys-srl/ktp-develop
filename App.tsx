@@ -11,12 +11,10 @@ import {StatusBar} from 'react-native'
 
 function App (): JSX.Element {
   return (
-    <>
-      <StatusBar backgroundColor='black' barStyle={'light-content'} />
+   
       <NavigationContainer>
         <MainStack />
       </NavigationContainer>
-    </>
   )
 }
 

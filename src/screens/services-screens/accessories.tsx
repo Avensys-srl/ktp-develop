@@ -4,12 +4,13 @@ import { AccessoriesCard, Header } from '../../component'
 import { ScaledSheet } from 'react-native-size-matters'
 import { useState } from 'react'
 import { ServicesCard } from './services-card'
+import { Routes } from '../../routes'
 
 const ServicesTab = [
   { title: 'preheater', route: null, disabled: true, data: ['PEHD', 'PHWD'] },
   { title: 'postheater', route: null, disabled: true, data: ['SSR', 'HWD', 'EHD'] },
   { title: 'post cooling', route: null, disabled: true, data: ['CWD', 'EHD'] },
-  { title: 'bypass', route: null, disabled: true, data: ['BPD', 'EBPD2','EBPD'] },
+  { title: 'bypass', route: Routes.Bypass, disabled: false, data: ['BPD', 'EBPD2','EBPD'] },
   { title: 'probs', route: null, disabled: true, data: ['P1VOC', 'P1CO2', 'P1RH', 'P2RH', 'P2CO2', 'EXT1','EXT2','EXT3','EXT4','AWP','DPPV2'] },
   { title: 'comm. modules', route: null, disabled: true, data: ['DSC', 'MBUS'] },
   { title: 'ventilation mode', route: null, disabled: true, data: ['FLW1', 'PCAF','PCAP','FLW2'] },
@@ -24,7 +25,7 @@ export const Accessories = () => {
         {activeTab && userType.technician ? (
           <View style={styles.container}>
             {accessoriesName.map(item => {
-              return <AccessoriesCard title={item.title} />
+              return <AccessoriesCard title={item.title} onPress={item.route} disabled={item.disable}/>
             })}
           </View>
         ) : <ScrollView>

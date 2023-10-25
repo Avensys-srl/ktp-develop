@@ -2,23 +2,29 @@ import {View, Text} from 'react-native'
 import {ScaledSheet} from 'react-native-size-matters'
 import {Header} from '../../component'
 import {SettingsCard} from './settings-card'
+import CustomBottomNavigation from '../../component/CustomBottomNavigation'
 
 export const Settings = () => {
   const SettingsTab = [
-    {title: 'Language'},
-    {title: 'Screen Saver'},
-    {title: 'Date'},
-    {title: 'Profile'},
+    {title: 'Language', route: null,disabled:true},
+    {title: 'Screen Saver', route: null,disabled:true},
+    {title: 'Date', route: null,disabled:true},
+    {title: 'Profile', route: null,disabled:true},
   ]
 
   return (
     <>
       <Header canGoBack={false} title='Settings' />
       <View style={Styles.container}>
-        {SettingsTab.map(item => {
-          return( <SettingsCard text={item.title} />)
+        {SettingsTab.map((item, index) => {
+          return( <SettingsCard               
+            title={item.title}
+            index={index}
+            onPress={item.route}
+            disabled={item.disabled} />)
         })}
       </View>
+      <CustomBottomNavigation></CustomBottomNavigation>
     </>
   )
 }

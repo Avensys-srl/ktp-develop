@@ -8,13 +8,14 @@ import {
   Info,
   Settings,
   Filteration,
-  ClimateControl
+  ClimateControl,
+  Ventilation,
+  Bypass
 } from '../screens'
 import {ScaledSheet} from 'react-native-size-matters'
-import {ImageSource} from '../common/imageSource'
-import {Image} from 'react-native'
 
 const Stack = createStackNavigator()
+/*
 const Tab = createBottomTabNavigator()
 
 
@@ -63,21 +64,25 @@ const Tabs =() =>
   />
 </Tab.Navigator>
   )
-}
+}*/
 
 export const MainStack = () => {
   return (
-<>
-
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name={'MainTabs'} component={Tabs} />
-      <Stack.Screen name={Routes.Accessories} component={Accessories} />
+    <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={Routes.Home}>      
+    <Stack.Screen name={Routes.Home} component={Home}/>
+      <Stack.Screen name={Routes.Services} component={Services} />
+      <Stack.Screen name={Routes.Info} component={Info} />
+      <Stack.Screen name={Routes.Settings} component={Settings} />
       <Stack.Screen name={Routes.Filter} component={Filteration} />
       <Stack.Screen name={Routes.Climate} component={ClimateControl} />
+      <Stack.Screen name={Routes.Accessories} component={Accessories} />
+      <Stack.Screen name={Routes.Ventilation} component={Ventilation} />
+      <Stack.Screen name={Routes.Bypass} component={Bypass} />
     </Stack.Navigator>
-    </>
   )
 }
+
+// />
 
 const styles = ScaledSheet.create({
   bottomIcons: {

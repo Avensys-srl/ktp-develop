@@ -13,6 +13,7 @@ interface props {
   index: any
   onPress: any
   disabled: boolean
+  
 }
 
 export const ServicesCard = (props: props) => {
@@ -67,6 +68,8 @@ const styles = ScaledSheet.create({
     borderWidth: 1,
     borderRadius: '5@ms',
     marginTop: '6@ms',
+    marginLeft: '5@ms',
+    marginRight: '5@ms',
     backgroundColor: 'black',
     height: '50@ms',
     justifyContent: 'space-between'
