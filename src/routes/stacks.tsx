@@ -1,5 +1,4 @@
 import {createStackNavigator} from '@react-navigation/stack'
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {Routes} from './routes'
 import {
   Accessories,
@@ -15,56 +14,7 @@ import {
 import {ScaledSheet} from 'react-native-size-matters'
 
 const Stack = createStackNavigator()
-/*
-const Tab = createBottomTabNavigator()
 
-
-const Tabs =() =>
-{
-  return(
-  <Tab.Navigator
-  screenOptions={{
-    headerShown: false,
-  }}>
-  <Tab.Screen
-    name={Routes.Home}
-    component={Home}
-    options={{
-      tabBarIcon: () => (
-        <Image source={ImageSource.home} style={styles.bottomIcons} />
-      ),
-    }}
-  />
-  <Tab.Screen
-    name={Routes.Services}
-    component={Services}
-    options={{
-      tabBarIcon: () => (
-        <Image source={ImageSource.filter1} style={styles.bottomIcons} />
-      ),
-    }}
-  />
-  <Tab.Screen
-    name={Routes.Info}
-    component={Info}
-    options={{
-      tabBarIcon: () => (
-        <Image source={ImageSource.info} style={styles.bottomIcons} />
-      ),
-    }}
-  />
-  <Tab.Screen
-    name={Routes.Settings}
-    component={Settings}
-    options={{
-      tabBarIcon: () => (
-        <Image source={ImageSource.setting} style={styles.bottomIcons} />
-      ),
-    }}
-  />
-</Tab.Navigator>
-  )
-}*/
 
 export const MainStack = () => {
   return (
