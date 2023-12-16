@@ -3,8 +3,8 @@ import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
-export const CircleProgressBar = ({TSB, TSL, TSR, RIV, BG}) => {
-  const progressBarWidth = width * 0.9;
+export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
+  const progressBarWidth = width * 0.7;
   const circleSize = 27;
   const progressBarHeight = 30;
   const border_thickness = 2;
@@ -12,7 +12,7 @@ export const CircleProgressBar = ({TSB, TSL, TSR, RIV, BG}) => {
 
   let bgColor;
   if (BG === 0) {
-    bgColor = 'white';
+    bgColor = 'orange';
   } else if (BG === 1) {
     bgColor = '#4CAF50';
   } else if (BG === 2) {
@@ -103,4 +103,4 @@ export const CircleProgressBar = ({TSB, TSL, TSR, RIV, BG}) => {
 
 const styles = StyleSheet.create({});
 
-export default CircleProgressBar;
+export default CircleProgressBarSmall;

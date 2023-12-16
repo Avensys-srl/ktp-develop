@@ -9,7 +9,14 @@ import {
 import {Colors} from '../styles';
 
 const {width, height} = Dimensions.get('window');
-export const ToggleSwitch = ({TOO, CL, CR, BG, isToggled, onToggle}) => {
+export const ToggleSwitchFullWidth = ({
+  TOO,
+  CL,
+  CR,
+  BG,
+  isToggled,
+  onToggle,
+}) => {
   const handleToggle = () => {
     const newValue = !isToggled;
     onToggle(newValue);
@@ -54,12 +61,12 @@ export const ToggleSwitch = ({TOO, CL, CR, BG, isToggled, onToggle}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: width * 0.7,
+    width: width * 0.91,
     height: height * 0.032,
     borderRadius: 12.5,
     backgroundColor: 'white',
     borderColor: 'black',
-    borderWidth: 1,
+    borderWidth: 2,
     flexDirection: 'row',
     overflow: 'hidden',
     // marginTop:30
@@ -69,10 +76,10 @@ const styles = StyleSheet.create({
     height: height * 0.032,
     borderRadius: (width * 0.7) / 11 / 2,
     backgroundColor: '#4CAF50',
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: 'black',
     position: 'absolute',
-    top: -1,
+    top: -2,
   },
   leftCircle: {
     left: -1,
@@ -82,4 +89,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ToggleSwitch;
+export default ToggleSwitchFullWidth;

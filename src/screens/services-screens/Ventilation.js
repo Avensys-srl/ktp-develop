@@ -14,6 +14,7 @@ import {
   TrippleBtn,
   ToggleSwitch,
   CenteredProgressBar,
+  Header,
 } from '../../component/index';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors} from '../../styles';
@@ -35,9 +36,10 @@ export const Ventilation = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.bgheading}>
+      {/* <View style={styles.bgheading}>
         <Text style={styles.headingTxt}>Ventilation</Text>
-      </View>
+      </View> */}
+      <Header canGoBack={true} title="Ventilation" />
       <ScrollView styles={{height: '75%'}}>
         <View style={styles.pairedView}>
           <Text style={styles.txttop}></Text>

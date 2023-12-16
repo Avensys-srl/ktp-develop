@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {Colors} from '../styles';
 
 const {width} = Dimensions.get('window');
-const border_thickness = 1;
+const border_thickness = 1.8;
 const progressBarHeight = 25;
 const circleSize = 25;
 const centered = (progressBarHeight - circleSize) / 2 + border_thickness;
@@ -38,7 +38,7 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
         margin: 8,
         borderRadius: progressBarHeight,
         justifyContent: 'space-between',
-        width: width * 0.8,
+        width: width * 0.9,
         height: progressBarHeight,
       }}>
       <Pressable

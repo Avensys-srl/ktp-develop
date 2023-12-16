@@ -19,11 +19,11 @@ export const CenteredProgressBar = ({IST, RIV, BG}) => {
   const rightFill = Math.min(50 - normalizedPercentage / 2, 50);
 
   return (
-    <View style={{alignItems: 'center'}}>
+    <View style={styles.container}>
       <View style={styles.percentageContainer}>
-        <Text style={styles.text}>{RIV}%</Text>
+        <Text style={styles.text}>{RIV} °C</Text>
       </View>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={styles.progressBarWrapper}>
         <View>
           <Image source={ImageSource.home_in} style={styles.images} />
         </View>
@@ -44,8 +44,12 @@ export const CenteredProgressBar = ({IST, RIV, BG}) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    width: '95%',
+  },
   percentageContainer: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: 'black',
     justifyContent: 'center',
     marginTop: 20,
@@ -54,6 +58,12 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     width: width * 0.2,
     height: height * 0.06,
+    borderRadius: 12,
+  },
+  progressBarWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%', // Set the width to 100%
   },
   progressBarContainer: {
     flexDirection: 'row',
@@ -61,7 +71,7 @@ const styles = StyleSheet.create({
     height: 20,
     borderRadius: 4,
     overflow: 'hidden',
-    width: width * 0.78,
+    flex: 1, // Expand to fill the available space
     borderWidth: 1,
     borderColor: 'black',
   },
@@ -80,7 +90,3 @@ const styles = StyleSheet.create({
 });
 
 export default CenteredProgressBar;
-
-// {
-//   // `${100 - normalizedPercentage}%`
-// }

@@ -6,7 +6,6 @@ import {
   Image,
   Dimensions,
   ScrollView,
-  PanResponder,
 } from 'react-native';
 import React, {useState} from 'react';
 import {
@@ -14,10 +13,12 @@ import {
   ToggleSwitch,
   ThreePointSlider,
   OnOff,
+  Header,
 } from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors} from '../../styles';
+import ToggleSwitchFullWidth from '../../component/ToggleSwitchFullWidth';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -31,12 +32,13 @@ export const Bypass = () => {
 
   // Funzione per aggiornare lo stato dal componente figlio
   const handleToggle = newValue => {
-    // setIsToggled(newValue);
+    setIsToggled(newValue);
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.bgheading}>
+      {/* OLD HEADER */}
+      {/* <View style={styles.bgheading}>
         <Text style={styles.headingTxt}>Bypass Settings</Text>
         <View style={styles.subRow}>
           <TouchableOpacity style={styles.iconClick}>
@@ -46,28 +48,52 @@ export const Bypass = () => {
             <Image source={ImageSource.arrow} style={styles.imgHead} />
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
+
+      {/* NEW HEADER */}
+
+      <Header canGoBack={true} title="Bypass setting" />
+
       <ScrollView>
-        <View style={styles.pairedView}>
+        {/* OLD BYPASS OPERATION */}
+
+        {/* <View style={styles.pairedView}>
           <OnOff status={'Bypass operation'} />
+        </View> */}
+
+        {/* NEW BYPASS OPERATION */}
+        <View style={styles.filterAlarmContainer}>
+          <View>
+            <OnOff />
+          </View>
+
+          <Text style={styles.filterAlarmText}>Bypass operation</Text>
         </View>
+
         <View style={styles.pairedView}>
           <Text style={styles.txt}>Operation</Text>
           <ThreePointSlider TBC={1} />
-          <Text style={styles.txt}>manual</Text>
+          <View style={styles.threePointSliderTextContainer}>
+            <Text style={styles.txt}>auto</Text>
+            <Text style={styles.txt}>autostby</Text>
+            <Text style={styles.txt}>manual</Text>
+          </View>
         </View>
+
         <View style={styles.pairedView}>
+          <Text style={styles.txt}>Ref. outdoor temperature</Text>
           <CircleProgressBar
             TSB={'Ref. outdoor  temperature'}
-            TSL={15}
-            TSR={30}
-            RIV={0.3}
+            TSL={10}
+            TSR={35}
+            RIV={0.2}
             BG={1}
           />
         </View>
+
         <View style={styles.pairedViewNoBorder}>
           <Text style={styles.txttop}>bypass position</Text>
-          <ToggleSwitch
+          <ToggleSwitchFullWidth
             TOO={''}
             CL={'Open'}
             CR={'Close'}
@@ -77,6 +103,7 @@ export const Bypass = () => {
           />
         </View>
         <View style={styles.pairedView}>
+          <Text style={styles.txt}>summer-winter threshold</Text>
           <CircleProgressBar
             TSB={'summer-winter threshold'}
             TSL={12}
@@ -86,7 +113,8 @@ export const Bypass = () => {
           />
         </View>
       </ScrollView>
-      <CustomBottomNavigation></CustomBottomNavigation>
+      <CustomBottomNavigation OC={1} />
+      <Text style={{textAlign: 'center', color: 'red'}}>Service</Text>
     </View>
   );
 };
@@ -169,6 +197,22 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'white',
   },
+
+  filterAlarmContainer: {
+    margin: width * 0.04,
+    borderWidth: 2,
+    borderColor: 'black',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    borderRadius: 12,
+  },
+  filterAlarmText: {
+    textAlign: 'center',
+    marginBottom: height * 0.02,
+    fontSize: width * 0.04,
+    color: 'grey',
+  },
   txttop: {
     marginTop: 25,
   },
@@ -186,5 +230,23 @@ const styles = StyleSheet.create({
     margin: 15,
     marginBottom: 5,
     marginTop: 5,
+    // borderWidth: 1,
+    // borderColor: 'red',
+  },
+  toggleSwitchContainer: {
+    borderWidth: 2,
+    borderColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 30,
+    marginTop: 18,
+    borderRadius: 12,
+  },
+  threePointSliderTextContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingLeft: 12,
+    paddingRight: 12,
   },
 });

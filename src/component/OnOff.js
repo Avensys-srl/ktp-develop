@@ -10,7 +10,7 @@ import {
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
 
-export const OnOff = ({status}) => {
+export const OnOff = ({status, leftText = 'Off', rightText = 'On'}) => {
   const [isToggled, setIsToggled] = useState(true);
 
   const handleToggle = () => {
@@ -29,8 +29,8 @@ export const OnOff = ({status}) => {
           </TouchableOpacity>
         </View>
         <View style={styles.onOffStyle}>
-          <Text>Off</Text>
-          <Text>On</Text>
+          <Text>{leftText}</Text>
+          <Text>{rightText}</Text>
         </View>
       </View>
     </View>
@@ -39,7 +39,7 @@ export const OnOff = ({status}) => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    width: width * 0.9,
+    // width: width * 0.3,
     height: height * 0.13,
     flexDirection: 'row',
     paddingHorizontal: 12,
