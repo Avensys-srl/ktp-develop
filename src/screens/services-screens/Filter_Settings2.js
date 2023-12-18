@@ -12,7 +12,7 @@ import {CountdownProgressBar, Header, OnOff} from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import ActivationButton from '../../component/ActivationButton';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
-import {Colors, Sizing} from '../../styles';
+import {Colors, Sizing, CustomStyles} from '../../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -32,7 +32,7 @@ const Filter_Settings2 = () => {
             <OnOff />
           </View>
 
-          <Text style={styles.filterAlarmText}>Filter alarm activation</Text>
+          <Text style={CustomStyles.Title1}>Filter alarm activation</Text>
         </View>
 
         {/* filter replaced */}
@@ -42,7 +42,7 @@ const Filter_Settings2 = () => {
             <OnOff leftText="no" rightText="yes" />
           </View>
 
-          <Text style={styles.filterAlarmText}>Filter replaced ?</Text>
+          <Text style={styles.CustomStyles.Title1}>Filter replaced ?</Text>
           <View style={styles.lockImgTouchableOpacity}>
             <TouchableOpacity
               onPress={() => setFilterReplacedLock(!filterReplacedLock)}>
@@ -112,20 +112,21 @@ const styles = StyleSheet.create({
     height: Sizing.vh * 100,
     borderWidth: 2,
     borderColor: Colors.RED,
+    backgroundColor: Colors.WHITE,
   },
   filterAlarmContainer: {
     margin: Sizing.vw * 4,
-    borderWidth: 2,
+    borderWidth: 0,
     borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    borderRadius: 12,
+    borderRadius: 6,
   },
   filterAlarmText: {
     textAlign: 'center',
-    marginBottom: height * 0.02,
-    fontSize: width * 0.04,
+    marginBottom: Sizing.vh * 2,
+    fontSize: Sizing.vw * 4.5,
     color: Colors.GREY500,
   },
   lockImg: {

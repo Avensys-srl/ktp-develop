@@ -3,7 +3,7 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {ImageSource} from '../common/imageSource';
 import {Label} from './label';
 import {useNavigation} from '@react-navigation/native';
-import { Colors, Sizing } from '../styles';
+import { Colors, Sizing, CustomStyles } from '../styles';
 
 interface props {
   canGoBack: boolean;
@@ -21,7 +21,7 @@ export const Header = (props: props) => {
             <Image source={ImageSource.back} style={styles.image} />
           </TouchableOpacity>
         )}
-        <Label style={{textAlign: 'center', color: 'white', marginLeft: 10}}>
+        <Label style={CustomStyles.TitleHeader}>
           {title}
         </Label>
         <View style={styles.starArrowContainer}>
