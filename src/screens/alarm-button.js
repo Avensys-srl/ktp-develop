@@ -1,6 +1,8 @@
 import {View, TouchableOpacity, Animated} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {useEffect, useRef, useState} from 'react';
+import {Colors, Sizing} from '../styles';
+
 export const AlarmButton = props => {
   const {
     diagonalImageSource1,
@@ -228,11 +230,13 @@ export const AlarmButton = props => {
 
 const styles = ScaledSheet.create({
   container: {
-    borderColor: 'white',
+    borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '10@ms',
-    height: '70@ms',
-    width: '70@ms',
+    // height: '70@ms',
+    height: Sizing.vh * 9,
+    // width: '70@ms',
+    width: Sizing.vw * 19,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -240,30 +244,31 @@ const styles = ScaledSheet.create({
   },
   textStyle: {
     fontSize: '30@ms',
-    color: 'white',
+    color: Colors.WHITE,
     fontWeight: '700',
   },
   diagonalLine: {
     position: 'absolute',
-    backgroundColor: 'white',
-    height: '1@ms',
-    width: '200@ms',
+    backgroundColor: Colors.WHITE,
+    height: Sizing.vh * 0.1,
+    width: Sizing.vw * 100,
 
     transform: [{rotate: '135deg'}],
   },
   diagonalImage1: {
     position: 'absolute',
-    top: '6@ms',
-    left: '6@ms',
+    top: Sizing.vh * 0.8,
+    left: Sizing.vw * 1,
   },
   diagonalImage2: {
     position: 'absolute',
-    bottom: '5@ms',
-    right: '5@ms',
+    bottom: Sizing.vh * 0.8,
+    right: Sizing.vw * 1,
   },
   diagonalImage: {
-    height: '22@ms',
-    width: '22@ms',
+    // height: '22@ms',
+    height: Sizing.vh * 2.8,
+    width: Sizing.vw * 6,
     resizeMode: 'contain',
   },
 });

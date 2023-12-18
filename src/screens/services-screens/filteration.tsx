@@ -1,4 +1,12 @@
-import {View, Text, Image, Modal, TouchableOpacity,Dimensions, Button} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  Modal,
+  TouchableOpacity,
+  Dimensions,
+  Button,
+} from 'react-native';
 import {
   Header,
   FilterCard,
@@ -10,12 +18,13 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {userType} from '../../configs';
 import {useState, useRef} from 'react';
 import {ImageSource} from '../../common/imageSource';
+import {Colors, Sizing} from '../../styles';
 
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import ActivationButton from '../../component/ActivationButton';
-import { Routes } from '../../routes';
+import {Routes} from '../../routes';
 
-const { height } = Dimensions.get('window');
+const {height} = Dimensions.get('window');
 export const Filteration = ({navigation}) => {
   const [toggle, setToggle] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -63,15 +72,17 @@ export const Filteration = ({navigation}) => {
               />
             );
           })}
-        <View style={{ justifyContent: 'center', flex: 1}}>
+        <View style={{justifyContent: 'center', flex: 1}}>
           {/* <Text style={styles.text}>remaining duty [%]</Text>
           <View style={styles.progressBarOutline}>
             <View
               style={[styles.progressBarOutline, styles.progressBarInline]}
             />
           </View> */}
-          <View style={{height:height*0.10,marginBottom:height/15}}>
-            <Text style={[{textAlign: 'center'}, styles.callibrationText]}>Remaing Duty[%]</Text>
+          <View style={{height: Sizing.vh * 10, marginBottom: height / 15}}>
+            <Text style={[{textAlign: 'center'}, styles.callibrationText]}>
+              Remaing Duty[%]
+            </Text>
             <CountdownProgressBar
               label={''}
               min_val={0}
@@ -79,7 +90,7 @@ export const Filteration = ({navigation}) => {
               init_val={0.2}
             />
           </View>
-          
+
           {!userType.technician && (
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
               <View style={styles.normalUser}>
@@ -95,7 +106,7 @@ export const Filteration = ({navigation}) => {
                     <Text>YES</Text>
                   </View>
                 </View>
-                <Label style={{color: 'black'}}>Filter Replaced?</Label>
+                <Label style={{color: Colors.BLACK}}>Filter Replaced?</Label>
               </View>
             </View>
           )}
@@ -112,10 +123,12 @@ export const Filteration = ({navigation}) => {
           <ActivationButton TAB={''} rot={5} />
         </View>
         {/* {Threshold()} */}
-        <Button title='filter2' onPress={() => navigation.navigate(Routes.Filter2)} />
-        <CustomBottomNavigation/>
+        <Button
+          title="filter2"
+          onPress={() => navigation.navigate(Routes.Filter2)}
+        />
+        <CustomBottomNavigation />
       </View>
-      
     </>
   );
 };
@@ -123,26 +136,26 @@ export const Filteration = ({navigation}) => {
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    width: '100%',
+    width: Sizing.vw * 100,
     paddingHorizontal: '10@ms',
   },
   progressBarOutline: {
     borderWidth: 1,
-    borderColor: 'black',
-    width: '90%',
-    height: '25@ms',
+    borderColor: Colors.BLACK,
+    width: Sizing.vw * 90,
+    height: Sizing.vh * 3,
     borderRadius: '10@ms',
     marginVertical: '10@ms',
   },
   progressBarInline: {
-    height: '24@ms',
-    width: '20%',
+    height: Sizing.vh * 3,
+    width: Sizing.vw * 20,
     backgroundColor: 'green',
     marginVertical: 0,
   },
   text: {
     fontSize: '22@ms',
-    color: 'black',
+    color: Colors.BLACK,
     textAlign: 'center',
   },
   normalUser: {
@@ -152,20 +165,20 @@ const styles = ScaledSheet.create({
     marginVertical: '20@ms',
   },
   callibrationIcon: {
-    height: '60@ms',
-    width: '60@ms',
+    height: Sizing.vh * 7,
+    width: Sizing.vw * 7,
     resizeMode: 'contain',
-    tintColor: 'black',
+    tintColor: Colors.BLACK,
     alignSelf: 'center',
   },
   callibrationText: {
     fontSize: '20@ms',
-    color: 'black',
+    color: Colors.BLACK,
     textAlign: 'center',
   },
   toggleContainer: {
-    height: '60@ms',
-    width: '60@ms',
+    height: Sizing.vh * 7,
+    width: Sizing.vw * 7,
     alignItems: 'center',
     justifyContent: 'flex-end',
     marginRight: 10,
@@ -173,14 +186,14 @@ const styles = ScaledSheet.create({
   toggleLabel: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '100%',
+    width: Sizing.vw * 100,
   },
   //--------------------------Modal
   ModalContainer: {
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     height: '100@ms',
-    width: '100%',
+    width: Sizing.vw * 100,
     borderRadius: '5@ms',
     justifyContent: 'center',
     alignItems: 'center',
@@ -188,9 +201,6 @@ const styles = ScaledSheet.create({
     marginVertical: '10@ms',
   },
 });
-
-
-
 
 // import {View, Text, Image, Modal, TouchableOpacity} from 'react-native'
 // import {Header, FilterCard, ToggleButton, Label} from '../../component'

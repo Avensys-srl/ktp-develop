@@ -18,6 +18,7 @@ import {ImageSource} from '../../common/imageSource';
 import CircleProgressBarSmall from '../../component/CircleProgressBarSmall';
 import NewRangeSlider from '../../component/NewRangeSlider';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
+import {Colors, Sizing} from '../../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -47,21 +48,12 @@ const PostCooling_Red = () => {
               </View>
               <Text style={styles.filterAlarmText}>Postcooler activation</Text>
             </View>
-            <Image
-              style={{
-                width: 40,
-                height: 40,
-                position: 'absolute',
-                top: 55,
-                right: 2,
-              }}
-              source={ImageSource.lockOpen}
-            />
+            <Image style={styles.activationImg} source={ImageSource.lockOpen} />
           </View>
 
           {/* Toggle */}
 
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <View style={styles.paringStatusContainer}>
             <Text>Paring status</Text>
             <ToggleSwitch
               TOO={''}
@@ -75,19 +67,7 @@ const PostCooling_Red = () => {
 
           {/* ref temp */}
 
-          <View
-            style={{
-              justifyContent: 'center',
-              height: height * 0.15,
-              borderRadius: 5,
-              alignSelf: 'center',
-              flexDirection: 'row',
-              textAlign: 'center',
-              alignItems: 'center',
-              // borderWidth: 1,
-              // borderColor: 'red',
-              marginBottom: 12,
-            }}>
+          <View style={styles.refTempContainer}>
             <View>
               <Text style={{textAlign: 'center', marginBottom: 6}}>
                 reference temperature
@@ -101,24 +81,19 @@ const PostCooling_Red = () => {
               />
             </View>
             <View>
-              <Image
-                style={{height: 30, width: 30}}
-                source={ImageSource.lock}
-              />
+              <Image style={styles.refImg} source={ImageSource.lock} />
             </View>
           </View>
 
           {/* Hysteresys */}
           <View>
-            <Text style={{textAlign: 'center', marginBottom: -30, zIndex: 2}}>
-              Hysteresys[°C]
-            </Text>
+            <Text style={styles.hysText}>Hysteresys[°C]</Text>
             <NewRangeSlider TPR={''} VL1={3} VL2={15} minVL={0} maxVL={35} />
           </View>
 
           {/* sensor */}
 
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <View style={styles.sensorContainer}>
             <Text>sensor</Text>
             <ToggleSwitch
               TOO={''}
@@ -131,19 +106,7 @@ const PostCooling_Red = () => {
           </View>
 
           {/* boost time */}
-          <View
-            style={{
-              justifyContent: 'center',
-              height: height * 0.15,
-              borderRadius: 5,
-              alignSelf: 'center',
-              flexDirection: 'row',
-              textAlign: 'center',
-              alignItems: 'center',
-              // borderWidth: 1,
-              // borderColor: 'red',
-              marginBottom: 12,
-            }}>
+          <View style={styles.boostTimeContainer}>
             <View>
               <Text style={{textAlign: 'center', marginBottom: 6}}>
                 boost time [min]
@@ -157,10 +120,7 @@ const PostCooling_Red = () => {
               />
             </View>
             <View>
-              <Image
-                style={{height: 30, width: 30}}
-                source={ImageSource.lock}
-              />
+              <Image style={styles.refImg} source={ImageSource.lock} />
             </View>
           </View>
 
@@ -190,15 +150,15 @@ export default PostCooling_Red;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
     borderWidth: 1,
-    borderColor: 'red',
+    borderColor: Colors.RED,
   },
   filterAlarmContainer: {
     margin: width * 0.04,
     marginHorizontal: width * 0.08,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -208,25 +168,69 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: height * 0.02,
     fontSize: width * 0.04,
-    color: 'grey',
+    color: Colors.GREY500,
+  },
+  activationImg: {
+    width: 30,
+    height: 30,
+    position: 'absolute',
+    top: 55,
+    right: 5,
   },
   pairedView: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: width * 0.93,
-    height: height * 0.12,
+    width: Sizing.vw * 93,
+    height: Sizing.vh * 12,
     borderWidth: 0,
     borderRadius: 5,
     alignSelf: 'center',
+  },
+  paringStatusContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   remainingDutyText: {
     textAlign: 'center',
     marginTop: height * 0.01,
     fontSize: width * 0.04,
-    color: 'grey',
+    color: Colors.GREY500,
+  },
+  refTempContainer: {
+    justifyContent: 'center',
+    height: Sizing.vh * 15,
+    borderRadius: 5,
+    alignSelf: 'center',
+    flexDirection: 'row',
+    textAlign: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  refImg: {
+    height: 30,
+    width: 30,
   },
   progressBarContainer: {
-    height: height * 0.09,
+    height: Sizing.vh * 9,
     marginTop: -height * 0.02,
+  },
+  hysText: {
+    textAlign: 'center',
+    marginBottom: -30,
+    zIndex: 2,
+  },
+  sensorContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  boostTimeContainer: {
+    justifyContent: 'center',
+    height: Sizing.vh * 15,
+    borderRadius: 5,
+    alignSelf: 'center',
+    flexDirection: 'row',
+    textAlign: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
   },
 });

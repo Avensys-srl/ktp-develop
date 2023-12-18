@@ -6,6 +6,7 @@ import {
   Text,
   Dimensions,
 } from 'react-native';
+import { Colors, Sizing } from '../styles';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -40,7 +41,7 @@ export const OnOff = ({status, leftText = 'Off', rightText = 'On'}) => {
 const styles = StyleSheet.create({
   mainContainer: {
     // width: width * 0.3,
-    height: height * 0.13,
+    height: Sizing.vh*13,
     flexDirection: 'row',
     paddingHorizontal: 12,
     borderRadius: 1,
@@ -52,28 +53,28 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   container: {
-    height: height * 0.03,
-    width: width * 0.3,
-    backgroundColor: 'white',
+    height: Sizing.vh*3,
+    width: Sizing.vw*30,
+    backgroundColor: Colors.WHITE,
     borderRadius: (width * 0.8) / 2,
     justifyContent: 'center',
     overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: 'black',
+    borderWidth: 2,
+    borderColor: Colors.BLACK,
   },
   circle: {
-    height: height * 0.03,
-    width: width * 0.06,
+    height: Sizing.vh*3,
+    width: Sizing.vw*6,
     borderRadius: 12,
-    backgroundColor: 'lightgray',
-    borderWidth: 1,
+    backgroundColor: Colors.LIGHT_GREY,
+    borderWidth: 2,
     borderColor: 'black',
     position: 'absolute',
     left: -1,
   },
   circleActive: {
     left: width * 0.048 * 5,
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.GREEN,
   },
   text: {
     fontSize: 16,

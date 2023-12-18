@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 import WifiManager from 'react-native-wifi-reborn';
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
+import { Colors, Sizing } from '../styles';
+import { ImageSource } from '../common/imageSource';
 
 const WifiScannerScreen = () => {
   const [wifiList, setWifiList] = useState([]);
@@ -148,7 +150,7 @@ const WifiScannerScreen = () => {
       style={{
         padding: 10,
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        borderBottomColor: Colors.DARK_GREY,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -180,13 +182,13 @@ const WifiScannerScreen = () => {
   const getImageSource = category => {
     switch (category) {
       case 'full':
-        return require('../assets/wifi-high-icon-original.png');
+        return ImageSource.wifiHigh;
       case 'medium':
-        return require('../assets/wifi-medium-icon-original.png');
+        return ImageSource.wifiMedium;
       case 'poor':
-        return require('../assets/wifi-low-icon-original.png');
+        return ImageSource.wifiLow;
       default:
-        return require('../assets/wifi-none-icon-original.png');
+        return ImageSource.wifiNone;
     }
   };
 
@@ -239,16 +241,16 @@ const WifiScannerScreen = () => {
 const styles = StyleSheet.create({
   headerText: {
     fontSize: 24,
-    color: 'black',
+    color: Colors.BLACK,
     textAlign: 'center',
     marginBottom: 12,
   },
   wifiNames: {
-    color: 'gray',
+    color: Colors.DARK_GREY,
     fontSize: 20,
   },
   modalContent: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
     padding: 20,
     borderRadius: 10,
     elevation: 5,
@@ -257,12 +259,12 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   modalHeader: {
-    color: 'red',
+    color: Colors.RED,
     marginBottom: 12,
   },
   passwordTextInput: {
-    height: 50,
-    borderColor: 'black',
+    height: Sizing.vh*7,
+    borderColor: Colors.BLACK,
     borderWidth: 1,
     marginBottom: 10,
     borderRadius: 12,
@@ -270,11 +272,11 @@ const styles = StyleSheet.create({
   okCancelContainer: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    width: '80%',
+    width: Sizing.vw*75,
   },
   okButton: {
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     paddingHorizontal: 40,
     paddingVertical: 10,
     borderRadius: 18,
@@ -282,14 +284,14 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     paddingHorizontal: 40,
     paddingVertical: 10,
     borderRadius: 18,
     marginVertical: 5,
   },
   buttonText: {
-    color: 'black',
+    color: Colors.BLACK,
     textAlign: 'center',
   },
 });

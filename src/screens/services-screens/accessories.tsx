@@ -5,6 +5,7 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {useState} from 'react';
 import {ServicesCard} from './services-card';
 import {Routes} from '../../routes';
+import {Colors, Sizing} from '../../styles';
 
 const ServicesTab = [
   {
@@ -108,7 +109,7 @@ export const Accessories = () => {
           onPress={() => {
             setActiveTab(false);
           }}>
-          <Text style={{color: activeTab ? 'black' : 'white'}}>
+          <Text style={{color: activeTab ? Colors.BLACK : Colors.WHITE}}>
             Listed By Function
           </Text>
         </TouchableOpacity>
@@ -121,7 +122,7 @@ const styles = ScaledSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    width: '100%',
+    width: Sizing.vw * 100,
     flexDirection: 'row',
     flexWrap: 'wrap',
     flex: 1,
@@ -129,10 +130,11 @@ const styles = ScaledSheet.create({
   buttons: {
     flexDirection: 'row',
     borderWidth: 1,
-    height: '40@ms',
-    width: '48%',
+    height: Sizing.vh * 5,
+    width: Sizing.vw * 48,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: '5@ms',
+    // marginVertical: '5@ms',
+    marginVertical: Sizing.vh * 0.6,
   },
 });

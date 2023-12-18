@@ -9,6 +9,7 @@ import {
 import React from 'react';
 import {CountdownProgressBar, Header} from '../../component';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
+import {Colors, Sizing} from '../../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -83,15 +84,15 @@ export default Probs;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
     borderWidth: 1,
-    borderColor: 'red',
+    borderColor: Colors.RED,
   },
   remainingDutyText: {
     textAlign: 'center',
     marginTop: height * 0.01,
     fontSize: width * 0.04,
-    color: 'grey',
+    color: Colors.GREY500,
   },
   progressBarContainer: {
     height: height * 0.09,
@@ -99,6 +100,6 @@ const styles = StyleSheet.create({
   },
   service: {
     textAlign: 'center',
-    color: 'red',
+    color: Colors.RED,
   },
 });

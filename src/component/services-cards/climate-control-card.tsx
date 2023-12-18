@@ -3,6 +3,7 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {ImageSource} from '../../common/imageSource';
 import {useState} from 'react';
 import DropdownSetPoint from '../DropdownSetPoint';
+import { Colors, Sizing } from '../../styles';
 
 interface props {
   source: {};
@@ -22,19 +23,9 @@ export const ClimateControlCard = (props: props) => {
         <Image source={source} style={[styles.image, imageStyle]} />
         <Image source={ImageSource.home} style={styles.home} />
         {box && (
-          // <View style={styles.box}>
-          //   <Text style={styles.temperatureNumber}>{tempNumber}</Text>
-          // </View>
           <DropdownSetPoint data={['21°C ', '22°C', '23°C', '24°C', '25°C']} />
         )}
       </View>
-      {/* <View style={styles.dropDownContainer}>
-        {box && lock && (
-          <View style={styles.dropDownBox}>
-            <Text style={{textAlign:'center'}}>{dropDownTemp}</Text>
-          </View>
-        )}
-      </View> */}
     </View>
   );
 };
@@ -42,41 +33,21 @@ export const ClimateControlCard = (props: props) => {
 const styles = ScaledSheet.create({
   container: {},
   home: {
-    height: '60@ms',
-    width: '60@ms',
+    height: Sizing.vh*9,
+    width: Sizing.vw*15,
     resizeMode: 'contain',
-    tintColor: 'black',
+    tintColor: Colors.BLACK,
   },
   image: {
-    height: '20@ms',
-    width: '20@ms',
+    height: Sizing.vh*6,
+    width: Sizing.vw*6,
     resizeMode: 'contain',
-    tintColor: 'black',
+    tintColor: Colors.BLACK,
     bottom: '20@ms',
     left: '15@ms',
   },
-  box: {
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: '5@ms',
-    height: '45@ms',
-    width: '60@ms',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   temperatureNumber: {
     fontSize: '20@ms',
-    color: 'black',
-  },
-  dropDownContainer: {
-    width: '75%',
-    alignItems: 'flex-end',
-  },
-  dropDownBox: {
-    borderWidth: 1,
-    borderColor: 'black',
-    width: '60@ms',
-    height: 'auto',
-    borderRadius: '5@ms',
+    color: Colors.BLACK,
   },
 });

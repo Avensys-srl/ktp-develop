@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
+import { Colors, Sizing } from '../styles';
 
 const ActivationButton = ({TAB, rot}) => {
   const [rotationSpeed, setRotationSpeed] = useState(rot);
@@ -23,10 +24,10 @@ const ActivationButton = ({TAB, rot}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{TAB}</Text>
-      <Svg width={100} height={100} viewBox="0 0 256 256">
+      <Svg style={styles.svgSize} viewBox="0 0 256 256">
         <Path
           d={housePath}
-          fill="black"
+          fill= {Colors.BLACK}
           transform={`rotate(${rotationAngle}, 128, 128)`}
         />
       </Svg>
@@ -36,14 +37,17 @@ const ActivationButton = ({TAB, rot}) => {
 
 const styles = StyleSheet.create({
   container: {
-    // justifyContent: 'center',
     alignItems: 'center',
   },
 
   title: {
-    color: 'black',
+    color: Colors.BLACK,
     fontSize: 18,
   },
+  svgSize :{
+    width:Sizing.vw * 30,
+    height:Sizing.vh *12,
+  }
 });
 
 export default ActivationButton;

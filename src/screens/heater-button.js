@@ -1,6 +1,7 @@
 import {View, TouchableOpacity, Animated} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {useEffect, useRef, useState} from 'react';
+import {Colors, Sizing} from '../styles';
 export const HeaterButton = props => {
   const {
     diagonalImageSource1,
@@ -288,7 +289,7 @@ export const HeaterButton = props => {
       startPreHeaterProcess(lf);
       onUpdatePreHeaterStatus('pairing in progress');
     } else {
-      setPreHeaterColor('white');
+      setPreHeaterColor(Colors.WHITE);
     }
   }, [flagForPairing]);
 
@@ -297,7 +298,7 @@ export const HeaterButton = props => {
       startPostHeaterProcess(lf);
       onUpdatePostHeaterStatus('pairing in progress');
     } else {
-      setPostHeaterColor('white');
+      setPostHeaterColor(Colors.WHITE);
     }
   }, [flagForPostHeaterPairing]);
 
@@ -349,11 +350,11 @@ export const HeaterButton = props => {
 
 const styles = ScaledSheet.create({
   container: {
-    borderColor: 'white',
+    borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '10@ms',
-    height: '70@ms',
-    width: '70@ms',
+    height: Sizing.vh * 8.8,
+    width: Sizing.vw * 18,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -361,29 +362,29 @@ const styles = ScaledSheet.create({
   },
   textStyle: {
     fontSize: '30@ms',
-    color: 'white',
+    color: Colors.WHITE,
     fontWeight: '700',
   },
   diagonalLine: {
     position: 'absolute',
-    backgroundColor: 'white',
-    height: '1@ms',
-    width: '200@ms',
+    backgroundColor: Colors.WHITE,
+    height: Sizing.vh * 0.1,
+    width: Sizing.vw * 100,
 
     transform: [{rotate: '135deg'}],
   },
   diagonalImage1: {
     position: 'absolute',
-    top: '6@ms',
-    left: '6@ms',
+    top: Sizing.vh * 0.8,
+    left: Sizing.vw * 1,
   },
   diagonalImage2: {
     position: 'absolute',
-    bottom: '5@ms',
-    right: '5@ms',
+    bottom: Sizing.vh * 0.8,
+    right: Sizing.vw * 1,
   },
   diagonalImage: {
-    height: '26@ms',
-    width: '26@ms',
+    height: Sizing.vh * 3.2,
+    width: Sizing.vw * 7,
   },
 });

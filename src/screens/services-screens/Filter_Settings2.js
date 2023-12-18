@@ -12,6 +12,7 @@ import {CountdownProgressBar, Header, OnOff} from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import ActivationButton from '../../component/ActivationButton';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
+import {Colors, Sizing} from '../../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -107,15 +108,15 @@ export default Filter_Settings2;
 
 const styles = StyleSheet.create({
   mainSafeAreaView: {
-    width: width,
-    height: height,
+    width: Sizing.vw * 100,
+    height: Sizing.vh * 100,
     borderWidth: 2,
-    borderColor: 'red',
+    borderColor: Colors.RED,
   },
   filterAlarmContainer: {
-    margin: width * 0.04,
+    margin: Sizing.vw * 4,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -125,11 +126,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: height * 0.02,
     fontSize: width * 0.04,
-    color: 'grey',
+    color: Colors.GREY500,
   },
   lockImg: {
-    width: width * 0.1,
-    height: height * 0.06,
+    width: Sizing.vw * 10,
+    height: Sizing.vh * 6,
     marginRight: width * 0.07,
   },
   lockImgTouchableOpacity: {
@@ -140,10 +141,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: height * 0.01,
     fontSize: width * 0.04,
-    color: 'grey',
+    color: Colors.GREY500,
   },
   progressBarContainer: {
-    height: height * 0.09,
+    height: Sizing.vh * 9,
     marginTop: -height * 0.02,
   },
   navigationContainer: {

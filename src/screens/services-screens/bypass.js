@@ -17,7 +17,7 @@ import {
 } from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
-import {Colors} from '../../styles';
+import {Colors, Sizing} from '../../styles';
 import ToggleSwitchFullWidth from '../../component/ToggleSwitchFullWidth';
 
 const {width} = Dimensions.get('window');
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   headingTxt: {
-    color: 'white',
+    color: Colors.WHITE,
     fontSize: 20,
   },
   imgHead: {
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: Colors.LIGHT_GREEN,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     position: 'absolute',
     top: -1,
   },
@@ -161,8 +161,8 @@ const styles = StyleSheet.create({
   pairedView: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: width * 0.93,
-    height: height * 0.12,
+    width: Sizing.vw * 93,
+    height: Sizing.vh * 12,
     borderWidth: 0,
     borderRadius: 5,
     alignSelf: 'center',
@@ -170,38 +170,38 @@ const styles = StyleSheet.create({
   rateView: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: width * 0.93,
-    height: height * 0.13,
+    width: Sizing.vw * 93,
+    height: Sizing.vh * 13,
     borderRadius: 5,
     margin: 15,
     marginTop: 0,
   },
   container: {
     // flex: 1,
-    width: '100%',
-    height: '100%',
+    width: Sizing.vw * 100,
+    height: Sizing.vh * 100,
     borderWidth: 2,
-    borderColor: 'red',
+    borderColor: Colors.RED,
     borderRadius: 10,
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
   },
   ScrollView: {
     // flex: 1,
-    width: '100%',
-    height: '100%',
+    width: Sizing.vw * 100,
+    height: Sizing.vh * 100,
     borderWidth: 0,
-    borderColor: 'blue',
+    borderColor: Colors.BLUE,
     borderRadius: 10,
     justifyContent: 'center',
     alignSelf: 'center',
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
   },
 
   filterAlarmContainer: {
-    margin: width * 0.04,
+    margin: Sizing.vw * 4,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -209,24 +209,26 @@ const styles = StyleSheet.create({
   },
   filterAlarmText: {
     textAlign: 'center',
-    marginBottom: height * 0.02,
-    fontSize: width * 0.04,
-    color: 'grey',
+    marginBottom: Sizing.vh * 2,
+    fontSize: Sizing.vw * 4,
+    color: Colors.GREY500,
   },
   txttop: {
     marginTop: 25,
+    color: Colors.GREY500,
   },
   iconClick: {
     marginRight: 10,
   },
   txt: {
     fontSize: 14,
+    color: Colors.GREY500,
   },
   pairedViewNoBorder: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: width * 0.93,
-    height: height * 0.15,
+    width: Sizing.vw * 93,
+    height: Sizing.vh * 15,
     margin: 15,
     marginBottom: 5,
     marginTop: 5,
@@ -235,7 +237,7 @@ const styles = StyleSheet.create({
   },
   toggleSwitchContainer: {
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 30,
@@ -245,7 +247,7 @@ const styles = StyleSheet.create({
   threePointSliderTextContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '100%',
+    width: Sizing.vw * 100,
     paddingLeft: 12,
     paddingRight: 12,
   },

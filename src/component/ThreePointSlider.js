@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, View, Dimensions} from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {Colors} from '../styles';
+import {Colors, Sizing} from '../styles';
 
 const {width} = Dimensions.get('window');
 const border_thickness = 1.8;
@@ -38,7 +38,7 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
         margin: 8,
         borderRadius: progressBarHeight,
         justifyContent: 'space-between',
-        width: width * 0.9,
+        width: Sizing.vw*90,
         height: progressBarHeight,
       }}>
       <Pressable

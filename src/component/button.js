@@ -1,6 +1,7 @@
 import {View, TouchableOpacity, Animated} from 'react-native'
 import {ScaledSheet} from 'react-native-size-matters'
 import {useEffect, useRef} from 'react'
+import { Colors, Sizing } from '../styles'
 export const Button = props => {
   const {text, onPress = () => null, onLongPress, textStyle, speed = {}} = props
   //--------------------------------------Declare Veriables--------------------------------
@@ -83,30 +84,30 @@ export const Button = props => {
 }
 
 const styles = ScaledSheet.create({
-  image: {
-    width: '40@ms',
-    height: '40@ms',
-    resizeMode: 'contain',
-  },
   container: {
-    borderColor: 'white',
+    borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '10@ms',
-    height: '70@ms',
-    width: '70@ms',
+    height: Sizing.vh * 10,
+    width: Sizing.vw *20,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    marginVertical: '10@ms',
+    marginVertical: Sizing.vh*1.4,
   },
   textStyle: {
     fontSize: '30@ms',
-    color: 'white',
+    color: Colors.WHITE,
     fontWeight: '700',
+  },
+  image: {
+    width: Sizing.vw * 5,
+    height: Sizing.vh * 5,
+    resizeMode: 'contain',
   },
   diagonalLine: {
     position: 'absolute',
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
     height: '1@ms',
     width: '90@ms',
     top: '50%',
@@ -117,7 +118,7 @@ const styles = ScaledSheet.create({
     position: 'absolute',
     top: '8@ms',
     left: '8@ms',
-    tintColor: 'white',
+    tintColor: Colors.WHITE,
     height: '26@ms',
     width: '26@ms',
   },
@@ -125,7 +126,7 @@ const styles = ScaledSheet.create({
     position: 'absolute',
     bottom: '5@ms',
     right: '5@ms',
-    tintColor: 'white',
+    tintColor: Colors.WHITE,
     height: '26@ms',
     width: '26@ms',
   },

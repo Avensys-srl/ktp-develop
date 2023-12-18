@@ -58,13 +58,13 @@ const styles = ScaledSheet.create({
     outerBar: {
         overflow: 'hidden',
         borderWidth: '2@ms',
-        borderColor: 'black',
+        borderColor: Colors.BLACK,
         borderRadius: '5@ms',
         justifyContent: 'flex-end',
         marginVertical: '6@ms'
     },
     innerBar: {
-        backgroundColor: 'green',
+        backgroundColor: Colors.GREEN,
         borderTopWidth: '2@ms'
 
     },

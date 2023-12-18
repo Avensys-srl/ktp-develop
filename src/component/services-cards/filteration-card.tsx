@@ -3,6 +3,7 @@ import {View, Text, Switch, Image} from 'react-native'
 import {ScaledSheet} from 'react-native-size-matters'
 import {ImageSource} from '../../common/imageSource'
 import {ToggleButton} from '../toggleButton'
+import { Colors } from '../../styles'
 
 interface props {
   title: string
@@ -36,7 +37,7 @@ const styles = ScaledSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     height: '60@ms',
     width: '100%',
     borderRadius: '10@ms',
@@ -61,11 +62,11 @@ const styles = ScaledSheet.create({
     height: '30@ms',
     width: '30@ms',
     resizeMode: 'contain',
-    tintColor: 'black',
+    tintColor: Colors.BLACK,
   },
   text: {
     fontSize: '20@ms',
-    color: 'black',
+    color: Colors.BLACK,
     textAlign: 'center',
   },
 })

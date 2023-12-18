@@ -2,6 +2,7 @@ import {SafeAreaView, StyleSheet, Text, View, Dimensions} from 'react-native';
 import React from 'react';
 import {CircleProgressBar, Header, OnOff} from '../../component';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
+import {Colors, Sizing} from '../../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -52,14 +53,14 @@ export default PostCooling_Blue;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
     borderWidth: 1,
-    borderColor: 'blue',
+    borderColor: Colors.BLUE,
   },
   filterAlarmContainer: {
     margin: width * 0.04,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -69,12 +70,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: height * 0.02,
     fontSize: width * 0.04,
-    color: 'grey',
+    color: Colors.GREY500,
   },
   txt: {
     fontSize: 14,
     textAlign: 'center',
     marginBottom: height * 0.01,
+    color: Colors.GREY500,
   },
   circleProgressContainer: {
     marginBottom: height * 0.04,

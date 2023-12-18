@@ -3,7 +3,7 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {Header} from '../../component/index';
 import {ServicesCard} from './services-card';
 import {Routes} from '../../routes';
-import {Colors} from '../../styles';
+import {Colors, Sizing} from '../../styles';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 
 export const Services = () => {
@@ -41,7 +41,7 @@ export const Services = () => {
 const Styles = ScaledSheet.create({
   container: {
     flex: 1,
-    width: '100%',
+    width: Sizing.vw * 100,
     borderColor: Colors.RED,
     borderWidth: 2,
     borderRadius: 5,

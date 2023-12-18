@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
-
-const {width, height} = Dimensions.get('window');
+import { Colors, Sizing } from '../styles';
 
 export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
-  const progressBarWidth = width * 0.7;
+  const progressBarWidth = Sizing.vw*70;
   const circleSize = 27;
   const progressBarHeight = 30;
   const border_thickness = 2;
@@ -12,11 +11,11 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
 
   let bgColor;
   if (BG === 0) {
-    bgColor = 'orange';
+    bgColor = Colors.ORANGE;
   } else if (BG === 1) {
-    bgColor = '#4CAF50';
+    bgColor = Colors.GREEN;
   } else if (BG === 2) {
-    bgColor = 'red';
+    bgColor = Colors.RED;
   }
 
   const [progress, setProgress] = useState(RIV);
@@ -65,9 +64,9 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
             width: progressBarWidth,
             height: progressBarHeight,
             borderRadius: circleSize / 2,
-            borderColor: 'black',
+            borderColor: Colors.BLACK,
             borderWidth: border_thickness,
-            backgroundColor: '#fff',
+            backgroundColor: Colors.WHITE,
             position: 'relative',
           }}>
           <View
@@ -80,7 +79,7 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
               left: circlePosition.left,
               bottom: circlePosition.bottom,
               borderWidth: border_thickness,
-              borderColor: 'black',
+              borderColor: Colors.BLACK,
             }}
           />
         </View>

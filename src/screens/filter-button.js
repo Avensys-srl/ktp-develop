@@ -1,23 +1,26 @@
-import {View, TouchableOpacity, Animated} from 'react-native'
-import {ScaledSheet} from 'react-native-size-matters'
-import {useEffect, useRef, useState} from 'react'
-import {ImageSource} from '../common/imageSource'
+import {View, TouchableOpacity, Animated} from 'react-native';
+import {ScaledSheet} from 'react-native-size-matters';
+import {useEffect, useRef, useState} from 'react';
+import {ImageSource} from '../common/imageSource';
+import {Colors, Sizing} from '../styles';
 export const FilterButton = props => {
-  const {onProcessComplete = () => 0, checked = false, onUpdateStatus=()=>0} = props
+  const {
+    onProcessComplete = () => 0,
+    checked = false,
+    onUpdateStatus = () => 0,
+  } = props;
 
+  const [color, setColor] = useState('white');
 
+  const timeGap = 5000;
+  const lf = 0.5;
 
-  const [color, setColor] = useState('white')
+  let onPressInTime = 0;
 
-  const timeGap = 5000
-  const lf = 0.5
-
-  let onPressInTime = 0
-
-  const fadeAnim = useRef(new Animated.Value(1)).current
+  const fadeAnim = useRef(new Animated.Value(1)).current;
 
   const start = duration => {
-    const blinkSpeed = (duration * 1000) / 2
+    const blinkSpeed = (duration * 1000) / 2;
     Animated.loop(
       Animated.sequence([
         Animated.timing(fadeAnim, {
@@ -36,52 +39,53 @@ export const FilterButton = props => {
       },
     ).start(() => {
       const timer = setTimeout(() => {
-        onProcessComplete()
-        timer && clearTimeout(timer)
-      }, 2000)
-    })
-  }
+        onProcessComplete();
+        timer && clearTimeout(timer);
+      }, 2000);
+    });
+  };
 
   useEffect(() => {
-    setColor(checked ? 'red' : 'white')
-  }, [checked])
+    setColor(checked ? Colors.RED : Colors.WHITE);
+  }, [checked]);
 
   return (
     <TouchableOpacity
       onPressIn={({nativeEvent}) => {
-        onPressInTime = nativeEvent.timestamp
+        onPressInTime = nativeEvent.timestamp;
       }}
       onPressOut={({nativeEvent}) => {
-        const timerDiffer = nativeEvent.timestamp - onPressInTime
-        onPressInTime = 0
+        const timerDiffer = nativeEvent.timestamp - onPressInTime;
+        onPressInTime = 0;
         if (timerDiffer > timeGap && checked) {
-          start(lf)
-          setColor('green')
-          onUpdateStatus('Filter calibration in progress')
+          start(lf);
+          setColor(Colors.GREEN);
+          onUpdateStatus('Filter calibration in progress');
         }
       }}
-      style={styles.container}
-    >
+      style={styles.container}>
       <Animated.Image
         source={ImageSource.filter}
         style={[styles.image, {opacity: fadeAnim, tintColor: color}]}
       />
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = ScaledSheet.create({
   image: {
-    width: '40@ms',
-    height: '40@ms',
+    width: Sizing.vw * 3.5,
+    height: Sizing.vh * 6,
     resizeMode: 'contain',
   },
   container: {
-    borderColor: 'white',
+    borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '10@ms',
-    height: '70@ms',
-    width: '70@ms',
+    // height: '70@ms',
+    height: Sizing.vh * 8.8,
+    // width: '70@ms',
+    width: Sizing.vw * 18,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -89,7 +93,7 @@ const styles = ScaledSheet.create({
   },
   textStyle: {
     fontSize: '30@ms',
-    color: 'white',
+    color: Colors.WHITE,
     fontWeight: '700',
   },
-})
+});

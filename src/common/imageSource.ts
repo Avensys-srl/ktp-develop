@@ -27,4 +27,8 @@ export const ImageSource = {
     II: require('../assets/info-icon-original.png'),
     SI: require('../assets/wrench-icon-original.png'),
     fan: require('../assets/fan.png'),
+    wifiHigh: require('../assets/wifi-high.png'),
+    wifiLow: require('../assets/wifi-low.png'),
+    wifiMedium : require('../assets/wifi-medium.png'),
+    wifiNone : require('../assets/wifi-none.png'),
 }
