@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
 import * as Progress from 'react-native-progress';
+<<<<<<< HEAD
 import {Colors, CustomStyles, Sizing} from '../styles';
+=======
+import { Colors, Sizing } from '../styles';
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
 
 const {width, height} = Dimensions.get('window');
 export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
@@ -46,6 +50,7 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
       <View {...panResponder.panHandlers}>
         <Progress.Bar
           progress={progress}
+<<<<<<< HEAD
           width={Sizing.vw * 85}
           height={Sizing.vh * 3.1}
           borderRadius={18}
@@ -53,6 +58,15 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
           borderColor={Colors.LIGHT_GREEN}
           borderWidth={2}
           unfilledColor={Colors.WHITE}
+=======
+          width= {Sizing.vw*90}
+          height={Sizing.vh*3.5}
+          borderRadius={18}
+          color="#4CAF50"
+          borderColor= {Colors.BLACK}
+          borderWidth={1}
+          unfilledColor= {Colors.WHITE}
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
         />
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text>{mv}</Text>

@@ -1,10 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
+<<<<<<< HEAD
 import {Colors, CustomStyles, Sizing} from '../styles';
 
 export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
   const progressBarWidth = Sizing.vw * 90;
   const circleSize = 24;
+=======
+import { Colors, Sizing } from '../styles';
+
+export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
+  const progressBarWidth = Sizing.vw*70;
+  const circleSize = 27;
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   const progressBarHeight = 30;
   const border_thickness = 2;
   const centered = (progressBarHeight - circleSize) / 2 - border_thickness;
@@ -13,7 +21,11 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
   if (BG === 0) {
     bgColor = Colors.ORANGE;
   } else if (BG === 1) {
+<<<<<<< HEAD
     bgColor = Colors.LIGHT_GREEN;
+=======
+    bgColor = Colors.GREEN;
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   } else if (BG === 2) {
     bgColor = Colors.RED;
   }
@@ -68,8 +80,13 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
           style={{
             width: progressBarWidth,
             height: progressBarHeight,
+<<<<<<< HEAD
             borderRadius: progressBarWidth / 2,
             borderColor: Colors.LIGHT_GREEN,
+=======
+            borderRadius: circleSize / 2,
+            borderColor: Colors.BLACK,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
             borderWidth: border_thickness,
             backgroundColor: Colors.WHITE,
             position: 'relative',
@@ -83,8 +100,13 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
               position: 'absolute',
               left: circlePosition.left,
               bottom: circlePosition.bottom,
+<<<<<<< HEAD
               // borderWidth: border_thickness,
               // borderColor: Colors.BLACK,
+=======
+              borderWidth: border_thickness,
+              borderColor: Colors.BLACK,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
             }}
           />
         </View>

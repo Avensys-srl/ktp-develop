@@ -22,7 +22,11 @@ export const SettingsCard = (props: props) => {
         key={index}
         disabled={disabled}
         onPress={() => navigation.navigate(onPress)}>
+<<<<<<< HEAD
         <Text style={styles.txttitle}>{title}</Text>
+=======
+        <Label style={styles.title}>{title}</Label>
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
         <View style={{flexDirection: 'row'}}>
           <TouchableOpacity>
             <Image source={ImageSource.star} style={styles.starImage} />
@@ -60,7 +64,10 @@ const styles = ScaledSheet.create({
   container: {
     width: Sizing.vw * 100,
     paddingHorizontal: '2@ms',
+<<<<<<< HEAD
     alignItems:'center'
+=======
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
   card: {
     flexDirection: 'row',
@@ -73,6 +80,7 @@ const styles = ScaledSheet.create({
     marginLeft: '5@ms',
     marginRight: '5@ms',
     backgroundColor: Colors.BLACK,
+<<<<<<< HEAD
     height: '37@ms',
     justifyContent: 'space-between',
     width:Sizing.vw*90,
@@ -80,16 +88,27 @@ const styles = ScaledSheet.create({
   starImage: {
     height: '25@ms',
     width: '25@ms',
+=======
+    height: '50@ms',
+    justifyContent: 'space-between',
+  },
+  starImage: {
+    height: '30@ms',
+    width: '30@ms',
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
     resizeMode: 'contain',
   },
   title: {
     color: Colors.WHITE,
     fontSize: '20@ms',
   },
+<<<<<<< HEAD
   txttitle: {
     color: Colors.WHITE,
     fontSize: '18@ms',
   },
+=======
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   valuesContainer: {
     width: Sizing.vw * 100,
     flexDirection: 'row',

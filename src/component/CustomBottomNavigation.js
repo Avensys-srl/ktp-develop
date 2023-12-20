@@ -9,7 +9,11 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {ImageSource} from '../common/imageSource';
 import {Routes} from '../routes';
+<<<<<<< HEAD
 import {Colors, Sizing} from '../styles';
+=======
+import { Colors, Sizing } from '../styles';
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
 
 const {width, height} = Dimensions.get('window');
 
@@ -46,6 +50,7 @@ const CustomBottomNavigation = ({
   };
 
   return (
+<<<<<<< HEAD
     <View style={styles.mainContainer}>
       <View style={[styles.container, {borderColor: OCColor}]}>
         <TouchableOpacity onPress={navigateToHome}>
@@ -59,6 +64,21 @@ const CustomBottomNavigation = ({
         </TouchableOpacity>
         <TouchableOpacity onPress={navigateToService}>
           <Image source={SI} style={styles.img} />
+=======
+    <View style={{width: Sizing.vw*100, alignItems: 'center', marginTop: 10}}>
+      <View style={[styles.container, {borderColor: OCColor}]}>
+        <TouchableOpacity onPress={navigateToHome}>
+          <Image source={HI} style={{height: Sizing.vh*6, width: Sizing.vw*12}} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={navigateToSettings}>
+          <Image source={PI} style={{height: Sizing.vh*6, width: Sizing.vw*12}} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={navigateToInfo}>
+          <Image source={II} style={{height: Sizing.vh*6, width: Sizing.vw*12}} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={navigateToService}>
+          <Image source={SI} style={{height: Sizing.vh*6, width: Sizing.vw*12}} />
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
         </TouchableOpacity>
       </View>
     </View>

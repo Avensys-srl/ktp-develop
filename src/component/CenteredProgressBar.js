@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useRef, useState } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, PanResponder } from 'react-native';
 import { ImageSource } from '../common/imageSource';
@@ -7,6 +8,12 @@ const { width, height } = Dimensions.get('window');
 
 export const CenteredProgressBar = ({ IST, RIV, BG }) => {
   const [sliderPosition, setSliderPosition] = useState(30); // Initial position of the slider
+=======
+import React from 'react';
+import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
+import {ImageSource} from '../common/imageSource';
+import { Colors, Sizing } from '../styles';
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
 
   const normalizedPercentage = Math.min(Math.max(100 - RIV, 0), 100);
   const leftFill = Math.min(sliderPosition, 60); // Updated calculation for leftFill
@@ -75,18 +82,30 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     marginBottom: 4,
     width: Sizing.vw * 20,
+<<<<<<< HEAD
     height: Sizing.vh * 6.5,
+=======
+    height:Sizing.vh * 6.5,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
     borderRadius: 12,
   },
   progressBarWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+<<<<<<< HEAD
     width: Sizing.vw * 90,
+=======
+    width: Sizing.vw * 90, 
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
   progressBarContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+<<<<<<< HEAD
     height: Sizing.vh * 2.7,
+=======
+    height: Sizing.vh*2.7,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
     borderRadius: 4,
     overflow: 'hidden',
     flex: 1, // Expand to fill the available space
@@ -95,13 +114,18 @@ const styles = StyleSheet.create({
   },
   fill: {
     backgroundColor: Colors.WHITE,
+<<<<<<< HEAD
     height: Sizing.vh * 100,
+=======
+    height: Sizing.vh*100,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
   text: {
     textAlign: 'center',
   },
 
   images: {
+<<<<<<< HEAD
     width: Sizing.vw * 7.5,
     height: Sizing.vh * 4,
   },
@@ -113,6 +137,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.GREEN, // Customize the color of the slider
     zIndex: 1,
    
+=======
+    width: Sizing.vw*7.5,
+    height: Sizing.vh*4,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
 });
 

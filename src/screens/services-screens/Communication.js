@@ -27,7 +27,11 @@ export const Communication = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
+<<<<<<< HEAD
       <Header canGoBack={true} title="Communication" />
+=======
+      <Header canGoBack={true} title="Network" />
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
       <View style={styles.toggleAlign}>
         <ToggleSwitch
           CL={'wifi'}

@@ -38,7 +38,11 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
         margin: 8,
         borderRadius: progressBarHeight,
         justifyContent: 'space-between',
+<<<<<<< HEAD
         width: Sizing.vw * 90,
+=======
+        width: Sizing.vw*90,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
         height: progressBarHeight,
         borderColor: Colors.LIGHT_GREEN,
       }}>

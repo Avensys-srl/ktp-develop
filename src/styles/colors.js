@@ -59,7 +59,10 @@ export const LIGHT_RED = 'rgba(255,233,231,1)';
 export const BLUE = '#0A398F';
 export const LIGHT_BLUE = '#2473FA';
 
+<<<<<<< HEAD
 export const CYAN = '#3498db';
 
+=======
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
 // OM DEVELOPER COLORS
 export const LIGHT_BLUE1 = '#ADD8E6';

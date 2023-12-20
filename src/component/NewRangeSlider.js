@@ -24,7 +24,11 @@ const NewRangeSlider = ({TPR, VL1, VL2, BG, minVL = 0, maxVL = 100}) => {
       <View
         style={{
           ...styles.customMarker,
+<<<<<<< HEAD
           backgroundColor: selected ? Colors.LIGHT_GREEN : Colors.LIGHT_GREEN,
+=======
+          backgroundColor: selected ? Colors.GREEN : Colors.LIGHT_GREEN,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
         }}>
         <Text style={valueStyle}>{value}</Text>
       </View>
@@ -35,6 +39,7 @@ const NewRangeSlider = ({TPR, VL1, VL2, BG, minVL = 0, maxVL = 100}) => {
     <View style={styles.container}>
       <Text style={{fontSize: 18, color: Colors.BLACK}}>{TPR}</Text>
       <Text style={styles.values1}>{values[0]}</Text>
+<<<<<<< HEAD
       <View style={{marginTop: -40}}>
         <MultiSlider
           values={values}
@@ -53,6 +58,20 @@ const NewRangeSlider = ({TPR, VL1, VL2, BG, minVL = 0, maxVL = 100}) => {
         <Text>{minVL}</Text>
         <Text>{maxVL}</Text>
       </View>
+=======
+      <MultiSlider
+        values={values}
+        min={minVL}
+        max={maxVL}
+        onValuesChange={handleValuesChange}
+        sliderLength={Sizing.vw * 75}
+        selectedStyle={styles.selectedStyle}
+        unselectedStyle={styles.unselectedStyle}
+        containerStyle={styles.containerStyle}
+        trackStyle={styles.trackStyle}
+        customMarker={renderCustomMarker}
+      />
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
       <Text style={styles.values2}>{values[1]}</Text>
     </View>
   );
@@ -66,13 +85,19 @@ const styles = StyleSheet.create({
   },
 
   values1: {
+<<<<<<< HEAD
     color: Colors.BLUE,
     marginRight: Sizing.vw * 60,
     top: -10,
     zIndex: 2,
+=======
+    color: Colors.DARK_GREY,
+    marginRight: Sizing.vw * 60,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
 
   values2: {
+<<<<<<< HEAD
     color: Colors.BLUE,
     marginLeft: Sizing.vw * 60,
     bottom: 52,
@@ -83,6 +108,18 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.LIGHT_GREEN,
     height: Sizing.vh * 3,
     marginTop: -6,
+=======
+    color: Colors.DARK_GREY,
+    marginLeft: Sizing.vw * 60,
+  },
+
+  selectedStyle: {
+    backgroundColor: Colors.GREEN,
+    height: Sizing.vh * 3,
+    marginTop: -6,
+    // borderRadius: 10,
+    borderWidth: 2,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
     borderColor: Colors.BLACK,
   },
 
@@ -92,7 +129,11 @@ const styles = StyleSheet.create({
     marginTop: -5,
     borderRadius: 20,
     borderWidth: 2,
+<<<<<<< HEAD
     borderColor: Colors.LIGHT_GREEN,
+=======
+    borderColor: Colors.BLACK,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
 
   containerStyle: {
@@ -105,9 +146,16 @@ const styles = StyleSheet.create({
   },
 
   customMarker: {
+<<<<<<< HEAD
     width: Sizing.vw * 6,
     height: Sizing.vw * 6,
     borderRadius: (Sizing.vw * 6) / 2,
+=======
+    width: Sizing.vw * 7,
+    height: Sizing.vh * 3.5,
+    borderRadius: (Sizing.vw * 7) / 2,
+    borderWidth: 1,
+>>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
     borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',
