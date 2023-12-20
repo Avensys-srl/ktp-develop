@@ -11,6 +11,8 @@ import React, {useState} from 'react';
 import {CircleProgressBar, Header, OnOff, ToggleSwitch} from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
+import {Colors, Sizing} from '../../styles';
+import {BLACK} from '../../styles/colors';
 
 const {width, height} = Dimensions.get('window');
 
@@ -103,9 +105,9 @@ export default Preheater;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
     borderWidth: 1,
-    borderColor: 'red',
+    borderColor: Colors.RED,
   },
   mainComponentContainer: {
     position: 'relative',
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
     margin: width * 0.04,
     marginHorizontal: width * 0.1,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -125,11 +127,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: height * 0.02,
     fontSize: width * 0.04,
-    color: 'grey',
+    color: Colors.GREY500,
   },
   lockImg: {
-    width: width * 0.09,
-    height: height * 0.04,
+    width: Sizing.vw * 9,
+    height: Sizing.vh * 4,
     position: 'absolute',
     top: height * 0.06,
     right: width * 0.01,
@@ -139,7 +141,7 @@ const styles = StyleSheet.create({
   },
   toggleSwitchContainer: {
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: height * 0.03,
@@ -163,6 +165,6 @@ const styles = StyleSheet.create({
   },
   service: {
     textAlign: 'center',
-    color: 'red',
+    color: Colors.RED,
   },
 });

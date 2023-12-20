@@ -3,29 +3,32 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {ImageSource} from '../common/imageSource';
 import {Label} from './label';
 import {useNavigation} from '@react-navigation/native';
+import { Colors, Sizing, CustomStyles } from '../styles';
 
 interface props {
   canGoBack: boolean;
   title: string;
+  optionsStar:Number,
+  headerBG:Number,
 }
 
 export const Header = (props: props) => {
   const Navigation = useNavigation();
-  const {canGoBack = false, title} = props;
+  const {canGoBack = false, title,optionsStar=0,headerBG=0} = props;
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
+      <View style={[styles.headerContainer,{backgroundColor: headerBG==1 ? Colors.GREEN : Colors.BLACK}]}>
         {canGoBack && (
           <TouchableOpacity onPress={() => Navigation.goBack()}>
-            <Image source={ImageSource.back} style={styles.image} />
+            <Image source={ImageSource.back} style={[styles.image,{marginLeft:10,width:26}]} />
           </TouchableOpacity>
         )}
-        <Label style={{textAlign: 'center', color: 'white', marginLeft: 10}}>
+        <Label style={CustomStyles.TitleHeader}>
           {title}
         </Label>
         <View style={styles.starArrowContainer}>
           <TouchableOpacity>
-            <Image style={styles.img} source={ImageSource.star} />
+            <Image style={styles.img} source={optionsStar== 0 ? ImageSource.star : ImageSource.starFill} />
           </TouchableOpacity>
           <TouchableOpacity>
             <Image style={styles.img} source={ImageSource.arrow} />
@@ -38,21 +41,23 @@ export const Header = (props: props) => {
 
 const styles = ScaledSheet.create({
   container: {
-    width: '100%',
+    width: Sizing.vw*100,
+    alignItems:'center',
+    marginTop:15
   },
   image: {
-    height: '20@ms',
-    width: '20@ms',
+    height: Sizing.vh*20,
+    width: Sizing.vw*5,
     resizeMode: 'contain',
-    tintColor: 'white',
+    tintColor: Colors.WHITE,
   },
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'black',
-    height: '40@ms',
+    // backgroundColor: Colors.GREEN,
+    height: Sizing.vh*7,
     paddingHorizontal: '5@ms',
-    width: '100%',
+    width: Sizing.vw*90,
   },
   starArrowContainer: {
     flex: 1,
@@ -60,5 +65,5 @@ const styles = ScaledSheet.create({
     justifyContent: 'flex-end',
     marginEnd: 12,
   },
-  img: {width: 30, height: 30, marginEnd: 12},
+  img: {width:  Sizing.vw*7, height: Sizing.vh*4, marginEnd: 12},
 });

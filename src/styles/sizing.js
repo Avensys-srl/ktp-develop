@@ -1,14 +1,19 @@
 /**
  * Sizing
  */
+import {Dimensions} from 'react-native';
 
-import { Dimensions } from 'react-native'
+const {height: screenHeight, width: screenWidth} = Dimensions.get('window');
 
-const { height: screenHeight, width: screenWidth } = Dimensions.get('window')
+let adjustedScreenWidth = screenWidth;
 
-const Sizing = {
-  vw: screenWidth / 100,
-  vh: screenHeight / 100
+if (screenWidth / screenHeight > 0.5) {
+  adjustedScreenWidth = screenHeight * 0.5;
 }
 
-export default Sizing
+const Sizing = {
+  vw: adjustedScreenWidth / 100,
+  vh: screenHeight / 100,
+};
+
+export default Sizing;

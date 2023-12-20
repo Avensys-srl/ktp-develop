@@ -6,7 +6,7 @@ import {
   Text,
   Dimensions,
 } from 'react-native';
-import {Colors} from '../styles';
+import {Colors, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 export const ToggleSwitch = ({TOO, CL, CR, BG, isToggled, onToggle}) => {
@@ -16,15 +16,7 @@ export const ToggleSwitch = ({TOO, CL, CR, BG, isToggled, onToggle}) => {
   };
 
   return (
-    <View
-      style={
-        {
-          // justifyContent: 'center',
-          // alignItems: 'center',
-          // width: '100%',
-          // height: '100%',
-        }
-      }>
+    <View>
       <TouchableOpacity style={styles.container} onPress={handleToggle}>
         <View
           style={[
@@ -54,23 +46,23 @@ export const ToggleSwitch = ({TOO, CL, CR, BG, isToggled, onToggle}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: width * 0.7,
-    height: height * 0.032,
-    borderRadius: 12.5,
-    backgroundColor: 'white',
-    borderColor: 'black',
-    borderWidth: 1,
+    width: Sizing.vw * 75,
+    height: Sizing.vh * 3.3,
+    borderRadius: (Sizing.vw * 75) / 2,
+    backgroundColor: Colors.WHITE,
+    borderColor: Colors.BLACK,
+    borderWidth: 2,
     flexDirection: 'row',
     overflow: 'hidden',
     // marginTop:30
   },
   circle: {
-    width: (width * 0.7) / 11,
-    height: height * 0.032,
-    borderRadius: (width * 0.7) / 11 / 2,
-    backgroundColor: '#4CAF50',
+    width: (Sizing.vw * 75) / 11,
+    height: Sizing.vh * 3.3,
+    borderRadius: (Sizing.vw * 75) / 11 / 2,
+    backgroundColor: Colors.GREEN,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     position: 'absolute',
     top: -1,
   },

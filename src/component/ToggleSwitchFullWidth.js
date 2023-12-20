@@ -6,7 +6,7 @@ import {
   Text,
   Dimensions,
 } from 'react-native';
-import {Colors} from '../styles';
+import {Colors, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 export const ToggleSwitchFullWidth = ({
@@ -23,15 +23,7 @@ export const ToggleSwitchFullWidth = ({
   };
 
   return (
-    <View
-      style={
-        {
-          // justifyContent: 'center',
-          // alignItems: 'center',
-          // width: '100%',
-          // height: '100%',
-        }
-      }>
+    <View>
       <TouchableOpacity style={styles.container} onPress={handleToggle}>
         <View
           style={[
@@ -49,7 +41,6 @@ export const ToggleSwitchFullWidth = ({
         style={{
           justifyContent: 'space-between',
           flexDirection: 'row',
-          // width: 250,
         }}>
         <Text>{CL}</Text>
         <Text>{CR}</Text>
@@ -61,23 +52,22 @@ export const ToggleSwitchFullWidth = ({
 
 const styles = StyleSheet.create({
   container: {
-    width: width * 0.91,
-    height: height * 0.032,
+    width: Sizing.vw*91,
+    height: Sizing.vh*3.2,
     borderRadius: 12.5,
-    backgroundColor: 'white',
-    borderColor: 'black',
+    backgroundColor: Colors.WHITE,
+    borderColor: Colors.BLACK,
     borderWidth: 2,
     flexDirection: 'row',
     overflow: 'hidden',
-    // marginTop:30
   },
   circle: {
-    width: (width * 0.7) / 11,
-    height: height * 0.032,
+    width: (Sizing.vw*75) / 11,
+    height: Sizing.vh*3.2,
     borderRadius: (width * 0.7) / 11 / 2,
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.GREEN,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     position: 'absolute',
     top: -2,
   },

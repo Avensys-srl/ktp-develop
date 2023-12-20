@@ -12,6 +12,7 @@ import {CountdownProgressBar, Header, OnOff} from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import ActivationButton from '../../component/ActivationButton';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
+import {Colors, Sizing, CustomStyles} from '../../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -31,7 +32,7 @@ const Filter_Settings2 = () => {
             <OnOff />
           </View>
 
-          <Text style={styles.filterAlarmText}>Filter alarm activation</Text>
+          <Text style={CustomStyles.Title1}>Filter alarm activation</Text>
         </View>
 
         {/* filter replaced */}
@@ -41,7 +42,7 @@ const Filter_Settings2 = () => {
             <OnOff leftText="no" rightText="yes" />
           </View>
 
-          <Text style={styles.filterAlarmText}>Filter replaced ?</Text>
+          <Text style={CustomStyles.Title1}>Filter replaced ?</Text>
           <View style={styles.lockImgTouchableOpacity}>
             <TouchableOpacity
               onPress={() => setFilterReplacedLock(!filterReplacedLock)}>
@@ -107,29 +108,30 @@ export default Filter_Settings2;
 
 const styles = StyleSheet.create({
   mainSafeAreaView: {
-    width: width,
-    height: height,
+    width: Sizing.vw * 100,
+    height: Sizing.vh * 100,
     borderWidth: 2,
-    borderColor: 'red',
+    borderColor: Colors.RED,
+    backgroundColor: Colors.WHITE,
   },
   filterAlarmContainer: {
-    margin: width * 0.04,
-    borderWidth: 2,
-    borderColor: 'black',
+    margin: Sizing.vw * 4,
+    borderWidth: 0,
+    borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    borderRadius: 12,
+    borderRadius: 6,
   },
   filterAlarmText: {
     textAlign: 'center',
-    marginBottom: height * 0.02,
-    fontSize: width * 0.04,
-    color: 'grey',
+    marginBottom: Sizing.vh * 2,
+    fontSize: Sizing.vw * 4.5,
+    color: Colors.GREY500,
   },
   lockImg: {
-    width: width * 0.1,
-    height: height * 0.06,
+    width: Sizing.vw * 10,
+    height: Sizing.vh * 6,
     marginRight: width * 0.07,
   },
   lockImgTouchableOpacity: {
@@ -140,10 +142,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: height * 0.01,
     fontSize: width * 0.04,
-    color: 'grey',
+    color: Colors.GREY500,
   },
   progressBarContainer: {
-    height: height * 0.09,
+    height: Sizing.vh * 9,
     marginTop: -height * 0.02,
   },
   navigationContainer: {

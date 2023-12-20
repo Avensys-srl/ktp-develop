@@ -49,10 +49,10 @@ const styles = ScaledSheet.create({
     outerBar: {
         overflow: 'hidden',
         borderWidth: 1,
-        borderColor: 'black'
+        borderColor: Colors.BLACK
     },
     innerBar: {
-        backgroundColor: 'green',
+        backgroundColor: Colors.GREEN,
         flex: 1,
     },
     titleStyle: {

@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Svg, {Rect} from 'react-native-svg';
 import {ImageSource} from '../common/imageSource';
-import {Colors} from '../styles';
+import {Colors, Sizing} from '../styles';
 
 const {width} = Dimensions.get('window');
 export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
@@ -84,7 +84,7 @@ export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: width * 0.196,
+    width: Sizing.vw * 20,
     flexDirection: 'column',
     alignItems: 'center',
     borderRadius: 12,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '100%',
+    width: Sizing.vw * 100,
     paddingHorizontal: 50,
   },
   button: {
@@ -116,8 +116,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow: 'hidden',
     alignItems: 'center',
-    width: 24,
-    height: 150,
+    width: Sizing.vw * 6,
+    height: Sizing.vh * 17,
   },
   percentageText: {
     fontSize: 18,

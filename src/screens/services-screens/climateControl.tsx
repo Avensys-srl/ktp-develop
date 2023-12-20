@@ -7,6 +7,7 @@ import {dayTemperatureData, nightTemperatureData} from '../../configs';
 import Demo from '../../component/DropdownSetPoint';
 import {CenteredProgressBar} from '../../component/index';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
+import {Colors, Sizing} from '../../styles';
 
 const {width, height} = Dimensions.get('window');
 export const ClimateControl = () => {
@@ -35,10 +36,7 @@ export const ClimateControl = () => {
         <View style={styles.progressbarContainer}>
           <CenteredProgressBar IST={'Summar Winter Changes'} RIV={20} BG={1} />
 
-          <Image
-            source={require('../../assets/lock-open.png')}
-            style={styles.lockImg}
-          />
+          <Image source={ImageSource.lockOpen} style={styles.lockImg} />
         </View>
       </View>
       <View style={styles.navigationContainer}>
@@ -52,15 +50,16 @@ const styles = ScaledSheet.create({
   mainContainer: {
     flex: 1,
     borderWidth: 1,
-    borderColor: 'red',
+    borderColor: Colors.RED,
+    backgroundColor: Colors.WHITE,
   },
   container: {
     flex: 1,
-    width: width,
-    height: height,
+    width: Sizing.vw * 100,
+    height: Sizing.vh * 100,
   },
   tempDropdown: {
-    color: 'black',
+    color: Colors.BLACK,
     fontSize: '20@ms',
   },
   navigationContainer: {
@@ -75,13 +74,13 @@ const styles = ScaledSheet.create({
   progressbarContainer: {
     flexDirection: 'row',
     marginLeft: width * 0.07,
-    width: width * 0.8,
+    width: Sizing.vw * 80,
     alignItems: 'center',
     marginTop: height * 0.35,
   },
   lockImg: {
-    width: width * 0.08,
-    height: height * 0.04,
+    width: Sizing.vw * 8,
+    height: Sizing.vh * 4,
     marginTop: height * 0.06,
     marginLeft: width * 0.02,
   },

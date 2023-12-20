@@ -9,6 +9,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {ImageSource} from '../common/imageSource';
 import {Routes} from '../routes';
+import {Colors, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -21,9 +22,9 @@ const CustomBottomNavigation = ({
 }) => {
   let OCColor;
   if (OC === 0) {
-    OCColor = 'black';
+    OCColor = Colors.BLACK;
   } else if (OC === 1) {
-    OCColor = 'red';
+    OCColor = Colors.RED;
   }
 
   const navigation = useNavigation();
@@ -45,19 +46,19 @@ const CustomBottomNavigation = ({
   };
 
   return (
-    <View style={{width: '100%', alignItems: 'center', marginTop: 10}}>
+    <View style={styles.mainContainer}>
       <View style={[styles.container, {borderColor: OCColor}]}>
         <TouchableOpacity onPress={navigateToHome}>
-          <Image source={HI} style={{height: 50, width: 50}} />
+          <Image source={HI} style={styles.img} />
         </TouchableOpacity>
         <TouchableOpacity onPress={navigateToSettings}>
-          <Image source={PI} style={{height: 50, width: 50}} />
+          <Image source={PI} style={styles.img} />
         </TouchableOpacity>
         <TouchableOpacity onPress={navigateToInfo}>
-          <Image source={II} style={{height: 50, width: 50}} />
+          <Image source={II} style={styles.img} />
         </TouchableOpacity>
         <TouchableOpacity onPress={navigateToService}>
-          <Image source={SI} style={{height: 50, width: 50}} />
+          <Image source={SI} style={styles.img} />
         </TouchableOpacity>
       </View>
     </View>
@@ -65,6 +66,11 @@ const CustomBottomNavigation = ({
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    width: Sizing.vw * 100,
+    alignItems: 'center',
+    marginTop: 10,
+  },
   container: {
     width: width * 0.9,
     flexDirection: 'row',
@@ -73,6 +79,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 12,
     alignItems: 'center',
+    // backgroundColor: 'white',
+  },
+  img: {
+    height: Sizing.vh * 6,
+    width: Sizing.vw * 12,
   },
 });
 

@@ -6,6 +6,7 @@ import {
   Text,
   Dimensions,
 } from 'react-native';
+import {Colors, Sizing} from '../styles';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -40,40 +41,40 @@ export const OnOff = ({status, leftText = 'Off', rightText = 'On'}) => {
 const styles = StyleSheet.create({
   mainContainer: {
     // width: width * 0.3,
-    height: height * 0.13,
-    flexDirection: 'row',
-    paddingHorizontal: 12,
+    // height: Sizing.vh * 13,
+    // flexDirection: 'row',
+    // paddingHorizontal: 12,
     borderRadius: 1,
     alignItems: 'center',
     marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: 8,
-    borderWidth: 0,
+    // marginRight: 'auto',
+    // marginTop: 8,
+
     justifyContent: 'space-between',
   },
   container: {
-    height: height * 0.03,
-    width: width * 0.3,
-    backgroundColor: 'white',
-    borderRadius: (width * 0.8) / 2,
+    height: Sizing.vh * 3,
+    width: Sizing.vw * 30,
+    backgroundColor: Colors.WHITE,
+    borderRadius: (Sizing.vh * 3) / 2,
     justifyContent: 'center',
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: 'black',
+    // overflow: 'hidden',
+    borderWidth: 2,
+    borderColor: Colors.LIGHT_GREEN,
   },
   circle: {
-    height: height * 0.03,
-    width: width * 0.06,
-    borderRadius: 12,
-    backgroundColor: 'lightgray',
-    borderWidth: 1,
-    borderColor: 'black',
+    height: Sizing.vh * 2.3,
+    width: Sizing.vh * 2.3,
+    borderRadius: Sizing.vh * 2.7,
+    backgroundColor: Colors.LIGHT_GREY,
+    // borderWidth: 2,
+    // borderColor: 'black',
     position: 'absolute',
-    left: -1,
+    left: 2,
   },
   circleActive: {
     left: width * 0.048 * 5,
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.LIGHT_GREEN,
   },
   text: {
     fontSize: 16,

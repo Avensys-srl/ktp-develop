@@ -5,6 +5,7 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {useState} from 'react';
 import {ServicesCard} from './services-card';
 import {Routes} from '../../routes';
+import {Colors, Sizing} from '../../styles';
 
 const ServicesTab = [
   {
@@ -62,7 +63,7 @@ export const Accessories = () => {
   const [activeTab, setActiveTab] = useState(true);
   return (
     <>
-      <Header title="Accessories" canGoBack={true} />
+      <Header title="Accessories" canGoBack={true} optionsStar={1} />
       <View style={{flex: 1, width: '100%'}}>
         {activeTab && userType.technician ? (
           <View style={styles.container}>
@@ -93,22 +94,22 @@ export const Accessories = () => {
           </ScrollView>
         )}
       </View>
-      <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+      <View style={{flexDirection: 'row', justifyContent: 'space-around',width:Sizing.vw*85,alignSelf:'center'}}>
         <TouchableOpacity
-          style={[styles.buttons, activeTab && {backgroundColor: 'black'}]}
+          style={[styles.buttons, activeTab && {backgroundColor: Colors.BLACK}]}
           onPress={() => {
             setActiveTab(true);
           }}>
-          <Text style={{color: activeTab ? 'white' : 'black'}}>
+          <Text style={{color: activeTab ? Colors.WHITE : Colors.BLACK}}>
             Listed By Name
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.buttons, !activeTab && {backgroundColor: 'black'}]}
+          style={[styles.buttons, !activeTab && {backgroundColor: Colors.BLACK}]}
           onPress={() => {
             setActiveTab(false);
           }}>
-          <Text style={{color: activeTab ? 'black' : 'white'}}>
+          <Text style={{color: activeTab ? Colors.BLACK : Colors.WHITE}}>
             Listed By Function
           </Text>
         </TouchableOpacity>
@@ -121,18 +122,20 @@ const styles = ScaledSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    width: '100%',
+    width: Sizing.vw * 100,
     flexDirection: 'row',
     flexWrap: 'wrap',
     flex: 1,
+    alignSelf:'center'
   },
   buttons: {
     flexDirection: 'row',
     borderWidth: 1,
-    height: '40@ms',
-    width: '48%',
+    height: Sizing.vh * 5,
+    width: Sizing.vw * 48,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: '5@ms',
+    // marginVertical: '5@ms',
+    marginVertical: Sizing.vh * 0.6,
   },
 });

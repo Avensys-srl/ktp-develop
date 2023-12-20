@@ -2,6 +2,7 @@ import {View, TouchableOpacity, Image, Text} from 'react-native'
 import {ScaledSheet} from 'react-native-size-matters'
 
 import {ImageSource} from '../common/imageSource'
+import { Colors, Sizing } from '../styles'
 
 export const CheckBox = props => {
   const {
@@ -19,7 +20,7 @@ export const CheckBox = props => {
         flexDirection: 'row',
         alignItems: 'center',
         marginVertical: 6,
-        width: '100%',
+        width: Sizing.vw*100,
         paddingHorizontal: 15,
         justifyContent: 'space-between',
       }}
@@ -41,30 +42,29 @@ export const CheckBox = props => {
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    width: '100%',
+    width: Sizing.vw*100,
     justifyContent: 'center',
-    backgroundColor: 'black',
+    backgroundColor: Colors.BLACK,
   },
   buttonContainer: {
-    borderColor: 'white',
+    borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '4@ms',
-
     marginLeft: '8@ms',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '26@ms',
-    width: '26@ms',
+    height: Sizing.vh*3.6,
+    width: Sizing.vw*7
   },
 
   textStyle: {
-    color: 'white',
+    color: Colors.WHITE,
     fontSize: '14@ms',
-    width:'80%'
+    width:Sizing.vw*80,
   },
 
   imageStyle: {
-    height: '14@ms',
-    width: '14@ms',
+    height: Sizing.vh*1.5,
+    width: Sizing.vw*3.5,
   },
 })

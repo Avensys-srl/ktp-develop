@@ -1,5 +1,6 @@
 import {Text, View} from 'react-native'
 import {ScaledSheet} from 'react-native-size-matters'
+import { Colors } from '../styles'
 
 export const Label = props => {
   const {children, style} = props
@@ -9,6 +10,6 @@ export const Label = props => {
 const styles = ScaledSheet.create({
   text: {
     fontSize: '15@ms',
-    color: 'white',
+    color: Colors.WHITE,
   },
 })

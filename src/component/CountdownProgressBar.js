@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
 import * as Progress from 'react-native-progress';
+import {Colors, CustomStyles, Sizing} from '../styles';
 
-const {width} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
   const [progress, setProgress] = useState(init_val);
 
@@ -27,24 +28,35 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
 
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{marginBottom: 12}}>{rv}</Text>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          width: Sizing.vw * 60,
+          position: 'relative',
+        }}>
+        <Text style={CustomStyles.ComponentTitles}>{rv}</Text>
+        <Text
+          style={[
+            CustomStyles.ComponentTitles,
+            {bottom: height * 0.003},
+          ]}>{`${Math.round(progress * (max_val - min_val) + min_val)}`}</Text>
+      </View>
+
       <View {...panResponder.panHandlers}>
         <Progress.Bar
           progress={progress}
-          width={width * 0.93}
-          height={25}
+          width={Sizing.vw * 85}
+          height={Sizing.vh * 3.1}
           borderRadius={18}
-          color="#4CAF50"
-          borderColor="black"
-          borderWidth={1}
-          unfilledColor="#ffffff"
+          color={Colors.LIGHT_GREEN}
+          borderColor={Colors.LIGHT_GREEN}
+          borderWidth={2}
+          unfilledColor={Colors.WHITE}
         />
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text>{mv}</Text>
           <Text>{Xv}</Text>
-          <Text style={{position: 'absolute', left: filledWidth, bottom: -10}}>
-            {`${Math.round(progress * (max_val - min_val) + min_val)}`}
-          </Text>
         </View>
       </View>
     </View>

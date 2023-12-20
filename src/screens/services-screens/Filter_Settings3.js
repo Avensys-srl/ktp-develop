@@ -1,17 +1,31 @@
 import {StyleSheet, Text, View, Dimensions, SafeAreaView} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {CircleProgressBar, Header, ToggleSwitch} from '../../component';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
+import {Colors, Sizing} from '../../styles';
 
-const {width, height} = Dimensions.get('window');
+// const {width, height} = Dimensions.get('window');
 
 const Filter_Settings3 = () => {
+  const initialState = true;
+  const [isTimeToggled, setIsTimeToggled] = useState(initialState);
+
+  const handleTimeToggle = newValue => {
+    setIsTimeToggled(!isTimeToggled);
+  };
+
   return (
     <SafeAreaView style={styles.mainSafeAreaView}>
       <Header canGoBack={true} title="Filter-setting" />
       <View style={styles.mainContainer}>
         <View style={styles.toggleSwitchContainer}>
-          <ToggleSwitch CL={'time'} CR={'pressure'} BG={0} isToggled={true} />
+          <ToggleSwitch
+            CL={'time'}
+            CR={'pressure'}
+            BG={0}
+            isToggled={isTimeToggled}
+            onToggle={handleTimeToggle}
+          />
         </View>
 
         <View style={styles.progressbarContainer}>
@@ -36,10 +50,10 @@ export default Filter_Settings3;
 
 const styles = StyleSheet.create({
   mainSafeAreaView: {
-    width: width,
-    height: height,
+    width: Sizing.vw * 100,
+    height: Sizing.vh * 100,
     borderWidth: 2,
-    borderColor: 'red',
+    borderColor: Colors.RED,
   },
   navigationContainer: {
     flex: 1,
@@ -51,7 +65,7 @@ const styles = StyleSheet.create({
   },
   toggleSwitchContainer: {
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 30,

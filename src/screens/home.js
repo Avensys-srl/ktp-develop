@@ -15,6 +15,7 @@ import {FilterButton} from './filter-button';
 import {HeaterButton} from './heater-button';
 import {AlarmButton} from './alarm-button';
 import CustomBottomNavigation from '../component/CustomBottomNavigation';
+import {Colors, Sizing} from '../styles';
 
 export const Home = () => {
   const {height, width} = Dimensions.get('window');
@@ -752,35 +753,36 @@ export const Home = () => {
 const styles = ScaledSheet.create({
   container: {
     //flex: 1,
-    width: '100%',
-    height: '90%',
-    backgroundColor: 'black',
+    width: Sizing.vw * 100,
+    height: Sizing.vh * 90,
+    backgroundColor: Colors.BLACK,
   },
   buttonContainer: {
-    borderColor: 'white',
+    borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '20@ms',
-    width: '300@ms',
+    // width: '300@ms',
+    width: Sizing.vw * 78,
     alignSelf: 'center',
     paddingVertical: '10@ms',
     marginVertical: '6@ms',
-    maxWidth: '90%',
+    maxWidth: Sizing.vw * 90,
   },
   row: {
     flexDirection: 'row',
-    width: '100%',
+    width: Sizing.vw * 77,
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: '10@ms',
   },
   dot: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
     borderRadius: '40@ms',
-    borderColor: 'white',
+    borderColor: Colors.WHITE,
     borderWidth: '8@ms',
   },
   text: {
-    color: 'white',
+    color: Colors.WHITE,
     fontSize: '16@ms',
     textAlign: 'left',
     textAlignVertical: 'center',
@@ -792,15 +794,16 @@ const styles = ScaledSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
   },
-  boxStyle: {
-    height: '30@ms',
-    width: '30@ms',
-    borderRadius: '5@ms',
-    borderWidth: 0.5,
-  },
+  // boxStyle: {
+  //   height: '30@ms',
+  //   width: '30@ms',
+  //   borderRadius: '5@ms',
+  //   borderWidth: 0.5,
+  // },
   resetImage: {
-    height: '40@ms',
-    width: '40@ms',
+    // height: '40@ms',
+    height: Sizing.vh * 5,
+    width: Sizing.vw * 10,
   },
   TouchContainer: {
     alignItems: 'center',

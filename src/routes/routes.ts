@@ -16,4 +16,5 @@ export const Routes = {
   PreHeater: 'preheater',
   Probs: 'probs',
   Communication: 'communication',
+  Profile: 'profile',
 };

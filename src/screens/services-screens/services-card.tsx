@@ -1,32 +1,32 @@
-import { View, Image, TouchableOpacity, Text, FlatList } from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
-import { Label, AccessoriesCard } from '../../component'
-import { ImageSource } from '../../common/imageSource'
-import { useState } from 'react'
-import { userType, accessoriesName } from '../../configs'
-import { useNavigation } from '@react-navigation/native'
-
-
-
+import {View, Image, TouchableOpacity, Text, FlatList} from 'react-native';
+import {ScaledSheet} from 'react-native-size-matters';
+import {Label, AccessoriesCard} from '../../component';
+import {ImageSource} from '../../common/imageSource';
+import {useState} from 'react';
+import {userType, accessoriesName} from '../../configs';
+import {useNavigation} from '@react-navigation/native';
+import {Colors, Sizing} from '../../styles';
 interface props {
-  title: string
-  index: any
-  onPress: any
-  disabled: boolean
-  
+  title: string;
+  index: any;
+  onPress: any;
+  disabled: boolean;
 }
 
 export const ServicesCard = (props: props) => {
-  const { title, index, onPress, disabled, values = [] } = props
-  const navigation = useNavigation()
+  const {title, index, onPress, disabled, values = []} = props;
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.card} key={index}
+      <TouchableOpacity
+        style={styles.card}
+        key={index}
         disabled={disabled}
         onPress={() => navigation.navigate(onPress)}>
-        <Label style={styles.title}>{title}</Label>
-        <View style={{flexDirection:'row'}}>
+        {/* <Label style={styles.title}>{title}</Label> */}
+        <Text style={styles.txttitle}>{title}</Text>
+        <View style={{flexDirection: 'row'}}>
           <TouchableOpacity>
             <Image source={ImageSource.star} style={styles.starImage} />
           </TouchableOpacity>
@@ -39,26 +39,32 @@ export const ServicesCard = (props: props) => {
           >
             <Image
               // source={arrowDown ? ImageSource.arrowDown : ImageSource.arrow}
-              source={values.length !== 0 ? ImageSource.arrowDown : ImageSource.arrow}
-              style={[styles.starImage, { tintColor: 'white' }]}
+              source={
+                values.length !== 0 ? ImageSource.arrowDown : ImageSource.arrow
+              }
+              style={[styles.starImage, {tintColor: 'white'}]}
             />
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
-      {values.length !== 0 && <View style={styles.valuesContainer}>
-        {values.map((title) => {
-          return (<AccessoriesCard title={title} />)
-        })}
-      </View>}
+      {values.length !== 0 && (
+        <View style={styles.valuesContainer}>
+          {values.map((title: string) => {
+            return <AccessoriesCard title={title} onPress={undefined} disabled={false} />;
+          })}
+        </View>
+      )}
       {/* {dropDown()} */}
     </View>
-  )
-}
+  );
+};
 
 const styles = ScaledSheet.create({
   container: {
-    width: '100%',
+    width: Sizing.vw * 100,
     paddingHorizontal: '2@ms',
+    alignItems:'center',
+
   },
   card: {
     flexDirection: 'row',
@@ -67,26 +73,31 @@ const styles = ScaledSheet.create({
     // paddingVertical: '5@ms',
     borderWidth: 1,
     borderRadius: '5@ms',
-    marginTop: '6@ms',
+    marginTop: '5@ms',
     marginLeft: '5@ms',
     marginRight: '5@ms',
-    backgroundColor: 'black',
-    height: '50@ms',
-    justifyContent: 'space-between'
+    backgroundColor: Colors.BLACK,
+    height: '38@ms',
+    justifyContent: 'space-between',
+    width: Sizing.vw*90,
   },
   starImage: {
-    height: '30@ms',
-    width: '30@ms',
+    height: '25@ms',
+    width: '25@ms',
     resizeMode: 'contain',
   },
   title: {
-    color: 'white',
-    fontSize: '20@ms'
+    color: Colors.WHITE,
+    fontSize: '20@ms',
+  },
+   txttitle: {
+    color: Colors.WHITE,
+    fontSize: '18@ms',
   },
   valuesContainer: {
-    width: '100%',
+    width: Sizing.vw * 90,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: '5@ms'
-  }
-})
+    marginTop: '5@ms',
+  },
+});

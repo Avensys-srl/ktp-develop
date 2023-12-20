@@ -36,9 +36,9 @@ export const MultiBar = (props: props) => {
                 step={1}
                 onValueChange={(value) => setCurrentValue(parseInt(value))}
                 thumbStyle={{ borderWidth: 2, borderColor: 'rblackd', backgroundColor: 'white', }}
-                maximumTrackTintColor={'white'}
-                minimumTrackTintColor={'white'}
-                trackStyle={{ height: 20, borderWidth: 2, backgroudColor: 'white', borderRadius: 10 }}
+                maximumTrackTintColor={Colors.WHITE}
+                minimumTrackTintColor={Colors.WHITE}
+                trackStyle={{ height: 20, borderWidth: 2, backgroudColor: Colors.WHITE, borderRadius: 10 }}
                 style={styles.sliderStyle}
             />
 
@@ -56,7 +56,7 @@ const styles = ScaledSheet.create({
         width: '200@ms',
     },
     innerBar: {
-        backgroundColor: 'green',
+        backgroundColor: Colors.GREEN,
     },
     titleStyle: {
         color: Colors.BLACK,

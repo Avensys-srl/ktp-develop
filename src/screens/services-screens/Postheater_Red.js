@@ -24,7 +24,7 @@ import CircleProgressBarSmaller from '../../component/CircleProgressBarSmaller';
 
 const {width, height} = Dimensions.get('window');
 
-const PostCooling_Red = () => {
+const Postheater_Red = () => {
   const initialState = true;
   const [isToggled, setIsToggled] = useState(initialState);
   const [isSensorToggled, setIsSensorToggled] = useState(initialState);
@@ -41,7 +41,7 @@ const PostCooling_Red = () => {
     <SafeAreaView style={styles.mainContainer}>
       <Header
         canGoBack={true}
-        title="Postcooling setting"
+        title="Postheater setting"
         optionsStar={1}
         headerBG={1}
       />
@@ -75,7 +75,7 @@ const PostCooling_Red = () => {
             <Text
               style={[
                 CustomStyles.ComponentTitles,
-                {marginBottom: 24, marginStart: 12},
+                {marginBottom: height * 0.03, marginStart: width * 0.03},
               ]}>
               Paring status
             </Text>
@@ -105,13 +105,12 @@ const PostCooling_Red = () => {
               style={[
                 CustomStyles.ComponentTitles,
                 {
-                  marginTop: 12,
-                  marginStart: 12,
+                  marginTop: height * 0.02,
                 },
               ]}>
               Hysteresys[°C]
             </Text>
-            <View style={{}}>
+            <View>
               <NewRangeSlider TPR={''} VL1={3} VL2={15} minVL={0} maxVL={35} />
             </View>
           </View>
@@ -125,7 +124,7 @@ const PostCooling_Red = () => {
             <Text
               style={[
                 CustomStyles.ComponentTitles,
-                {marginBottom: 24, marginStart: 12},
+                {marginBottom: height * 0.03, marginStart: width * 0.03},
               ]}>
               sensors
             </Text>
@@ -166,7 +165,7 @@ const PostCooling_Red = () => {
   );
 };
 
-export default PostCooling_Red;
+export default Postheater_Red;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -175,23 +174,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.RED,
   },
+
   filterAlarmContainer: {
     margin: width * 0.04,
     marginHorizontal: width * 0.055,
-    // borderWidth: 2,
-    // borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    // borderRadius: 12,
   },
+
   filterAlarmText: {
     textAlign: 'center',
     marginBottom: height * 0.025,
     fontSize: width * 0.04,
     color: Colors.GREY500,
-    marginStart: 12,
   },
+
   activationImg: {
     width: 40,
     height: 40,
@@ -199,6 +197,7 @@ const styles = StyleSheet.create({
     top: height * 0.015,
     right: width * 0.025,
   },
+
   pairedView: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -208,16 +207,19 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignSelf: 'center',
   },
+
   paringStatusContainer: {
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   remainingDutyText: {
     textAlign: 'center',
     marginTop: height * 0.01,
     fontSize: width * 0.04,
     color: Colors.GREY500,
   },
+
   refTempContainer: {
     width: Sizing.vw * 90,
     justifyContent: 'center',
@@ -229,23 +231,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 12,
   },
+
   refImg: {
     height: 30,
     width: 30,
   },
+
   progressBarContainer: {
     height: Sizing.vh * 9,
     marginTop: -height * 0.02,
   },
+
   hysText: {
     textAlign: 'center',
     // marginBottom: -30,
     zIndex: 2,
   },
+
   sensorContainer: {
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   boostTimeContainer: {
     justifyContent: 'center',
     height: Sizing.vh * 15,
@@ -256,18 +263,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 12,
   },
+
   divider: {
     height: 2,
     backgroundColor: Colors.BLACK,
     width: '100%',
     flex: 1,
   },
+
   progressBarContainer1: {
     height: height * 0.09,
     marginTop: height * 0.02,
     marginBottom: 24,
     width: Sizing.vw * 90,
   },
+
   refTempImg: {
     width: 40,
     height: 40,

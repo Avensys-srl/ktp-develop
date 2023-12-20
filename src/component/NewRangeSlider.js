@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Dimensions} from 'react-native';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
+import {Colors, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -15,7 +16,7 @@ const NewRangeSlider = ({TPR, VL1, VL2, BG, minVL = 0, maxVL = 100}) => {
     const position = index === 0 ? -20 : 20;
     const valueStyle = {
       ...styles.markerText,
-      color: selected ? 'white' : 'black',
+      color: selected ? Colors.WHITE : Colors.BLACK,
       top: position,
     };
 
@@ -23,7 +24,7 @@ const NewRangeSlider = ({TPR, VL1, VL2, BG, minVL = 0, maxVL = 100}) => {
       <View
         style={{
           ...styles.customMarker,
-          backgroundColor: selected ? 'green' : 'lightgrey',
+          backgroundColor: selected ? Colors.LIGHT_GREEN : Colors.LIGHT_GREEN,
         }}>
         <Text style={valueStyle}>{value}</Text>
       </View>
@@ -32,20 +33,26 @@ const NewRangeSlider = ({TPR, VL1, VL2, BG, minVL = 0, maxVL = 100}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={{fontSize: 18, color: 'black'}}>{TPR}</Text>
+      <Text style={{fontSize: 18, color: Colors.BLACK}}>{TPR}</Text>
       <Text style={styles.values1}>{values[0]}</Text>
-      <MultiSlider
-        values={values}
-        min={minVL}
-        max={maxVL}
-        onValuesChange={handleValuesChange}
-        sliderLength={width * 0.75}
-        selectedStyle={styles.selectedStyle}
-        unselectedStyle={styles.unselectedStyle}
-        containerStyle={styles.containerStyle}
-        trackStyle={styles.trackStyle}
-        customMarker={renderCustomMarker}
-      />
+      <View style={{marginTop: -40}}>
+        <MultiSlider
+          values={values}
+          min={minVL}
+          max={maxVL}
+          onValuesChange={handleValuesChange}
+          sliderLength={Sizing.vw * 90}
+          selectedStyle={styles.selectedStyle}
+          unselectedStyle={styles.unselectedStyle}
+          containerStyle={styles.containerStyle}
+          trackStyle={styles.trackStyle}
+          customMarker={renderCustomMarker}
+        />
+      </View>
+      <View style={styles.minMaxTextContainer}>
+        <Text>{minVL}</Text>
+        <Text>{maxVL}</Text>
+      </View>
       <Text style={styles.values2}>{values[1]}</Text>
     </View>
   );
@@ -55,61 +62,68 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     borderRadius: 12,
-    backgroundColor: 'white',
-    // borderWidth: 1,
-    // borderColor: 'red',
+    backgroundColor: Colors.WHITE,
   },
 
   values1: {
-    color: 'gray',
-    marginRight: width * 0.6,
+    color: Colors.BLUE,
+    marginRight: Sizing.vw * 60,
+    top: -10,
+    zIndex: 2,
   },
+
   values2: {
-    color: 'gray',
-    marginLeft: width * 0.6,
+    color: Colors.BLUE,
+    marginLeft: Sizing.vw * 60,
+    bottom: 52,
+    zIndex: 2,
   },
 
   selectedStyle: {
-    backgroundColor: 'green',
-    height: 15,
+    backgroundColor: Colors.LIGHT_GREEN,
+    height: Sizing.vh * 3,
     marginTop: -6,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: 'black',
+    borderColor: Colors.BLACK,
   },
 
   unselectedStyle: {
-    backgroundColor: 'lightgrey',
-    height: 15,
+    backgroundColor: Colors.WHITE,
+    height: Sizing.vh * 3,
     marginTop: -5,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: 'black',
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: Colors.LIGHT_GREEN,
   },
 
   containerStyle: {
-    height: 40,
+    height: Sizing.vh * 4.5,
     borderRadius: 10,
   },
 
   trackStyle: {
-    height: 50,
+    height: Sizing.vh * 5,
   },
 
   customMarker: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: 'black',
+    width: Sizing.vw * 6,
+    height: Sizing.vw * 6,
+    borderRadius: (Sizing.vw * 6) / 2,
+    borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',
+    top: 7,
   },
 
   markerText: {
-    color: 'black',
+    color: Colors.BLACK,
     fontWeight: 'bold',
     position: 'absolute',
+  },
+
+  minMaxTextContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '90%',
   },
 });
 

@@ -17,10 +17,11 @@ import Filter_Settings3 from '../screens/services-screens/Filter_Settings3';
 import FilterScreens from '../screens/services-screens/FilterScreens';
 import PostCooling_Blue from '../screens/services-screens/PostCooling_Blue';
 import PostCooling_Red from '../screens/services-screens/PostCooling_Red';
-import Postheater_Red from '../screens/Postheater_Red';
+import Postheater_Red from '../screens/services-screens/Postheater_Red';
 import Preheater from '../screens/services-screens/Preheater';
 import Probs from '../screens/services-screens/Probs';
 import Communication from '../screens/services-screens/Communication';
+import {Profile} from '../screens/settings-screens';
 
 const Stack = createStackNavigator();
 
@@ -43,6 +44,7 @@ export const MainStack = () => {
       <Stack.Screen name={Routes.PreHeater} component={Preheater} />
       <Stack.Screen name={Routes.Probs} component={Probs} />
       <Stack.Screen name={Routes.Communication} component={Communication} />
+      <Stack.Screen name={Routes.Profile} component={Profile} />
     </Stack.Navigator>
   );
 };

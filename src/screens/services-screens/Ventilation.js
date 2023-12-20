@@ -17,10 +17,9 @@ import {
   Header,
 } from '../../component/index';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
-import {Colors} from '../../styles';
+import {Colors, Sizing} from '../../styles';
 
-const {width} = Dimensions.get('window');
-const {height} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 export const Ventilation = () => {
   // Stato iniziale o stato ricevuto da altre fonti
@@ -40,7 +39,7 @@ export const Ventilation = () => {
         <Text style={styles.headingTxt}>Ventilation</Text>
       </View> */}
       <Header canGoBack={true} title="Ventilation" />
-      <ScrollView styles={{height: '75%'}}>
+      <ScrollView styles={{height: Sizing.vh * 75}}>
         <View style={styles.pairedView}>
           <Text style={styles.txttop}></Text>
           <ToggleSwitch
@@ -82,14 +81,14 @@ export default Ventilation;
 const styles = StyleSheet.create({
   bgheading: {
     padding: 10,
-    backgroundColor: '#92d050',
+    backgroundColor: Colors.LIGHT_GREEN,
     margin: 10,
     borderRadius: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   headingTxt: {
-    color: 'white',
+    color: Colors.WHITE,
     fontSize: 20,
   },
   imgHead: {
@@ -119,8 +118,8 @@ const styles = StyleSheet.create({
   pairedView: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: width * 0.93,
-    height: height * 0.07,
+    width: Sizing.vw * 93,
+    height: Sizing.vh * 7,
     borderWidth: 0,
     borderRadius: 5,
     margin: 15,
@@ -130,21 +129,21 @@ const styles = StyleSheet.create({
   rateView: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: width * 0.93,
-    height: height * 0.13,
+    width: Sizing.vw * 93,
+    height: Sizing.vh * 13,
     borderRadius: 5,
     margin: 15,
     marginTop: 0,
   },
   container: {
     // flex: 1,
-    width: '100%',
-    height: '100%',
+    width: Sizing.vw * 100,
+    height: Sizing.vh * 100,
     borderWidth: 2,
-    borderColor: 'red',
+    borderColor: Colors.RED,
     borderRadius: 10,
     // justifyContent: 'flex-end',
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
   },
   txttop: {
     marginTop: 25,
@@ -155,8 +154,8 @@ const styles = StyleSheet.create({
   pairedViewNoBorder: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: width * 0.93,
-    height: height * 0.15,
+    width: Sizing.vw * 93,
+    height: Sizing.vh * 15,
     margin: 15,
     marginBottom: 5,
     marginTop: 5,

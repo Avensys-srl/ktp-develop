@@ -1,11 +1,11 @@
 import {Pressable, StyleSheet, Text, View, Dimensions} from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {Colors} from '../styles';
+import {Colors, Sizing} from '../styles';
 
 const {width} = Dimensions.get('window');
-const border_thickness = 1.8;
+const border_thickness = 1;
 const progressBarHeight = 25;
-const circleSize = 25;
+const circleSize = 24;
 const centered = (progressBarHeight - circleSize) / 2 + border_thickness;
 
 export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
@@ -15,17 +15,17 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
 
   useEffect(() => {
     if (TBL === 1) {
-      setFirstContainer(Colors.GREEN);
+      setFirstContainer(Colors.LIGHT_GREEN);
       setSecondContainer(Colors.WHITE);
       setThirdContainer(Colors.WHITE);
     } else if (TBC === 1) {
       setFirstContainer(Colors.WHITE);
-      setSecondContainer(Colors.GREEN);
+      setSecondContainer(Colors.LIGHT_GREEN);
       setThirdContainer(Colors.WHITE);
     } else if (TBR === 1) {
       setFirstContainer(Colors.WHITE);
       setSecondContainer(Colors.WHITE);
-      setThirdContainer(Colors.GREEN);
+      setThirdContainer(Colors.LIGHT_GREEN);
     }
   }, [TBL, TBC, TBR]);
 
@@ -34,16 +34,17 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
       style={{
         flexDirection: 'row',
         justifyContent: 'center',
-        borderWidth: border_thickness,
+        borderWidth: 2,
         margin: 8,
         borderRadius: progressBarHeight,
         justifyContent: 'space-between',
-        width: width * 0.9,
+        width: Sizing.vw * 90,
         height: progressBarHeight,
+        borderColor: Colors.LIGHT_GREEN,
       }}>
       <Pressable
         onPress={() => (
-          setFirstContainer(Colors.GREEN),
+          setFirstContainer(Colors.LIGHT_GREEN),
           setSecondContainer(Colors.WHITE),
           setThirdContainer(Colors.WHITE)
         )}>
@@ -55,7 +56,7 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
       <Pressable
         onPress={() => (
           setFirstContainer(Colors.WHITE),
-          setSecondContainer(Colors.GREEN),
+          setSecondContainer(Colors.LIGHT_GREEN),
           setThirdContainer(Colors.WHITE)
         )}>
         <View
@@ -70,7 +71,7 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
         onPress={() => (
           setFirstContainer(Colors.WHITE),
           setSecondContainer(Colors.WHITE),
-          setThirdContainer(Colors.GREEN)
+          setThirdContainer(Colors.LIGHT_GREEN)
         )}>
         <View
           style={[styles.btnContainer, {backgroundColor: `${thirdContainer}`}]}>
@@ -85,8 +86,8 @@ const styles = StyleSheet.create({
   btnContainer: {
     height: circleSize,
     width: circleSize,
-    borderWidth: border_thickness,
-    borderColor: Colors.BLACK,
+    borderWidth: 2,
+    borderColor: Colors.LIGHT_GREEN,
     borderRadius: circleSize / 2,
     bottom: centered,
   },

@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
-import { Colors, Sizing } from '../styles';
+import {Colors, CustomStyles, Sizing} from '../styles';
 
-export const CircleProgressBar = ({TSB, TSL, TSR, RIV, BG}) => {
-  const progressBarWidth = Sizing.vw*90;
-  const circleSize = 27;
+export const CircleProgressBarSmaller = ({TSB, TSL, TSR, RIV, BG}) => {
+  const progressBarWidth = Sizing.vw * 80;
+  const circleSize = 24;
   const progressBarHeight = 30;
   const border_thickness = 2;
   const centered = (progressBarHeight - circleSize) / 2 - border_thickness;
 
   let bgColor;
   if (BG === 0) {
-    bgColor = Colors.WHITE;
+    bgColor = Colors.ORANGE;
   } else if (BG === 1) {
-    bgColor = Colors.GREEN;
+    bgColor = Colors.LIGHT_GREEN;
   } else if (BG === 2) {
     bgColor = Colors.RED;
   }
@@ -56,15 +56,20 @@ export const CircleProgressBar = ({TSB, TSL, TSR, RIV, BG}) => {
 
   return (
     <View style={{justifyContent: 'center', alignItems: 'center'}}>
-      {/* {TSB == '' ? <Text style={{marginBottom: 12}}>{TSB}</Text> : null} */}
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <Text style={CustomStyles.ComponentTitles}>{TSB}</Text>
+        <Text style={CustomStyles.ComponentTitles}>
+          {`${Math.round(progress * (TSR - TSL) + TSL)}`}
+        </Text>
+      </View>
 
       <View {...panResponder.panHandlers}>
         <View
           style={{
             width: progressBarWidth,
             height: progressBarHeight,
-            borderRadius: circleSize / 2,
-            borderColor: Colors.BLACK,
+            borderRadius: progressBarWidth / 2,
+            borderColor: Colors.LIGHT_GREEN,
             borderWidth: border_thickness,
             backgroundColor: Colors.WHITE,
             position: 'relative',
@@ -78,22 +83,12 @@ export const CircleProgressBar = ({TSB, TSL, TSR, RIV, BG}) => {
               position: 'absolute',
               left: circlePosition.left,
               bottom: circlePosition.bottom,
-              borderWidth: border_thickness,
-              borderColor: Colors.BLACK,
             }}
           />
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text>{TSL}</Text>
           <Text>{TSR}</Text>
-          <Text
-            style={{
-              position: 'absolute',
-              left: filledWidth,
-              bottom: -15,
-            }}>
-            {`${Math.round(progress * (TSR - TSL) + TSL)}`}
-          </Text>
         </View>
       </View>
     </View>
@@ -102,4 +97,4 @@ export const CircleProgressBar = ({TSB, TSL, TSR, RIV, BG}) => {
 
 const styles = StyleSheet.create({});
 
-export default CircleProgressBar;
+export default CircleProgressBarSmaller;
