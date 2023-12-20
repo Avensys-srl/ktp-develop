@@ -31,8 +31,5 @@ export const ImageSource = {
     wifiLow: require('../assets/wifi-low.png'),
     wifiMedium : require('../assets/wifi-medium.png'),
     wifiNone : require('../assets/wifi-none.png'),
-<<<<<<< HEAD
     starFill:require('../assets/star-filled.png')
-=======
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
 }

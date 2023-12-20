@@ -12,11 +12,7 @@ import {CountdownProgressBar, Header, OnOff} from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import ActivationButton from '../../component/ActivationButton';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
-<<<<<<< HEAD
 import {Colors, Sizing, CustomStyles} from '../../styles';
-=======
-import {Colors, Sizing} from '../../styles';
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
 
 const {width, height} = Dimensions.get('window');
 
@@ -116,18 +112,11 @@ const styles = StyleSheet.create({
     height: Sizing.vh * 100,
     borderWidth: 2,
     borderColor: Colors.RED,
-<<<<<<< HEAD
     backgroundColor: Colors.WHITE,
   },
   filterAlarmContainer: {
     margin: Sizing.vw * 4,
     borderWidth: 0,
-=======
-  },
-  filterAlarmContainer: {
-    margin: Sizing.vw * 4,
-    borderWidth: 2,
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
     borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
@@ -136,13 +125,8 @@ const styles = StyleSheet.create({
   },
   filterAlarmText: {
     textAlign: 'center',
-<<<<<<< HEAD
     marginBottom: Sizing.vh * 2,
     fontSize: Sizing.vw * 4.5,
-=======
-    marginBottom: height * 0.02,
-    fontSize: width * 0.04,
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
     color: Colors.GREY500,
   },
   lockImg: {

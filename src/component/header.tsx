@@ -3,11 +3,7 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {ImageSource} from '../common/imageSource';
 import {Label} from './label';
 import {useNavigation} from '@react-navigation/native';
-<<<<<<< HEAD
 import { Colors, Sizing, CustomStyles } from '../styles';
-=======
-import { Colors, Sizing } from '../styles';
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
 
 interface props {
   canGoBack: boolean;
@@ -46,11 +42,8 @@ export const Header = (props: props) => {
 const styles = ScaledSheet.create({
   container: {
     width: Sizing.vw*100,
-<<<<<<< HEAD
     alignItems:'center',
     marginTop:15
-=======
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
   image: {
     height: Sizing.vh*20,
@@ -61,17 +54,10 @@ const styles = ScaledSheet.create({
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-<<<<<<< HEAD
     // backgroundColor: Colors.GREEN,
     height: Sizing.vh*7,
     paddingHorizontal: '5@ms',
     width: Sizing.vw*90,
-=======
-    backgroundColor: Colors.BLACK,
-    height: Sizing.vh*5.5,
-    paddingHorizontal: '5@ms',
-    width: Sizing.vw*100,
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
   starArrowContainer: {
     flex: 1,

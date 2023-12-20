@@ -17,11 +17,7 @@ import {
 } from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
-<<<<<<< HEAD
 import {Colors, CustomStyles, Sizing} from '../../styles';
-=======
-import {Colors, Sizing} from '../../styles';
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
 import ToggleSwitchFullWidth from '../../component/ToggleSwitchFullWidth';
 import CircleProgressBarSmaller from '../../component/CircleProgressBarSmaller';
 import CircleProgressBarSmall from '../../component/CircleProgressBarSmall';
@@ -241,11 +237,7 @@ const styles = StyleSheet.create({
 
   filterAlarmContainer: {
     margin: Sizing.vw * 4,
-<<<<<<< HEAD
     // borderWidth: 2,
-=======
-    borderWidth: 2,
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
     borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
@@ -291,11 +283,7 @@ const styles = StyleSheet.create({
   },
   threePointSliderTextContainer: {
     flexDirection: 'row',
-<<<<<<< HEAD
     justifyContent: 'space-around',
-=======
-    justifyContent: 'space-between',
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
     width: Sizing.vw * 100,
     paddingLeft: 12,
     paddingRight: 12,

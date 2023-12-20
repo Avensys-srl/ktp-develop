@@ -10,10 +10,7 @@ import React from 'react';
 import {CountdownProgressBar, Header} from '../../component';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../../styles';
-<<<<<<< HEAD
 import CircleProgressBarSmall from '../../component/CircleProgressBarSmall';
-=======
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
 
 const {width, height} = Dimensions.get('window');
 
@@ -102,20 +99,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
     borderWidth: 1,
     borderColor: Colors.RED,
-<<<<<<< HEAD
     alignItems: 'center',
-=======
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
   remainingDutyText: {
     textAlign: 'center',
     marginTop: height * 0.01,
     fontSize: width * 0.04,
     color: Colors.GREY500,
-<<<<<<< HEAD
     marginBottom: 24,
-=======
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
   progressBarContainer: {
     height: height * 0.09,
@@ -124,7 +115,6 @@ const styles = StyleSheet.create({
   service: {
     textAlign: 'center',
     color: Colors.RED,
-<<<<<<< HEAD
   },
   progressBarContainer1: {
     height: height * 0.09,
@@ -145,7 +135,5 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: height * 0.05,
     borderRadius: 12,
-=======
->>>>>>> 0380e2125e53c9b60a686252a32aba68c4082d6b
   },
 });
