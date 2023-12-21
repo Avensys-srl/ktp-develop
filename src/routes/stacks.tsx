@@ -22,6 +22,7 @@ import Preheater from '../screens/services-screens/Preheater';
 import Probs from '../screens/services-screens/Probs';
 import Communication from '../screens/services-screens/Communication';
 import {Profile} from '../screens/settings-screens';
+import ServiceLogin from '../screens/services-screens/ServiceLogin';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ export const MainStack = () => {
       screenOptions={{headerShown: false}}
       initialRouteName={Routes.Home}>
       <Stack.Screen name={Routes.Home} component={Home} />
+      <Stack.Screen name={Routes.ServiceLogin} component={ServiceLogin} />
       <Stack.Screen name={Routes.Services} component={Services} />
       <Stack.Screen name={Routes.Info} component={Info} />
       <Stack.Screen name={Routes.Settings} component={Settings} />

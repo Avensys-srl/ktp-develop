@@ -41,7 +41,7 @@ const Postheater_Red = () => {
     <SafeAreaView style={styles.mainContainer}>
       <Header
         canGoBack={true}
-        title="Postheater setting"
+        title="Postcooling setting"
         optionsStar={1}
         headerBG={1}
       />
@@ -75,7 +75,7 @@ const Postheater_Red = () => {
             <Text
               style={[
                 CustomStyles.ComponentTitles,
-                {marginBottom: height * 0.03, marginStart: width * 0.03},
+                {marginBottom: 24, marginStart: 12},
               ]}>
               Paring status
             </Text>
@@ -105,12 +105,13 @@ const Postheater_Red = () => {
               style={[
                 CustomStyles.ComponentTitles,
                 {
-                  marginTop: height * 0.02,
+                  marginTop: 12,
+                  marginStart: 12,
                 },
               ]}>
               Hysteresys[°C]
             </Text>
-            <View>
+            <View style={{}}>
               <NewRangeSlider TPR={''} VL1={3} VL2={15} minVL={0} maxVL={35} />
             </View>
           </View>
@@ -124,7 +125,7 @@ const Postheater_Red = () => {
             <Text
               style={[
                 CustomStyles.ComponentTitles,
-                {marginBottom: height * 0.03, marginStart: width * 0.03},
+                {marginBottom: 24, marginStart: 12},
               ]}>
               sensors
             </Text>
@@ -146,12 +147,12 @@ const Postheater_Red = () => {
 
           <DividerLine />
 
-          <View style={{marginBottom: height * 0.05}}>
-            <Text style={styles.remainingDutyText}>communication rate [%]</Text>
+          <View style={{marginBottom: height * 0.05, marginTop: height * 0.04}}>
+            {/* <Text style={styles.remainingDutyText}>communication rate [%]</Text> */}
 
             <View style={styles.progressBarContainer}>
               <CountdownProgressBar
-                label={''}
+                label={'Communication rate [%]'}
                 min_val={0}
                 max_val={100}
                 init_val={0.5}

@@ -68,28 +68,30 @@ const styles = StyleSheet.create({
   values1: {
     color: Colors.BLUE,
     marginRight: Sizing.vw * 60,
-    top: -10,
+    top: -height * 0.02,
     zIndex: 2,
   },
 
   values2: {
     color: Colors.BLUE,
     marginLeft: Sizing.vw * 60,
-    bottom: 52,
+    top: -height * 0.063,
     zIndex: 2,
   },
 
   selectedStyle: {
     backgroundColor: Colors.LIGHT_GREEN,
     height: Sizing.vh * 3,
-    marginTop: -6,
+    marginTop: -height * 0.0067,
     borderColor: Colors.BLACK,
+    // borderWidth: 2,
+    // borderColor: Colors.RED,
   },
 
   unselectedStyle: {
     backgroundColor: Colors.WHITE,
     height: Sizing.vh * 3,
-    marginTop: -5,
+    marginTop: -height * 0.0067,
     borderRadius: 20,
     borderWidth: 2,
     borderColor: Colors.LIGHT_GREEN,
@@ -111,7 +113,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',
-    top: 7,
+    top: height * 0.008,
   },
 
   markerText: {

@@ -32,15 +32,15 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          width: Sizing.vw * 60,
+          // width: Sizing.vw * 60,
           position: 'relative',
         }}>
-        <Text style={CustomStyles.ComponentTitles}>{rv}</Text>
-        <Text
-          style={[
-            CustomStyles.ComponentTitles,
-            {bottom: height * 0.003},
-          ]}>{`${Math.round(progress * (max_val - min_val) + min_val)}`}</Text>
+        <Text style={[CustomStyles.ComponentTitles, {marginRight: 8}]}>
+          {rv}
+        </Text>
+        <Text style={[CustomStyles.ComponentTitles]}>{`${Math.round(
+          progress * (max_val - min_val) + min_val,
+        )}`}</Text>
       </View>
 
       <View {...panResponder.panHandlers}>

@@ -55,7 +55,12 @@ export const CircleProgressBarSmaller = ({TSB, TSL, TSR, RIV, BG}) => {
   const filledWidth = progressBarWidth * progress;
 
   return (
-    <View style={{justifyContent: 'center', alignItems: 'center'}}>
+    <View
+      style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+      }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <Text style={CustomStyles.ComponentTitles}>{TSB}</Text>
         <Text style={CustomStyles.ComponentTitles}>
@@ -87,8 +92,8 @@ export const CircleProgressBarSmaller = ({TSB, TSL, TSR, RIV, BG}) => {
           />
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text>{TSL}</Text>
-          <Text>{TSR}</Text>
+          <Text style={{color: Colors.GREY500}}>{TSL}</Text>
+          <Text style={{color: Colors.GREY500}}>{TSR}</Text>
         </View>
       </View>
     </View>

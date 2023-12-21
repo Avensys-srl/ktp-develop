@@ -17,4 +17,5 @@ export const Routes = {
   Probs: 'probs',
   Communication: 'communication',
   Profile: 'profile',
+  ServiceLogin :'ServiceLogin'
 };

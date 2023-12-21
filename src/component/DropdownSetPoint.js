@@ -1,16 +1,15 @@
 import React, {useState} from 'react';
 import SelectDropdown from 'react-native-select-dropdown';
 import {View, StyleSheet, Dimensions} from 'react-native';
-import { Colors, Sizing } from '../styles';
+import {Colors, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 
 const DropdownSetPoint = ({data}) => {
   const [selectedItem, setSelectedItem] = useState('');
-  
 
   const maxItemsWithoutScroll = 5;
-  const maxDropdownHeight = Sizing.vh*6 * maxItemsWithoutScroll;
+  const maxDropdownHeight = Sizing.vh * 6 * maxItemsWithoutScroll;
 
   return (
     <View>
@@ -39,13 +38,13 @@ export default DropdownSetPoint;
 
 const styles = StyleSheet.create({
   btnStyle: {
-    borderWidth: 1,
-    borderRadius: 5,
+    borderWidth: 2,
     margin: 5,
     backgroundColor: Colors.WHITE,
-    width: Sizing.vw*20.5,
-    height: Sizing.vh*7.5,
+    width: Sizing.vw * 20.5,
+    height: Sizing.vh * 7.5,
     borderRadius: 12,
+    borderColor: Colors.LIGHT_GREEN,
   },
   ddStyle: {
     borderWidth: 1,
@@ -53,9 +52,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderRadius: 12,
     borderTopWidth: 1,
-    padding: 0,
-    height: Sizing.vh*33.5,
-    width: Sizing.vw*20,
+    height: Sizing.vh * 33.5,
+    width: Sizing.vw * 20,
   },
   itemStyle: {
     borderBottomColor: 'transparent',

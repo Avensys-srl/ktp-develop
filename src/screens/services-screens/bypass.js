@@ -87,7 +87,7 @@ export const Bypass = () => {
         <DividerLine />
 
         <View style={styles.pairedView}>
-          <Text style={CustomStyles.ComponentTitles}>Operation</Text>
+          <Text style={[CustomStyles.ComponentTitles, {}]}>Operation</Text>
           <ThreePointSlider TBC={1} />
           <View style={styles.threePointSliderTextContainer}>
             <Text style={styles.txt}>auto</Text>

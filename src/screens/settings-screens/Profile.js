@@ -24,7 +24,7 @@ export const Profile = () => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       {/* HEADER COMPONENT */}
-      <Header canGoBack={true} title="Profile" />
+      <Header canGoBack={true} title="Profile" headerBG={1} optionsStar={1} />
 
       {/* MAIN SCROLLVIEW COMPONENT */}
       <ScrollView

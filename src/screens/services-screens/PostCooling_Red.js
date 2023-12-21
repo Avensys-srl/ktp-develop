@@ -148,11 +148,11 @@ const PostCooling_Red = () => {
           <DividerLine />
 
           <View style={{marginBottom: height * 0.05}}>
-            <Text style={styles.remainingDutyText}>communication rate [%]</Text>
+            {/* <Text style={styles.remainingDutyText}>communication rate [%]</Text> */}
 
             <View style={styles.progressBarContainer}>
               <CountdownProgressBar
-                label={''}
+                label={'Communication rate [%]'}
                 min_val={0}
                 max_val={100}
                 init_val={0.5}
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
   },
   progressBarContainer: {
     height: Sizing.vh * 9,
-    marginTop: -height * 0.02,
+    marginTop: height * 0.02,
   },
   hysText: {
     textAlign: 'center',

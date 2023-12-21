@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 6,
+    marginBottom: 6,
   },
   middleContainer: {
     width: Sizing.vw * 90,

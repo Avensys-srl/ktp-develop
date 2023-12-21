@@ -87,6 +87,13 @@ android {
             storePassword 'android'
             keyAlias 'androiddebugkey'
             keyPassword 'android'
+
+        }
+        release {
+            keyAlias 'om_android_certificate'
+            keyPassword 'Om123456'
+            storeFile file('H:\\React-Native\\Harsh_Vyas\\certificate\\OmCertificate')
+            storePassword 'Om123456'
         }
     }
     buildTypes {

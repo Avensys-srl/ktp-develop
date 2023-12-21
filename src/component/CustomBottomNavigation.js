@@ -19,6 +19,7 @@ const CustomBottomNavigation = ({
   II = ImageSource.II,
   SI = ImageSource.SI,
   OC = 0,
+  IsLogin = Number,
 }) => {
   let OCColor;
   if (OC === 0) {
@@ -42,7 +43,7 @@ const CustomBottomNavigation = ({
   };
 
   const navigateToService = () => {
-    navigation.navigate(Routes.Services);
+    navigation.navigate(Routes.ServiceLogin);
   };
 
   return (
@@ -54,7 +55,7 @@ const CustomBottomNavigation = ({
         <TouchableOpacity onPress={navigateToSettings}>
           <Image source={PI} style={styles.img} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToInfo}>
+        <TouchableOpacity onPress={navigateToInfo} disabled={IsLogin==1 ? true : false}>
           <Image source={II} style={styles.img} />
         </TouchableOpacity>
         <TouchableOpacity onPress={navigateToService}>
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 12,
     alignItems: 'center',
-    // backgroundColor: 'white',
+    backgroundColor:Colors.WHITE
   },
   img: {
     height: Sizing.vh * 6,

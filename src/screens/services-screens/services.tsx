@@ -13,7 +13,7 @@ export const Services = () => {
     {title: 'ventilation', route: Routes.Ventilation, disabled: false},
     {title: 'climate control', route: Routes.Climate, disabled: false},
     {title: 'accessories', route: Routes.Accessories, disabled: false},
-    {title: 'communication', route: Routes.Communication, disabled: false},
+    // {title: 'communication', route: Routes.Communication, disabled: false},
     {title: 'scheduler', route: null, disabled: true},
     {title: 'report', route: null, disabled: true},
   ];
@@ -45,5 +45,6 @@ const Styles = ScaledSheet.create({
     borderColor: Colors.RED,
     borderWidth: 2,
     borderRadius: 5,
+    backgroundColor: Colors.WHITE,
   },
 });

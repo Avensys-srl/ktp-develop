@@ -63,7 +63,12 @@ export const Accessories = () => {
   const [activeTab, setActiveTab] = useState(true);
   return (
     <>
-      <Header title="Accessories" canGoBack={true} optionsStar={1} />
+      <Header
+        title="Accessories"
+        canGoBack={true}
+        optionsStar={1}
+        headerBG={1}
+      />
       <View style={{flex: 1, width: '100%'}}>
         {activeTab && userType.technician ? (
           <View style={styles.container}>
@@ -94,7 +99,13 @@ export const Accessories = () => {
           </ScrollView>
         )}
       </View>
-      <View style={{flexDirection: 'row', justifyContent: 'space-around',width:Sizing.vw*85,alignSelf:'center'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          width: Sizing.vw * 85,
+          alignSelf: 'center',
+        }}>
         <TouchableOpacity
           style={[styles.buttons, activeTab && {backgroundColor: Colors.BLACK}]}
           onPress={() => {
@@ -105,7 +116,10 @@ export const Accessories = () => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.buttons, !activeTab && {backgroundColor: Colors.BLACK}]}
+          style={[
+            styles.buttons,
+            !activeTab && {backgroundColor: Colors.BLACK},
+          ]}
           onPress={() => {
             setActiveTab(false);
           }}>
@@ -126,7 +140,7 @@ const styles = ScaledSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     flex: 1,
-    alignSelf:'center'
+    alignSelf: 'center',
   },
   buttons: {
     flexDirection: 'row',

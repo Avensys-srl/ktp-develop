@@ -1,4 +1,11 @@
-import {TouchableOpacity, View, Text, Image, Dimensions} from 'react-native';
+import {
+  TouchableOpacity,
+  View,
+  Text,
+  Image,
+  Dimensions,
+  SafeAreaView,
+} from 'react-native';
 import {Header, ClimateControlCard} from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import {ScaledSheet} from 'react-native-size-matters';
@@ -7,7 +14,7 @@ import {dayTemperatureData, nightTemperatureData} from '../../configs';
 import Demo from '../../component/DropdownSetPoint';
 import {CenteredProgressBar} from '../../component/index';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
-import {Colors, Sizing} from '../../styles';
+import {Colors, CustomStyles, Sizing} from '../../styles';
 
 const {width, height} = Dimensions.get('window');
 export const ClimateControl = () => {
@@ -15,34 +22,58 @@ export const ClimateControl = () => {
   const [nightTemp, setNightTemp] = useState(23);
 
   return (
-    <View style={styles.mainContainer}>
-      <Header canGoBack={true} title="Temperature Set Point" />
+    <SafeAreaView style={styles.mainContainer}>
+      <Header
+        canGoBack={true}
+        title="Temperature Set Point"
+        headerBG={1}
+        optionsStar={1}
+      />
       <View style={styles.container}>
-        <View style={styles.dropdownContainer}>
-          <ClimateControlCard
-            source={ImageSource.sun}
-            imageStyle={{}}
-            box={true}
-            tempNumber={`${dayTemp}°C `}
-          />
-          <ClimateControlCard
-            source={ImageSource.moon}
-            imageStyle={{}}
-            box={true}
-            tempNumber={`${nightTemp}°C `}
-          />
+        <View style={{marginTop: height * 0.12}}>
+          <Text style={CustomStyles.ComponentTitles}>Set points</Text>
         </View>
 
-        <View style={styles.progressbarContainer}>
+        <View style={styles.dropdownContainer}>
+          <View>
+            <ClimateControlCard
+              source={ImageSource.sun}
+              imageStyle={{}}
+              box={true}
+              tempNumber={`${dayTemp}°C `}
+              iconText="T1"
+            />
+          </View>
+          <View>
+            <ClimateControlCard
+              source={ImageSource.moon}
+              imageStyle={{}}
+              box={true}
+              tempNumber={`${nightTemp}°C `}
+              iconText="T2"
+            />
+          </View>
+          <View>
+            <Image
+              source={ImageSource.lockOpen}
+              style={{
+                width: 50,
+                height: 50,
+              }}
+            />
+          </View>
+        </View>
+
+        {/* <View style={styles.progressbarContainer}>
           <CenteredProgressBar IST={'Summar Winter Changes'} RIV={20} BG={1} />
 
           <Image source={ImageSource.lockOpen} style={styles.lockImg} />
-        </View>
+        </View> */}
       </View>
       <View style={styles.navigationContainer}>
         <CustomBottomNavigation OC={0} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -69,7 +100,8 @@ const styles = ScaledSheet.create({
   },
   dropdownContainer: {
     flexDirection: 'row',
-    marginTop: height * 0.15,
+    marginTop: height * 0.03,
+    justifyContent: 'space-evenly',
   },
   progressbarContainer: {
     flexDirection: 'row',
