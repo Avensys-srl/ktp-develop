@@ -96,9 +96,14 @@ const ServiceLogin = props => {
   const [generalAlarm, setGeneralAlarm] = useState(initgeneralAlarm);
   const [fireAlarm, setFireAlarm] = useState(initfireAlarm);
   const [isChecked, setIsChecked] = useState(false);
+  const [isLogin, setIsLogin] = useState(0);
 
   const handleCheckBox = () => {
     setIsChecked(!isChecked);
+  };
+  const handleLogin = () => {
+    setIsLogin(1);
+    navigation.navigate(Routes.Services)
   };
 
   const resetToInitial = () => {
@@ -481,7 +486,7 @@ const ServiceLogin = props => {
           <View>
             <TouchableOpacity
               style={styles.signInOpacity}
-              onPress={() => navigation.navigate(Routes.Services)}>
+              onPress={handleLogin}>
               <Text style={styles.signInText}>Sign in</Text>
             </TouchableOpacity>
           </View>
@@ -489,7 +494,7 @@ const ServiceLogin = props => {
           {/* sign in button end */}
         </View>
       </ScrollView>
-      <CustomBottomNavigation IsLogin={1}></CustomBottomNavigation>
+      <CustomBottomNavigation isLogin={isLogin}></CustomBottomNavigation>
     </View>
   );
 };

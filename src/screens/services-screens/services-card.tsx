@@ -50,7 +50,7 @@ export const ServicesCard = (props: props) => {
       {values.length !== 0 && (
         <View style={styles.valuesContainer}>
           {values.map((title: string) => {
-            return <AccessoriesCard title={title} onPress={undefined} disabled={false} />;
+            return <AccessoriesCard title={title} onPress={onPress} disabled={false} />;
           })}
         </View>
       )}

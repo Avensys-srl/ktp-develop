@@ -26,7 +26,7 @@ export const ClimateControlCard = (props: props) => {
   const {imageStyle, source, box, tempNumber, iconText} = props;
   const [lock, setLock] = useState(true);
   return (
-    <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+    <View style={{alignItems: 'center', justifyContent: 'center'}}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         {/* <Image source={source} style={[styles.image, imageStyle]} /> */}
 

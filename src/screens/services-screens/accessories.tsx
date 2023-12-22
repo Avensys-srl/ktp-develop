@@ -73,6 +73,7 @@ export const Accessories = () => {
         {activeTab && userType.technician ? (
           <View style={styles.container}>
             {accessoriesName.map(item => {
+              console.log('accs',item)
               return (
                 <AccessoriesCard
                   title={item.title}
@@ -86,6 +87,7 @@ export const Accessories = () => {
           <ScrollView>
             {ServicesTab.map((item, index) => {
               console.log('index---', index);
+              console.log('SRVICE',item)
               return (
                 <ServicesCard
                   title={item.title}

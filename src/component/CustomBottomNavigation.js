@@ -19,7 +19,7 @@ const CustomBottomNavigation = ({
   II = ImageSource.II,
   SI = ImageSource.SI,
   OC = 0,
-  IsLogin = Number,
+  isLogin = Number,
 }) => {
   let OCColor;
   if (OC === 0) {
@@ -49,16 +49,16 @@ const CustomBottomNavigation = ({
   return (
     <View style={styles.mainContainer}>
       <View style={[styles.container, {borderColor: OCColor}]}>
-        <TouchableOpacity onPress={navigateToHome}>
+        <TouchableOpacity onPress={navigateToHome} disabled={isLogin==0 ? true : false}>
           <Image source={HI} style={styles.img} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToSettings}>
+        <TouchableOpacity onPress={navigateToSettings} disabled={isLogin==0 ? true : false}>
           <Image source={PI} style={styles.img} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToInfo} disabled={IsLogin==1 ? true : false}>
+        <TouchableOpacity onPress={navigateToInfo} disabled={isLogin==0 ? true : false }>
           <Image source={II} style={styles.img} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToService}>
+        <TouchableOpacity onPress={navigateToService} disabled={isLogin==0 ? true : false}>
           <Image source={SI} style={styles.img} />
         </TouchableOpacity>
       </View>

@@ -53,7 +53,10 @@ export const ClimateControl = () => {
               iconText="T2"
             />
           </View>
-          <View>
+          <View
+            style={{
+              justifyContent: 'center',
+            }}>
             <Image
               source={ImageSource.lockOpen}
               style={{
@@ -70,6 +73,41 @@ export const ClimateControl = () => {
           <Image source={ImageSource.lockOpen} style={styles.lockImg} />
         </View> */}
       </View>
+
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-evenly',
+          marginLeft: Sizing.vw * 20,
+          marginTop: Sizing.vh * 6,
+        }}>
+        <View style={{}}>
+          <ClimateControlCard
+            source={ImageSource.sun}
+            imageStyle={{}}
+            box={true}
+            tempNumber={`${dayTemp}°C `}
+            iconText=""
+          />
+        </View>
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'flex-end',
+            // borderWidth: 1,
+            // borderColor: 'green',
+            // marginRight: 18,
+          }}>
+          <Image
+            source={ImageSource.lockOpen}
+            style={{
+              width: 50,
+              height: 50,
+              marginRight: -Sizing.vw * 12,
+            }}
+          />
+        </View>
+      </View>
       <View style={styles.navigationContainer}>
         <CustomBottomNavigation OC={0} />
       </View>
@@ -85,9 +123,11 @@ const styles = ScaledSheet.create({
     backgroundColor: Colors.WHITE,
   },
   container: {
-    flex: 1,
-    width: Sizing.vw * 100,
-    height: Sizing.vh * 100,
+    // flex: 1,
+    // width: Sizing.vw * 100,
+    // height: Sizing.vh * 100,
+    // borderWidth: 1,
+    // borderColor: 'blue',
   },
   tempDropdown: {
     color: Colors.BLACK,

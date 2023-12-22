@@ -50,8 +50,8 @@ const NewRangeSlider = ({TPR, VL1, VL2, BG, minVL = 0, maxVL = 100}) => {
         />
       </View>
       <View style={styles.minMaxTextContainer}>
-        <Text>{minVL}</Text>
-        <Text>{maxVL}</Text>
+        {/* <Text>{minVL}</Text>
+        <Text>{maxVL}</Text> */}
       </View>
       <Text style={styles.values2}>{values[1]}</Text>
     </View>
@@ -67,21 +67,22 @@ const styles = StyleSheet.create({
 
   values1: {
     color: Colors.BLUE,
-    marginRight: Sizing.vw * 60,
-    top: height * 0.01,
+    marginRight: Sizing.vw * 85,
+    top: height * 0.015,
     zIndex: 2,
+    // right: 15
   },
 
   values2: {
     color: Colors.BLUE,
-    marginLeft: Sizing.vw * 60,
-    bottom: height * 0.033,
+    marginLeft: Sizing.vw * 85,
+    bottom: height * 0.01,
     zIndex: 2,
   },
 
   selectedStyle: {
     backgroundColor: Colors.LIGHT_GREEN,
-    height: CustomStyles.circularProgressBarSmall.height,
+    height: CustomStyles.circularProgressBarSmall.height - 1,
     marginTop: -height * 0.0067,
     borderColor: Colors.BLACK,
   },
@@ -107,11 +108,12 @@ const styles = StyleSheet.create({
   customMarker: {
     width: Sizing.vw * 6,
     height: Sizing.vw * 6,
-    borderRadius: (Sizing.vw * 6) / 2,
+    // borderRadius: (Sizing.vw * 6) / 2,
+    borderRadius: 8,
     borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',
-    top: height * 0.008,
+    top: height * 0.0075,
   },
 
   markerText: {

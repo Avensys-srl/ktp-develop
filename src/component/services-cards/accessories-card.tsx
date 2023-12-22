@@ -2,6 +2,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {useNavigation} from '@react-navigation/native';
 import {Colors} from '../../styles';
+import { accessoriesName } from '../../configs';
 
 interface props {
   title: string;
@@ -12,6 +13,7 @@ interface props {
 export const AccessoriesCard = (props: props) => {
   const {title, onPress, disabled} = props;
   const navigation = useNavigation();
+  
   return (
     <TouchableOpacity style={styles.container} disabled={disabled}>
       <Text
@@ -26,7 +28,6 @@ export const AccessoriesCard = (props: props) => {
 const styles = ScaledSheet.create({
   container: {
     borderWidth: 1,
-    // backgroundColor: 'lightblue',
     backgroundColor: Colors.LIGHT_BLUE1,
     width: '90@ms',
     height: '30@ms',
