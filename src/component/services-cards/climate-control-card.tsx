@@ -40,7 +40,7 @@ export const ClimateControlCard = (props: props) => {
               alignItems: 'center',
             },
           ]}>
-          <Text style={{fontSize: 18, marginBottom: 12}}>{iconText}</Text>
+          <Text style={{fontSize: 16, marginBottom: 12}}>{iconText}</Text>
         </ImageBackground>
 
         {box && (

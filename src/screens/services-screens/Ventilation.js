@@ -38,7 +38,12 @@ export const Ventilation = () => {
       {/* <View style={styles.bgheading}>
         <Text style={styles.headingTxt}>Ventilation</Text>
       </View> */}
-      <Header canGoBack={true} title="Ventilation" />
+      <Header
+        canGoBack={true}
+        title="Ventilation"
+        headerBG={1}
+        optionsStar={1}
+      />
       <ScrollView styles={{height: Sizing.vh * 75}}>
         <View style={styles.pairedView}>
           <Text style={styles.txttop}></Text>

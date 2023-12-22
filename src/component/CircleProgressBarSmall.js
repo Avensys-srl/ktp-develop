@@ -89,8 +89,8 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
           />
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text>{TSL}</Text>
-          <Text>{TSR}</Text>
+          <Text style={CustomStyles.ComponentTitles}>{TSL}</Text>
+          <Text style={CustomStyles.ComponentTitles}>{TSR}</Text>
         </View>
       </View>
     </View>

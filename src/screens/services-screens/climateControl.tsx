@@ -66,20 +66,16 @@ export const ClimateControl = () => {
             />
           </View>
         </View>
-
-        {/* <View style={styles.progressbarContainer}>
-          <CenteredProgressBar IST={'Summar Winter Changes'} RIV={20} BG={1} />
-
-          <Image source={ImageSource.lockOpen} style={styles.lockImg} />
-        </View> */}
       </View>
-
+      <Text style={[CustomStyles.ComponentTitles, {marginTop: Sizing.vh * 6}]}>
+        Summer winter change
+      </Text>
       <View
         style={{
           flexDirection: 'row',
           justifyContent: 'space-evenly',
           marginLeft: Sizing.vw * 20,
-          marginTop: Sizing.vh * 6,
+          position: 'relative',
         }}>
         <View style={{}}>
           <ClimateControlCard
@@ -94,16 +90,36 @@ export const ClimateControl = () => {
           style={{
             justifyContent: 'center',
             alignItems: 'flex-end',
-            // borderWidth: 1,
-            // borderColor: 'green',
-            // marginRight: 18,
           }}>
           <Image
             source={ImageSource.lockOpen}
             style={{
               width: 50,
               height: 50,
-              marginRight: -Sizing.vw * 12,
+              marginRight: -Sizing.vw * 18,
+            }}
+          />
+        </View>
+
+        <View>
+          <Image
+            source={ImageSource.snowflake}
+            style={{
+              width: 20,
+              height: 20,
+              position: 'absolute',
+              top: 4,
+              right: 235,
+            }}
+          />
+          <Image
+            source={ImageSource.sun}
+            style={{
+              width: 20,
+              height: 20,
+              position: 'absolute',
+              top: 4,
+              right: 188,
             }}
           />
         </View>
@@ -140,7 +156,7 @@ const styles = ScaledSheet.create({
   },
   dropdownContainer: {
     flexDirection: 'row',
-    marginTop: height * 0.03,
+    // marginTop: height * 0.03,
     justifyContent: 'space-evenly',
   },
   progressbarContainer: {

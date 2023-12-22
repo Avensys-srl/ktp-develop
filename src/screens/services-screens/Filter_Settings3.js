@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {CircleProgressBar, Header, ToggleSwitch} from '../../component';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../../styles';
+import CircleProgressBarSmall from '../../component/CircleProgressBarSmall';
 
 // const {width, height} = Dimensions.get('window');
 
@@ -16,7 +17,12 @@ const Filter_Settings3 = () => {
 
   return (
     <SafeAreaView style={styles.mainSafeAreaView}>
-      <Header canGoBack={true} title="Filter-setting" />
+      <Header
+        canGoBack={true}
+        title="Filter-setting"
+        headerBG={1}
+        optionsStar={1}
+      />
       <View style={styles.mainContainer}>
         <View style={styles.toggleSwitchContainer}>
           <ToggleSwitch
@@ -29,13 +35,25 @@ const Filter_Settings3 = () => {
         </View>
 
         <View style={styles.progressbarContainer}>
-          <Text style={styles.progressbarText}>DPS days of duty [d]</Text>
-          <CircleProgressBar TSB={''} TSL={0} TSR={180} RIV={0.16} BG={1} />
+          {/* <Text style={styles.progressbarText}>DPS days of duty [d]</Text> */}
+          <CircleProgressBarSmall
+            TSB={'DPS days of duty [d]: '}
+            TSL={0}
+            TSR={180}
+            RIV={0.16}
+            BG={1}
+          />
         </View>
 
         <View style={styles.progressbarContainer}>
           <Text style={styles.progressbarText}>DPP Thereshold max p. [%]</Text>
-          <CircleProgressBar TSB={''} TSL={0} TSR={100} RIV={0.5} BG={1} />
+          <CircleProgressBarSmall
+            TSB={'DPP Thereshold max p. [%]: '}
+            TSL={0}
+            TSR={100}
+            RIV={0.5}
+            BG={1}
+          />
         </View>
       </View>
 
@@ -54,6 +72,7 @@ const styles = StyleSheet.create({
     height: Sizing.vh * 100,
     borderWidth: 2,
     borderColor: Colors.RED,
+    backgroundColor: Colors.WHITE,
   },
   navigationContainer: {
     flex: 1,

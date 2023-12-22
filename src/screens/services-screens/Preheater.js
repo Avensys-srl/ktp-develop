@@ -13,6 +13,7 @@ import {ImageSource} from '../../common/imageSource';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../../styles';
 import {BLACK} from '../../styles/colors';
+import CircleProgressBarSmall from '../../component/CircleProgressBarSmall';
 
 const {width, height} = Dimensions.get('window');
 
@@ -36,7 +37,12 @@ const Preheater = () => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Header canGoBack={true} title="Preheater setting" />
+      <Header
+        canGoBack={true}
+        title="Preheater setting"
+        headerBG={1}
+        optionsStar={1}
+      />
 
       <ScrollView>
         <View style={styles.mainComponentContainer}>
@@ -82,13 +88,13 @@ const Preheater = () => {
           </View>
 
           <View style={styles.communicationRateContainer}>
-            <Text style={styles.communicationText}>communication rate [%]</Text>
-            <CircleProgressBar
-              // TSB={'Ref. outdoor temperature'}
+            {/* <Text style={styles.communicationText}>communication rate [%]</Text> */}
+            <CircleProgressBarSmall
+              TSB={'communication rate [%]: '}
               TSL={0}
               TSR={100}
               RIV={0.4}
-              BG={0}
+              BG={1}
             />
           </View>
         </View>

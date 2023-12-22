@@ -6,7 +6,7 @@ import {
   Text,
   Dimensions,
 } from 'react-native';
-import {Colors, Sizing} from '../styles';
+import {Colors, CustomStyles, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 export const ToggleSwitch = ({TOO, CL, CR, BG, isToggled, onToggle}) => {
@@ -36,8 +36,8 @@ export const ToggleSwitch = ({TOO, CL, CR, BG, isToggled, onToggle}) => {
           flexDirection: 'row',
           // width: 250,
         }}>
-        <Text>{CL}</Text>
-        <Text>{CR}</Text>
+        <Text style={CustomStyles.ComponentTitles}>{CL}</Text>
+        <Text style={CustomStyles.ComponentTitles}>{CR}</Text>
       </View>
       <Text style={{textAlign: 'center', marginBottom: 10}}>{TOO}</Text>
     </View>

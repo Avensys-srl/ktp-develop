@@ -45,7 +45,7 @@ export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
   if (Visible) {
     return (
       <View style={styles.container}>
-        <Text style={styles.txtlbl}>{TS}</Text>
+        <Text style={[CustomStyles.ComponentTitles, styles.txtlbl]}>{TS}</Text>
         <TouchableOpacity onPress={increaseProgress} style={styles.button}>
           <Image
             source={ImageSource.fan}
@@ -75,7 +75,9 @@ export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
         <TouchableOpacity onPress={decreaseProgress} style={styles.button}>
           <Image source={ImageSource.fan} style={{height: 20, width: 20}} />
         </TouchableOpacity>
-        <Text style={styles.percentageText}>{percentage}%</Text>
+        <Text style={[CustomStyles.ComponentTitles, styles.percentageText]}>
+          {percentage}%
+        </Text>
         <View style={styles.buttonContainer}></View>
       </View>
     );

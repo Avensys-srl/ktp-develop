@@ -21,6 +21,12 @@ export default CustomStyles = StyleSheet.create({
     fontSize: 18,
     marginBottom: Sizing.vh * 1,
   },
+  ComponentTitlesBlack: {
+    textAlign: 'center',
+    color: Colors.BLACK,
+    fontSize: 16,
+    // marginBottom: Sizing.vh * 1,
+  },
   componentSizeOnOff: {
     height: Sizing.vh * 3,
     width: Sizing.vw * 30,

@@ -55,8 +55,8 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
           unfilledColor={Colors.WHITE}
         />
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text>{mv}</Text>
-          <Text>{Xv}</Text>
+          <Text style={CustomStyles.ComponentTitles}>{mv}</Text>
+          <Text style={CustomStyles.ComponentTitles}>{Xv}</Text>
         </View>
       </View>
     </View>

@@ -37,7 +37,7 @@ export const TrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
         )}>
         <View
           style={[styles.btnContainer, {backgroundColor: `${firstContainer}`}]}>
-          <Text>{TbL}</Text>
+          <Text style={CustomStyles.ComponentTitlesBlack}>{TbL}</Text>
         </View>
       </Pressable>
       <Pressable
@@ -51,7 +51,7 @@ export const TrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
             styles.btnContainer,
             {backgroundColor: `${secondContainer}`},
           ]}>
-          <Text>{TbC}</Text>
+          <Text style={CustomStyles.ComponentTitlesBlack}>{TbC}</Text>
         </View>
       </Pressable>
       <Pressable
@@ -62,7 +62,7 @@ export const TrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
         )}>
         <View
           style={[styles.btnContainer, {backgroundColor: `${thirdContainer}`}]}>
-          <Text>{TbR}</Text>
+          <Text style={CustomStyles.ComponentTitlesBlack}>{TbR}</Text>
         </View>
       </Pressable>
     </View>

@@ -45,10 +45,11 @@ const styles = StyleSheet.create({
     height: Sizing.vh * 7.5,
     borderRadius: 12,
     borderColor: Colors.LIGHT_GREEN,
+    marginRight: Sizing.vw * 2,
   },
   ddStyle: {
     borderWidth: 1,
-    marginLeft: 5,
+    marginLeft: 15,
     marginTop: 5,
     borderRadius: 12,
     borderTopWidth: 1,

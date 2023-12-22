@@ -24,7 +24,12 @@ const Filter_Settings2 = () => {
     <SafeAreaView style={styles.mainSafeAreaView}>
       <View>
         {/* Header component */}
-        <Header canGoBack={true} title="Filter-setting" />
+        <Header
+          canGoBack={true}
+          title="Filter-setting"
+          headerBG={1}
+          optionsStar={1}
+        />
 
         {/* filter alarm activation */}
         <View style={styles.filterAlarmContainer}>
@@ -32,7 +37,9 @@ const Filter_Settings2 = () => {
             <OnOff />
           </View>
 
-          <Text style={CustomStyles.Title1}>Filter alarm activation</Text>
+          <Text style={[CustomStyles.ComponentTitles, {}]}>
+            Filter alarm activation
+          </Text>
         </View>
 
         {/* filter replaced */}
@@ -42,7 +49,9 @@ const Filter_Settings2 = () => {
             <OnOff leftText="no" rightText="yes" />
           </View>
 
-          <Text style={CustomStyles.Title1}>Filter replaced ?</Text>
+          <Text style={[CustomStyles.ComponentTitles, {}]}>
+            Filter replaced ?
+          </Text>
           <View style={styles.lockImgTouchableOpacity}>
             <TouchableOpacity
               onPress={() => setFilterReplacedLock(!filterReplacedLock)}>
@@ -59,11 +68,11 @@ const Filter_Settings2 = () => {
         {/* progress bar component */}
 
         <View>
-          <Text style={styles.remainingDutyText}>Remaining Duty[%]</Text>
+          {/* <Text style={styles.remainingDutyText}>Remaining Duty[%]</Text> */}
 
           <View style={styles.progressBarContainer}>
             <CountdownProgressBar
-              label={''}
+              label={'Remaining Duty[%]'}
               min_val={0}
               max_val={100}
               init_val={0.5}
@@ -75,7 +84,10 @@ const Filter_Settings2 = () => {
 
         <View style={styles.calibrationContainer}>
           <View style={styles.calibrationTextImgContainer}>
-            <Text style={styles.calibrationText}>Start calibration</Text>
+            <Text
+              style={[CustomStyles.ComponentTitles, styles.calibrationText]}>
+              Start calibration
+            </Text>
             <TouchableOpacity
               onPress={() => setSingleCalibrationLock(!singleCalibrationLock)}>
               <Image
@@ -146,7 +158,9 @@ const styles = StyleSheet.create({
   },
   progressBarContainer: {
     height: Sizing.vh * 9,
-    marginTop: -height * 0.02,
+    marginTop: height * 0.02,
+    // borderWidth: 1,
+    // borderColor: 'red',
   },
   navigationContainer: {
     flex: 1,
