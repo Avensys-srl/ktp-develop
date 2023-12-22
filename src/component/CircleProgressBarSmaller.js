@@ -3,9 +3,9 @@ import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
 import {Colors, CustomStyles, Sizing} from '../styles';
 
 export const CircleProgressBarSmaller = ({TSB, TSL, TSR, RIV, BG}) => {
-  const progressBarWidth = Sizing.vw * 80;
-  const circleSize = 24;
-  const progressBarHeight = 30;
+  const progressBarWidth = CustomStyles.circularProgressBarSmaller.width;
+  const circleSize = Sizing.vh * 2.35;
+  const progressBarHeight = CustomStyles.circularProgressBarSmaller.height;
   const border_thickness = 2;
   const centered = (progressBarHeight - circleSize) / 2 - border_thickness;
 

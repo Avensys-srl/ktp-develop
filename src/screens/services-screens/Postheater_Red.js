@@ -41,7 +41,7 @@ const Postheater_Red = () => {
     <SafeAreaView style={styles.mainContainer}>
       <Header
         canGoBack={true}
-        title="Postcooling setting"
+        title="Postheater setting"
         optionsStar={1}
         headerBG={1}
       />

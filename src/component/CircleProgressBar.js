@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
-import { Colors, Sizing } from '../styles';
+import {Colors, Sizing} from '../styles';
 
 export const CircleProgressBar = ({TSB, TSL, TSR, RIV, BG}) => {
-  const progressBarWidth = Sizing.vw*90;
+  const progressBarWidth = Sizing.vw * 90;
   const circleSize = 27;
   const progressBarHeight = 30;
   const border_thickness = 2;

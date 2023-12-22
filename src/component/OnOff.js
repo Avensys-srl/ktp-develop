@@ -40,16 +40,9 @@ export const OnOff = ({status, leftText = 'Off', rightText = 'On'}) => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    // width: width * 0.3,
-    // height: Sizing.vh * 13,
-    // flexDirection: 'row',
-    // paddingHorizontal: 12,
     borderRadius: 1,
     alignItems: 'center',
     marginLeft: 'auto',
-    // marginRight: 'auto',
-    // marginTop: 8,
-
     justifyContent: 'space-between',
   },
   container: {
@@ -58,7 +51,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
     borderRadius: (Sizing.vh * 3) / 2,
     justifyContent: 'center',
-    // overflow: 'hidden',
     borderWidth: 2,
     borderColor: Colors.LIGHT_GREEN,
   },
@@ -67,8 +59,6 @@ const styles = StyleSheet.create({
     width: Sizing.vh * 2.3,
     borderRadius: Sizing.vh * 2.7,
     backgroundColor: Colors.LIGHT_GREY,
-    // borderWidth: 2,
-    // borderColor: 'black',
     position: 'absolute',
     left: 2,
   },

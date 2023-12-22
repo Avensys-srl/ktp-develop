@@ -47,7 +47,7 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
         <Progress.Bar
           progress={progress}
           width={Sizing.vw * 85}
-          height={Sizing.vh * 3.1}
+          height={CustomStyles.circularProgressBarSmaller.height - 3}
           borderRadius={18}
           color={Colors.LIGHT_GREEN}
           borderColor={Colors.LIGHT_GREEN}

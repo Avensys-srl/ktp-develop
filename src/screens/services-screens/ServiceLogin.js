@@ -308,25 +308,6 @@ const ServiceLogin = props => {
               flagForPostHeaterPairing={postHeater.flagForPairing}
               diagonalImageSource1={ImageSource.heater}
               diagonalImageSource2={ImageSource.heater}
-              // onPreHeaterProcessComplete={() => {
-              //   console.log("dfgdgd---",)
-              //   setPreHeater({
-              //     timer: 5,
-              //     disabled: false,
-              //     // disableFlagForAlarm:false,
-              //     // disableFlagForPairing:false,
-              //     flagForPairing: false,
-              //     flagForAlarm: false,
-              //   })
-              // }}
-              // onPostHeaterProcessComplete={() => {
-              //   setPostHeater({
-              //     timer: 5,
-              //     disabled: false,
-              //     flagForPairing: false,
-              //     flagForAlarm: false,
-              //   })
-              // }}
               details={preHeater.flagForPairing}
               onUpdatePreHeaterStatus={text => {
                 if (text === 'paired after piaring process') {
@@ -532,14 +513,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   imgView: {
-    width: Sizing.vw * 90,
+    width: Sizing.vw * 100,
     alignItems: 'center',
     marginTop: 20,
     marginBottom: 20,
   },
   imgLogo: {
-    width: Sizing.vw * 60,
-    // width: '65%',
+    width: Sizing.vw * 55,
     height: Sizing.vh * 8,
   },
   row: {

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Dimensions} from 'react-native';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
-import {Colors, Sizing} from '../styles';
+import {Colors, CustomStyles, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -68,29 +68,27 @@ const styles = StyleSheet.create({
   values1: {
     color: Colors.BLUE,
     marginRight: Sizing.vw * 60,
-    top: -height * 0.02,
+    top: height * 0.01,
     zIndex: 2,
   },
 
   values2: {
     color: Colors.BLUE,
     marginLeft: Sizing.vw * 60,
-    top: -height * 0.063,
+    bottom: height * 0.033,
     zIndex: 2,
   },
 
   selectedStyle: {
     backgroundColor: Colors.LIGHT_GREEN,
-    height: Sizing.vh * 3,
+    height: CustomStyles.circularProgressBarSmall.height,
     marginTop: -height * 0.0067,
     borderColor: Colors.BLACK,
-    // borderWidth: 2,
-    // borderColor: Colors.RED,
   },
 
   unselectedStyle: {
     backgroundColor: Colors.WHITE,
-    height: Sizing.vh * 3,
+    height: CustomStyles.circularProgressBarSmall.height,
     marginTop: -height * 0.0067,
     borderRadius: 20,
     borderWidth: 2,

@@ -21,4 +21,16 @@ export default CustomStyles = StyleSheet.create({
     fontSize: 18,
     marginBottom: Sizing.vh * 1,
   },
+  componentSizeOnOff: {
+    height: Sizing.vh * 3,
+    width: Sizing.vw * 30,
+  },
+  circularProgressBarSmaller: {
+    height: Sizing.vh * 3,
+    width: Sizing.vw * 80,
+  },
+  circularProgressBarSmall: {
+    height: Sizing.vh * 3,
+    width: Sizing.vw * 90,
+  },
 });

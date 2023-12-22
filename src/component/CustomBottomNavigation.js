@@ -43,7 +43,7 @@ const CustomBottomNavigation = ({
   };
 
   const navigateToService = () => {
-    navigation.navigate(Routes.ServiceLogin);
+    navigation.navigate(Routes.Services);
   };
 
   return (

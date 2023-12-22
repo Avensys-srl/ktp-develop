@@ -30,7 +30,7 @@ export const MainStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName={Routes.Home}>
+      initialRouteName={Routes.ServiceLogin}>
       <Stack.Screen name={Routes.Home} component={Home} />
       <Stack.Screen name={Routes.ServiceLogin} component={ServiceLogin} />
       <Stack.Screen name={Routes.Services} component={Services} />
