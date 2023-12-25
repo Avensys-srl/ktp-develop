@@ -23,6 +23,7 @@ import Probs from '../screens/services-screens/Probs';
 import Communication from '../screens/services-screens/Communication';
 import {Profile} from '../screens/settings-screens';
 import ServiceLogin from '../screens/services-screens/ServiceLogin';
+import LanguageScreen from '../screens/settings-screens/LanguageScreen';
 
 const Stack = createStackNavigator();
 
@@ -47,6 +48,7 @@ export const MainStack = () => {
       <Stack.Screen name={Routes.Probs} component={Probs} />
       <Stack.Screen name={Routes.Communication} component={Communication} />
       <Stack.Screen name={Routes.Profile} component={Profile} />
+      <Stack.Screen name={Routes.LanguageScreen} component={LanguageScreen} />
     </Stack.Navigator>
   );
 };

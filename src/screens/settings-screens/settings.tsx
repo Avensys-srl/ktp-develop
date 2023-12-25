@@ -8,10 +8,11 @@ import {Routes} from '../../routes';
 
 export const Settings = () => {
   const SettingsTab = [
-    {title: 'Language', route: null, disabled: true},
+    {title: 'Language', route: Routes.LanguageScreen, disabled: false},
     {title: 'Screen Saver', route: null, disabled: true},
     {title: 'Date', route: null, disabled: true},
     {title: 'Profile', route: Routes.Profile, disabled: false},
+    {title: 'Connectivity', route: Routes.Communication, disabled: false},
   ];
 
   return (

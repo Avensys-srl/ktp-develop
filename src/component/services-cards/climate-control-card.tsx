@@ -67,7 +67,7 @@ export const ClimateControlCard = (props: props) => {
               '28°C',
               '29°C',
               '30°C',
-            ]}
+            ]} defalutValue={'22°C'}
           />
         )}
       </View>

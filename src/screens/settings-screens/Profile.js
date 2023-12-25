@@ -74,6 +74,9 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.WHITE,
+    borderWidth:2,
+    borderColor:Colors.BLACK,
+    borderRadius:10,
   },
   opacityContainer: {
     width: Sizing.vw * 100,

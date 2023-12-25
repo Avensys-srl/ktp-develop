@@ -13,15 +13,15 @@ import {Colors, Sizing} from '../styles';
 const {width, height} = Dimensions.get('window');
 
 export const CenteredProgressBar = ({IST, RIV, BG}) => {
-  const [sliderPosition, setSliderPosition] = useState(30); // Initial position of the slider
+  const [sliderPosition, setSliderPosition] = useState(30);
 
   const normalizedPercentage = Math.min(Math.max(100 - RIV, 0), 100);
-  const leftFill = Math.min(sliderPosition, 60); // Updated calculation for leftFill
-  const rightFill = Math.min(60 - sliderPosition, 60); // Updated calculation for rightFill
+  const leftFill = Math.min(sliderPosition, 60);
+  const rightFill = Math.min(60 - sliderPosition, 60);
 
   const handleMove = (_, {moveX}) => {
-    const newPosition = (moveX / width) * 100; // Calculate the new position as a percentage
-    setSliderPosition(Math.min(Math.max(newPosition, 0), 100)); // Clamp the position between 0 and 100
+    const newPosition = (moveX / width) * 100;
+    setSliderPosition(Math.min(Math.max(newPosition, 0), 100));
   };
 
   const panResponder = useRef(
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     height: Sizing.vh * 2.7,
     borderRadius: 4,
     overflow: 'hidden',
-    flex: 1, // Expand to fill the available space
+    flex: 1,
     borderWidth: 1,
     borderColor: Colors.BLACK,
   },
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     bottom: 0,
-    backgroundColor: Colors.GREEN, // Customize the color of the slider
+    backgroundColor: Colors.GREEN,
     zIndex: 1,
   },
 });

@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
-import { Colors, Sizing } from '../styles';
+import {Colors, Sizing} from '../styles';
+import componentStyle from '../styles/componentStyle';
 
 const ActivationButton = ({TAB, rot}) => {
   const [rotationSpeed, setRotationSpeed] = useState(rot);
   const [rotationAngle, setRotationAngle] = useState(0);
+
+  const {mainContainer, titleText, svgStyle} = componentStyle.avtivationButton;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -22,32 +25,17 @@ const ActivationButton = ({TAB, rot}) => {
   `;
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{TAB}</Text>
-      <Svg style={styles.svgSize} viewBox="0 0 256 256">
+    <View style={[mainContainer]}>
+      <Text style={[titleText]}>{TAB}</Text>
+      <Svg style={svgStyle} viewBox="0 0 256 256">
         <Path
           d={housePath}
-          fill= {Colors.BLACK}
+          fill={Colors.BLACK}
           transform={`rotate(${rotationAngle}, 128, 128)`}
         />
       </Svg>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-  },
-
-  title: {
-    color: Colors.BLACK,
-    fontSize: 18,
-  },
-  svgSize :{
-    width:Sizing.vw * 30,
-    height:Sizing.vh *12,
-  }
-});
 
 export default ActivationButton;

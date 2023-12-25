@@ -5,7 +5,7 @@ import {Colors, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 
-const DropdownSetPoint = ({data}) => {
+const DropdownSetPoint = ({data,defalutValue}) => {
   const [selectedItem, setSelectedItem] = useState('');
 
   const maxItemsWithoutScroll = 5;
@@ -21,7 +21,7 @@ const DropdownSetPoint = ({data}) => {
         buttonTextAfterSelection={(selectedItem, index) => {
           return selectedItem;
         }}
-        defaultButtonText="22°C"
+        defaultButtonText={defalutValue}
         buttonStyle={styles.btnStyle}
         dropdownStyle={{
           ...styles.ddStyle,
