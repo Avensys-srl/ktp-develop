@@ -14,8 +14,9 @@ import {
 } from 'react-native';
 import WifiManager from 'react-native-wifi-reborn';
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
-import { Colors, Sizing } from '../styles';
+import { Colors, CustomStyles, Sizing } from '../styles';
 import { ImageSource } from '../common/imageSource';
+import componentStyle from '../styles/componentStyle';
 
 const WifiScannerScreen = () => {
   const [wifiList, setWifiList] = useState([]);
@@ -147,24 +148,16 @@ const WifiScannerScreen = () => {
   const renderItem = ({item}) => (
     <TouchableOpacity
       onPress={() => showPasswordInputModal(item.SSID)}
-      style={{
-        padding: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: Colors.DARK_GREY,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}>
+      style={[tochBtn]}>
       <View>
-        <Text style={styles.wifiNames}>{`${item.SSID}`}</Text>
-        {/* <Text>{`BSSID: ${item.BSSID}`}</Text> */}
+        <Text style={[wifiNames]}>{`${item.SSID}`}</Text>
         <Text>{`Distance: ${getDistanceFromSignalStrength(
           item.level,
         )} meters`}</Text>
       </View>
       <Image
         source={getImageSource(getSignalStrengthCategory(item.level))}
-        style={{width: 30, height: 30}}
+        style={[imgWifi]}
       />
     </TouchableOpacity>
   );
@@ -192,13 +185,15 @@ const WifiScannerScreen = () => {
     }
   };
 
+  const {wifiNames,modalContent,imgWifi,passwordTextInput,okCancelContainer,okButton,cancelButton,buttonText,wifiMainContainer,modalHeader,tochBtn} = componentStyle.WifiScannerScreen;
   return (
-    <View style={{flex: 1, padding: 20}}>
+    <View style={[wifiMainContainer]}>
       <FlatList
         data={wifiList}
         keyExtractor={item => item.BSSID}
         renderItem={renderItem}
         ListEmptyComponent={<Text>No Wi-Fi networks found</Text>}
+        showsVerticalScrollIndicator={false}
       />
 
       <Modal
@@ -207,28 +202,28 @@ const WifiScannerScreen = () => {
         visible={isPasswordModalVisible}
         onRequestClose={hidePasswordInputModal}>
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <View style={styles.modalContent}>
+          <View style={modalContent}>
             <Text
               style={
-                styles.modalHeader
+                modalHeader
               }>{`Enter the password for ${selectedSSID}`}</Text>
             <TextInput
-              style={styles.passwordTextInput}
+              style={passwordTextInput}
               placeholder="Wi-Fi Password"
               secureTextEntry
               value={password}
               onChangeText={text => setPassword(text)}
             />
-            <View style={styles.okCancelContainer}>
+            <View style={okCancelContainer}>
               <TouchableOpacity
-                style={styles.okButton}
+                style={okButton}
                 onPress={() => connectToWifi(selectedSSID, password)}>
-                <Text style={styles.buttonText}>OK</Text>
+                <Text style={buttonText}>OK</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={styles.cancelButton}
+                style={cancelButton}
                 onPress={hidePasswordInputModal}>
-                <Text style={styles.buttonText}>Cancel</Text>
+                <Text style={buttonText}>Cancel</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -238,62 +233,6 @@ const WifiScannerScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  headerText: {
-    fontSize: 24,
-    color: Colors.BLACK,
-    textAlign: 'center',
-    marginBottom: 12,
-  },
-  wifiNames: {
-    color: Colors.DARK_GREY,
-    fontSize: 20,
-  },
-  modalContent: {
-    backgroundColor: Colors.WHITE,
-    padding: 20,
-    borderRadius: 10,
-    elevation: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-  },
-  modalHeader: {
-    color: Colors.RED,
-    marginBottom: 12,
-  },
-  passwordTextInput: {
-    height: Sizing.vh*7,
-    borderColor: Colors.BLACK,
-    borderWidth: 1,
-    marginBottom: 10,
-    borderRadius: 12,
-  },
-  okCancelContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    width: Sizing.vw*75,
-  },
-  okButton: {
-    borderWidth: 2,
-    borderColor: Colors.BLACK,
-    paddingHorizontal: 40,
-    paddingVertical: 10,
-    borderRadius: 18,
-    marginVertical: 5,
-  },
-  cancelButton: {
-    borderWidth: 2,
-    borderColor: Colors.BLACK,
-    paddingHorizontal: 40,
-    paddingVertical: 10,
-    borderRadius: 18,
-    marginVertical: 5,
-  },
-  buttonText: {
-    color: Colors.BLACK,
-    textAlign: 'center',
-  },
-});
+const styles = StyleSheet.create({});
 
 export default WifiScannerScreen;

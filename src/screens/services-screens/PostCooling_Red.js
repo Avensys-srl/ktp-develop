@@ -21,6 +21,7 @@ import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors, CustomStyles, Sizing} from '../../styles';
 import DividerLine from '../../component/DividerLine';
 import CircleProgressBarSmaller from '../../component/CircleProgressBarSmaller';
+import TwoPointSlider from '../../component/TwoPointSlider';
 
 const {width, height} = Dimensions.get('window');
 

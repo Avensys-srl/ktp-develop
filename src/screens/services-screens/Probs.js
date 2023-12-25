@@ -11,10 +11,12 @@ import {CountdownProgressBar, Header} from '../../component';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../../styles';
 import CircleProgressBarSmall from '../../component/CircleProgressBarSmall';
+import componentStyle from '../../styles/componentStyle';
 
 const {width, height} = Dimensions.get('window');
 
 const Probs = () => {
+  console.warn(componentStyle.commonStyles.componentHeight.height);
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header

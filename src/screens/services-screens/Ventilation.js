@@ -19,8 +19,6 @@ import {
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../../styles';
 
-const {width, height} = Dimensions.get('window');
-
 export const Ventilation = () => {
   // Stato iniziale o stato ricevuto da altre fonti
   const initialState = false;
@@ -35,9 +33,6 @@ export const Ventilation = () => {
 
   return (
     <View style={styles.container}>
-      {/* <View style={styles.bgheading}>
-        <Text style={styles.headingTxt}>Ventilation</Text>
-      </View> */}
       <Header
         canGoBack={true}
         title="Ventilation"

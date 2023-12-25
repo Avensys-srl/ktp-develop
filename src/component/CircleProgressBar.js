@@ -9,14 +9,8 @@ export const CircleProgressBar = ({TSB, TSL, TSR, RIV, BG}) => {
   const border_thickness = 2;
   const centered = (progressBarHeight - circleSize) / 2 - border_thickness;
 
-  let bgColor;
-  if (BG === 0) {
-    bgColor = Colors.WHITE;
-  } else if (BG === 1) {
-    bgColor = Colors.GREEN;
-  } else if (BG === 2) {
-    bgColor = Colors.RED;
-  }
+  let bgColor =
+    BG == 0 ? Colors.ORANGE : BG == 1 ? Colors.LIGHT_GREEN : Colors.RED;
 
   const [progress, setProgress] = useState(RIV);
   const [circlePosition, setCirclePosition] = useState({
