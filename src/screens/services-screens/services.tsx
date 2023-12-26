@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {Header} from '../../component/index';
 import {ServicesCard} from './services-card';
@@ -18,7 +18,14 @@ export const Services = () => {
     {title: 'report', route: null, disabled: true},
   ];
   return (
-    <>
+    <SafeAreaView
+      style={{
+        backgroundColor: Colors.WHITE,
+        flex: 1,
+        borderColor: Colors.RED,
+        borderWidth: 2,
+        borderRadius: 10,
+      }}>
       <Header canGoBack={false} title="Services" headerBG={1} optionsStar={1} />
       <View style={Styles.container}>
         {ServicesTab.map((item, index) => {
@@ -34,17 +41,14 @@ export const Services = () => {
         })}
       </View>
       <CustomBottomNavigation></CustomBottomNavigation>
-    </>
+    </SafeAreaView>
   );
 };
 
 const Styles = ScaledSheet.create({
   container: {
     flex: 1,
-    width: Sizing.vw * 100,
-    borderColor: Colors.RED,
-    borderWidth: 2,
-    borderRadius: 5,
+    // width: Sizing.vw * 100,
     backgroundColor: Colors.WHITE,
   },
 });

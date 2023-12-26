@@ -46,7 +46,7 @@ export const Ventilation = () => {
             TOO={''}
             CL={'stepless'}
             CR={'3speeds'}
-            BG={0}
+            BG={1}
             isToggled={isToggled}
             onToggle={handleToggle}
           />

@@ -4,6 +4,7 @@ import {Label, AccessoriesCard} from '../../component';
 import {ImageSource} from '../../common/imageSource';
 import {useNavigation} from '@react-navigation/native';
 import {Colors, Sizing} from '../../styles';
+import screenStyle from '../../styles/screenStyle';
 
 interface props {
   title: string;
@@ -15,17 +16,18 @@ interface props {
 export const SettingsCard = (props: props) => {
   const {title, index, onPress, disabled, values = []} = props;
   const navigation = useNavigation();
+  const { container, card, txttitle, starImage,valuesContainer} = screenStyle.cardDesign;
   return (
-    <View style={styles.container}>
+    <View style={container}>
       <TouchableOpacity
-        style={styles.card}
+        style={card}
         key={index}
         disabled={disabled}
         onPress={() => navigation.navigate(onPress)}>
-        <Text style={styles.txttitle}>{title}</Text>
+        <Text style={txttitle}>{title}</Text>
         <View style={{flexDirection: 'row'}}>
           <TouchableOpacity>
-            <Image source={ImageSource.star} style={styles.starImage} />
+            <Image source={ImageSource.star} style={starImage} />
           </TouchableOpacity>
           <TouchableOpacity
           // onPress={() => {
@@ -39,13 +41,13 @@ export const SettingsCard = (props: props) => {
               source={
                 values.length !== 0 ? ImageSource.arrowDown : ImageSource.arrow
               }
-              style={[styles.starImage, {tintColor: 'white'}]}
+              style={[starImage, {tintColor: 'white'}]}
             />
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
       {values.length !== 0 && (
-        <View style={styles.valuesContainer}>
+        <View style={valuesContainer}>
           {values.map(title => {
             return <AccessoriesCard title={title} />;
           })}
@@ -56,44 +58,4 @@ export const SettingsCard = (props: props) => {
   );
 };
 
-const styles = ScaledSheet.create({
-  container: {
-    width: Sizing.vw * 100,
-    paddingHorizontal: '2@ms',
-    alignItems:'center'
-  },
-  card: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: '10@ms',
-    // paddingVertical: '5@ms',
-    borderWidth: 1,
-    borderRadius: '5@ms',
-    marginTop: '6@ms',
-    marginLeft: '5@ms',
-    marginRight: '5@ms',
-    backgroundColor: Colors.BLACK,
-    height: '37@ms',
-    justifyContent: 'space-between',
-    width:Sizing.vw*90,
-  },
-  starImage: {
-    height: '25@ms',
-    width: '25@ms',
-    resizeMode: 'contain',
-  },
-  title: {
-    color: Colors.WHITE,
-    fontSize: '20@ms',
-  },
-  txttitle: {
-    color: Colors.WHITE,
-    fontSize: '18@ms',
-  },
-  valuesContainer: {
-    width: Sizing.vw * 100,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: '5@ms',
-  },
-});
+const styles = ScaledSheet.create({});

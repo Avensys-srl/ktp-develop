@@ -524,8 +524,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   imgLogo: {
-    width: Sizing.vw * 55,
-    height: Sizing.vh * 8,
+    width: 250,
+    height: 80,
   },
   row: {
     flexDirection: 'row',

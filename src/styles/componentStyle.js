@@ -2,7 +2,10 @@ import {StyleSheet} from 'react-native';
 import {Colors} from '.';
 import {Sizing} from '.';
 
-const height = Sizing.vh * 3;
+export const height = Sizing.vh * 3;
+export const widthLarge = Sizing.vw * 90;
+export const widthMedium = Sizing.vw * 80;
+// const widthSmall = Sizing.vw*70
 
 export default componentStyle = StyleSheet.create({
   // Common style
@@ -27,9 +30,17 @@ export default componentStyle = StyleSheet.create({
     componentWidthMedium: {
       width: Sizing.vw * 80,
     },
+    circleContainer: {
+      width: Sizing.vh * 2.45,
+      height: Sizing.vh * 2.45,
+      borderRadius: (Sizing.vh * 2.45) / 2,
+      position: 'absolute',
+      borderWidth: 2,
+      borderColor: Colors.WHITE,
+    },
   },
 
-  //   Activation button
+  // Activation button
   avtivationButton: {
     mainContainer: {
       alignItems: 'center',
@@ -65,8 +76,8 @@ export default componentStyle = StyleSheet.create({
       width: Sizing.vw * 90,
     },
     homeImages: {
-      width: Sizing.vw * 7.5,
-      height: Sizing.vh * 4,
+      width: 30,
+      height: 30,
     },
     progressBarContainer: {
       flexDirection: 'row',
@@ -93,6 +104,7 @@ export default componentStyle = StyleSheet.create({
     },
   },
 
+  // circleProgressBarSmall
   circleProgressBarSmall: {
     mainContainer: {
       justifyContent: 'center',
@@ -103,19 +115,50 @@ export default componentStyle = StyleSheet.create({
       alignItems: 'center',
     },
     progressBarContainer: {
+      width: widthLarge,
       height: height,
+      borderRadius: widthLarge / 2,
+      borderColor: Colors.LIGHT_GREEN,
+      borderWidth: 2,
+      backgroundColor: Colors.WHITE,
+      position: 'relative',
     },
-
     textContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
   },
+
+  circuleProgressBarSmaller: {
+    mainContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: Colors.WHITE,
+    },
+    textContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    progressBarContainer: {
+      width: widthMedium,
+      height: height,
+      borderRadius: widthMedium / 2,
+      borderColor: Colors.LIGHT_GREEN,
+      borderWidth: 2,
+      backgroundColor: Colors.WHITE,
+      position: 'relative',
+    },
+    valueContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+  },
+
   // WIFI scanner
   WifiScannerScreen: {
     wifiNames: {
       color: Colors.DARK_GREY,
-      fontSize: 20,
+      fontSize: 18,
     },
     modalContent: {
       backgroundColor: Colors.WHITE,
@@ -177,8 +220,103 @@ export default componentStyle = StyleSheet.create({
       justifyContent: 'space-between',
     },
     imgWifi: {
-      width: Sizing.vw * 8,
-      height: Sizing.vh * 3,
+      width: 30,
+      height: 30,
+    },
+    disName: {
+      fontSize: 12,
+    },
+  },
+
+  // ToggleSwitch
+  ToggleSwitch: {
+    mainContainer: {
+      width: widthLarge,
+      height: height,
+      borderRadius: widthLarge / 2,
+      backgroundColor: Colors.WHITE,
+      borderColor: Colors.LIGHT_GREEN,
+      borderWidth: 2,
+      flexDirection: 'row',
+      overflow: 'hidden',
+      alignItems: 'center',
+    },
+    leftCircle: {
+      left: 0,
+    },
+    rightCircle: {
+      right: 0,
+    },
+    textContainer: {
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+    },
+  },
+
+  // CountdownProgressbar
+  CountdownProgressBar: {
+    mainContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    valueContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      position: 'relative',
+    },
+    textContainer: {flexDirection: 'row', justifyContent: 'space-between'},
+  },
+
+  // CustomBottomNavigation
+  CustomBottomNavigation: {
+    mainContainer: {
+      width: Sizing.vw * 100,
+      alignItems: 'center',
+      marginTop: 10,
+    },
+    iconContainer: {
+      width: widthLarge,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      borderWidth: 1,
+      borderRadius: 12,
+      marginBottom: 12,
+      alignItems: 'center',
+      backgroundColor: Colors.WHITE,
+    },
+    iconImg: {
+      height: Sizing.vh * 6,
+      width: Sizing.vw * 12,
+    },
+  },
+
+  // CustomCheckBox
+  CustomCheckBox: {
+    mainContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop: 24,
+    },
+    checkbox: {
+      width: 24,
+      height: 24,
+      borderWidth: 1,
+      borderColor: Colors.WHITE,
+      marginRight: Sizing.vw * 4,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 3,
+    },
+    checkImg: {
+      height: '60%',
+      width: '60%',
+    },
+    lableText: {
+      fontSize: 18,
+      color: 'white',
     },
   },
 });

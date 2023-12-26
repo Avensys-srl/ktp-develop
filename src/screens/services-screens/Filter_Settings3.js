@@ -28,7 +28,7 @@ const Filter_Settings3 = () => {
           <ToggleSwitch
             CL={'time'}
             CR={'pressure'}
-            BG={0}
+            BG={1}
             isToggled={isTimeToggled}
             onToggle={handleTimeToggle}
           />
@@ -46,7 +46,7 @@ const Filter_Settings3 = () => {
         </View>
 
         <View style={styles.progressbarContainer}>
-          <Text style={styles.progressbarText}>DPP Thereshold max p. [%]</Text>
+          {/* <Text style={styles.progressbarText}>DPP Thereshold max p. [%]</Text> */}
           <CircleProgressBarSmall
             TSB={'DPP Thereshold max p. [%]: '}
             TSL={0}
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   toggleSwitchContainer: {
-    borderWidth: 2,
+    // borderWidth: 2,
     borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',

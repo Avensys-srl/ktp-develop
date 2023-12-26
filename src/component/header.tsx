@@ -54,6 +54,7 @@ const styles = ScaledSheet.create({
     width: Sizing.vw * 100,
     alignItems: 'center',
     marginTop: 15,
+    marginBottom:10,
   },
   image: {
     height: Sizing.vh * 20,
@@ -76,8 +77,8 @@ const styles = ScaledSheet.create({
     marginEnd: 12,
   },
   img: {
-    width: Sizing.vw * 7,
-    height: Sizing.vh * 4,
+    width: 35,
+    height: 35,
     marginEnd: 12,
   },
 });

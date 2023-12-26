@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {Header} from '../../component';
 import {SettingsCard} from './settings-card';
@@ -16,7 +16,14 @@ export const Settings = () => {
   ];
 
   return (
-    <>
+    <SafeAreaView
+      style={{
+        backgroundColor: Colors.WHITE,
+        flex: 1,
+        borderColor: Colors.BLACK,
+        borderWidth: 2,
+        borderRadius: 10,
+      }}>
       <Header canGoBack={false} title="Settings" headerBG={1} optionsStar={1} />
       <View style={Styles.container}>
         {SettingsTab.map((item, index) => {
@@ -31,13 +38,14 @@ export const Settings = () => {
         })}
       </View>
       <CustomBottomNavigation></CustomBottomNavigation>
-    </>
+    </SafeAreaView>
   );
 };
 
 const Styles = ScaledSheet.create({
   container: {
     flex: 1,
-    width: Sizing.vw * 100,
+    // width: Sizing.vw * 100,
+    backgroundColor: Colors.WHITE,
   },
 });

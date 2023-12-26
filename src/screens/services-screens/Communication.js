@@ -37,7 +37,7 @@ export const Communication = ({navigation}) => {
         <ToggleSwitch
           CL={'wifi'}
           CR={'BT'}
-          BG={0}
+          BG={1}
           isToggled={isToggled}
           onToggle={handleToggle}
         />
@@ -81,6 +81,10 @@ const styles = StyleSheet.create({
     width: Sizing.vw * 100,
     height: Sizing.vh * 100,
     flex: 1,
+    backgroundColor:Colors.WHITE,
+    borderWidth:2,
+    borderRadius:10,
+    borderColor:Colors.BLACK,
   },
   mainView: {
     height: Sizing.vh * 43,

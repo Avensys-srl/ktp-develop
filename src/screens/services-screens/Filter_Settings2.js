@@ -142,8 +142,10 @@ const styles = StyleSheet.create({
     color: Colors.GREY500,
   },
   lockImg: {
-    width: Sizing.vw * 10,
-    height: Sizing.vh * 6,
+    // width: Sizing.vw * 10,
+    width: 40,
+    // height: Sizing.vh * 6,
+    height: 40,
     marginRight: width * 0.07,
   },
   lockImgTouchableOpacity: {
@@ -177,7 +179,8 @@ const styles = StyleSheet.create({
   },
   calibrationText: {
     textAlign: 'center',
-    fontSize: width * 0.04,
+    // fontSize: width * 0.04,
+    fontSize: 18,
     marginRight: width * 0.05,
   },
   calibrationIconContainer: {

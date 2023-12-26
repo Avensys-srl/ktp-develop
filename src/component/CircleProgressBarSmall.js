@@ -5,9 +5,9 @@ import componentStyle from '../styles/componentStyle';
 
 export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
   const progressBarWidth = CustomStyles.circularProgressBarSmall.width;
-  const circleSize = Sizing.vh * 2.25;
+  const circleSize = Sizing.vh * 3;
   const progressBarHeight = CustomStyles.circularProgressBarSmall.height;
-  const centered = (progressBarHeight - circleSize) / 2 - 2;
+  const centered = (progressBarHeight - circleSize) / 2;
 
   let bgColor =
     BG == 0 ? Colors.ORANGE : BG == 1 ? Colors.LIGHT_GREEN : Colors.RED;
@@ -46,9 +46,14 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
     onPanResponderMove: handlePanResponderMove,
   });
 
-  const {mainContainer, valueContainer, textContainer} =
-    componentStyle.circleProgressBarSmall;
-  const {componentTitle} = componentStyle.commonStyles;
+  const {
+    mainContainer,
+    valueContainer,
+    textContainer,
+    progressBarContainer,
+    // circleContainer,
+  } = componentStyle.circleProgressBarSmall;
+  const {componentTitle, circleContainer} = componentStyle.commonStyles;
 
   // const filledWidth = progressBarWidth * progress;
 
@@ -62,28 +67,16 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
       </View>
 
       <View {...panResponder.panHandlers}>
-        <View
-          style={{
-            width: progressBarWidth,
-            height: progressBarHeight,
-            borderRadius: progressBarWidth / 2,
-            borderColor: Colors.LIGHT_GREEN,
-            borderWidth: 2,
-            backgroundColor: Colors.WHITE,
-            position: 'relative',
-          }}>
+        <View style={progressBarContainer}>
           <View
-            style={{
-              backgroundColor: bgColor,
-              width: circleSize,
-              height: circleSize,
-              borderRadius: circleSize / 2,
-              position: 'absolute',
-              left: circlePosition.left,
-              bottom: circlePosition.bottom,
-              borderWidth: 2,
-              borderColor: Colors.WHITE,
-            }}
+            style={[
+              circleContainer,
+              {
+                left: circlePosition.left,
+                bottom: circlePosition.bottom,
+                backgroundColor: bgColor,
+              },
+            ]}
           />
         </View>
         <View style={textContainer}>
@@ -94,7 +87,5 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default CircleProgressBarSmall;

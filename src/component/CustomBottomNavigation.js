@@ -11,7 +11,7 @@ import {ImageSource} from '../common/imageSource';
 import {Routes} from '../routes';
 import {Colors, Sizing} from '../styles';
 
-const {width, height} = Dimensions.get('window');
+// const {width, height} = Dimensions.get('window');
 
 const CustomBottomNavigation = ({
   HI = ImageSource.HI,
@@ -71,20 +71,24 @@ const styles = StyleSheet.create({
     width: Sizing.vw * 100,
     alignItems: 'center',
     marginTop: 10,
+    // flex:1,
+    // height:Sizing.vh*100,
   },
   container: {
-    width: width * 0.9,
+    // flex:1,
+    width: Sizing.vw * 90,
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderWidth: 1,
     borderRadius: 12,
     marginBottom: 12,
     alignItems: 'center',
-    backgroundColor:Colors.WHITE
+    backgroundColor:Colors.WHITE,
+ 
   },
   img: {
-    height: Sizing.vh * 6,
-    width: Sizing.vw * 12,
+    height: 55,
+    width:55,
   },
 });
 

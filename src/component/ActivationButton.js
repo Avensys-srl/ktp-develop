@@ -30,7 +30,7 @@ const ActivationButton = ({TAB, rot}) => {
       <Svg style={svgStyle} viewBox="0 0 256 256">
         <Path
           d={housePath}
-          fill={Colors.BLACK}
+          fill={Colors.LIGHT_GREEN}
           transform={`rotate(${rotationAngle}, 128, 128)`}
         />
       </Svg>

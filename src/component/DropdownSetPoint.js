@@ -5,7 +5,7 @@ import {Colors, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 
-const DropdownSetPoint = ({data,defalutValue}) => {
+const DropdownSetPoint = ({data, defalutValue}) => {
   const [selectedItem, setSelectedItem] = useState('');
 
   const maxItemsWithoutScroll = 5;
@@ -48,13 +48,14 @@ const styles = StyleSheet.create({
     marginRight: Sizing.vw * 2,
   },
   ddStyle: {
-    borderWidth: 1,
+    borderWidth: 2,
     marginLeft: 15,
     marginTop: 5,
     borderRadius: 12,
     borderTopWidth: 1,
     height: Sizing.vh * 33.5,
     width: Sizing.vw * 20,
+    borderColor: Colors.LIGHT_GREEN,
   },
   itemStyle: {
     borderBottomColor: 'transparent',

@@ -37,7 +37,7 @@ export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
     setProgress(prevProgress => Math.max(prevProgress - 0.1, 0.0));
   };
 
-  const barWidth = 24;
+  const barWidth = Sizing.vw * 6;
 
   const progressBarHeight = 150 * progress;
   const percentage = Math.round(progress * 100);

@@ -6,7 +6,7 @@ export default CustomStyles = StyleSheet.create({
   Title1: {
     textAlign: 'center',
     marginBottom: Sizing.vh * 2,
-    fontSize: Sizing.vw * 4.5,
+    fontSize: 20,
     color: Colors.BLUE,
   },
   TitleHeader: {

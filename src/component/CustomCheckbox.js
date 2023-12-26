@@ -1,49 +1,25 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import {ImageSource} from '../common/imageSource';
+import componentStyle from '../styles/componentStyle';
 
 const CustomCheckbox = ({isChecked, handleCheckBox, lable}) => {
+  const {mainContainer, checkbox, checkImg, lableText} =
+    componentStyle.CustomCheckBox;
+
   return (
-    <View style={styles.mainContainer}>
+    <View style={mainContainer}>
       <TouchableOpacity onPress={handleCheckBox}>
-        <View style={styles.checkbox}>
+        <View style={checkbox}>
           <Image
             source={isChecked ? ImageSource.check : ImageSource.transparent}
-            style={styles.checkImg}
+            style={checkImg}
           />
         </View>
       </TouchableOpacity>
-      <Text style={styles.lableText}>{lable}</Text>
+      <Text style={lableText}>{lable}</Text>
     </View>
   );
 };
 
 export default CustomCheckbox;
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 24,
-  },
-  checkbox: {
-    width: 24,
-    height: 24,
-    borderWidth: 1,
-    borderColor: 'white',
-    marginRight: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 3,
-  },
-  checkImg: {
-    height: '60%',
-    width: '60%',
-  },
-  lableText: {
-    fontSize: 18,
-    color: 'white',
-  },
-});

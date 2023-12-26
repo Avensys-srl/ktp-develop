@@ -151,7 +151,7 @@ const WifiScannerScreen = () => {
       style={[tochBtn]}>
       <View>
         <Text style={[wifiNames]}>{`${item.SSID}`}</Text>
-        <Text>{`Distance: ${getDistanceFromSignalStrength(
+        <Text style={[disName]}>{`Distance: ${getDistanceFromSignalStrength(
           item.level,
         )} meters`}</Text>
       </View>
@@ -185,7 +185,7 @@ const WifiScannerScreen = () => {
     }
   };
 
-  const {wifiNames,modalContent,imgWifi,passwordTextInput,okCancelContainer,okButton,cancelButton,buttonText,wifiMainContainer,modalHeader,tochBtn} = componentStyle.WifiScannerScreen;
+  const {wifiNames,modalContent,disName,imgWifi,passwordTextInput,okCancelContainer,okButton,cancelButton,buttonText,wifiMainContainer,modalHeader,tochBtn} = componentStyle.WifiScannerScreen;
   return (
     <View style={[wifiMainContainer]}>
       <FlatList

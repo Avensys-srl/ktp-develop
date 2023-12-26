@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
 import * as Progress from 'react-native-progress';
 import {Colors, CustomStyles, Sizing} from '../styles';
+import componentStyle from '../styles/componentStyle';
 
 const {width, height} = Dimensions.get('window');
 export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
@@ -24,21 +25,17 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
     onPanResponderMove: handlePanResponderMove,
   });
 
-  const filledWidth = 320 * (progress || 0);
+  // const filledWidth = 320 * (progress || 0);
+
+  const {mainContainer, valueContainer, textContainer} =
+    componentStyle.CountdownProgressBar;
+  const {componentTitle} = componentStyle.commonStyles;
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          // width: Sizing.vw * 60,
-          position: 'relative',
-        }}>
-        <Text style={[CustomStyles.ComponentTitles, {marginRight: 8}]}>
-          {rv}
-        </Text>
-        <Text style={[CustomStyles.ComponentTitles]}>{`${Math.round(
+    <View style={mainContainer}>
+      <View style={valueContainer}>
+        <Text style={[componentTitle, {marginRight: 8}]}>{rv}</Text>
+        <Text style={[componentTitle]}>{`${Math.round(
           progress * (max_val - min_val) + min_val,
         )}`}</Text>
       </View>
@@ -46,23 +43,21 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
       <View {...panResponder.panHandlers}>
         <Progress.Bar
           progress={progress}
-          width={Sizing.vw * 85}
-          height={CustomStyles.circularProgressBarSmaller.height - 3}
+          width={Sizing.vw * 90}
+          height={Sizing.vh * 2.5}
           borderRadius={18}
           color={Colors.LIGHT_GREEN}
           borderColor={Colors.LIGHT_GREEN}
           borderWidth={2}
           unfilledColor={Colors.WHITE}
         />
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text style={CustomStyles.ComponentTitles}>{mv}</Text>
-          <Text style={CustomStyles.ComponentTitles}>{Xv}</Text>
+        <View style={textContainer}>
+          <Text style={componentTitle}>{mv}</Text>
+          <Text style={componentTitle}>{Xv}</Text>
         </View>
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default CountdownProgressBar;

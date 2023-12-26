@@ -74,9 +74,9 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.WHITE,
-    borderWidth:2,
-    borderColor:Colors.BLACK,
-    borderRadius:10,
+    borderWidth: 2,
+    borderColor: Colors.BLACK,
+    borderRadius: 10,
   },
   opacityContainer: {
     width: Sizing.vw * 100,
@@ -103,9 +103,12 @@ const styles = StyleSheet.create({
     marginTop: height * 0.03,
   },
   radioOpacity: {
-    width: width * 0.06,
-    height: width * 0.06,
-    borderRadius: (width * 0.06) / 2,
+    // width: width * 0.06,
+    width: 24,
+    // height: width * 0.06,
+    height: 24,
+    // borderRadius: (width * 0.06) / 2,
+    borderRadius: 12,
     borderWidth: 2,
     borderColor: Colors.BLUE,
     justifyContent: 'center',
