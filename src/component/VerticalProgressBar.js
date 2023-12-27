@@ -50,8 +50,8 @@ export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
           <Image
             source={ImageSource.fan}
             style={{
-              height: 30,
-              width: 30,
+              height: 40,
+              width: 40,
             }}
           />
         </TouchableOpacity>
@@ -62,18 +62,12 @@ export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
               y={150 - progressBarHeight}
               width={barWidth}
               height={progressBarHeight}
-              fill={
-                percentage < 33
-                  ? Colors.GREEN
-                  : percentage > 33 && percentage < 67
-                  ? Colors.GREEN
-                  : Colors.GREEN
-              }
+              fill={Colors.LIGHT_GREEN}
             />
           </Svg>
         </View>
         <TouchableOpacity onPress={decreaseProgress} style={styles.button}>
-          <Image source={ImageSource.fan} style={{height: 20, width: 20}} />
+          <Image source={ImageSource.fan} style={{height: 30, width: 30}} />
         </TouchableOpacity>
         <Text style={[CustomStyles.ComponentTitles, styles.percentageText]}>
           {percentage}%
@@ -90,8 +84,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: Colors.BLACK,
+    borderWidth: 2,
+    borderColor: Colors.LIGHT_GREEN,
     padding: 10,
     margin: 10,
     justifyContent: 'center',
@@ -104,18 +98,12 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 10,
-    borderRadius: 5,
-    color: Colors.BLACK,
-  },
-  buttonText: {
-    fontSize: 30,
-    color: Colors.WHITE,
-    color: Colors.BLACK,
+    color: Colors.LIGHT_GREEN,
   },
   progressBarContainer: {
     borderWidth: 2,
-    borderColor: Colors.BLACK,
-    borderRadius: 8,
+    borderColor: Colors.LIGHT_GREEN,
+    borderRadius: 16,
     overflow: 'hidden',
     alignItems: 'center',
     width: Sizing.vw * 6,
@@ -123,7 +111,7 @@ const styles = StyleSheet.create({
   },
   percentageText: {
     fontSize: 18,
-    marginTop: 10,
+    // marginTop: 10,
   },
   txtlbl: {
     fontSize: 20,

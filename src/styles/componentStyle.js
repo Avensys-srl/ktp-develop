@@ -2,10 +2,10 @@ import {StyleSheet} from 'react-native';
 import {Colors} from '.';
 import {Sizing} from '.';
 
-export const height = Sizing.vh * 3;
-export const widthLarge = Sizing.vw * 90;
-export const widthMedium = Sizing.vw * 80;
-// const widthSmall = Sizing.vw*70
+const height = Sizing.vh * 3 * 1.5;
+const widthLarge = Sizing.vw * 90;
+const widthMedium = Sizing.vw * 80;
+const widthSmall = Sizing.vw * 70;
 
 export default componentStyle = StyleSheet.create({
   // Common style
@@ -31,12 +31,13 @@ export default componentStyle = StyleSheet.create({
       width: Sizing.vw * 80,
     },
     circleContainer: {
-      width: Sizing.vh * 2.45,
-      height: Sizing.vh * 2.45,
-      borderRadius: (Sizing.vh * 2.45) / 2,
+      width: Sizing.vh * 2.45 * 1.5,
+      height: Sizing.vh * 2.45 * 1.5,
+      borderRadius: (Sizing.vh * 2.45 * 1.5) / 2,
       position: 'absolute',
       borderWidth: 2,
       borderColor: Colors.WHITE,
+      // alignSelf: 'Center',
     },
   },
 
@@ -147,6 +148,7 @@ export default componentStyle = StyleSheet.create({
       borderWidth: 2,
       backgroundColor: Colors.WHITE,
       position: 'relative',
+      justifyContent: 'center',
     },
     valueContainer: {
       flexDirection: 'row',
@@ -317,6 +319,72 @@ export default componentStyle = StyleSheet.create({
     lableText: {
       fontSize: 18,
       color: 'white',
+    },
+  },
+
+  // Imbalancing bar
+  ImbalancingBar: {
+    mainContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: Colors.WHITE,
+    },
+    textContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    progressBarContainer: {
+      width: widthSmall,
+      height: height,
+      borderRadius: widthSmall / 2,
+      borderColor: Colors.LIGHT_GREEN,
+      borderWidth: 2,
+      backgroundColor: Colors.WHITE,
+      position: 'relative',
+      justifyContent: 'center',
+    },
+    valueContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+  },
+
+  // DividerLine
+  DividerLine: {
+    topContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 6,
+      marginBottom: 6,
+    },
+    middleContainer: {
+      width: Sizing.vw * 90,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    bottomContainer: {
+      height: 2,
+      backgroundColor: Colors.BLACK,
+      width: '100%',
+    },
+  },
+
+  // DropdownSetPoint
+  DropdownSetPoint: {
+    btnStyle: {
+      borderWidth: 2,
+      margin: 5,
+      backgroundColor: Colors.WHITE,
+      width: Sizing.vw * 20.5,
+      height: Sizing.vh * 7.5,
+      borderRadius: 12,
+      borderColor: Colors.LIGHT_GREEN,
+      marginRight: Sizing.vw * 2,
+    },
+    itemStyle: {
+      borderBottomColor: 'transparent',
+      borderBottomWidth: 0,
     },
   },
 });

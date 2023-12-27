@@ -9,17 +9,17 @@ export const TrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
 
   useEffect(() => {
     if (TBL === 1) {
-      setFirstContainer(Colors.GREEN);
+      setFirstContainer(Colors.LIGHT_GREEN);
       setSecondContainer(Colors.WHITE);
       setThirdContainer(Colors.WHITE);
     } else if (TBC === 1) {
       setFirstContainer(Colors.WHITE);
-      setSecondContainer(Colors.GREEN);
+      setSecondContainer(Colors.LIGHT_GREEN);
       setThirdContainer(Colors.WHITE);
     } else if (TBR === 1) {
       setFirstContainer(Colors.WHITE);
       setSecondContainer(Colors.WHITE);
-      setThirdContainer(Colors.GREEN);
+      setThirdContainer(Colors.LIGHT_GREEN);
     }
   }, [TBL, TBC, TBR]);
 
@@ -27,42 +27,82 @@ export const TrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
     <View
       style={{
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
       }}>
       <Pressable
         onPress={() => (
-          setFirstContainer(Colors.GREEN),
+          setFirstContainer(Colors.LIGHT_GREEN),
           setSecondContainer(Colors.WHITE),
           setThirdContainer(Colors.WHITE)
         )}>
         <View
-          style={[styles.btnContainer, {backgroundColor: `${firstContainer}`}]}>
-          <Text style={CustomStyles.ComponentTitlesBlack}>{TbL}</Text>
+          style={{
+            borderWidth: 2,
+            borderColor: Colors.LIGHT_GREEN,
+            padding: 1,
+            borderRadius: 12,
+            alignItems: 'center',
+            justifyContent: 'center',
+            flex: 1,
+          }}>
+          <View
+            style={[
+              styles.btnContainer,
+              {backgroundColor: `${firstContainer}`},
+            ]}>
+            <Text style={CustomStyles.ComponentTitlesBlack}>{TbL}</Text>
+          </View>
         </View>
       </Pressable>
       <Pressable
         onPress={() => (
           setFirstContainer(Colors.WHITE),
-          setSecondContainer(Colors.GREEN),
+          setSecondContainer(Colors.LIGHT_GREEN),
           setThirdContainer(Colors.WHITE)
         )}>
         <View
-          style={[
-            styles.btnContainer,
-            {backgroundColor: `${secondContainer}`},
-          ]}>
-          <Text style={CustomStyles.ComponentTitlesBlack}>{TbC}</Text>
+          style={{
+            borderWidth: 2,
+            borderColor: Colors.LIGHT_GREEN,
+            padding: 1,
+            borderRadius: 12,
+            alignItems: 'center',
+            justifyContent: 'center',
+            flex: 1,
+          }}>
+          <View
+            style={[
+              styles.btnContainer,
+              {backgroundColor: `${secondContainer}`},
+            ]}>
+            <Text style={CustomStyles.ComponentTitlesBlack}>{TbC}</Text>
+          </View>
         </View>
       </Pressable>
       <Pressable
         onPress={() => (
           setFirstContainer(Colors.WHITE),
           setSecondContainer(Colors.WHITE),
-          setThirdContainer(Colors.GREEN)
+          setThirdContainer(Colors.LIGHT_GREEN)
         )}>
         <View
-          style={[styles.btnContainer, {backgroundColor: `${thirdContainer}`}]}>
-          <Text style={CustomStyles.ComponentTitlesBlack}>{TbR}</Text>
+          style={{
+            borderWidth: 2,
+            borderColor: Colors.LIGHT_GREEN,
+            padding: 1,
+            borderRadius: 12,
+            alignItems: 'center',
+            justifyContent: 'center',
+            flex: 1,
+            // marginRight: 8,
+          }}>
+          <View
+            style={[
+              styles.btnContainer,
+              {backgroundColor: `${thirdContainer}`},
+            ]}>
+            <Text style={CustomStyles.ComponentTitlesBlack}>{TbR}</Text>
+          </View>
         </View>
       </Pressable>
     </View>
@@ -72,9 +112,9 @@ export const TrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
 const styles = StyleSheet.create({
   btnContainer: {
     padding: 30,
-    marginRight: 8,
-    borderWidth: 1,
-    borderColor: Colors.BLACK,
+    // marginRight: 8,
+    borderWidth: 2,
+    borderColor: Colors.WHITE,
     borderRadius: 12,
   },
 });

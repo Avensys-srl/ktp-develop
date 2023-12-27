@@ -1,35 +1,17 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Colors, Sizing} from '../styles';
+import componentStyle from '../styles/componentStyle';
 
 const DividerLine = () => {
+  const {topContainer, middleContainer, bottomContainer} =
+    componentStyle.DividerLine;
   return (
-    <View style={styles.topContainer}>
-      <View style={styles.middleContainer}>
-        <View style={styles.bottomContainer}></View>
+    <View style={topContainer}>
+      <View style={middleContainer}>
+        <View style={bottomContainer}></View>
       </View>
     </View>
   );
 };
 
 export default DividerLine;
-
-const styles = StyleSheet.create({
-  topContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 6,
-    marginBottom: 6,
-  },
-  middleContainer: {
-    width: Sizing.vw * 90,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  bottomContainer: {
-    height: 2,
-    backgroundColor: Colors.BLACK,
-    width: '100%',
-  },
-});

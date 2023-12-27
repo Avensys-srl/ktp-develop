@@ -35,13 +35,13 @@ const NewRangeSlider = ({TPR, VL1, VL2, BG, minVL = 0, maxVL = 100}) => {
     <View style={styles.container}>
       <Text style={{fontSize: 18, color: Colors.BLACK}}>{TPR}</Text>
       <Text style={styles.values1}>{values[0]}</Text>
-      <View style={{marginTop: -40}}>
+      <View style={{marginTop: -30}}>
         <MultiSlider
           values={values}
           min={minVL}
           max={maxVL}
           onValuesChange={handleValuesChange}
-          sliderLength={Sizing.vw * 90}
+          sliderLength={Sizing.vw * 79}
           selectedStyle={styles.selectedStyle}
           unselectedStyle={styles.unselectedStyle}
           containerStyle={styles.containerStyle}
@@ -49,6 +49,17 @@ const NewRangeSlider = ({TPR, VL1, VL2, BG, minVL = 0, maxVL = 100}) => {
           customMarker={renderCustomMarker}
         />
       </View>
+      <View
+        style={{
+          width: Sizing.vw * 90,
+          height: Sizing.vh * 4.5,
+          borderWidth: 2,
+          borderColor: Colors.LIGHT_GREEN,
+          borderRadius: (Sizing.vw * 90) / 2,
+          position: 'absolute',
+          top: Sizing.vh * 1.15,
+          zIndex: -1,
+        }}></View>
       <View style={styles.minMaxTextContainer}>
         {/* <Text>{minVL}</Text>
         <Text>{maxVL}</Text> */}
@@ -68,7 +79,7 @@ const styles = StyleSheet.create({
   values1: {
     color: Colors.BLUE,
     marginRight: Sizing.vw * 85,
-    top: height * 0.015,
+    top: height * 0.032,
     zIndex: 2,
     // right: 15
   },
@@ -76,23 +87,23 @@ const styles = StyleSheet.create({
   values2: {
     color: Colors.BLUE,
     marginLeft: Sizing.vw * 85,
-    bottom: height * 0.01,
+    bottom: height * 0.001,
     zIndex: 2,
   },
 
   selectedStyle: {
     backgroundColor: Colors.LIGHT_GREEN,
-    height: CustomStyles.circularProgressBarSmall.height - 1,
-    marginTop: -height * 0.0067,
+    height: Sizing.vh * 3 * 1.2,
+    marginTop: -height * 0.0059,
     borderColor: Colors.BLACK,
   },
 
   unselectedStyle: {
     backgroundColor: Colors.WHITE,
-    height: CustomStyles.circularProgressBarSmall.height,
+    height: CustomStyles.circularProgressBarSmall.height * 1.2,
     marginTop: -height * 0.0067,
     borderRadius: 20,
-    borderWidth: 2,
+    // borderWidth: 2,
     borderColor: Colors.LIGHT_GREEN,
   },
 
@@ -106,14 +117,14 @@ const styles = StyleSheet.create({
   },
 
   customMarker: {
-    width: Sizing.vw * 6,
-    height: Sizing.vw * 6,
+    width: Sizing.vw * 9,
+    height: Sizing.vh * 3 * 1.2,
     // borderRadius: (Sizing.vw * 6) / 2,
-    borderRadius: 8,
+    borderRadius: (Sizing.vw * 56) / 2,
     borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',
-    top: height * 0.0075,
+    top: height * 0.012,
   },
 
   markerText: {

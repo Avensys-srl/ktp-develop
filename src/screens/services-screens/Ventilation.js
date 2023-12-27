@@ -18,6 +18,8 @@ import {
 } from '../../component/index';
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../../styles';
+import ImbalancingBar from '../../component/ImbalancingBar';
+import OnOff2 from '../../component/OnOff2';
 
 export const Ventilation = () => {
   // Stato iniziale o stato ricevuto da altre fonti
@@ -50,25 +52,32 @@ export const Ventilation = () => {
             isToggled={isToggled}
             onToggle={handleToggle}
           />
+          {/* <OnOff2 /> */}
         </View>
-        <View style={{justifyContent: 'center', flexDirection: 'row'}}>
+        <View
+          style={{
+            justifyContent: 'center',
+            flexDirection: 'row',
+            marginTop: 10,
+          }}>
           <VerticalProgressBar TS={isToggled ? 1 : 'Main'} VS={12} />
           <VerticalProgressBar TS={2} VS={45} Visible={isToggled} />
           <VerticalProgressBar TS={3} VS={87} Visible={isToggled} />
           <VerticalProgressBar TS={'boost'} VS={90} />
         </View>
-        <View>
+        <View style={{marginBottom: 20, marginTop: 10}}>
           <TrippleBtn
-            TBL={0}
+            TBL={1}
             TBR={0}
-            TBC={1}
+            TBC={0}
             TbL={'FSC'}
             TbC={'CAP'}
             TbR={'CAF'}
           />
         </View>
         <View style={styles.pairedViewNoBorder}>
-          <CenteredProgressBar IST={'imbalance'} RIV={30} BG={1} />
+          {/* <CenteredProgressBar IST={'imbalance'} RIV={30} BG={1} /> */}
+          <ImbalancingBar TSB={''} RIV={0.6} BG={1} />
         </View>
       </ScrollView>
       <CustomBottomNavigation />
