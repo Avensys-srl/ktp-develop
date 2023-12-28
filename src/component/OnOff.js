@@ -7,6 +7,7 @@ import {
   Dimensions,
 } from 'react-native';
 import {Colors, Sizing} from '../styles';
+import componentStyle from '../styles/componentStyle';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -18,65 +19,29 @@ export const OnOff = ({status, leftText = 'Off', rightText = 'On'}) => {
     setIsToggled(!isToggled);
   };
 
+  const {mainContainer, container, circle, circleActive, text, onOffStyle} =
+    componentStyle.OnOff;
+
+  const {componentText} = componentStyle.commonStyles;
+
   return (
-    <View style={styles.mainContainer}>
-      <View>
+    <View style={mainContainer}>
+      {/* <View>
         <Text style={styles.text}>{status}</Text>
-      </View>
+      </View> */}
       <View>
         <View>
-          <TouchableOpacity onPress={handleToggle} style={styles.container}>
-            <View style={[styles.circle, isToggled && styles.circleActive]} />
+          <TouchableOpacity onPress={handleToggle} style={container}>
+            <View style={[circle, isToggled && circleActive]} />
           </TouchableOpacity>
         </View>
-        <View style={styles.onOffStyle}>
-          <Text>{leftText}</Text>
-          <Text>{rightText}</Text>
+        <View style={onOffStyle}>
+          <Text style={componentText}>{leftText}</Text>
+          <Text style={componentText}>{rightText}</Text>
         </View>
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    borderRadius: 1,
-    alignItems: 'center',
-    marginLeft: 'auto',
-    justifyContent: 'space-between',
-  },
-  container: {
-    height: Sizing.vh * 3,
-    width: Sizing.vw * 30,
-    backgroundColor: Colors.WHITE,
-    borderRadius: (Sizing.vh * 3) / 2,
-    justifyContent: 'center',
-    borderWidth: 2,
-    borderColor: Colors.LIGHT_GREEN,
-  },
-  circle: {
-    height: Sizing.vh * 2.3,
-    width: Sizing.vh * 2.3,
-    borderRadius: Sizing.vh * 2.7,
-    backgroundColor: Colors.LIGHT_GREY,
-    position: 'absolute',
-    left: 2,
-  },
-  circleActive: {
-    left: width * 0.048 * 5,
-    backgroundColor: Colors.LIGHT_GREEN,
-  },
-  text: {
-    fontSize: 16,
-    marginLeft: 8,
-    marginTop: -20,
-    textAlign: 'left',
-  },
-  onOffStyle: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 4,
-  },
-});
 
 export default OnOff;

@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {View, Text, PanResponder, StyleSheet, Dimensions} from 'react-native';
+import {View, Text} from 'react-native';
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import * as Progress from 'react-native-progress';
-import {Colors, CustomStyles, Sizing} from '../styles';
+import {Colors, Sizing} from '../styles';
 import componentStyle from '../styles/componentStyle';
 
-const {width, height} = Dimensions.get('window');
 export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
   const [progress, setProgress] = useState(init_val);
 
@@ -12,22 +12,14 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
   const Xv = max_val;
   const rv = label;
 
-  const handlePanResponderMove = (evt, gestureState) => {
-    const progressBarWidth = 300;
-    const touchX = Math.min(progressBarWidth, Math.max(0, gestureState.moveX));
-    const newProgress = touchX / progressBarWidth;
-
+  const handleSliderChange = values => {
+    const newProgress = values[0] / (Sizing.vw * 90 - Sizing.vw * 14);
     setProgress(newProgress);
   };
 
-  const panResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: handlePanResponderMove,
-  });
+  const circlePosition = progress * (Sizing.vw * 90 - Sizing.vw * 12);
 
-  // const filledWidth = 320 * (progress || 0);
-
-  const {mainContainer, valueContainer, textContainer} =
+  const {mainContainer, valueContainer, textContainer, barContainer} =
     componentStyle.CountdownProgressBar;
   const {componentTitle} = componentStyle.commonStyles;
 
@@ -35,21 +27,34 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
     <View style={mainContainer}>
       <View style={valueContainer}>
         <Text style={[componentTitle, {marginRight: 8}]}>{rv}</Text>
-        <Text style={[componentTitle]}>{`${Math.round(
-          progress * (max_val - min_val) + min_val,
-        )}`}</Text>
+        <Text style={[componentTitle]}>
+          {`${Math.round(progress * (max_val - min_val) + min_val)}`}
+        </Text>
       </View>
 
-      <View {...panResponder.panHandlers}>
-        <Progress.Bar
-          progress={progress}
-          width={Sizing.vw * 90}
-          height={Sizing.vh * 2.5}
-          borderRadius={18}
-          color={Colors.LIGHT_GREEN}
-          borderColor={Colors.LIGHT_GREEN}
-          borderWidth={2}
-          unfilledColor={Colors.WHITE}
+      <View style={barContainer}>
+        <MultiSlider
+          values={[circlePosition]}
+          sliderLength={Sizing.vw * 90 - Sizing.vw * 2}
+          onValuesChange={handleSliderChange}
+          min={0}
+          max={Sizing.vw * 90 - Sizing.vw * 14}
+          step={1}
+          allowOverlap
+          snapped
+          markerStyle={{
+            backgroundColor: 'transparent',
+            height: Sizing.vh * 3.5,
+          }}
+          selectedStyle={{
+            backgroundColor: Colors.LIGHT_GREEN,
+            height: Sizing.vh * 3.5,
+            top: -Sizing.vh * 0.85,
+            borderRadius: 20,
+          }}
+          unselectedStyle={{
+            backgroundColor: Colors.WHITE,
+          }}
         />
         <View style={textContainer}>
           <Text style={componentTitle}>{mv}</Text>

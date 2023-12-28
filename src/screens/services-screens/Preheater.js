@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   filterAlarmContainer: {
     margin: width * 0.04,
     marginHorizontal: width * 0.1,
-    borderWidth: 2,
+    // borderWidth: 2,
     borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
@@ -139,14 +139,14 @@ const styles = StyleSheet.create({
     width: Sizing.vw * 9,
     height: Sizing.vh * 4,
     position: 'absolute',
-    top: height * 0.06,
-    right: width * 0.01,
+    top: height * 0.03,
+    right: width * 0.02,
   },
   toggleSwitchMainContainer: {
     paddingHorizontal: width * 0.06,
   },
   toggleSwitchContainer: {
-    borderWidth: 2,
+    // borderWidth: 2,
     borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',

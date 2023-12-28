@@ -14,7 +14,7 @@ import {ImageSource} from '../common/imageSource';
 
 export const ImbalancingBar = ({TSB, TSL = 0, TSR = 100, RIV, BG}) => {
   const progressBarWidth =
-    componentStyle.ImbalancingBar.progressBarContainer.width - Sizing.vw * 10;
+    componentStyle.ImbalancingBar.progressBarContainer.width - Sizing.vw * 9.5;
   const circleSize = Sizing.vh * 2.45;
   const progressBarHeight = CustomStyles.circularProgressBarSmaller.height;
   const border_thickness = 2;
@@ -68,38 +68,31 @@ export const ImbalancingBar = ({TSB, TSL = 0, TSR = 100, RIV, BG}) => {
     onPanResponderMove: handlePanResponderMove,
   });
 
-  const {mainContainer, textContainer, progressBarContainer, valueContainer} =
-    componentStyle.ImbalancingBar;
+  const {
+    mainContainer,
+    textContainer,
+    progressBarContainer,
+    valueContainer,
+    percentageContainer,
+    barContainer,
+    img,
+  } = componentStyle.ImbalancingBar;
 
   const {circleContainer, componentText} = componentStyle.commonStyles;
 
   return (
     <View style={mainContainer}>
       <View style={textContainer}>
-        <View
-          style={{
-            height: Sizing.vh * 6,
-            borderWidth: 2,
-            borderColor: Colors.LIGHT_GREEN,
-            width: Sizing.vw * 20,
-            justifyContent: 'center',
-            marginBottom: 10,
-            borderRadius: 10,
-          }}>
+        <View style={percentageContainer}>
           <Text style={componentText}>
             {`${Math.round(progress * (TSR - TSL) + TSL)} %`}
           </Text>
         </View>
       </View>
 
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <View style={barContainer}>
         <TouchableOpacity onPress={() => handleImagePress(-0.1)}>
-          <Image source={ImageSource.home_in} style={{height: 50, width: 40}} />
+          <Image source={ImageSource.home_in} style={img} />
         </TouchableOpacity>
 
         <View
@@ -110,7 +103,7 @@ export const ImbalancingBar = ({TSB, TSL = 0, TSR = 100, RIV, BG}) => {
               circleContainer,
               {
                 backgroundColor: bgColor,
-                left: circlePosition.left + Sizing.vw * 3.3,
+                left: circlePosition.left + Sizing.vw * 2.8,
                 bottom: circlePosition.bottom,
               },
             ]}
@@ -118,10 +111,7 @@ export const ImbalancingBar = ({TSB, TSL = 0, TSR = 100, RIV, BG}) => {
         </View>
 
         <TouchableOpacity onPress={() => handleImagePress(0.1)}>
-          <Image
-            source={ImageSource.home_out}
-            style={{height: 50, width: 40}}
-          />
+          <Image source={ImageSource.home_out} style={img} />
         </TouchableOpacity>
       </View>
     </View>

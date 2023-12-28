@@ -7,10 +7,12 @@ import {
   StyleSheet,
   Image,
   Dimensions,
+  SafeAreaView,
 } from 'react-native';
 import Svg, {Rect} from 'react-native-svg';
 import {ImageSource} from '../common/imageSource';
 import {Colors, Sizing} from '../styles';
+import componentStyle from '../styles/componentStyle';
 
 const {width} = Dimensions.get('window');
 export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
@@ -37,85 +39,55 @@ export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
     setProgress(prevProgress => Math.max(prevProgress - 0.1, 0.0));
   };
 
-  const barWidth = Sizing.vw * 6;
+  const barWidth = Sizing.vw * 4;
 
-  const progressBarHeight = 150 * progress;
+  const progressBarHeight = Sizing.vh * 15.8 * progress;
   const percentage = Math.round(progress * 100);
+
+  const {
+    container,
+    buttonContainer,
+    button,
+    progressBarContainer,
+    percentageText,
+    txtlbl,
+    borderVen,
+    smallImg,
+    largeImg,
+  } = componentStyle.VerticalProgressBar;
+
+  const {componentTitle} = componentStyle.commonStyles;
 
   if (Visible) {
     return (
-      <View style={styles.container}>
-        <Text style={[CustomStyles.ComponentTitles, styles.txtlbl]}>{TS}</Text>
-        <TouchableOpacity onPress={increaseProgress} style={styles.button}>
-          <Image
-            source={ImageSource.fan}
-            style={{
-              height: 40,
-              width: 40,
-            }}
-          />
-        </TouchableOpacity>
-        <View style={styles.progressBarContainer} {...panResponder.panHandlers}>
-          <Svg width={barWidth} height={150}>
-            <Rect
-              x={0}
-              y={150 - progressBarHeight}
-              width={barWidth}
-              height={progressBarHeight}
-              fill={Colors.LIGHT_GREEN}
-            />
-          </Svg>
+      <SafeAreaView>
+        <View style={container}>
+          <Text style={[componentTitle, txtlbl]}>{TS}</Text>
+          <TouchableOpacity onPress={increaseProgress} style={button}>
+            <Image source={ImageSource.fan} style={largeImg} />
+          </TouchableOpacity>
+          <View style={progressBarContainer} {...panResponder.panHandlers}>
+            <Svg width={barWidth} height={150}>
+              <Rect
+                x={0}
+                y={Sizing.vh * 16.2 - progressBarHeight}
+                width={barWidth}
+                height={progressBarHeight}
+                rx={Sizing.vw * 2.5}
+                ry={Sizing.vw * 2.5}
+                fill={Colors.LIGHT_GREEN}
+              />
+            </Svg>
+          </View>
+          <TouchableOpacity onPress={decreaseProgress} style={button}>
+            <Image source={ImageSource.fan} style={smallImg} />
+          </TouchableOpacity>
+          <Text style={[componentTitle, percentageText]}>{percentage}%</Text>
+          <View style={buttonContainer}></View>
         </View>
-        <TouchableOpacity onPress={decreaseProgress} style={styles.button}>
-          <Image source={ImageSource.fan} style={{height: 30, width: 30}} />
-        </TouchableOpacity>
-        <Text style={[CustomStyles.ComponentTitles, styles.percentageText]}>
-          {percentage}%
-        </Text>
-        <View style={styles.buttonContainer}></View>
-      </View>
+      </SafeAreaView>
     );
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: Sizing.vw * 20,
-    flexDirection: 'column',
-    alignItems: 'center',
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: Colors.LIGHT_GREEN,
-    padding: 10,
-    margin: 10,
-    justifyContent: 'center',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: Sizing.vw * 100,
-    paddingHorizontal: 50,
-  },
-  button: {
-    padding: 10,
-    color: Colors.LIGHT_GREEN,
-  },
-  progressBarContainer: {
-    borderWidth: 2,
-    borderColor: Colors.LIGHT_GREEN,
-    borderRadius: 16,
-    overflow: 'hidden',
-    alignItems: 'center',
-    width: Sizing.vw * 6,
-    height: Sizing.vh * 17,
-  },
-  percentageText: {
-    fontSize: 18,
-    // marginTop: 10,
-  },
-  txtlbl: {
-    fontSize: 20,
-  },
-});
 
 export default VerticalProgressBar;

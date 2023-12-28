@@ -21,7 +21,6 @@ import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors, CustomStyles, Sizing} from '../../styles';
 import DividerLine from '../../component/DividerLine';
 import CircleProgressBarSmaller from '../../component/CircleProgressBarSmaller';
-import TwoPointSlider from '../../component/TwoPointSlider';
 
 const {width, height} = Dimensions.get('window');
 
@@ -106,13 +105,13 @@ const PostCooling_Red = () => {
               style={[
                 CustomStyles.ComponentTitles,
                 {
-                  marginTop: 12,
-                  marginStart: 12,
+                  // marginTop: 12,
+                  // marginStart: 12,
                 },
               ]}>
               Hysteresys[°C]
             </Text>
-            <View style={{}}>
+            <View style={{position: 'relative'}}>
               <NewRangeSlider TPR={''} VL1={3} VL2={15} minVL={0} maxVL={35} />
             </View>
           </View>

@@ -1,11 +1,12 @@
 import {Pressable, StyleSheet, Text, View, Dimensions} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {Colors, CustomStyles, Sizing} from '../styles';
+import componentStyle from '../styles/componentStyle';
 
 const {width} = Dimensions.get('window');
-const border_thickness = 1;
-const progressBarHeight = CustomStyles.circularProgressBarSmall.height;
-const circleSize = Sizing.vh * 2.4;
+const border_thickness = 2;
+const progressBarHeight = CustomStyles.circularProgressBarSmall.height * 1.5;
+const circleSize = Sizing.vh * 2.45;
 const centered = (progressBarHeight - circleSize) / 2 + border_thickness;
 
 export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
@@ -29,29 +30,17 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
     }
   }, [TBL, TBC, TBR]);
 
+  const {mainContainer, btnContainer} = componentStyle.ThreePointSlider;
+
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'center',
-        borderWidth: 2,
-        margin: 8,
-        borderRadius: progressBarHeight,
-        justifyContent: 'space-between',
-        width: Sizing.vw * 90,
-        height: progressBarHeight,
-        borderColor: Colors.LIGHT_GREEN,
-        paddingHorizontal: 1,
-        paddingVertical: 0.5,
-      }}>
+    <View style={mainContainer}>
       <Pressable
         onPress={() => (
           setFirstContainer(Colors.LIGHT_GREEN),
           setSecondContainer(Colors.WHITE),
           setThirdContainer(Colors.WHITE)
         )}>
-        <View
-          style={[styles.btnContainer, {backgroundColor: `${firstContainer}`}]}>
+        <View style={[btnContainer, {backgroundColor: `${firstContainer}`}]}>
           <Text>{TbL}</Text>
         </View>
       </Pressable>
@@ -61,11 +50,7 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
           setSecondContainer(Colors.LIGHT_GREEN),
           setThirdContainer(Colors.WHITE)
         )}>
-        <View
-          style={[
-            styles.btnContainer,
-            {backgroundColor: `${secondContainer}`},
-          ]}>
+        <View style={[btnContainer, {backgroundColor: `${secondContainer}`}]}>
           <Text>{TbC}</Text>
         </View>
       </Pressable>
@@ -75,8 +60,7 @@ export const ThreePointSlider = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
           setSecondContainer(Colors.WHITE),
           setThirdContainer(Colors.LIGHT_GREEN)
         )}>
-        <View
-          style={[styles.btnContainer, {backgroundColor: `${thirdContainer}`}]}>
+        <View style={[btnContainer, {backgroundColor: `${thirdContainer}`}]}>
           <Text>{TbR}</Text>
         </View>
       </Pressable>
@@ -91,7 +75,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: Colors.LIGHT_GREEN,
     borderRadius: circleSize / 2,
-    bottom: -0.5,
   },
 });
 export default ThreePointSlider;

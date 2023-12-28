@@ -37,7 +37,6 @@ export default componentStyle = StyleSheet.create({
       position: 'absolute',
       borderWidth: 2,
       borderColor: Colors.WHITE,
-      // alignSelf: 'Center',
     },
   },
 
@@ -123,6 +122,7 @@ export default componentStyle = StyleSheet.create({
       borderWidth: 2,
       backgroundColor: Colors.WHITE,
       position: 'relative',
+      justifyContent: 'center',
     },
     textContainer: {
       flexDirection: 'row',
@@ -267,7 +267,19 @@ export default componentStyle = StyleSheet.create({
       justifyContent: 'space-between',
       position: 'relative',
     },
-    textContainer: {flexDirection: 'row', justifyContent: 'space-between'},
+    textContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    barContainer: {
+      position: 'relative',
+      height: Sizing.vh * 4.5,
+      width: Sizing.vw * 90,
+      borderWidth: 2,
+      borderColor: Colors.LIGHT_GREEN,
+      borderRadius: 30,
+      paddingLeft: 2,
+    },
   },
 
   // CustomBottomNavigation
@@ -347,6 +359,24 @@ export default componentStyle = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
+    percentageContainer: {
+      height: Sizing.vh * 6,
+      borderWidth: 2,
+      borderColor: Colors.LIGHT_GREEN,
+      width: Sizing.vw * 20,
+      justifyContent: 'center',
+      marginBottom: 6,
+      borderRadius: 10,
+    },
+    barContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    img: {
+      height: 50,
+      width: 40,
+    },
   },
 
   // DividerLine
@@ -385,6 +415,217 @@ export default componentStyle = StyleSheet.create({
     itemStyle: {
       borderBottomColor: 'transparent',
       borderBottomWidth: 0,
+    },
+  },
+
+  // OnOff
+  OnOff: {
+    mainContainer: {},
+    container: {
+      height: height,
+      width: Sizing.vw * 30,
+      backgroundColor: Colors.WHITE,
+      borderRadius: (Sizing.vw * 30) / 2,
+      justifyContent: 'center',
+      borderWidth: 2,
+      borderColor: Colors.LIGHT_GREEN,
+    },
+    circle: {
+      height: Sizing.vh * 2.45 * 1.5,
+      width: Sizing.vh * 2.45 * 1.5,
+      borderRadius: (Sizing.vh * 2.45 * 1.5) / 2,
+      backgroundColor: Colors.LIGHT_GREY,
+      borderWidth: 2,
+      borderColor: Colors.WHITE,
+      // position: 'absolute',
+      left: -1,
+    },
+    circleActive: {
+      left: Sizing.vw * 21.4,
+      backgroundColor: Colors.LIGHT_GREEN,
+    },
+    onOffStyle: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+  },
+
+  // ThreePointSlider
+  ThreePointSlider: {
+    mainContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      borderWidth: 2,
+      margin: 8,
+      borderRadius: height / 2,
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      width: Sizing.vw * 90,
+      height: height,
+      borderColor: Colors.LIGHT_GREEN,
+      paddingHorizontal: 1,
+      paddingVertical: 0.5,
+    },
+    btnContainer: {
+      height: Sizing.vh * 2.45 * 1.5,
+      width: Sizing.vh * 2.45 * 1.5,
+      borderWidth: 2,
+      borderColor: Colors.LIGHT_GREEN,
+      borderRadius: (Sizing.vh * 2.45 * 1.5) / 2,
+    },
+  },
+
+  // TrippleBtn
+  TrippleBtn: {
+    mainContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+    },
+    btnContainerOuter: {
+      borderWidth: 2,
+      borderColor: Colors.LIGHT_GREEN,
+      padding: 1,
+      borderRadius: 12,
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1,
+    },
+    btnContainer: {
+      padding: 30,
+      borderWidth: 2,
+      borderColor: Colors.WHITE,
+      borderRadius: 12,
+    },
+  },
+
+  // NewRangeSlider
+  NewRangeSlider: {
+    barContainer: {
+      width: widthLarge,
+      height: height,
+      borderWidth: 2,
+      borderColor: Colors.LIGHT_GREEN,
+      borderRadius: (Sizing.vw * 90) / 2,
+      position: 'relative',
+      zIndex: -1,
+    },
+    container: {
+      alignItems: 'center',
+      borderRadius: 12,
+      backgroundColor: Colors.WHITE,
+    },
+
+    values1: {
+      color: Colors.BLUE,
+      marginRight: Sizing.vw * 85,
+      top: height * 1.5,
+      zIndex: 2,
+    },
+
+    values2: {
+      color: Colors.BLUE,
+      marginLeft: Sizing.vw * 85,
+      bottom: height * 0.0001,
+      zIndex: 2,
+    },
+
+    selectedStyle: {
+      backgroundColor: Colors.LIGHT_GREEN,
+      height: Sizing.vh * 3 * 1.2,
+      marginTop: -height * 0.0059,
+      borderColor: Colors.BLACK,
+    },
+
+    unselectedStyle: {
+      backgroundColor: Colors.WHITE,
+      height: CustomStyles.circularProgressBarSmall.height * 1.2,
+      marginTop: -height * 0.0067,
+      borderRadius: 20,
+      borderColor: Colors.LIGHT_GREEN,
+    },
+
+    containerStyle: {
+      height: Sizing.vh * 4.5,
+      borderRadius: 10,
+      left: Sizing.vw * 4.8,
+    },
+
+    trackStyle: {
+      height: Sizing.vh * 5,
+    },
+
+    customMarker: {
+      width: Sizing.vw * 9,
+      height: Sizing.vh * 3 * 1.2,
+      borderRadius: (Sizing.vw * 56) / 2,
+      borderColor: Colors.BLACK,
+      justifyContent: 'center',
+      alignItems: 'center',
+      top: height * 0.012,
+    },
+
+    markerText: {
+      color: Colors.BLACK,
+      fontWeight: 'bold',
+      position: 'absolute',
+    },
+
+    minMaxTextContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '90%',
+    },
+  },
+
+  // VerticalProgressBar
+  VerticalProgressBar: {
+    container: {
+      width: Sizing.vw * 18.8,
+      flexDirection: 'column',
+      alignItems: 'center',
+      borderRadius: 12,
+      borderWidth: 2,
+      borderColor: Colors.LIGHT_GREEN,
+      padding: 10,
+      margin: 10,
+      justifyContent: 'center',
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: Sizing.vw * 100,
+      paddingHorizontal: 50,
+    },
+    button: {
+      padding: 10,
+      color: Colors.LIGHT_GREEN,
+    },
+    progressBarContainer: {
+      borderWidth: 2,
+      borderColor: Colors.LIGHT_GREEN,
+      borderRadius: Sizing.vw * 3,
+      overflow: 'hidden',
+      alignItems: 'center',
+      width: Sizing.vw * 6,
+      height: Sizing.vh * 17,
+    },
+    percentageText: {
+      fontSize: 18,
+    },
+    txtlbl: {
+      fontSize: 16,
+    },
+    borderVen: {
+      borderTopLeftRadius: 50,
+      borderTopRightRadius: 50,
+    },
+    smallImg: {
+      height: 30,
+      width: 30,
+    },
+    largeImg: {
+      height: 40,
+      width: 40,
     },
   },
 });

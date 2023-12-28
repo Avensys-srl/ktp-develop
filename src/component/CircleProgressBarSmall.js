@@ -4,7 +4,8 @@ import {Colors, CustomStyles, Sizing} from '../styles';
 import componentStyle from '../styles/componentStyle';
 
 export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
-  const progressBarWidth = CustomStyles.circularProgressBarSmall.width;
+  const progressBarWidth =
+    CustomStyles.circularProgressBarSmall.width - Sizing.vw * 6.2;
   const circleSize = Sizing.vh * 3;
   const progressBarHeight = CustomStyles.circularProgressBarSmall.height;
   const centered = (progressBarHeight - circleSize) / 2;
@@ -46,13 +47,8 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
     onPanResponderMove: handlePanResponderMove,
   });
 
-  const {
-    mainContainer,
-    valueContainer,
-    textContainer,
-    progressBarContainer,
-    // circleContainer,
-  } = componentStyle.circleProgressBarSmall;
+  const {mainContainer, valueContainer, textContainer, progressBarContainer} =
+    componentStyle.circleProgressBarSmall;
   const {componentTitle, circleContainer} = componentStyle.commonStyles;
 
   // const filledWidth = progressBarWidth * progress;
@@ -72,9 +68,10 @@ export const CircleProgressBarSmall = ({TSB, TSL, TSR, RIV, BG}) => {
             style={[
               circleContainer,
               {
-                left: circlePosition.left,
+                left: circlePosition.left + Sizing.vw * 3.4,
                 bottom: circlePosition.bottom,
                 backgroundColor: bgColor,
+                top: Sizing.vh * 0.2,
               },
             ]}
           />

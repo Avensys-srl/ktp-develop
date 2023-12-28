@@ -104,7 +104,7 @@ export const Bypass = () => {
             TSB={'Ref. outdoor  temperature: '}
             TSL={10}
             TSR={35}
-            RIV={0.2}
+            RIV={0.8}
             BG={1}
           />
         </View>
@@ -145,7 +145,7 @@ export const Bypass = () => {
             TSB={'summer-winter threshold: '}
             TSL={12}
             TSR={32}
-            RIV={0.2}
+            RIV={0.9}
             BG={1}
           />
         </View>

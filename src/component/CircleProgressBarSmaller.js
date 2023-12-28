@@ -4,7 +4,8 @@ import {Colors, CustomStyles, Sizing} from '../styles';
 import componentStyle from '../styles/componentStyle';
 
 export const CircleProgressBarSmaller = ({TSB, TSL, TSR, RIV, BG}) => {
-  const progressBarWidth = CustomStyles.circularProgressBarSmaller.width;
+  const progressBarWidth =
+    CustomStyles.circularProgressBarSmaller.width - Sizing.vw * 7.2;
   const circleSize = Sizing.vh * 2.35;
   const progressBarHeight = CustomStyles.circularProgressBarSmaller.height;
   const border_thickness = 2;
@@ -69,8 +70,9 @@ export const CircleProgressBarSmaller = ({TSB, TSL, TSR, RIV, BG}) => {
               circleContainer,
               {
                 backgroundColor: bgColor,
-                left: circlePosition.left,
+                left: circlePosition.left + Sizing.vw * 3,
                 bottom: circlePosition.bottom,
+                top: Sizing.vh * 0.2,
               },
             ]}
           />

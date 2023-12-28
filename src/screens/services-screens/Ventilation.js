@@ -19,7 +19,7 @@ import {
 import CustomBottomNavigation from '../../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../../styles';
 import ImbalancingBar from '../../component/ImbalancingBar';
-import OnOff2 from '../../component/OnOff2';
+// import OnOff2 from '../../component/OnOff2';
 
 export const Ventilation = () => {
   // Stato iniziale o stato ricevuto da altre fonti
