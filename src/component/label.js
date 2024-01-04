@@ -1,3 +1,4 @@
+import React from 'react';
 import {Text, View} from 'react-native'
 import {ScaledSheet} from 'react-native-size-matters'
 import { Colors } from '../styles'

@@ -1,3 +1,4 @@
+import React from 'react';
 import {View, TouchableOpacity, Animated} from 'react-native'
 import {ScaledSheet} from 'react-native-size-matters'
 import {useEffect, useRef} from 'react'

@@ -7,7 +7,10 @@ const widthLarge = Sizing.vw * 90;
 const widthMedium = Sizing.vw * 80;
 const widthSmall = Sizing.vw * 70;
 
-export default componentStyle = StyleSheet.create({
+import CustomStyles from './CustomStyles';
+
+
+const componentStyle = StyleSheet.create({
   // Common style
   commonStyles: {
     componentHeight: {
@@ -628,4 +631,9 @@ export default componentStyle = StyleSheet.create({
       width: 40,
     },
   },
+
+  
 });
+
+
+export default componentStyle;

@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     // flex:1,
-    // height:Sizing.vh*100,
+    // height:Sizing.vh * 100,
   },
   container: {
     // flex:1,
