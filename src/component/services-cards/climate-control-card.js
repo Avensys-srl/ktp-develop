@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import {
   View,
   Image,
@@ -8,21 +9,11 @@ import {
 } from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {ImageSource} from '../../common/imageSource';
-import {useState} from 'react';
 import DropdownSetPoint from '../DropdownSetPoint';
 import {Colors, Sizing} from '../../styles';
 
-interface props {
-  source: {};
-  imageStyle: StyleProp<ImageStyle>;
-  box: boolean;
-  tempNumber: string | number;
-  // dropDownTemp: any
-  // tempData: any
-  iconText: string;
-}
 
-export const ClimateControlCard = (props: props) => {
+export const ClimateControlCard = (props) => {
   const {imageStyle, source, box, tempNumber, iconText} = props;
   const [lock, setLock] = useState(true);
   return (

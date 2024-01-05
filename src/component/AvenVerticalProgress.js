@@ -15,7 +15,7 @@ import {Colors, Sizing} from '../styles';
 import componentStyle from '../styles/componentStyle';
 
 const {width} = Dimensions.get('window');
-export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
+export const AvenVerticalProgress = ({VS, TS, Visible = true}) => {
   const [progress, setProgress] = useState(VS / 100);
 
   const panResponder = useRef(
@@ -87,7 +87,14 @@ export const VerticalProgressBar = ({VS, TS, Visible = true}) => {
         </View>
       </SafeAreaView>
     );
+  } else {
+    return (
+        <SafeAreaView>
+            <View style={container}>
+            </View>
+        </SafeAreaView>
+    );
   }
 };
 
-export default VerticalProgressBar;
+export default AvenVerticalProgress;

@@ -14,9 +14,10 @@ import {
 } from 'react-native';
 import WifiManager from 'react-native-wifi-reborn';
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
-import { Colors, CustomStyles, Sizing } from '../styles';
+import { Colors, Sizing } from '../styles';
 import { ImageSource } from '../common/imageSource';
 import componentStyle from '../styles/componentStyle';
+import CustomStyles from "../styles/CustomStyles";
 
 const WifiScannerScreen = () => {
   const [wifiList, setWifiList] = useState([]);

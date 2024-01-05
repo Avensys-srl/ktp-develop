@@ -1,16 +1,11 @@
+import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {useNavigation} from '@react-navigation/native';
 import {Colors} from '../../styles';
-import { accessoriesName } from '../../configs';
 
-interface props {
-  title: string;
-  onPress: any;
-  disabled: boolean;
-}
 
-export const AccessoriesCard = (props: props) => {
+export const AccessoriesCard = (props) => {
   const {title, onPress, disabled} = props;
   const navigation = useNavigation();
   

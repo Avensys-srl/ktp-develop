@@ -65,4 +65,3 @@ export const CountdownProgressBar = ({label, min_val, max_val, init_val}) => {
   );
 };
 
-export default CountdownProgressBar;

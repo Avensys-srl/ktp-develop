@@ -1,7 +1,7 @@
 import React from "react";
 import {View, Image, TouchableOpacity, Text, FlatList} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
-import {Label, AccessoriesCard} from '../component';
+import {AccessoriesCard} from './services-cards/accessories-card';
 import {ImageSource} from '../common/imageSource';
 import {useState} from 'react';
 import {userType, accessoriesName} from '../configs';
@@ -15,7 +15,7 @@ export const ServicesCard = ( props) => {
   const {title, index, onPress, disabled, values = []} = props;
   const navigation = useNavigation();
   // const { container, card, txttitle, starImage,valuesContainer} = screenStyle.cardDesign;
-
+  
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -23,7 +23,6 @@ export const ServicesCard = ( props) => {
         key={index}
         disabled={disabled}
         onPress={() => navigation.navigate(onPress)}>
-        {/* <Label style={styles.title}>{title}</Label> */}
         <Text style={styles.txttitle}>{title}</Text>
         <View style={{ flexDirection: 'row' }}>
           <TouchableOpacity>

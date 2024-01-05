@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Colors, Sizing } from '.';
 
-export default screenStyle = {
+const screenStyle = StyleSheet.create({
   cardDesign: {
     container: {
       width: Sizing.vw * 100,
@@ -42,4 +42,6 @@ export default screenStyle = {
       marginTop: 5,
     },
   },
-};
+});
+
+export default screenStyle;

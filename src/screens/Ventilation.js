@@ -17,6 +17,7 @@ import {Colors, Sizing} from '../styles';
 import AvenSwitch from '../component/AvenSwitch';
 import AvenSlider from '../component/AvenSlider';
 import AvenTrippleBtn from "../component/AvenTrippleBtn";
+import AvenVerticalProgress from '../component/AvenVerticalProgress';
 
 export const Ventilation = () => {
   // Stato iniziale o stato ricevuto da altre fonti
@@ -49,7 +50,10 @@ export const Ventilation = () => {
             flexDirection: 'row',
             marginTop: 10,
           }}>
-          
+          <AvenVerticalProgress TS={isToggled ? 1 : 'Main'} VS={12} Visible={true} />
+          <AvenVerticalProgress TS={2} VS={45} Visible={isToggled} />
+          <AvenVerticalProgress TS={3} VS={87} Visible={isToggled} />
+          <AvenVerticalProgress TS={'boost'} VS={90} Visible={true}/>
         </View>
         <View style={{marginBottom: 20, marginTop: 10}}>
             <AvenTrippleBtn

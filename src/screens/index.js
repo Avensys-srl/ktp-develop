@@ -3,4 +3,15 @@ export { Home } from "./Home";
 export { Services } from "./Services";
 export FilterScreens  from "./FilterScreens";
 export { Ventilation } from "./Ventilation";
-
+export { ClimateControl } from "./ClimateControl";
+export { Accessories } from './Accessories';
+export Preheater from './Preheater';
+export Postheater from './Postheater';
+export {Bypass} from "./Bypass";
+export PostCooling from "./PostCooling";
+export { Settings } from "./Settings";
+export  LanguageScreen  from "./LanguageScreen";
+export { Profile } from "./Profile";
+export { Communication } from "./Communication";
+export { Info  } from "./Info";
+export Probs from "./Probs";
