@@ -5,9 +5,10 @@ import {
 	View,
 	Animated,
 	SafeAreaView,
-	StyleSheet, Text
+	StyleSheet, Text, Appearance
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {LightTheme} from '../styles/themes';
 
 const AvenSwitch = (props) => {
 
@@ -126,7 +127,8 @@ const styles = StyleSheet.create({
     	fontSize: 18,
     },
     smlabel:{
-    	fontSize: 12
+    	fontSize: 12,
+    	color: LightTheme.textColor,
     }
 
 });

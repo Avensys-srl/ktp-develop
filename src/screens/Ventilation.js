@@ -67,7 +67,7 @@ export const Ventilation = () => {
         </View>
         <View style={styles.pairedViewNoBorder}>
         
-          <AvenSlider title=" " minValue="0" maxValue="100"/>
+          <AvenSlider title=" " minValue="-50" maxValue="50" unit="°C"/>
           <Text>Imbalance</Text>
         </View>
       </ScrollView>

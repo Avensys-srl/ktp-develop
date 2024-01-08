@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Slider from 'react-native-custom-slider';
 import { ImageSource } from '../common/imageSource';
+import { LightTheme } from '../styles/themes';
 
 const AvenSlider = (props) => {
 
@@ -17,6 +18,7 @@ const AvenSlider = (props) => {
 	const title = props.title;
 	const minValue = props.minValue;
 	const maxValue = props.maxValue;
+	const unit = props.unit;
 	console.log("minValue = ", minValue);
 	const locking = props.locking ? true : false;
 
@@ -37,7 +39,7 @@ const AvenSlider = (props) => {
 		<View style={styles.container}>
 			<View style={styles.sliderContainer}>
 					<View style={styles.topTitle}>
-			            <Text style={styles.lglabel}>{title}{value}</Text>			      
+			            <Text style={styles.lglabel}>{title}{value}{unit}</Text>			      
 			        </View>
 			    	<Slider
 			            value={value}
@@ -142,9 +144,11 @@ const styles = StyleSheet.create({
     },
     lglabel:{
     	fontSize: 18,
+    	color: LightTheme.textColor,
     },
     smlabel:{
-    	fontSize: 12
+    	fontSize: 12,
+    	color: LightTheme.textColor
     },
     image: {
     	width: 30,

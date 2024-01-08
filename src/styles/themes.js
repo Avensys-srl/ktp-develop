@@ -2,15 +2,15 @@ import {Colors} from '.';
 
 // themes.js
 
-export const lightTheme = {
+export const LightTheme = {
   primaryColor: Colors.CYAN,
   secondaryColor: Colors.LIGHT_GREEN,
-  textColor: Colors.WHITE,
+  textColor: Colors.BLACK,
   frameColor: Colors.RED,
   fontSize: 16,
 };
 
-export const darkTheme = {
+export const DarkTheme = {
   primaryColor: Colors.CYAN,
   secondaryColor: Colors.LIGHT_GREEN,
   textColor: Colors.WHITE,

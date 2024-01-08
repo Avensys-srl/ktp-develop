@@ -8,7 +8,7 @@ import {
 	StyleSheet, Text, Image, TouchableHighlight 
 } from 'react-native';
 import {Slider} from '@miblanchard/react-native-slider';
-
+import { LightTheme } from '../styles/themes';
 
 const AvenRangeSlider = (props) => {
 
@@ -140,15 +140,18 @@ const styles = StyleSheet.create({
     },
     middlesmlabel:{
     	fontSize: 12,
+    	color: LightTheme.textColor
     },
     middlelglabel:{
     	fontSize: 12,
     },
     lglabel:{
     	fontSize: 18,
+    	color: LightTheme.textColor
     },
     smlabel:{
-    	fontSize: 12
+    	fontSize: 12,
+    	color: LightTheme.textColor
     },
     image: {
     	width: 30,

@@ -1,0 +1,9 @@
+I summarize here some aspect to be taken in consideration always.
+
+- harmonize the screens from an aesthetic point of view (sstandard component you are placing)
+- avoid dark theme changing 
+- auto adapting on screen resizing 
+
+// done 
+
+- avoid screen rotation      
