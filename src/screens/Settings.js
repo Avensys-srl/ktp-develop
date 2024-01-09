@@ -21,8 +21,8 @@ export const Settings = () => {
       style={{
         backgroundColor: Colors.WHITE,
         flex: 1,
-        borderColor: Colors.BLACK,
-        borderWidth: 2,
+        // borderColor: Colors.BLACK,
+        // borderWidth: 2,
         borderRadius: 10,
       }}>
       <Header canGoBack={false} title="Settings" headerBG={1} optionsStar={1} />

@@ -23,8 +23,8 @@ export const Services = () => {
       style={{
         backgroundColor: Colors.WHITE,
         flex: 1,
-        borderColor: Colors.RED,
-        borderWidth: 2,
+        // borderColor: Colors.RED,
+        // borderWidth: 2,
         borderRadius: 10,
       }}>
       <Header canGoBack={false} title="Services" headerBG={1} optionsStar={1} />

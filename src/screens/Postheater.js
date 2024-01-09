@@ -40,7 +40,7 @@ const Postheater = () => {
     <SafeAreaView style={styles.mainContainer}>
       <Header
         canGoBack={true}
-        title="Postheater setting"
+        title="Postheater"
         optionsStar={1}
         headerBG={1}
       />
@@ -99,7 +99,8 @@ const Postheater = () => {
           </View>
         </View>
       </ScrollView>
-      <CustomBottomNavigation OC={1} />
+      <CustomBottomNavigation OC={0} />
+      <Text style={styles.service}>service</Text>
     </SafeAreaView>
   );
 };
@@ -110,8 +111,8 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.WHITE,
-    borderWidth: 1,
-    borderColor: Colors.RED,
+    // borderWidth: 1,
+    // borderColor: Colors.RED,
   },
 
   filterAlarmContainer: {
@@ -224,4 +225,9 @@ const styles = StyleSheet.create({
     top: height * 0.025,
     right: -width * 0.065,
   },
+
+  service: {
+    color: Colors.BLACK,
+    textAlign: 'center'
+  }
 });

@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
     lglabel:{
     	paddingLeft: 8,
     	fontSize: 18,
+    	color: LightTheme.textColor,
     },
     smlabel:{
     	fontSize: 12,

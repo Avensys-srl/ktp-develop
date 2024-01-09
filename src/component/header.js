@@ -71,12 +71,12 @@ const styles = ScaledSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    marginEnd: 12,
+    marginEnd: 3,
   },
   img: {
     width: 35,
     height: 35,
-    marginEnd: 12,
+    marginEnd: 1,
   },
   TitleHeader: {
     textAlign: 'center',

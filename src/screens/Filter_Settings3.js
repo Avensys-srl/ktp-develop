@@ -53,14 +53,15 @@ const styles = StyleSheet.create({
   mainSafeAreaView: {
     width: Sizing.vw * 100,
     height: Sizing.vh * 100,
-    borderWidth: 2,
-    borderColor: Colors.RED,
+    // borderWidth: 2,
+    // borderColor: Colors.RED,
     backgroundColor: Colors.WHITE,
   },
   navigationContainer: {
     flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
+    marginBottom: Sizing.vh * 2,
   },
   mainContainer: {
     padding: 12,

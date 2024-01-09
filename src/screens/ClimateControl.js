@@ -27,7 +27,7 @@ export const ClimateControl = () => {
     <SafeAreaView style={styles.mainContainer}>
       <Header
         canGoBack={true}
-        title="Temperature Set Point"
+        title="Temperature"
         headerBG={1}
         optionsStar={1}
       />

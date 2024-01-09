@@ -16,6 +16,7 @@ import {BLACK} from '../styles/colors';
 import {Header} from "../component/header";
 import AvenSwitch from '../component/AvenSwitch';
 import AvenSlider from '../component/AvenSlider';
+import DividerLine from '../component/DividerLine';
 
 const {width, height} = Dimensions.get('window');
 
@@ -42,7 +43,7 @@ const Preheater = () => {
     <SafeAreaView style={styles.mainContainer}>
       <Header
         canGoBack={true}
-        title="Preheater setting"
+        title="Preheater"
         headerBG={1}
         optionsStar={1}
       />
@@ -53,31 +54,33 @@ const Preheater = () => {
             <View>
               <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"/>
             </View>
-          </View>
-          
+          </View>          
         </View>
 
         <View style={styles.toggleSwitchMainContainer}>
           <View style={styles.toggleSwitchContainer}>
             <AvenSwitch value={isPairedToggled} onValueChange={setIsPairedToggled} on="paired" off="unpaired" title=""/>
           </View>
+          <DividerLine />
 
           <View style={styles.toggleSwitchContainer}>
             <AvenSwitch value={isTempToggled} onValueChange={setIsTempToggled} on="" off="" title=""/>
             <Text style={styles.tempText}>temperature</Text>
           </View>
+          <DividerLine />
 
           <View style={styles.toggleSwitchContainer}>
             <AvenSwitch value={isFreshToggled} onValueChange={setIsFreshToggled} on="fresh" off="exhaust" title=""/>
           </View>
+          <DividerLine />
 
           <View style={styles.communicationRateContainer}>
-            <AvenSlider title="communication rate [%] " minValue="0" maxValue="100" />
+            <AvenSlider title="communication rate [%] " minValue="0" maxValue="100" readOnly={true}/>
           </View>
         </View>
       </ScrollView>
 
-      <CustomBottomNavigation OC={1} />
+      <CustomBottomNavigation OC={0} />
       <Text style={styles.service}>service</Text>
     </SafeAreaView>
   );
@@ -89,8 +92,8 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.WHITE,
-    borderWidth: 1,
-    borderColor: Colors.RED,
+    // borderWidth: 1,
+    // borderColor: Colors.RED,
   },
   mainComponentContainer: {
     position: 'relative',
@@ -123,8 +126,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: width * 0.06,
   },
   toggleSwitchContainer: {
-    borderWidth: 2,
-    borderColor: Colors.BLACK,
+    // borderWidth: 2,
+    // borderColor: Colors.BLACK,
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: height * 0.03,
@@ -133,6 +136,7 @@ const styles = StyleSheet.create({
   },
   tempText: {
     marginTop: -height * 0.03,
+    color: Colors.BLACK
   },
   navigationContainer: {
     flex: 1,
@@ -148,6 +152,7 @@ const styles = StyleSheet.create({
   },
   service: {
     textAlign: 'center',
-    color: Colors.RED,
+    color: Colors.BLACK
+    // color: Colors.RED,
   },
 });

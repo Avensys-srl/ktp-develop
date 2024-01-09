@@ -21,12 +21,12 @@ const CustomBottomNavigation = ({
   OC = 0,
   isLogin = Number,
 }) => {
-  let OCColor;
-  if (OC === 0) {
-    OCColor = Colors.BLACK;
-  } else if (OC === 1) {
-    OCColor = Colors.RED;
-  }
+  let OCColor = Colors.BLACK;
+  // if (OC === 0) {
+  //   OCColor = Colors.BLACK;
+  // } else if (OC === 1) {
+  //   OCColor = Colors.RED;
+  // }
 
   const navigation = useNavigation();
 

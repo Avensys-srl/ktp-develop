@@ -40,7 +40,7 @@ const PostCooling = () => {
     <SafeAreaView style={styles.mainContainer}>
       <Header
         canGoBack={true}
-        title="PostCooling setting"
+        title="PostCooling"
         optionsStar={1}
         headerBG={1}
       />
@@ -99,7 +99,7 @@ const PostCooling = () => {
           </View>
         </View>
       </ScrollView>
-      <CustomBottomNavigation OC={1} />
+      <CustomBottomNavigation OC={0} />
     </SafeAreaView>
   );
 };

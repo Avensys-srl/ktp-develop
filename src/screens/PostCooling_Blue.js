@@ -9,7 +9,7 @@ const {width, height} = Dimensions.get('window');
 const PostCooling_Blue = () => {
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Header canGoBack={true} title="Postcooling setting" />
+      <Header canGoBack={true} title="Postcooling" />
       <View>
         <View style={styles.filterAlarmContainer}>
           <View>

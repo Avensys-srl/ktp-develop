@@ -89,10 +89,7 @@ export const AvenVerticalProgress = ({VS, TS, Visible = true}) => {
     );
   } else {
     return (
-        <SafeAreaView>
-            <View style={container}>
-            </View>
-        </SafeAreaView>
+        <></>
     );
   }
 };

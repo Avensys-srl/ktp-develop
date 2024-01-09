@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  SafeAreaView
 } from 'react-native';
 import {  Header } from '../component/header';
 import {ImageSource} from '../common/imageSource';
@@ -34,7 +35,7 @@ export const Bypass = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.mainContainer}>
       {/* OLD HEADER */}
       {/* <View style={styles.bgheading}>
         <Text style={styles.headingTxt}>Bypass Settings</Text>
@@ -52,17 +53,13 @@ export const Bypass = () => {
 
       <Header
         canGoBack={true}
-        title="Bypass setting"
+        title="Bypass"
         headerBG={1}
         optionsStar={1}
       />
 
-      <ScrollView>
-        {/* OLD BYPASS OPERATION */}
-
-        {/* <View style={styles.pairedView}>
-          <OnOff status={'Bypass operation'} />
-        </View> */}
+      <ScrollView showsVerticalScrollIndicator={false}>
+      
 
         {/* NEW BYPASS OPERATION */}
         <View style={styles.filterAlarmContainer}>
@@ -99,9 +96,9 @@ export const Bypass = () => {
          
         </View>
       </ScrollView>
-      <CustomBottomNavigation OC={1} />
-      <Text style={{textAlign: 'center', color: 'red'}}>Service</Text>
-    </View>
+      <CustomBottomNavigation OC={0} />
+      <Text style={styles.service}>service</Text>
+    </SafeAreaView>
   );
 };
 
@@ -147,9 +144,9 @@ const styles = StyleSheet.create({
   pairedView: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: Sizing.vw * 93,
-    height: Sizing.vh * 12,
-    borderWidth: 0,
+    // width: Sizing.vw * 93,
+    // height: Sizing.vh * 12,
+    // borderWidth: 2,
     borderRadius: 5,
     alignSelf: 'center',
   },
@@ -162,27 +159,27 @@ const styles = StyleSheet.create({
     margin: 15,
     marginTop: 0,
   },
-  container: {
-    // flex: 1,
+  mainContainer: {
+    flex: 1,
     width: Sizing.vw * 100,
     height: Sizing.vh * 100,
-    borderWidth: 2,
-    borderColor: Colors.RED,
+    // borderWidth: 2,
+    // borderColor: Colors.RED,
     borderRadius: 10,
     justifyContent: 'center',
     backgroundColor: Colors.WHITE,
   },
-  ScrollView: {
-    // flex: 1,
-    width: Sizing.vw * 100,
-    height: Sizing.vh * 100,
-    borderWidth: 0,
-    borderColor: Colors.BLUE,
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignSelf: 'center',
-    backgroundColor: Colors.WHITE,
-  },
+  // ScrollView: {
+  //   // flex: 1,
+  //   width: Sizing.vw * 100,
+  //   height: Sizing.vh * 100,
+  //   borderWidth: 0,
+  //   borderColor: Colors.BLUE,
+  //   borderRadius: 10,
+  //   justifyContent: 'center',
+  //   alignSelf: 'center',
+  //   backgroundColor: Colors.WHITE,
+  // },
 
   filterAlarmContainer: {
     margin: Sizing.vw * 4,
@@ -208,7 +205,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     fontSize: 14,
-    color: Colors.GREY500,
+    color: Colors.BLACK,
   },
   pairedViewNoBorder: {
     justifyContent: 'center',
@@ -238,4 +235,9 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     marginBottom: 12,
   },
+  service: {
+    color: Colors.BLACK,
+    textAlign: 'center'
+  }
+
 });

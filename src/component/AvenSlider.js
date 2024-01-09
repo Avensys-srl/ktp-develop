@@ -18,6 +18,9 @@ const AvenSlider = (props) => {
 	const title = props.title;
 	const minValue = props.minValue;
 	const maxValue = props.maxValue;
+	const readOnly = props.readOnly;
+	// let value = (minValue + maxValue) / 2;
+
 	const unit = props.unit;
 	console.log("minValue = ", minValue);
 	const locking = props.locking ? true : false;
@@ -35,6 +38,19 @@ const AvenSlider = (props) => {
 		// }
 	}
 
+	const setSliderValue = ( val ) => {
+		// if(readOnly) return;
+
+		if( val < minValue){
+			setValue(minValue);
+		} else if(val > maxValue){
+			setValue(maxValue);
+		} else {
+			setValue(val);
+		}
+		
+	}
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.sliderContainer}>
@@ -43,11 +59,15 @@ const AvenSlider = (props) => {
 			        </View>
 			    	<Slider
 			            value={value}
+			            disabled={true}
 			            step={1}
 			            minimumValue={minValue}
 			            maximumValue={maxValue}
-			            onValueChange={(value) => setValue(value)}
-			            style={{height:25, borderWidth: 2, borderColor:"#92D050",
+			            onValueChange={(value) => setSliderValue(value)}
+			            style={{
+			            	height:25, 
+			            	borderWidth: 2, 
+			            	borderColor:"#92D050",
 			            	borderTopLeftRadius: 10,
 	                        borderTopRightRadius: 10,
 	                        borderBottomLeftRadius: 10,
@@ -70,8 +90,8 @@ const AvenSlider = (props) => {
 			                        borderBottomLeftRadius: 10,
 			                        borderBottomRightRadius: 10,
 			                        backgroundColor: '#92D050' ,
-			                        marginLeft:1,
-			                        marginRight:5
+			                        marginLeft:15,
+			                        // marginRight:5
 			                    }}
 			                />
 			            }
@@ -106,9 +126,7 @@ const AvenSlider = (props) => {
 	);
 };
 
-const styles = StyleSheet.create({
-
-	
+const styles = StyleSheet.create({	
 
     container:{
     	flexDirection: 'row',

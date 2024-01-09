@@ -54,7 +54,7 @@ const Filter_Settings2 = () => {
            <AvenSwitch value={filterReplaced} onValueChange={setFilterReplaced} on="on" off="off" title="Filter replaced"/>
           </View>
 
-         {/* <View style={styles.lockImgTouchableOpacity}>
+         <View style={styles.lockImgTouchableOpacity}>
             <TouchableOpacity
               onPress={() => setFilterReplacedLock(!filterReplacedLock)}>
               <Image
@@ -64,7 +64,7 @@ const Filter_Settings2 = () => {
                 style={styles.lockImg}
               />
             </TouchableOpacity>
-          </View> */}
+          </View>
         </View>
 
         {/* progress bar component */}
@@ -99,8 +99,8 @@ const styles = StyleSheet.create({
   mainSafeAreaView: {
     width: Sizing.vw * 100,
     height: Sizing.vh * 100,
-    borderWidth: 2,
-    borderColor: Colors.RED,
+    // borderWidth: 2,
+    // borderColor: Colors.RED,
     backgroundColor: Colors.WHITE,
   },
   filterAlarmContainer: {
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
+    marginBottom: Sizing.vh * 2,
   },
   calibrationContainer: {
     marginTop: height * 0.14,
