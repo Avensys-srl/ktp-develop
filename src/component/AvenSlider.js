@@ -7,14 +7,14 @@ import {
 	SafeAreaView,
 	StyleSheet, Text, TouchableHighlight, Image
 } from 'react-native';
-import Slider from 'react-native-custom-slider';
+import Slider from 'react-native-slider';
 import { ImageSource } from '../common/imageSource';
 import { LightTheme } from '../styles/themes';
 
 const AvenSlider = (props) => {
 
 	const [isEnabled, setIsEnabled] = useState(false);
-	const [value, setValue] = useState(30);
+	const [value, setValue] = useState(0);
 	const title = props.title;
 	const minValue = props.minValue;
 	const maxValue = props.maxValue;
@@ -22,8 +22,9 @@ const AvenSlider = (props) => {
 	// let value = (minValue + maxValue) / 2;
 
 	const unit = props.unit;
-	console.log("minValue = ", minValue);
-	const locking = props.locking ? true : false;
+	// console.log("minValue = ", minValue);
+	const locking = props.readOnly ? 1 : 0;
+	console.log("locking = ", props.locking);
 
 	//locked image processing
 	const [locked, setLocked] = useState(true);
@@ -39,6 +40,7 @@ const AvenSlider = (props) => {
 	}
 
 	const setSliderValue = ( val ) => {
+		console.log("slider value = ", val);
 		// if(readOnly) return;
 
 		if( val < minValue){
@@ -59,20 +61,23 @@ const AvenSlider = (props) => {
 			        </View>
 			    	<Slider
 			            value={value}
-			            disabled={true}
+			            disabled={locking}
 			            step={1}
 			            minimumValue={minValue}
 			            maximumValue={maxValue}
 			            onValueChange={(value) => setSliderValue(value)}
 			            style={{
-			            	height:25, 
+			            	height:24, 
+			            	width: 200,
 			            	borderWidth: 2, 
 			            	borderColor:"#92D050",
 			            	borderTopLeftRadius: 10,
 	                        borderTopRightRadius: 10,
 	                        borderBottomLeftRadius: 10,
 	                        borderBottomRightRadius: 10,
-	                        backgroundColor: "#fff"
+	                        backgroundColor: "#fff",
+	                        // paddingRight: 15,
+	                        // paddingLeft: 15
 			        	}}
 
 			        	minimumTrackTintColor="transparent" 
@@ -90,12 +95,11 @@ const AvenSlider = (props) => {
 			                        borderBottomLeftRadius: 10,
 			                        borderBottomRightRadius: 10,
 			                        backgroundColor: '#92D050' ,
-			                        marginLeft:15,
-			                        // marginRight:5
+			                        marginLeft:5,
+			                        marginRight:5
 			                    }}
 			                />
 			            }
-			            disabled={!locked}
 			        />
 			        <View style={styles.bottomTitle}>
 		            	<Text style={styles.smlabel}>{ minValue }</Text><Text style={styles.smlabel}>{ maxValue }</Text>
