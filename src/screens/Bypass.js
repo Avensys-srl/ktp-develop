@@ -17,7 +17,7 @@ import {CustomStyles} from "../styles/CustomStyles";
 import DividerLine from '../component/DividerLine';
 import AvenSwitch from "../component/AvenSwitch";
 import AvenSlider from '../component/AvenSlider';
-
+import AvenTripleSlider from "../component/AvenTripleSlider";
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -27,6 +27,7 @@ export const Bypass = () => {
   const initialState = true;
 
   // Usa uno stato per tenere traccia del valore del toggle button
+  const [value, setValue] = useState(0);
   const [isEnabled, setEnabled] = useState(false);
   const [isToggled, setIsToggled] = useState(initialState);
   // Funzione per aggiornare lo stato dal componente figlio
@@ -67,19 +68,14 @@ export const Bypass = () => {
         </View>
         <DividerLine />
 
-        <View style={styles.pairedView}>
-          <AvenSlider title="Operation" minValue="0" maxValue="100"/>
-          <View style={styles.threePointSliderTextContainer}>
-            <Text style={styles.txt}>auto</Text>
-            <Text style={styles.txt}>autostby</Text>
-            <Text style={styles.txt}>manual</Text>
-          </View>
+        <View style={styles.pairedView}>        
+            <AvenTripleSlider value={value} onValueChange={setValue}  minValue="0" maxValue="100"/>  
         </View>
 
         <DividerLine />
 
         <View style={styles.pairedView}>
-          <AvenSlider title="Ref. outdoor  temperature: " minValue="10" maxValue="35"/>
+          <AvenSlider title="Ref. outdoor  temperature: "  value={23} minValue="10" maxValue="35"/>
         </View>
 
         <DividerLine />
@@ -92,7 +88,7 @@ export const Bypass = () => {
         <DividerLine />
 
         <View style={styles.pairedView}>
-          <AvenSlider title="summer-winter threshold: " minValue="12" maxValue="32"/>
+          <AvenSlider title="summer-winter threshold: "   value={22} minValue="12" maxValue="32"/>
          
         </View>
       </ScrollView>
@@ -238,6 +234,13 @@ const styles = StyleSheet.create({
   service: {
     color: Colors.BLACK,
     textAlign: 'center'
-  }
+  },
+ lglabel:{
+  borderWidth: 1,
+    width: Sizing.vw * 25,
+    paddingLeft: 8,
+    fontSize: 18,
+    color: Colors.BLACK,
+  },
 
 });

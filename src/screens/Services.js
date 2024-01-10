@@ -10,7 +10,7 @@ import CustomBottomNavigation from '../component/CustomBottomNavigation';
 export const Services = () => {
   const ServicesTab = [
     {title: 'general setting', route: null, disabled: true},
-    {title: 'filtration', route: Routes.Filter, disabled: false},
+    {title: 'filteration', route: Routes.Filter, disabled: false},
     {title: 'ventilation', route: Routes.Ventilation, disabled: false},
     {title: 'climate control', route: Routes.Climate, disabled: false},
     {title: 'accessories', route: Routes.Accessories, disabled: false},

@@ -75,7 +75,7 @@ const Preheater = () => {
           <DividerLine />
 
           <View style={styles.communicationRateContainer}>
-            <AvenSlider title="communication rate [%] " minValue="0" maxValue="100" readOnly={true}/>
+            <AvenSlider title="communication rate [%] " value={50} minValue="0" maxValue="100" readOnly={true}/>
           </View>
         </View>
       </ScrollView>

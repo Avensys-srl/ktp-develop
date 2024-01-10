@@ -18,7 +18,7 @@ const componentStyle = StyleSheet.create({
     },
     componentTitle: {
       textAlign: 'center',
-      color: Colors.GREY500,
+      color: Colors.BLACK,
       fontSize: 18,
       marginBottom: Sizing.vh * 1,
     },
@@ -373,12 +373,12 @@ const componentStyle = StyleSheet.create({
     },
     barContainer: {
       flexDirection: 'row',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       alignItems: 'center',
     },
     img: {
-      height: 50,
-      width: 40,
+      height: 30,
+      width: 30,
     },
   },
 

@@ -84,7 +84,7 @@ const AvenSwitch = (props) => {
 const styles = StyleSheet.create({
 	 pressable: {
 	   width: 100,
-	   height: 25,
+	   height: 26,
 	   borderRadius: 16,
 	   borderWidth: 2,
 	   borderColor: '#92D050',

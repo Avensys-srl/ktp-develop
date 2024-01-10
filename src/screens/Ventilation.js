@@ -15,7 +15,7 @@ import CustomBottomNavigation from '../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../styles';
 
 import AvenSwitch from '../component/AvenSwitch';
-import AvenSlider from '../component/AvenSlider';
+import AvenImbalancingSlider from '../component/AvenImbalancingSlider';
 import AvenTrippleBtn from "../component/AvenTrippleBtn";
 import AvenVerticalProgress from '../component/AvenVerticalProgress';
 
@@ -66,9 +66,9 @@ export const Ventilation = () => {
             />
         </View>
         <View style={styles.pairedViewNoBorder}>
-        
-          <AvenSlider title=" " minValue="-50" maxValue="50" unit="°C"/>
-          <Text>Imbalance</Text>
+          
+          <AvenImbalancingSlider title=" " minValue="-50" maxValue="50" unit="°C"/>
+          <Text style={{ color: Colors.BLACK }}>Imbalance</Text>
         </View>
       </ScrollView>
       <CustomBottomNavigation />

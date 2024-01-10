@@ -39,20 +39,22 @@ export const ClimateControl = () => {
         <View style={styles.dropdownContainer}>
           <View>
             <ClimateControlCard
-              source={ImageSource.sun}
+              mainImg = {ImageSource.home}
+              leftImg={ImageSource.sun}
               imageStyle={{}}
               box={true}
               tempNumber={`${dayTemp}°C `}
-              iconText="T1"
+              iconText=""
             />
           </View>
           <View>
             <ClimateControlCard
-              source={ImageSource.moon}
+              mainImg={ImageSource.home}
+              leftImg={ImageSource.moon}
               imageStyle={{}}
               box={true}
               tempNumber={`${nightTemp}°C `}
-              iconText="T2"
+              iconText=""
             />
           </View>
           <View
@@ -76,55 +78,34 @@ export const ClimateControl = () => {
         style={{
           flexDirection: 'row',
           justifyContent: 'space-evenly',
-          marginLeft: Sizing.vw * 20,
+      
           position: 'relative',
         }}>
-        <View style={{}}>
-          <ClimateControlCard
-            source={ImageSource.sun}
-            imageStyle={{}}
-            box={true}
-            tempNumber={`${dayTemp}°C `}
-            iconText=""
-          />
-        </View>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'flex-end',
-          }}>
-          <Image
-            source={ImageSource.lockOpen}
+          <View style={{}}>
+            <ClimateControlCard
+              mainImg={ImageSource.house_2}
+              imageStyle={{}}
+              box={true}
+              tempNumber={`${dayTemp}°C `}
+              iconText=""
+            />
+          </View>
+          <View
             style={{
-              width: 50,
-              height: 50,
-              marginRight: -Sizing.vw * 18,
-            }}
-          />
-        </View>
+              justifyContent: 'center',
+              alignItems: 'flex-end',
+            }}>
+            <Image
+              source={ImageSource.lockOpen}
+              style={{
+                width: 50,
+                height: 50,
+                marginRight: -Sizing.vw * 18,
+              }}
+            />
+          </View>
 
-        <View>
-          <Image
-            source={ImageSource.snowflake}
-            style={{
-              width: 20,
-              height: 20,
-              position: 'absolute',
-              top: 4,
-              right: 235,
-            }}
-          />
-          <Image
-            source={ImageSource.sun}
-            style={{
-              width: 20,
-              height: 20,
-              position: 'absolute',
-              top: 4,
-              right: 188,
-            }}
-          />
-        </View>
+          
       </View>
       <View style={styles.navigationContainer}>
         <CustomBottomNavigation OC={0} />

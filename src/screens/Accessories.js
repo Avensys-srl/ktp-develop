@@ -61,7 +61,7 @@ const ServicesTab = [
   {title: 'I/O', route: null, disabled: true, data: ['IN', 'OUT', 'FKI']},
 ];
 export const Accessories = () => {
-  const [activeTab, setActiveTab] = useState(true);
+  const [activeTab, setActiveTab] = useState(false);
   return (
     <>
       <Header
@@ -113,15 +113,6 @@ export const Accessories = () => {
           alignSelf: 'center',
         }}>
         <TouchableOpacity
-          style={[styles.buttons, activeTab && {backgroundColor: Colors.BLACK}]}
-          onPress={() => {
-            setActiveTab(true);
-          }}>
-          <Text style={{color: activeTab ? Colors.WHITE : Colors.BLACK}}>
-            Listed By Name
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
           style={[
             styles.buttons,
             !activeTab && {backgroundColor: Colors.BLACK},
@@ -131,6 +122,15 @@ export const Accessories = () => {
           }}>
           <Text style={{color: activeTab ? Colors.BLACK : Colors.WHITE}}>
             Listed By Function
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.buttons, activeTab && {backgroundColor: Colors.BLACK}]}
+          onPress={() => {
+            setActiveTab(true);
+          }}>
+          <Text style={{color: activeTab ? Colors.WHITE : Colors.BLACK}}>
+            Listed By Name
           </Text>
         </TouchableOpacity>
       </View>

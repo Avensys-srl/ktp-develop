@@ -30,7 +30,7 @@ export const MainStack = () => {
     <Stack.Navigator
       screenOptions={{headerShown: false}}
       initialRouteName={Routes.ServiceLogin}>
-      <Stack.Screen name={Routes.Home} component={Home} />
+      <Stack.Screen name={Routes.Home} component={LoginScreen} />
       <Stack.Screen name={Routes.ServiceLogin} component={LoginScreen} />
       <Stack.Screen name={Routes.Services} component={ Services } />
       <Stack.Screen name={Routes.Filter} component={FilterScreens} />
@@ -48,6 +48,7 @@ export const MainStack = () => {
       <Stack.Screen name={Routes.Profile} component={Profile} />
       <Stack.Screen name={Routes.Communication} component={Communication} />
       <Stack.Screen name={Routes.Info} component={Info} />
+
     </Stack.Navigator>
   );
 };

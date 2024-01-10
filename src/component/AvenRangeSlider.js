@@ -10,6 +10,7 @@ import {
 import {Slider} from '@miblanchard/react-native-slider';
 import { LightTheme } from '../styles/themes';
 
+
 const AvenRangeSlider = (props) => {
 
 	const [isEnabled, setIsEnabled] = useState(false);
@@ -21,7 +22,7 @@ const AvenRangeSlider = (props) => {
 	const [locked, setLocked] = useState(true);
 	const [imgUrl, setImgUrl]  = useState('./assets/unlocked.png');
 	const changeImg = () => {
-		console.log("change image");
+		// console.log("change image");
 		setLocked(!locked);
 		if(locked) {
 			setImgUrl('./assets/locked.png');
@@ -31,9 +32,23 @@ const AvenRangeSlider = (props) => {
 	}
 	//const { value, onValueChange } = props;
 
+	const [componentWidth, setComponentWidth] = useState(0);
+	const [rangeWidth, setRangeWidth] = useState(0);
+	const [unit, setUnit] = useState(0);
+
+	const onLayoutHandler = ( event ) => {
+		const { width } = event.nativeEvent.layout;
+   		setComponentWidth(width);
+   		setRangeWidth(valueHigh - valueLow);   		
+   		setUnit(Math.floor(width / (maxValue - minValue)));
+   		console.log("component width = ", width);
+   		console.log("unit = ", unit);
+   		console.log("rangeWidth = ", rangeWidth);
+	}
+
 	return (
 		<View style={styles.container}>
-			<View style={styles.sliderContainer}>
+			<View style={styles.sliderContainer} onLayout={ onLayoutHandler }>
 					<View style={styles.topTitle}>
 			            <Text style={styles.lglabel}>{title}</Text>			      
 			        </View>
@@ -44,7 +59,10 @@ const AvenRangeSlider = (props) => {
 			   		    maximumValue={maxValue}
 			   			value={[valueLow, valueHigh]}
 
-			   			onValueChange={ arr => { console.log(arr);setValueLow(arr[0]); setValueHigh(arr[1]); } }
+			   			onValueChange={ arr => {  setValueHigh(arr[1]); setValueLow(arr[0]); 
+			   				console.log("unit = ", unit);
+			   				console.log("valueLow = ", arr[0])
+			   				console.log("value low = ", valueLow * unit) } }
 			   			thumbStyle = {{
 			                        width: 20,
 			                        height: 18,
@@ -85,8 +103,9 @@ const AvenRangeSlider = (props) => {
 			   			}}
 			   			disabled = {!locked}
 			   		/>
-			   		<View style={styles.middleTitle}>
-		            	<Text style={styles.middlesmlabel}>{ valueLow }</Text><Text style={styles.middlesmlabel}>{ valueHigh }</Text>
+			   		<View style={[styles.middleTitle]}>
+		            	<Text style={[styles.middlesmlabel, {left: valueLow * unit}]}>{ valueLow }</Text>
+		            	<Text style={[styles.middlesmlabel, {left: valueHigh * unit}]}>{ valueHigh }</Text>
 		        	</View>
 			        <View style={styles.bottomTitle}>
 		            	<Text style={styles.smlabel}>{ minValue }</Text><Text style={styles.smlabel}>{ maxValue }</Text>
@@ -98,16 +117,17 @@ const AvenRangeSlider = (props) => {
 };
 
 const styles = StyleSheet.create({
-
 	
 
     container:{
     	flexDirection: 'row',
-    	backgroundColor: '#fff'
+    	backgroundColor: '#fff',
+    	// borderWidth: 1,
 
     },
     sliderContainer:{
     	flex:0.9,
+    	// borderWidth: 1,
     	// backgroundColor: 'blue'
     },
     topTitle: {
@@ -136,11 +156,13 @@ const styles = StyleSheet.create({
     },
     middleTitle: {
     	flexDirection: "row",
-    	justifyContent: "space-around",
+    	// justifyContent: "space-around",
     },
     middlesmlabel:{
     	fontSize: 12,
-    	color: LightTheme.textColor
+    	color: LightTheme.textColor,
+    	
+    	// prosition: "relative"
     },
     middlelglabel:{
     	fontSize: 12,

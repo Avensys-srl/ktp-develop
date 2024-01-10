@@ -67,14 +67,14 @@ const PostCooling = () => {
           {/* ref temp */}
 
           <View style={styles.filterAlarmContainer}>
-              <AvenSlider title="Reference temperature [°C]: " minValue="0" maxValue="100" locking={true}/>
+              <AvenSlider title="Reference temperature [°C]: " value={50} minValue="0" maxValue="100" locking={true}/>
           </View>
 
           <DividerLine />
 
           {/* Hysteresys */}
           <View style={styles.filterAlarmContainer}>
-              <AvenRangeSlider title="Hysteresys[°C]" minValue="0" maxValue="35"/>
+              <AvenRangeSlider title="Hysteresys[°C]" minValue={0} maxValue={35}/>
           </View>
 
           <DividerLine />
@@ -87,7 +87,7 @@ const PostCooling = () => {
           <DividerLine />
 
           <View style={styles.filterAlarmContainer}>
-            <AvenSlider title="Boost time [min]: " minValue="10" maxValue="100" locking={true}/>
+            <AvenSlider title="Boost time [min]: " value={55} minValue="10" maxValue="100" locking={true}/>
           </View>
 
           <DividerLine />

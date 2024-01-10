@@ -8,7 +8,6 @@ import {
   ImageBackground,
 } from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
-import {ImageSource} from '../../common/imageSource';
 import DropdownSetPoint from '../DropdownSetPoint';
 import {Colors, Sizing} from '../../styles';
 
@@ -18,12 +17,12 @@ export const ClimateControlCard = (props) => {
   const [lock, setLock] = useState(true);
   return (
     <View style={{alignItems: 'center', justifyContent: 'center'}}>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={{flexDirection: 'row', alignItems: 'center' }}>
         {/* <Image source={source} style={[styles.image, imageStyle]} /> */}
 
         {/* <Image source={ImageSource.home} style={styles.home} /> */}
         <ImageBackground
-          source={ImageSource.home}
+          source={props.mainImg}
           style={[
             styles.home,
             {
@@ -32,10 +31,19 @@ export const ClimateControlCard = (props) => {
             },
           ]}>
           <Text style={{fontSize: 16, marginBottom: 12}}>{iconText}</Text>
+          <Image
+              source={props.leftImg}
+              style={styles.leftImg}
+          />
+          <Image
+              source={props.rightImg}
+              style={styles.rightImg}
+          />
         </ImageBackground>
 
         {box && (
           <DropdownSetPoint
+           style= {{ width: Sizing.vw * 20}}
             data={[
               '10°C ',
               '11°C',
@@ -73,6 +81,20 @@ const styles = ScaledSheet.create({
     width: Sizing.vw * 15,
     resizeMode: 'contain',
     tintColor: Colors.BLACK,
+  },
+  leftImg: {
+    height: Sizing.vh * 3,
+    width: Sizing.vh * 3,
+    left: 0,
+    top: 0,
+    position: 'absolute'
+  },
+  rightImg: {
+    height: Sizing.vh * 3,
+    width: Sizing.vh * 3,
+    right: 0,
+    top: 0,
+    position: 'absolute'
   },
   image: {
     height: Sizing.vh * 6,

@@ -75,7 +75,7 @@ const Filter_Settings2 = () => {
 
         <View style={styles.calibrationContainer}>
           <View style={styles.calibrationTextImgContainer}>
-             <AvenSlider title="Reference temperature[°C]: " minValue="0" maxValue="100"/>
+             <AvenSlider value={50} title="Reference temperature[°C]: " minValue={0} maxValue={100}/>
           </View>
 
           <View style={styles.calibrationIconContainer}>

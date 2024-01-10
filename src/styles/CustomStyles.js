@@ -18,7 +18,7 @@ const CustomStyles = StyleSheet.create({
   },
   ComponentTitles: {
     textAlign: 'center',
-    color: Colors.GREY500,
+    color: Colors.BLACK,
     fontSize: 18,
     marginBottom: Sizing.vh * 1,
   },

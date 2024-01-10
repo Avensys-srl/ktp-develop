@@ -14,17 +14,16 @@ import { LightTheme } from '../styles/themes';
 const AvenSlider = (props) => {
 
 	const [isEnabled, setIsEnabled] = useState(false);
-	const [value, setValue] = useState(0);
+	const [value, setValue] = useState(props.value);
 	const title = props.title;
-	const minValue = props.minValue;
-	const maxValue = props.maxValue;
+	const minValue = Number(props.minValue);
+	const maxValue = Number(props.maxValue);
 	const readOnly = props.readOnly;
 	// let value = (minValue + maxValue) / 2;
 
 	const unit = props.unit;
 	// console.log("minValue = ", minValue);
 	const locking = props.readOnly ? 1 : 0;
-	console.log("locking = ", props.locking);
 
 	//locked image processing
 	const [locked, setLocked] = useState(true);
@@ -51,6 +50,7 @@ const AvenSlider = (props) => {
 			setValue(val);
 		}
 		
+		
 	}
 
 	return (
@@ -64,39 +64,49 @@ const AvenSlider = (props) => {
 			            disabled={locking}
 			            step={1}
 			            minimumValue={minValue}
-			            maximumValue={maxValue}
+			            maximumValue={maxValue  + 3 }
 			            onValueChange={(value) => setSliderValue(value)}
 			            style={{
-			            	height:24, 
-			            	width: 200,
+			            	height:26, 
+			            	// width: 200,
 			            	borderWidth: 2, 
 			            	borderColor:"#92D050",
-			            	borderTopLeftRadius: 10,
-	                        borderTopRightRadius: 10,
-	                        borderBottomLeftRadius: 10,
-	                        borderBottomRightRadius: 10,
+			            	borderTopLeftRadius: 15,
+	                        borderTopRightRadius: 15,
+	                        borderBottomLeftRadius: 15,
+	                        borderBottomRightRadius: 15,
 	                        backgroundColor: "#fff",
 	                        // paddingRight: 15,
 	                        // paddingLeft: 15
 			        	}}
 
 			        	minimumTrackTintColor="transparent" 
-			        	trackStyle={{ backgroundColor: "#fff"}}
-			            thumbStyle={{ justifyContent: 'center', alignItems: 'center' }}
+			        	// maximumTrackTintColor = '#b3b3b3'
+			        	trackStyle={{ 
+			        		backgroundColor: "#fff", 
+			        		// width: '99%' 
+			        	}}
+			            thumbStyle={{ 
+			            	justifyContent: 'center', 
+			            	alignItems: 'center', 
+			            	marginLeft: 2,
+			            	marginRight: 2,
+			            	backgroundColor: '#92D050' , 
+			            	width: 20,
+	                        height: 20,
+	                        overflow: 'hidden',
+			        	}}
 			           
 			            customThumb={
 			                <View
 			                    style={{
-			                        width: 20,
-			                        height: 20,
-			                        overflow: 'hidden',
-			                        borderTopLeftRadius: 10,
-			                        borderTopRightRadius: 10,
-			                        borderBottomLeftRadius: 10,
-			                        borderBottomRightRadius: 10,
-			                        backgroundColor: '#92D050' ,
-			                        marginLeft:5,
-			                        marginRight:5
+			                        backgroundColor: '#92D050' , 
+			                        // borderTopLeftRadius: 10,
+			                        // borderTopRightRadius: 10,
+			                        // borderBottomLeftRadius: 10,
+			                        // borderBottomRightRadius: 10,
+			                        // marginLeft:5,
+			                        // marginRight:5
 			                    }}
 			                />
 			            }
