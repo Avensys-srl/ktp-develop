@@ -16,6 +16,7 @@ import {Colors, Sizing} from '../styles';
 import AvenSwitch from "../component/AvenSwitch";
 
 const {width, height} = Dimensions.get('window');
+import { userType } from "../configs";
 
 export const Communication = ({navigation}) => {
   const [isToggled, setIsToggled] = useState(true);
@@ -63,7 +64,7 @@ export const Communication = ({navigation}) => {
         {/* Whatever functionality blutetooth have, we have to put it in place of null */}
       </View>
       <View style={styles.navigationContainer}>
-        <CustomBottomNavigation style={styles.nav} />
+        <CustomBottomNavigation style={styles.nav}  OC={userType.service} />
       </View>
     </SafeAreaView>
   );
@@ -76,8 +77,9 @@ const styles = StyleSheet.create({
     height: Sizing.vh * 100,
     flex: 1,
     backgroundColor:Colors.WHITE,
-    borderWidth:2,
-    borderRadius:10,
+    borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
+    borderRadius: 10,
     borderColor:Colors.BLACK,
   },
   mainView: {

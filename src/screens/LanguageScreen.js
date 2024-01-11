@@ -5,6 +5,7 @@ import {Colors, Sizing} from '../styles';
 import CustomStyles from "../styles/CustomStyles";
 import DropdownSetPoint from '../component/DropdownSetPoint';
 import CustomBottomNavigation from '../component/CustomBottomNavigation';
+import { userType } from "../configs";
 
 const LanguageScreen = () => {
   return (
@@ -25,7 +26,7 @@ const LanguageScreen = () => {
           data={['EN', 'DE', 'FR', 'IT', 'NL', 'DA', 'SV', '...']}
           defalutValue={'EN'}></DropdownSetPoint>
       </View>
-      <CustomBottomNavigation />
+      <CustomBottomNavigation  OC={userType.service} />
     </SafeAreaView>
   );
 };
@@ -38,8 +39,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.WHITE,
     borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
     borderRadius: 10,
-    borderColor: Colors.BLACK,
   },
   dropDownView: {
     marginTop: 20,

@@ -21,6 +21,7 @@ import AvenTripleSlider from "../component/AvenTripleSlider";
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
+import { userType } from "../configs";
 
 export const Bypass = () => {
   // Stato iniziale o stato ricevuto da altre fonti
@@ -64,35 +65,35 @@ export const Bypass = () => {
 
         {/* NEW BYPASS OPERATION */}
         <View style={styles.filterAlarmContainer}>
-            <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Bypass operation"/>          
+            <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Bypass operation"   readOnly={ !userType.service}/>          
         </View>
         <DividerLine />
 
         <View style={styles.pairedView}>        
-            <AvenTripleSlider value={value} onValueChange={setValue}  minValue="0" maxValue="100"/>  
+            <AvenTripleSlider value={value} onValueChange={setValue}  minValue="0" maxValue="100"   readOnly={ !userType.service}/>  
         </View>
 
         <DividerLine />
 
         <View style={styles.pairedView}>
-          <AvenSlider title="Ref. outdoor  temperature: "  value={23} minValue="10" maxValue="35"/>
+          <AvenSlider title="Ref. outdoor  temperature: "  value={23} minValue="10" maxValue="35"   readOnly={ !userType.service}/>
         </View>
 
         <DividerLine />
 
         <View style={[styles.filterAlarmContainer, {marginTop: 22}]}>
-             <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="open" off="close" title="Bypass operation"/>   
+             <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="open" off="close" title="Bypass operation"   readOnly={ !userType.service}/>   
         
         </View>
 
         <DividerLine />
 
         <View style={styles.pairedView}>
-          <AvenSlider title="summer-winter threshold: "   value={22} minValue="12" maxValue="32"/>
+          <AvenSlider title="summer-winter threshold: "   value={22} minValue="12" maxValue="32"   readOnly={ !userType.service}/>
          
         </View>
       </ScrollView>
-      <CustomBottomNavigation OC={0} />
+      <CustomBottomNavigation OC={userType.service} />
       <Text style={styles.service}>service</Text>
     </SafeAreaView>
   );
@@ -159,8 +160,9 @@ const styles = StyleSheet.create({
     flex: 1,
     width: Sizing.vw * 100,
     height: Sizing.vh * 100,
-    // borderWidth: 2,
-    // borderColor: Colors.RED,
+    borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
+    borderRadius: 10,
     borderRadius: 10,
     justifyContent: 'center',
     backgroundColor: Colors.WHITE,
@@ -232,7 +234,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   service: {
-    color: Colors.BLACK,
+    color: userType.service ?   Colors.RED: Colors.BLACK,
     textAlign: 'center'
   },
  lglabel:{

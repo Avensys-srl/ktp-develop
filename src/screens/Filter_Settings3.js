@@ -7,6 +7,7 @@ import {Colors, Sizing} from '../styles';
 import AvenSwitch from '../component/AvenSwitch';
 import AvenSlider from '../component/AvenSlider';
 // const {width, height} = Dimensions.get('window');
+import { userType } from "../configs";
 
 const Filter_Settings3 = () => {
 
@@ -27,21 +28,21 @@ const Filter_Settings3 = () => {
       <View style={styles.mainContainer}>
         <View style={styles.toggleSwitchContainer}>
         
-          <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="time" off="pressure" title=""/>
+          <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="time" off="pressure" title=""  readOnly={ !userType.service}/>
         </View>
 
         <View style={styles.progressbarContainer}>
-           <AvenSlider title="DPS days of duty [d] " minValue="0" maxValue="180"/>
+           <AvenSlider title="DPS days of duty [d] " value={90} minValue="0" maxValue="180"  readOnly={ !userType.service}/>
         </View>
 
         <View style={styles.progressbarContainer}>
           {/* <Text style={styles.progressbarText}>DPP Thereshold max p. [%]</Text> */}
-          <AvenSlider title="DPP Thereshold max p. [%] " minValue="0" maxValue="100"/>
+          <AvenSlider title="DPP Thereshold max p. [%] " value={50} minValue="0" maxValue="100"  readOnly={ !userType.service}/>
         </View>
       </View>
 
       <View style={styles.navigationContainer}>
-        <CustomBottomNavigation OC={1} />
+        <CustomBottomNavigation  OC={userType.service}  />
       </View>
     </SafeAreaView>
   );
@@ -56,15 +57,22 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     // borderColor: Colors.RED,
     backgroundColor: Colors.WHITE,
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
+    borderRadius: 10,
   },
   navigationContainer: {
     flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
     marginBottom: Sizing.vh * 2,
+
   },
   mainContainer: {
-    padding: 12,
+    // borderWidth: 1,
+    width: Sizing.vw * 90,
+    padding: 0,
   },
   toggleSwitchContainer: {
     // borderWidth: 2,

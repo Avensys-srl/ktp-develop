@@ -6,6 +6,7 @@ import {SettingsCard} from '../component/settings-card';
 import CustomBottomNavigation from '../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../styles';
 import {Routes} from '../routes';
+import { userType } from "../configs";
 
 export const Settings = () => {
   const SettingsTab = [
@@ -38,13 +39,14 @@ export const Settings = () => {
           );
         })}
       </View>
-      <CustomBottomNavigation></CustomBottomNavigation>
+      <CustomBottomNavigation  OC={userType.service} ></CustomBottomNavigation>
     </SafeAreaView>
   );
 };
 
 const Styles = ScaledSheet.create({
   container: {
+    // borderWidth: 1,
     flex: 1,
     // width: Sizing.vw * 100,
     backgroundColor: Colors.WHITE,

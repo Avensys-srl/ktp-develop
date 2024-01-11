@@ -7,6 +7,8 @@ import {Routes} from '../routes';
 import {Colors, Sizing} from '../styles';
 import CustomBottomNavigation from '../component/CustomBottomNavigation';
 
+import { userType } from "../configs";
+
 export const Services = () => {
   const ServicesTab = [
     {title: 'general setting', route: null, disabled: true},
@@ -42,7 +44,7 @@ export const Services = () => {
           );
         })}
       </View>
-      <CustomBottomNavigation></CustomBottomNavigation>
+      <CustomBottomNavigation OC={userType.service}></CustomBottomNavigation>
     </SafeAreaView>
   );
 };

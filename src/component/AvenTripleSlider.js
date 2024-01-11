@@ -5,11 +5,12 @@ import {
 	View,
 	Animated,
 	SafeAreaView,
-	StyleSheet, Text, Appearance
+	StyleSheet, Text, Appearance, TouchableOpacity, Image
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {LightTheme} from '../styles/themes';
 import {Colors, Sizing} from '../styles';
+import { ImageSource } from '../common/imageSource';
 
 const AvenTrippleSlider = (props) => {
 
@@ -29,10 +30,19 @@ const AvenTrippleSlider = (props) => {
 
 	const translateX = animatedValue.interpolate({
 		inputRange: [0, 1, 2],
-		outputRange: [2, Sizing.vw * 30, Sizing.vw * 63], //28// Adjust the distance of the switch head
+		outputRange: [2, Sizing.vw * 24, Sizing.vw * 50], //28// Adjust the distance of the switch head
 	});
 
+	const showLock = props.readOnly ? 0 : 1;
+	//locked image processing
+	const [locked, setLocked] = useState(false);
+	const changeImg = () => {
+		console.log("change image");
+		setLocked(!locked);
+	}
+
 	const toggleSwitch = (toValue) => {
+		if(locked) return;
 		Animated.spring(animatedValue, {
 	      toValue,
 	      useNativeDriver: false, // Adjust based on your animation requirements
@@ -65,6 +75,7 @@ const AvenTrippleSlider = (props) => {
 				    <Pressable onPress={() => toggleSwitch(2)} style={styles.pressable}>
 				    </Pressable>
 				</View>
+				
 				<View style={styles.titles}>
 					<Text style={styles.smlabel}>auto</Text>
 					<Text style={styles.smlabel}>autstby</Text>
@@ -72,9 +83,30 @@ const AvenTrippleSlider = (props) => {
 				</View>
 			
 			</View>
-			<View style={styles.lglabel}>
+			<View>
 				<Text style={styles.lglabel}>Operation</Text>
 			</View>
+			{
+				showLock? <>
+					    {
+							locked ? 
+					    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+				            <Image
+				            	style={styles.image}
+			       				source={ImageSource.lock}       				
+				            />
+				        </TouchableOpacity > : 
+				         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+				            <Image
+				            	style={styles.image}
+			       				source={ImageSource.lockOpen}       				
+				            />
+				        </TouchableOpacity >
+						}
+
+				</>
+				: <></>
+			}
 		</View>
 	);
 };
@@ -86,7 +118,7 @@ const styles = StyleSheet.create({
     	backgroundColor: '#fff',
     },
     innerContainer: {
-    	width: Sizing.vw * 70
+    	width: Sizing.vw * 90 - Sizing.vw * 22 - 40 
 	 },
 	 pressable: {
 	   width: Sizing.vw * 23,
@@ -97,7 +129,7 @@ const styles = StyleSheet.create({
 	   
 	 },
 	 titles: {
-	 	width: Sizing.vw * 70,
+	 	width: Sizing.vw * 90 - Sizing.vw * 22 - 40 ,
 	 	flexDirection: 'row',
 	 	alignItems: "center",
 	 	justifyContent: "space-between",
@@ -122,10 +154,19 @@ const styles = StyleSheet.create({
         // backgroundColor: '#fff',
     },
     rightTitle:{
+    	flexDirection:'row',
+    	// alignItems: 'center',
+    	// justifyContent: 'center',
     	fontSize: 18,
+    	marginLeft: 8,
+    	// borderWidth: 1,
+    },
+    image: {
+    	width: 30,
+    	height: 30,
     },
     lglabel:{
-    	width: Sizing.vw * 25,
+    	width: Sizing.vw * 22,
     	fontSize: 18,
     	color: LightTheme.textColor,
     },

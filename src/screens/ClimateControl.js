@@ -17,11 +17,15 @@ import {dayTemperatureData, nightTemperatureData} from '../configs';
 import {Colors, Sizing} from '../styles';
 import CustomStyles from "../styles/CustomStyles";
 import {ScaledSheet} from 'react-native-size-matters';
+import { userType } from "../configs";
 
 const {width, height} = Dimensions.get('window');
 export const ClimateControl = () => {
   const [dayTemp, setDayTemp] = useState(22);
   const [nightTemp, setNightTemp] = useState(23);
+
+  const [locked1, setLocked1] = useState(false);
+  const [locked2, setLocked2] = useState(false);
 
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -57,18 +61,17 @@ export const ClimateControl = () => {
               iconText=""
             />
           </View>
-          <View
-            style={{
-              justifyContent: 'center',
-            }}>
-            <Image
-              source={ImageSource.lockOpen}
-              style={{
-                width: 40,
-                height: 40,
-              }}
-            />
-          </View>
+          {
+            userType.service ? 
+               <TouchableOpacity  style={{justifyContent: 'center', alignItems: 'flex-end'}} onPress={ () => setLocked1(!locked1) }>
+                    <Image
+                      style={styles.lockImg}
+                      source={locked1 ? ImageSource.lock : ImageSource.lockOpen}               
+                    />
+                </TouchableOpacity >            
+            : <></>
+          }
+
         </View>
       </View>
       <Text style={[CustomStyles.ComponentTitles, {marginTop: Sizing.vh * 6}]}>
@@ -89,25 +92,19 @@ export const ClimateControl = () => {
               iconText=""
             />
           </View>
-          <View
-            style={{
-              justifyContent: 'center',
-              alignItems: 'flex-end',
-            }}>
-            <Image
-              source={ImageSource.lockOpen}
-              style={{
-                width: 40,
-                height: 40,
-                marginRight: -Sizing.vw * 18,
-              }}
-            />
-          </View>
-
-          
+          {
+            userType.service ? 
+               <TouchableOpacity  style={{justifyContent: 'center', alignItems: 'flex-end'}} onPress={ () => setLocked2(!locked2) }>
+                    <Image
+                      style={styles.lockImg}
+                      source={locked1 ? ImageSource.lock : ImageSource.lockOpen}               
+                    />
+                </TouchableOpacity >            
+            : <></>
+          }          
       </View>
       <View style={styles.navigationContainer}>
-        <CustomBottomNavigation OC={0} />
+        <CustomBottomNavigation  OC={userType.service} />
       </View>
     </SafeAreaView>
   );
@@ -116,8 +113,9 @@ export const ClimateControl = () => {
 const styles = ScaledSheet.create({
   mainContainer: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: Colors.RED,
+    borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
+    borderRadius: 10,
     backgroundColor: Colors.WHITE,
     alignItems: "center"
   },
@@ -152,9 +150,8 @@ const styles = ScaledSheet.create({
     marginTop: height * 0.35,
   },
   lockImg: {
-    width: Sizing.vw * 8,
-    height: Sizing.vh * 4,
-    marginTop: height * 0.06,
-    marginLeft: width * 0.02,
-  },
+    width: 40,
+    height: 40,
+    // marginRight: -Sizing.vw * 18,
+  }
 });

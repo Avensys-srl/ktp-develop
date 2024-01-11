@@ -13,6 +13,7 @@ import CustomBottomNavigation from '../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../styles';
 
 const {width, height} = Dimensions.get('window');
+import { userType } from "../configs";
 
 export const Profile = () => {
   const [isLoginSaved, setIsLoginSaved] = useState(false);
@@ -65,7 +66,7 @@ export const Profile = () => {
       </ScrollView>
 
       {/* BOTTOM NAVIGATION */}
-      <CustomBottomNavigation />
+      <CustomBottomNavigation  OC={userType.service} />
     </SafeAreaView>
   );
 };
@@ -74,8 +75,8 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.WHITE,
-    borderWidth: 2,
-    borderColor: Colors.BLACK,
+     borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
     borderRadius: 10,
   },
   opacityContainer: {

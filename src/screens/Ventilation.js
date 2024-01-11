@@ -18,6 +18,7 @@ import AvenSwitch from '../component/AvenSwitch';
 import AvenImbalancingSlider from '../component/AvenImbalancingSlider';
 import AvenTrippleBtn from "../component/AvenTrippleBtn";
 import AvenVerticalProgress from '../component/AvenVerticalProgress';
+import { userType } from "../configs";
 
 export const Ventilation = () => {
   // Stato iniziale o stato ricevuto da altre fonti
@@ -42,7 +43,7 @@ export const Ventilation = () => {
       <ScrollView styles={{height: Sizing.vh * 75}}>
         <View style={styles.pairedView}>
           <Text style={styles.txttop}></Text>
-           <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="stepless" off="3speeds" title=""/>
+           <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="stepless" off="3speeds" title=""  readOnly={ userType.service}/>
         </View>
         <View
           style={{
@@ -71,7 +72,7 @@ export const Ventilation = () => {
           <Text style={{ color: Colors.BLACK }}>Imbalance</Text>
         </View>
       </ScrollView>
-      <CustomBottomNavigation />
+      <CustomBottomNavigation   OC={userType.service}/>
     </View>
   );
 };
@@ -138,9 +139,9 @@ const styles = StyleSheet.create({
   container: {
     // flex: 1,
     width: Sizing.vw * 100,
-    height: Sizing.vh * 100,
-    // borderWidth: 2,
-    // borderColor: Colors.RED,
+    height: Sizing.vh * 97,
+    borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
     borderRadius: 10,
     // justifyContent: 'flex-end',
     backgroundColor: Colors.WHITE,

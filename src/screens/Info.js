@@ -48,7 +48,7 @@ export const Info = () => {
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    width: Sizing.vw * 95,
+    width: Sizing.vw * 90,
     borderColor: Colors.BLACK,
     borderWidth: 0,
     alignSelf: 'center',

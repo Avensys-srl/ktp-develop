@@ -20,6 +20,7 @@ import CustomBottomNavigation from '../component/CustomBottomNavigation';
 import DividerLine from '../component/DividerLine';
 
 const {width, height} = Dimensions.get('window');
+import { userType } from "../configs";
 
 const Probs = () => {
   const initialState = true;
@@ -51,7 +52,7 @@ const Probs = () => {
 
           <View style={{position: 'relative'}}>
             <View style={styles.filterAlarmContainer}>
-                <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"/>
+                <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"   readOnly={ !userType.service}/>
             </View>
              
           </View>
@@ -59,7 +60,7 @@ const Probs = () => {
           {/* Toggle */}
 
           <View style={styles.filterAlarmContainer}>
-              <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="yes" off="no" title="Parsing status"/>
+              <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="yes" off="no" title="Parsing status"   readOnly={ !userType.service}/>
           </View>
 
           <DividerLine />
@@ -67,27 +68,27 @@ const Probs = () => {
           {/* ref temp */}
 
           <View style={styles.filterAlarmContainer}>
-              <AvenSlider title="Reference temperature [°C]: "   value={50} minValue="0" maxValue="100" locking={true}/>
+              <AvenSlider title="Reference temperature [°C]: "   value={50} minValue="0" maxValue="100"   readOnly={ !userType.service}/>
           </View>
 
           <DividerLine />
 
           {/* Hysteresys */}
           <View style={styles.filterAlarmContainer}>
-              <AvenRangeSlider title="Hysteresys[°C]" minValue={0} maxValue={35}/>
+              <AvenRangeSlider title="Hysteresys[°C]" minValue={0} maxValue={35}   readOnly={ !userType.service}/>
           </View>
 
           <DividerLine />
 
           <View style={styles.filterAlarmContainer}>
-              <AvenSwitch value={isFresh} onValueChange={setIsFresh} on="fresh" off="exhaust" title="sensors"/>
+              <AvenSwitch value={isFresh} onValueChange={setIsFresh} on="fresh" off="exhaust" title="sensors"   readOnly={ !userType.service}/>
            
           </View>
 
           <DividerLine />
 
           <View style={styles.filterAlarmContainer}>
-            <AvenSlider title="Boost time [min]: "   value={55} minValue="10" maxValue="100" locking={true}/>
+            <AvenSlider title="Boost time [min]: "   value={55} minValue="10" maxValue="100"   readOnly={ !userType.service}/>
           </View>
 
           <DividerLine />
@@ -99,7 +100,7 @@ const Probs = () => {
           </View>
         </View>
       </ScrollView>
-      <CustomBottomNavigation OC={0} />
+      <CustomBottomNavigation OC={userType.service} />
       <Text style={styles.service}>service</Text>
     </SafeAreaView>
   );
@@ -111,8 +112,9 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.WHITE,
-    // borderWidth: 1,
-    borderColor: Colors.RED,
+    borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
+    borderRadius: 10,
   },
 
   filterAlarmContainer: {
@@ -227,7 +229,7 @@ const styles = StyleSheet.create({
   },
 
   service: {
-    color: Colors.BLACK,
+    color: userType.service ?   Colors.RED: Colors.BLACK,
     textAlign: 'center'
   }
 

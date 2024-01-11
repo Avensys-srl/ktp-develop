@@ -5,11 +5,12 @@ import {
 	View,
 	Animated,
 	SafeAreaView,
-	StyleSheet, Text, Image, TouchableHighlight 
+	StyleSheet, Text, Image, TouchableOpacity 
 } from 'react-native';
 import {Slider} from '@miblanchard/react-native-slider';
 import { LightTheme } from '../styles/themes';
-
+import { ImageSource } from '../common/imageSource';
+import {Colors, Sizing} from '../styles';
 
 const AvenRangeSlider = (props) => {
 
@@ -19,18 +20,8 @@ const AvenRangeSlider = (props) => {
 	const title = props.title;
 	const minValue = props.minValue;
 	const maxValue = props.maxValue;
-	const [locked, setLocked] = useState(true);
 	const [imgUrl, setImgUrl]  = useState('./assets/unlocked.png');
-	const changeImg = () => {
-		// console.log("change image");
-		setLocked(!locked);
-		if(locked) {
-			setImgUrl('./assets/locked.png');
-		}else{
-			setImgUrl('./assets/unlocked.png');
-		}
-	}
-	//const { value, onValueChange } = props;
+	
 
 	const [componentWidth, setComponentWidth] = useState(0);
 	const [rangeWidth, setRangeWidth] = useState(0);
@@ -46,63 +37,95 @@ const AvenRangeSlider = (props) => {
    		console.log("rangeWidth = ", rangeWidth);
 	}
 
+
+	const showLock = props.readOnly ? 0 : 1;
+	const [locked, setLocked] = useState(false);
+	const changeImg = () => {
+		console.log("change image");
+		setLocked(!locked);
+	}
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.sliderContainer} onLayout={ onLayoutHandler }>
 					<View style={styles.topTitle}>
 			            <Text style={styles.lglabel}>{title}</Text>			      
 			        </View>
-			   		<Slider
-			   		    step={1}
+			        <View style={styles.lockContainer}>
+				   		<Slider
+				   		    step={1}
 
-			   		    minimumValue={minValue}
-			   		    maximumValue={maxValue}
-			   			value={[valueLow, valueHigh]}
+				   		    minimumValue={minValue}
+				   		    maximumValue={maxValue}
+				   			value={[valueLow, valueHigh]}
 
-			   			onValueChange={ arr => {  setValueHigh(arr[1]); setValueLow(arr[0]); 
-			   				console.log("unit = ", unit);
-			   				console.log("valueLow = ", arr[0])
-			   				console.log("value low = ", valueLow * unit) } }
-			   			thumbStyle = {{
-			                        width: 20,
-			                        height: 18,
-			                        overflow: 'hidden',
-			                        borderTopLeftRadius: 10,
-			                        borderTopRightRadius: 10,
-			                        borderBottomLeftRadius: 10,
-			                        borderBottomRightRadius: 10,
-			                        backgroundColor: '#92D050' ,
-			                        marginLeft:1,
-			                        marginRight:5
-			   			}}
-			   			trackStyle={{
-			   				// height: 25,
-			   				backgroundColor: 'transparent' ,
-			   			}}
-			   			minimumTrackStyle={{
-			   				
-			   				borderWidth: 2,
-			   				
-	                        backgroundColor: '#92D050' ,
-			   			}}
-			   			containerStyle={{
-			   				height: 25,
-			   				borderWidth: 2,
-			   				borderTopLeftRadius: 10,
-	                        borderTopRightRadius: 10,
-	                        borderBottomLeftRadius: 10,
-	                        borderBottomRightRadius: 10,
-			   				borderColor: "#92D050",
-			   			}}
-			   			minimumTrackStyle={{
-			   				height: 18,
-			   				backgroundColor: "#92D050",
-			   			}}
-			   			maximumTrackStyle={{
-			   				// backgroundColor: "#92D050",
-			   			}}
-			   			disabled = {!locked}
-			   		/>
+				   			onValueChange={ arr => {  setValueHigh(arr[1]); setValueLow(arr[0]); 
+				   				console.log("unit = ", unit);
+				   				console.log("valueLow = ", arr[0])
+				   				console.log("value low = ", valueLow * unit) } }
+				   			thumbStyle = {{
+				                        width: 20,
+				                        height: 18,
+				                        overflow: 'hidden',
+				                        borderTopLeftRadius: 10,
+				                        borderTopRightRadius: 10,
+				                        borderBottomLeftRadius: 10,
+				                        borderBottomRightRadius: 10,
+				                        backgroundColor: '#92D050' ,
+				                        marginLeft:1,
+				                        marginRight:5
+				   			}}
+				   			trackStyle={{
+				   				// height: 25,
+				   				backgroundColor: 'transparent' ,
+				   			}}
+				   			minimumTrackStyle={{
+				   				
+				   				borderWidth: 2,
+				   				
+		                        backgroundColor: '#92D050' ,
+				   			}}
+				   			containerStyle={{
+				   				height: 25,
+				   				width: Sizing.vw * 90 - 30 - 8,
+				   				borderWidth: 2,
+				   				borderTopLeftRadius: 10,
+		                        borderTopRightRadius: 10,
+		                        borderBottomLeftRadius: 10,
+		                        borderBottomRightRadius: 10,
+				   				borderColor: "#92D050",
+				   			}}
+				   			minimumTrackStyle={{
+				   				height: 18,
+				   				backgroundColor: "#92D050",
+				   			}}
+				   			maximumTrackStyle={{
+				   				// backgroundColor: "#92D050",
+				   			}}
+				   			disabled = { locked }
+				   		/>
+				   		{
+							showLock? <>
+								    {
+										locked ? 
+								    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+							            <Image
+							            	style={styles.image}
+						       				source={ImageSource.lock}       				
+							            />
+							        </TouchableOpacity > : 
+							         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+							            <Image
+							            	style={styles.image}
+						       				source={ImageSource.lockOpen}       				
+							            />
+							        </TouchableOpacity >
+									}
+
+							</>
+							: <></>
+						}
+				   	</View>
 			   		<View style={[styles.middleTitle]}>
 		            	<Text style={[styles.middlesmlabel, {left: valueLow * unit}]}>{ valueLow }</Text>
 		            	<Text style={[styles.middlesmlabel, {left: valueHigh * unit}]}>{ valueHigh }</Text>
@@ -130,6 +153,9 @@ const styles = StyleSheet.create({
     	// borderWidth: 1,
     	// backgroundColor: 'blue'
     },
+    lockContainer: {
+    	flexDirection: 'row',
+    },
     topTitle: {
     	fontSize: 18,
     	flexDirection: 'row',
@@ -140,6 +166,7 @@ const styles = StyleSheet.create({
     },
    
     bottomTitle: {
+    	width: Sizing.vw * 90 - 30 - 8,
     	paddingTop: 0, marginTop: 0,
     	flexDirection: 'row',
     	 alignItems: 'center',

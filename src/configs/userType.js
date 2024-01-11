@@ -1,3 +1,5 @@
-export const userType={
-    technician:true
+export let userType={
+    technician:true,
+    service: true,
 }
+

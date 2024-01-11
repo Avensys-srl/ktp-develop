@@ -5,11 +5,12 @@ import {
 	View,
 	Animated,
 	SafeAreaView,
-	StyleSheet, Text, TouchableHighlight, Image
+	StyleSheet, Text, TouchableOpacity, Image
 } from 'react-native';
 import Slider from 'react-native-slider';
 import { ImageSource } from '../common/imageSource';
 import { LightTheme } from '../styles/themes';
+import {Colors, Sizing} from '../styles';
 
 const AvenSlider = (props) => {
 
@@ -23,24 +24,19 @@ const AvenSlider = (props) => {
 
 	const unit = props.unit;
 	// console.log("minValue = ", minValue);
-	const locking = props.readOnly ? 1 : 0;
+	const showLock = props.readOnly ? 0 : 1;
 
 	//locked image processing
-	const [locked, setLocked] = useState(true);
+	const [locked, setLocked] = useState(false);
 	// const [imgUrl, setImgUrl]  = useState('./assets/unlocked.png');
 	const changeImg = () => {
 		console.log("change image");
 		setLocked(!locked);
-		// if(locked) {
-		// 	setImgUrl('./assets/locked.png');
-		// }else{
-		// 	setImgUrl('./assets/unlocked.png');
-		// }
 	}
 
 	const setSliderValue = ( val ) => {
 		console.log("slider value = ", val);
-		// if(readOnly) return;
+		if(locked) return;
 
 		if( val < minValue){
 			setValue(minValue);
@@ -55,20 +51,21 @@ const AvenSlider = (props) => {
 
 	return (
 		<View style={styles.container}>
+			<View style={styles.topTitle}>
+	            <Text style={styles.lglabel}>{title}{value}{unit}</Text>			      
+	        </View>
 			<View style={styles.sliderContainer}>
-					<View style={styles.topTitle}>
-			            <Text style={styles.lglabel}>{title}{value}{unit}</Text>			      
-			        </View>
+			    <View>    
 			    	<Slider
 			            value={value}
-			            disabled={locking}
+			            disabled={locked}
 			            step={1}
 			            minimumValue={minValue}
 			            maximumValue={maxValue  + 3 }
 			            onValueChange={(value) => setSliderValue(value)}
 			            style={{
 			            	height:26, 
-			            	// width: 200,
+			            	width: Sizing.vw * 90 - 30 - 8,
 			            	borderWidth: 2, 
 			            	borderColor:"#92D050",
 			            	borderTopLeftRadius: 15,
@@ -114,28 +111,29 @@ const AvenSlider = (props) => {
 			        <View style={styles.bottomTitle}>
 		            	<Text style={styles.smlabel}>{ minValue }</Text><Text style={styles.smlabel}>{ maxValue }</Text>
 		        	</View>
-			</View>
-			{
-				locking? <>
-					    {
-							locked ? 
-					    <TouchableHighlight  style={styles.rightTitle} onPress={ () => changeImg() }>
-				            <Image
-				            	style={styles.image}
-			       				source={ImageSource.lockOpen}       				
-				            />
-				        </TouchableHighlight > : 
-				         <TouchableHighlight  style={styles.rightTitle} onPress={ () => changeImg() }>
-				            <Image
-				            	style={styles.image}
-			       				source={ImageSource.lock}       				
-				            />
-				        </TouchableHighlight >
-						}
+		        </View>
+				{
+					showLock? <>
+						    {
+								locked ? 
+						    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+					            <Image
+					            	style={styles.image}
+				       				source={ImageSource.lock}       				
+					            />
+					        </TouchableOpacity > : 
+					         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+					            <Image
+					            	style={styles.image}
+				       				source={ImageSource.lockOpen}       				
+					            />
+					        </TouchableOpacity >
+							}
 
-				</>
-				: <></>
-			}
+					</>
+					: <></>
+				}
+			</View>
 		</View>
 	);
 };
@@ -143,12 +141,13 @@ const AvenSlider = (props) => {
 const styles = StyleSheet.create({	
 
     container:{
-    	flexDirection: 'row',
     	backgroundColor: '#fff'
 
     },
     sliderContainer:{
-    	flex:0.9,
+    	// borderWidth:1,
+    	flexDirection: 'row',
+    	// flex:0.9,
     	// backgroundColor: 'blue'
     },
     topTitle: {
@@ -168,9 +167,6 @@ const styles = StyleSheet.create({
     	// backgroundColor: 'red',
     },
     rightTitle:{
-    	flexDirection:'row',
-    	alignItems: 'center',
-    	justifyContent: 'center',
     	fontSize: 18,
     	marginLeft: 8,
     },

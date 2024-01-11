@@ -5,10 +5,11 @@ import {
 	View,
 	Animated,
 	SafeAreaView,
-	StyleSheet, Text, Appearance
+	StyleSheet, Text, Appearance,  Image, TouchableOpacity
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {LightTheme} from '../styles/themes';
+import { ImageSource } from '../common/imageSource';
 
 const AvenSwitch = (props) => {
 
@@ -41,12 +42,21 @@ const AvenSwitch = (props) => {
 	});
 
 	const toggleSwitch = () => {
+		if(locked) return;
 		const newValue = !value;
 		console.log("toggle switch = ", newValue);
 		onValueChange(newValue);
 	};
 
 	const currentStyles = value ? activeStyles : defaultStyles;
+
+	const showLock = props.readOnly ? 0 : 1;
+	//locked image processing
+	const [locked, setLocked] = useState(false);
+	const changeImg = () => {
+		console.log("change image");
+		setLocked(!locked);
+	}
 
 	return (
 		<View style={styles.container}>
@@ -77,6 +87,27 @@ const AvenSwitch = (props) => {
 		        </View>
 			</View>
 			<View><Text style={styles.lglabel}>{title}</Text></View>
+			{
+				showLock? <>
+					    {
+							locked ? 
+					    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+				            <Image
+				            	style={styles.image}
+			       				source={ImageSource.lock}       				
+				            />
+				        </TouchableOpacity > : 
+				         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+				            <Image
+				            	style={styles.image}
+			       				source={ImageSource.lockOpen}       				
+				            />
+				        </TouchableOpacity >
+						}
+
+				</>
+				: <></>
+			}
 		</View>
 	);
 };
@@ -120,8 +151,18 @@ const styles = StyleSheet.create({
 
     },
     rightTitle:{
+    	flexDirection:'row',
+    	// alignItems: 'center',
+    	// justifyContent: 'center',
     	fontSize: 18,
+    	marginLeft: 8,
+    	// borderWidth: 1,
     },
+    image: {
+    	width: 30,
+    	height: 30,
+    },
+
     lglabel:{
     	paddingLeft: 8,
     	fontSize: 18,

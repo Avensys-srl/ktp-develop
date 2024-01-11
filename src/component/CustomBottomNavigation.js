@@ -11,6 +11,7 @@ import {ImageSource} from '../common/imageSource';
 import {Routes} from '../routes';
 import {Colors, Sizing} from '../styles';
 
+
 // const {width, height} = Dimensions.get('window');
 
 const CustomBottomNavigation = ({
@@ -21,12 +22,7 @@ const CustomBottomNavigation = ({
   OC = 0,
   isLogin = Number,
 }) => {
-  let OCColor = Colors.BLACK;
-  // if (OC === 0) {
-  //   OCColor = Colors.BLACK;
-  // } else if (OC === 1) {
-  //   OCColor = Colors.RED;
-  // }
+  let OCColor = OC ? Colors.RED : Colors.BLACK;
 
   const navigation = useNavigation();
 
@@ -83,8 +79,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 12,
     alignItems: 'center',
-    backgroundColor:Colors.WHITE,
- 
+    backgroundColor:Colors.WHITE
   },
   img: {
     height: 55,

@@ -19,6 +19,7 @@ const {width, height} = Dimensions.get('window');
 
 import AvenSwitch from '../component/AvenSwitch';
 import AvenSlider from '../component/AvenSlider';
+import { userType } from "../configs";
 
 const Filter_Settings2 = () => {
 
@@ -29,7 +30,6 @@ const Filter_Settings2 = () => {
 
   return (
     <SafeAreaView style={styles.mainSafeAreaView}>
-      <View>
         {/* Header component */}
         <Header
           canGoBack={true}
@@ -38,10 +38,11 @@ const Filter_Settings2 = () => {
           optionsStar={1}
         />
 
-        {/* filter alarm activation */}
+      <View style={styles.mainContainer}>
+       
         <View style={styles.filterAlarmContainer}>
           <View>
-               <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Filter alarm activation"/>
+               <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Filter alarm activation" readOnly={ !userType.service}/>
           </View>
 
           
@@ -51,31 +52,15 @@ const Filter_Settings2 = () => {
 
         <View style={styles.filterAlarmContainer}>
           <View>
-           <AvenSwitch value={filterReplaced} onValueChange={setFilterReplaced} on="on" off="off" title="Filter replaced"/>
+           <AvenSwitch value={filterReplaced} onValueChange={setFilterReplaced} on="on" off="off" title="Filter replaced"  readOnly={ !userType.service}/>
           </View>
 
-         <View style={styles.lockImgTouchableOpacity}>
-            <TouchableOpacity
-              onPress={() => setFilterReplacedLock(!filterReplacedLock)}>
-              <Image
-                source={
-                  filterReplacedLock ? ImageSource.lockOpen : ImageSource.lock
-                }
-                style={styles.lockImg}
-              />
-            </TouchableOpacity>
-          </View>
+       
         </View>
-
-        {/* progress bar component */}
-
-        
-
-        {/* calibration */}
 
         <View style={styles.calibrationContainer}>
           <View style={styles.calibrationTextImgContainer}>
-             <AvenSlider value={50} title="Reference temperature[°C]: " minValue={0} maxValue={100}/>
+             <AvenSlider value={50} title="Reference temperature[°C]: " minValue={0} maxValue={100}  readOnly={ !userType.service}/>
           </View>
 
           <View style={styles.calibrationIconContainer}>
@@ -87,7 +72,7 @@ const Filter_Settings2 = () => {
       {/* Bottom navigation view */}
 
       <View style={styles.navigationContainer}>
-        <CustomBottomNavigation OC={1} />
+        <CustomBottomNavigation  OC={userType.service} />
       </View>
     </SafeAreaView>
   );
@@ -97,14 +82,24 @@ export default Filter_Settings2;
 
 const styles = StyleSheet.create({
   mainSafeAreaView: {
+      // borderWidth: 5,
     width: Sizing.vw * 100,
     height: Sizing.vh * 100,
     // borderWidth: 2,
     // borderColor: Colors.RED,
     backgroundColor: Colors.WHITE,
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
+    borderRadius: 10,
+  },
+  mainContainer: {
+    width: Sizing.vw * 90,
+    paddingTop: Sizing.vh * 5,
   },
   filterAlarmContainer: {
-    margin: Sizing.vw * 4,
+    // margin: Sizing.vw * 4,
+    paddingTop: Sizing.vh * 3,
     borderWidth: 0,
     borderColor: Colors.BLACK,
     flexDirection: 'row',

@@ -19,6 +19,7 @@ import AvenSlider from '../component/AvenSlider';
 import DividerLine from '../component/DividerLine';
 
 const {width, height} = Dimensions.get('window');
+import { userType } from "../configs";
 
 const Preheater = () => {
   const initialState = false;
@@ -52,25 +53,25 @@ const Preheater = () => {
         <View style={styles.mainComponentContainer}>
           <View style={styles.filterAlarmContainer}>
             <View>
-              <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"/>
+              <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"  readOnly={ !userType.service}/>
             </View>
           </View>          
         </View>
 
         <View style={styles.toggleSwitchMainContainer}>
           <View style={styles.toggleSwitchContainer}>
-            <AvenSwitch value={isPairedToggled} onValueChange={setIsPairedToggled} on="paired" off="unpaired" title=""/>
+            <AvenSwitch value={isPairedToggled} onValueChange={setIsPairedToggled} on="paired" off="unpaired" title=""  readOnly={ !userType.service}/>
           </View>
           <DividerLine />
 
           <View style={styles.toggleSwitchContainer}>
-            <AvenSwitch value={isTempToggled} onValueChange={setIsTempToggled} on="" off="" title=""/>
+            <AvenSwitch value={isTempToggled} onValueChange={setIsTempToggled} on="" off="" title=""  readOnly={ !userType.service}/>
             <Text style={styles.tempText}>temperature</Text>
           </View>
           <DividerLine />
 
           <View style={styles.toggleSwitchContainer}>
-            <AvenSwitch value={isFreshToggled} onValueChange={setIsFreshToggled} on="fresh" off="exhaust" title=""/>
+            <AvenSwitch value={isFreshToggled} onValueChange={setIsFreshToggled} on="fresh" off="exhaust" title=""  readOnly={ !userType.service}/>
           </View>
           <DividerLine />
 
@@ -80,7 +81,7 @@ const Preheater = () => {
         </View>
       </ScrollView>
 
-      <CustomBottomNavigation OC={0} />
+      <CustomBottomNavigation OC={userType.service} />
       <Text style={styles.service}>service</Text>
     </SafeAreaView>
   );
@@ -92,8 +93,9 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.WHITE,
-    // borderWidth: 1,
-    // borderColor: Colors.RED,
+    borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
+    borderRadius: 10,
   },
   mainComponentContainer: {
     position: 'relative',
@@ -152,7 +154,7 @@ const styles = StyleSheet.create({
   },
   service: {
     textAlign: 'center',
-    color: Colors.BLACK
+    color: userType.service ?   Colors.RED: Colors.BLACK
     // color: Colors.RED,
   },
 });
