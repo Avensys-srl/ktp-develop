@@ -55,7 +55,7 @@ export const Ventilation = () => {
           <AvenVerticalProgress TS={3} VS={87} Visible={isToggled} />
           <AvenVerticalProgress TS={'boost'} VS={90} Visible={true}/>
         </View>
-        <View style={{marginBottom: 20, marginTop: 10}}>
+        <View style={{marginBottom: 20, marginTop: 10, alignItems: "center"}}>
             <AvenTrippleBtn
               TBL={1}
               TBR={0}
@@ -154,9 +154,9 @@ const styles = StyleSheet.create({
   pairedViewNoBorder: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: Sizing.vw * 93,
+    // width: Sizing.vw * 90,
     height: Sizing.vh * 15,
-    margin: 15,
+ 
     marginBottom: 5,
     marginTop: 5,
   },

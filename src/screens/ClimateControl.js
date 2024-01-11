@@ -39,7 +39,7 @@ export const ClimateControl = () => {
         <View style={styles.dropdownContainer}>
           <View>
             <ClimateControlCard
-              mainImg = {ImageSource.home}
+              mainImg = {ImageSource.home_t1}
               leftImg={ImageSource.sun}
               imageStyle={{}}
               box={true}
@@ -49,7 +49,7 @@ export const ClimateControl = () => {
           </View>
           <View>
             <ClimateControlCard
-              mainImg={ImageSource.home}
+              mainImg={ImageSource.home_t2}
               leftImg={ImageSource.moon}
               imageStyle={{}}
               box={true}
@@ -64,8 +64,8 @@ export const ClimateControl = () => {
             <Image
               source={ImageSource.lockOpen}
               style={{
-                width: 50,
-                height: 50,
+                width: 40,
+                height: 40,
               }}
             />
           </View>
@@ -77,8 +77,7 @@ export const ClimateControl = () => {
       <View
         style={{
           flexDirection: 'row',
-          justifyContent: 'space-evenly',
-      
+          justifyContent: 'center',      
           position: 'relative',
         }}>
           <View style={{}}>
@@ -98,8 +97,8 @@ export const ClimateControl = () => {
             <Image
               source={ImageSource.lockOpen}
               style={{
-                width: 50,
-                height: 50,
+                width: 40,
+                height: 40,
                 marginRight: -Sizing.vw * 18,
               }}
             />
@@ -120,6 +119,7 @@ const styles = ScaledSheet.create({
     borderWidth: 1,
     borderColor: Colors.RED,
     backgroundColor: Colors.WHITE,
+    alignItems: "center"
   },
   container: {
     // flex: 1,
@@ -138,9 +138,11 @@ const styles = ScaledSheet.create({
     justifyContent: 'flex-end',
   },
   dropdownContainer: {
+    // borderWidth: 1,
+    width: Sizing.vw * 90,
     flexDirection: 'row',
     // marginTop: height * 0.03,
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
   },
   progressbarContainer: {
     flexDirection: 'row',

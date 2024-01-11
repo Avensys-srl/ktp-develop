@@ -34,5 +34,7 @@ export const ImageSource = {
   starFill: require('../assets/star-filled.png'),
   logoW: require('../assets/logoWhite.png'),
   transparent: require('../assets/transparent_picture.png'),
-  house_2: require('../assets/house_2.png')
+  house_2: require('../assets/house_2.png'),
+  home_t1: require('../assets/home_t1.png'),
+  home_t2: require('../assets/home_t2.png')
 };

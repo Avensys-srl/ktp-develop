@@ -481,8 +481,10 @@ const componentStyle = StyleSheet.create({
   // TrippleBtn
   TrippleBtn: {
     mainContainer: {
+      width: Sizing.vw * 90,
+      // borderWidth: 2,      
       flexDirection: 'row',
-      justifyContent: 'space-around',
+      justifyContent: 'space-between',
     },
     btnContainerOuter: {
       borderWidth: 2,

@@ -166,12 +166,13 @@ const AvenImbalancingSlider = (props) => {
 const styles = StyleSheet.create({  
 
     container:{
+      // borderWidth: 1,
       flexDirection: 'row',
       backgroundColor: '#fff'
-
     },
     sliderContainer:{
-      flex:0.9,
+      // borderWidth: 2,
+      flex: 0.9,
       // backgroundColor: 'blue'
     },
     topTitle: {

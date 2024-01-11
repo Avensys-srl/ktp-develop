@@ -30,42 +30,42 @@ const AvenTrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
 
   return (
     <View style={mainContainer}>
-      <Pressable
-        onPress={() => (
-          setFirstContainer(Colors.LIGHT_GREEN),
-          setSecondContainer(Colors.WHITE),
-          setThirdContainer(Colors.WHITE)
-        )}>
-        <View style={btnContainerOuter}>
-          <View style={[btnContainer, {backgroundColor: `${firstContainer}`}]}>
-            <Text style={CustomStyles.ComponentTitlesBlack}>{TbL}</Text>
-          </View>
-        </View>
-      </Pressable>
-      <Pressable
-        onPress={() => (
-          setFirstContainer(Colors.WHITE),
-          setSecondContainer(Colors.LIGHT_GREEN),
-          setThirdContainer(Colors.WHITE)
-        )}>
-        <View style={btnContainerOuter}>
-          <View style={[btnContainer, {backgroundColor: `${secondContainer}`}]}>
-            <Text style={CustomStyles.ComponentTitlesBlack}>{TbC}</Text>
-          </View>
-        </View>
-      </Pressable>
-      <Pressable
-        onPress={() => (
-          setFirstContainer(Colors.WHITE),
-          setSecondContainer(Colors.WHITE),
-          setThirdContainer(Colors.LIGHT_GREEN)
-        )}>
-        <View style={btnContainerOuter}>
-          <View style={[btnContainer, {backgroundColor: `${thirdContainer}`}]}>
-            <Text style={CustomStyles.ComponentTitlesBlack}>{TbR}</Text>
-          </View>
-        </View>
-      </Pressable>
+          <Pressable
+            onPress={() => (
+              setFirstContainer(Colors.LIGHT_GREEN),
+              setSecondContainer(Colors.WHITE),
+              setThirdContainer(Colors.WHITE)
+            )}>
+            <View style={btnContainerOuter}>
+              <View style={[btnContainer, {backgroundColor: `${firstContainer}`}]}>
+                <Text style={CustomStyles.ComponentTitlesBlack}>{TbL}</Text>
+              </View>
+            </View>
+          </Pressable>
+          <Pressable
+            onPress={() => (
+              setFirstContainer(Colors.WHITE),
+              setSecondContainer(Colors.LIGHT_GREEN),
+              setThirdContainer(Colors.WHITE)
+            )}>
+            <View style={btnContainerOuter}>
+              <View style={[btnContainer, {backgroundColor: `${secondContainer}`}]}>
+                <Text style={CustomStyles.ComponentTitlesBlack}>{TbC}</Text>
+              </View>
+            </View>
+          </Pressable>
+          <Pressable
+            onPress={() => (
+              setFirstContainer(Colors.WHITE),
+              setSecondContainer(Colors.WHITE),
+              setThirdContainer(Colors.LIGHT_GREEN)
+            )}>
+            <View style={btnContainerOuter}>
+              <View style={[btnContainer, {backgroundColor: `${thirdContainer}`}]}>
+                <Text style={CustomStyles.ComponentTitlesBlack}>{TbR}</Text>
+              </View>
+            </View>
+          </Pressable>
     </View>
   );
 };

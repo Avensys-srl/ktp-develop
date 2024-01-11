@@ -83,15 +83,15 @@ const styles = ScaledSheet.create({
     tintColor: Colors.BLACK,
   },
   leftImg: {
-    height: Sizing.vh * 3,
-    width: Sizing.vh * 3,
+    height: Sizing.vh * 2.6,
+    width: Sizing.vh * 2.5,
     left: 0,
     top: 0,
     position: 'absolute'
   },
   rightImg: {
-    height: Sizing.vh * 3,
-    width: Sizing.vh * 3,
+    height: Sizing.vh * 2.6,
+    width: Sizing.vh * 2.5,
     right: 0,
     top: 0,
     position: 'absolute'
