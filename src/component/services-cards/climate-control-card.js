@@ -77,21 +77,21 @@ export const ClimateControlCard = (props) => {
 const styles = ScaledSheet.create({
   container: {},
   home: {
-    height: Sizing.vh * 9,
-    width: Sizing.vw * 15,
+    height: Sizing.vh * 6,
+    width: Sizing.vw * 10,
     resizeMode: 'contain',
     tintColor: Colors.BLACK,
   },
   leftImg: {
-    height: Sizing.vh * 2.6,
-    width: Sizing.vh * 2.5,
+    height: Sizing.vh * 1.8,
+    width: Sizing.vh * 1.6,
     left: 0,
     top: 0,
     position: 'absolute'
   },
   rightImg: {
-    height: Sizing.vh * 2.6,
-    width: Sizing.vh * 2.5,
+    height: Sizing.vh * 1.8,
+    width: Sizing.vh * 1.6,
     right: 0,
     top: 0,
     position: 'absolute'

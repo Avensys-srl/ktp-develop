@@ -27,7 +27,7 @@ const AvenSlider = (props) => {
 	const showLock = props.readOnly ? 0 : 1;
 
 	//locked image processing
-	const [locked, setLocked] = useState(false);
+	const [locked, setLocked] = useState(readOnly? true: false);
 	// const [imgUrl, setImgUrl]  = useState('./assets/unlocked.png');
 	const changeImg = () => {
 		console.log("change image");
@@ -88,7 +88,9 @@ const AvenSlider = (props) => {
 			            	alignItems: 'center', 
 			            	marginLeft: 2,
 			            	marginRight: 2,
-			            	backgroundColor: '#92D050' , 
+			            	backgroundColor: readOnly ? '#fff' : '#92D050' , 
+			            	borderWidth: readOnly ? 2 : 0,
+			            	borderColor:  '#92D050' , 
 			            	width: 20,
 	                        height: 20,
 	                        overflow: 'hidden',

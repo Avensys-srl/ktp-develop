@@ -11,7 +11,7 @@ import { userType } from "../configs";
 
 export const Services = () => {
   const ServicesTab = [
-    {title: 'general setting', route: null, disabled: true},
+    // {title: 'general setting', route: null, disabled: true},
     {title: 'filteration', route: Routes.Filter, disabled: false},
     {title: 'ventilation', route: Routes.Ventilation, disabled: false},
     {title: 'climate control', route: Routes.Climate, disabled: false},
@@ -44,7 +44,7 @@ export const Services = () => {
           );
         })}
       </View>
-      <CustomBottomNavigation OC={userType.service}></CustomBottomNavigation>
+      <CustomBottomNavigation ></CustomBottomNavigation>
     </SafeAreaView>
   );
 };

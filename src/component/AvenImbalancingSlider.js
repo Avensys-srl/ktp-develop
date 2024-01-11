@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     },
     sliderContainer:{
       // borderWidth: 2,
-      flex: 0.9,
+      flex: 0.85,
       // backgroundColor: 'blue'
     },
     topTitle: {

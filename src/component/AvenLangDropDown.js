@@ -1,31 +1,39 @@
 import React, {useState} from 'react';
 import SelectDropdown from 'react-native-select-dropdown';
-import {View, StyleSheet, Dimensions} from 'react-native';
+import {View, StyleSheet, Dimensions, Image, Text} from 'react-native';
 import {Colors, Sizing} from '../styles';
 import componentStyle from '../styles/componentStyle';
+import { ImageSource } from '../common/imageSource';
 
 const {width, height} = Dimensions.get('window');
 
-const DropdownSetPoint = ({data, defalutValue}) => {
-  const [selectedItem, setSelectedItem] = useState({});
+const AvenLangDropDown = ({data, defalutValue}) => {
+ 
 
   const {btnStyle, itemStyle} = componentStyle.DropdownSetPoint;
 
   const maxItemsWithoutScroll = 5;
   const maxDropdownHeight = Sizing.vh * 6 * maxItemsWithoutScroll;
+  
+
+  const handleSelect = (selectedItem) => {
+    onSelect(selectedItem);
+  };
+
 
   return (
     <View>
       <SelectDropdown
         data={data}
-        onSelect={(selectedItem, index) => {
-          setSelectedItem(selectedItem);
-          console.log(selectedItem.value);
+        default = { <Image source={ImageSource.flag_uk} style={{ width: 20, height: 10, marginRight: 10 }} /> }
+        
+        rowTextForSelection={(item, index) => {
+          return  <Image source={item.image} style={{ width: 20, height: 15 }} />
         }}
         buttonTextAfterSelection={(selectedItem, index) => {
-          return selectedItem;
+          return <Image source={selectedItem.image} style={{ width: 30, height: 25}} />
         }}
-        defaultButtonText={defalutValue}
+
         buttonStyle={btnStyle}
         dropdownStyle={{
           ...styles.ddStyle,
@@ -38,15 +46,14 @@ const DropdownSetPoint = ({data, defalutValue}) => {
   );
 };
 
-export default DropdownSetPoint;
+export default AvenLangDropDown;
 
 const styles = StyleSheet.create({
   ddStyle: {
     borderWidth: 2,
-    // marginLeft: 15,
-    marginTop: -3,
+    marginTop: 2,
     borderRadius: 12,
-    borderTopWidth: 2,
+
     borderColor: Colors.LIGHT_GREEN,
   },
 });

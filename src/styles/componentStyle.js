@@ -414,10 +414,12 @@ const componentStyle = StyleSheet.create({
       borderRadius: 12,
       borderColor: Colors.LIGHT_GREEN,
       marginRight: Sizing.vw * 2,
+      padding: -10,
     },
     itemStyle: {
       borderBottomColor: 'transparent',
       borderBottomWidth: 0,
+      padding: -10
     },
   },
 
@@ -481,7 +483,7 @@ const componentStyle = StyleSheet.create({
   // TrippleBtn
   TrippleBtn: {
     mainContainer: {
-      width: Sizing.vw * 90,
+      width: Sizing.vw * 85,
       // borderWidth: 2,      
       flexDirection: 'row',
       justifyContent: 'space-between',

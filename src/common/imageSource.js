@@ -36,5 +36,15 @@ export const ImageSource = {
   transparent: require('../assets/transparent_picture.png'),
   house_2: require('../assets/house_2.png'),
   home_t1: require('../assets/home_t1.png'),
-  home_t2: require('../assets/home_t2.png')
+  home_t2: require('../assets/home_t2.png'),
+
+  flag_uk: require('../assets/Flag_of_United_Kingdom.png'),
+  flag_ge: require('../assets/Flag_of_Germany.png'),
+  flag_it: require('../assets/Flag_of_Italy.png'),
+  flag_ne: require('../assets/Flag_of_Netherlands.png'),
+  flag_de: require('../assets/Flag_of_Denmark.png'),
+  flag_sw: require('../assets/Flag_of_Sweden.png'),
+  flag_po: require('../assets/Flag_of_Poland.png'),
+  flag_li: require('../assets/Flag_of_Lithuania.png')
+
 };

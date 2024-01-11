@@ -31,7 +31,7 @@ const AvenRangeSlider = (props) => {
 		const { width } = event.nativeEvent.layout;
    		setComponentWidth(width);
    		setRangeWidth(valueHigh - valueLow);   		
-   		setUnit(Math.floor(width / (maxValue - minValue)));
+   		setUnit(Math.ceil(width / (maxValue - minValue)) - 0.5 );
    		console.log("component width = ", width);
    		console.log("unit = ", unit);
    		console.log("rangeWidth = ", rangeWidth);
@@ -127,8 +127,8 @@ const AvenRangeSlider = (props) => {
 						}
 				   	</View>
 			   		<View style={[styles.middleTitle]}>
-		            	<Text style={[styles.middlesmlabel, {left: valueLow * unit}]}>{ valueLow }</Text>
-		            	<Text style={[styles.middlesmlabel, {left: valueHigh * unit}]}>{ valueHigh }</Text>
+		            	<Text style={[styles.middlesmlabel, {left: Math.ceil(valueLow * unit)}]}>{ valueLow }</Text>
+		            	<Text style={[styles.middlesmlabel, {left: Math.ceil(valueHigh * unit)}]}>{ valueHigh }</Text>
 		        	</View>
 			        <View style={styles.bottomTitle}>
 		            	<Text style={styles.smlabel}>{ minValue }</Text><Text style={styles.smlabel}>{ maxValue }</Text>

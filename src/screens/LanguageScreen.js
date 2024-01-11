@@ -7,7 +7,31 @@ import DropdownSetPoint from '../component/DropdownSetPoint';
 import CustomBottomNavigation from '../component/CustomBottomNavigation';
 import { userType } from "../configs";
 
+import { ImageSource } from '../common/imageSource';
+import AvenLangDropDown from '../component/AvenLangDropDown';
+
 const LanguageScreen = () => {
+
+
+  const options = [
+    {  label: 'flag_uk', value: 'flag_uk', image: ImageSource.flag_uk },
+    {  label: 'flag_ge', value: 'flag_ge', image: ImageSource.flag_ge },
+    {  label: 'flag_it', value: 'flag_it', image: ImageSource.flag_it },
+    {  label: 'flag_ne', value: 'flag_ne', image: ImageSource.flag_ne },
+    {  label: 'flag_de', value: 'flag_de', image: ImageSource.flag_de },
+    {  label: 'flag_sw', value: 'flag_sw', image: ImageSource.flag_sw },
+    {  label: 'flag_po', value: 'flag_po', image: ImageSource.flag_po },
+    {  label: 'flag_li', value: 'flag_li', image: ImageSource.flag_li },
+    // Add more options as needed
+  ];
+
+  
+
+  const handleSelect = (selectedItem) => {
+    console.log('Selected Item:', selectedItem);
+    // Add your logic on item selection
+  };
+
   return (
     <SafeAreaView style={styles.mainContainer}>
       <View>
@@ -18,14 +42,18 @@ const LanguageScreen = () => {
           optionsStar={1}
         />
       </View>
+
       <View style={styles.dropDownView}>
         <Text style={[CustomStyles.ComponentTitles, {marginTop: 20}]}>
           Select Language:
         </Text>
-        <DropdownSetPoint
-          data={['EN', 'DE', 'FR', 'IT', 'NL', 'DA', 'SV', '...']}
-          defalutValue={'EN'}></DropdownSetPoint>
+        <AvenLangDropDown
+          data={options}
+          defalutValue={options[0]}></AvenLangDropDown>
       </View>
+
+      
+
       <CustomBottomNavigation  OC={userType.service} />
     </SafeAreaView>
   );
