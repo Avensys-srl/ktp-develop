@@ -15,7 +15,7 @@ import CustomBottomNavigation from '../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../styles';
 import {CustomStyles} from "../styles/CustomStyles";
 import DividerLine from '../component/DividerLine';
-import AvenSwitch from "../component/AvenSwitch";
+import AvenTwoRadio from "../component/AvenTwoRadio";
 import AvenSlider from '../component/AvenSlider';
 import AvenTripleSlider from "../component/AvenTripleSlider";
 
@@ -65,7 +65,7 @@ export const Bypass = () => {
 
         {/* NEW BYPASS OPERATION */}
         <View style={styles.filterAlarmContainer}>
-            <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Bypass operation"   readOnly={ !userType.service}/>          
+            <AvenTwoRadio value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Bypass operation"   readOnly={ !userType.service}/>          
         </View>
         <DividerLine />
 
@@ -82,7 +82,7 @@ export const Bypass = () => {
         <DividerLine />
 
         <View style={[styles.filterAlarmContainer, {marginTop: 22}]}>
-             <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="open" off="close" title="Bypass operation"   readOnly={ !userType.service}/>   
+             <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="open" off="close" title="Bypass operation"   readOnly={ !userType.service}/>   
         
         </View>
 

@@ -7,6 +7,7 @@ import {
   Text,
   ImageBackground,
 } from 'react-native';
+
 import {ScaledSheet} from 'react-native-size-matters';
 import DropdownSetPoint from '../DropdownSetPoint';
 import {Colors, Sizing} from '../../styles';
@@ -77,7 +78,7 @@ export const ClimateControlCard = (props) => {
 const styles = ScaledSheet.create({
   container: {},
   home: {
-    height: Sizing.vh * 6,
+    height: Sizing.vw * 11,
     width: Sizing.vw * 10,
     resizeMode: 'contain',
     tintColor: Colors.BLACK,

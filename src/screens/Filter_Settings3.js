@@ -4,7 +4,7 @@ import {Header} from '../component/header';
 import CustomBottomNavigation from '../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../styles';
 
-import AvenSwitch from '../component/AvenSwitch';
+import AvenTwoRadio from '../component/AvenTwoRadio';
 import AvenSlider from '../component/AvenSlider';
 // const {width, height} = Dimensions.get('window');
 import { userType } from "../configs";
@@ -21,14 +21,14 @@ const Filter_Settings3 = () => {
     <SafeAreaView style={styles.mainSafeAreaView}>
       <Header
         canGoBack={true}
-        title="Filter-setting"
+        title="Filteration"
         headerBG={1}
         optionsStar={1}
       />
       <View style={styles.mainContainer}>
         <View style={styles.toggleSwitchContainer}>
         
-          <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="time" off="pressure" title=""  readOnly={ !userType.service}/>
+          <AvenTwoRadio value={isEnabled} onValueChange={setEnabled} on="time" off="pressure" title=""  readOnly={ !userType.service}/>
         </View>
 
         <View style={styles.progressbarContainer}>

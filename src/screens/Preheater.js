@@ -14,7 +14,7 @@ import {Colors, Sizing} from '../styles';
 import {BLACK} from '../styles/colors';
 
 import {Header} from "../component/header";
-import AvenSwitch from '../component/AvenSwitch';
+import AvenTwoRadio from '../component/AvenTwoRadio';
 import AvenSlider from '../component/AvenSlider';
 import DividerLine from '../component/DividerLine';
 
@@ -53,25 +53,25 @@ const Preheater = () => {
         <View style={styles.mainComponentContainer}>
           <View style={styles.filterAlarmContainer}>
             <View>
-              <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"  readOnly={ !userType.service}/>
+              <AvenTwoRadio value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"  readOnly={ !userType.service}/>
             </View>
           </View>          
         </View>
 
         <View style={styles.toggleSwitchMainContainer}>
           <View style={styles.toggleSwitchContainer}>
-            <AvenSwitch value={isPairedToggled} onValueChange={setIsPairedToggled} on="paired" off="unpaired" title=""  readOnly={ !userType.service}/>
+            <AvenTwoRadio value={isPairedToggled} onValueChange={setIsPairedToggled} on="paired" off="unpaired" title=""  readOnly={ !userType.service}/>
           </View>
           <DividerLine />
 
           <View style={styles.toggleSwitchContainer}>
-            <AvenSwitch value={isTempToggled} onValueChange={setIsTempToggled} on="" off="" title=""  readOnly={ !userType.service}/>
+            <AvenTwoRadio value={isTempToggled} onValueChange={setIsTempToggled} on="" off="" title=""  readOnly={ !userType.service}/>
             <Text style={styles.tempText}>temperature</Text>
           </View>
           <DividerLine />
 
           <View style={styles.toggleSwitchContainer}>
-            <AvenSwitch value={isFreshToggled} onValueChange={setIsFreshToggled} on="fresh" off="exhaust" title=""  readOnly={ !userType.service}/>
+            <AvenTwoRadio value={isFreshToggled} onValueChange={setIsFreshToggled} on="fresh" off="exhaust" title=""  readOnly={ !userType.service}/>
           </View>
           <DividerLine />
 
@@ -138,7 +138,8 @@ const styles = StyleSheet.create({
   },
   tempText: {
     marginTop: -height * 0.03,
-    color: Colors.BLACK
+    color: Colors.BLACK,
+    fontSize: 18,
   },
   navigationContainer: {
     flex: 1,

@@ -13,7 +13,7 @@ import {Colors, CustomStyles, Sizing} from '../styles';
 
 import {Header} from "../component/header";
 
-import AvenSwitch from "../component/AvenSwitch";
+import AvenTwoRadio from "../component/AvenTwoRadio";
 import AvenSlider from '../component/AvenSlider';
 import AvenRangeSlider from "../component/AvenRangeSlider";
 import CustomBottomNavigation from '../component/CustomBottomNavigation';
@@ -52,7 +52,7 @@ const Probs = () => {
 
           <View style={{position: 'relative'}}>
             <View style={styles.filterAlarmContainer}>
-                <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"   readOnly={ !userType.service}/>
+                <AvenTwoRadio value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"   readOnly={ !userType.service}/>
             </View>
              
           </View>
@@ -60,7 +60,7 @@ const Probs = () => {
           {/* Toggle */}
 
           <View style={styles.filterAlarmContainer}>
-              <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="yes" off="no" title="Parsing status"   readOnly={ !userType.service}/>
+              <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="yes" off="no" title="Parsing status"   readOnly={ !userType.service}/>
           </View>
 
           <DividerLine />
@@ -81,7 +81,7 @@ const Probs = () => {
           <DividerLine />
 
           <View style={styles.filterAlarmContainer}>
-              <AvenSwitch value={isFresh} onValueChange={setIsFresh} on="fresh" off="exhaust" title="sensors"   readOnly={ !userType.service}/>
+              <AvenTwoRadio value={isFresh} onValueChange={setIsFresh} on="fresh" off="exhaust" title="sensors"   readOnly={ !userType.service}/>
            
           </View>
 

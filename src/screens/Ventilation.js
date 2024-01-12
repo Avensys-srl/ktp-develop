@@ -14,7 +14,7 @@ import { Header } from "../component/header";
 import CustomBottomNavigation from '../component/CustomBottomNavigation';
 import {Colors, Sizing} from '../styles';
 
-import AvenSwitch from '../component/AvenSwitch';
+import AvenTwoRadio from '../component/AvenTwoRadio';
 import AvenImbalancingSlider from '../component/AvenImbalancingSlider';
 import AvenTrippleBtn from "../component/AvenTrippleBtn";
 import AvenVerticalProgress from '../component/AvenVerticalProgress';
@@ -43,7 +43,7 @@ export const Ventilation = () => {
       <ScrollView styles={{height: Sizing.vh * 75}}>
         <View style={styles.pairedView}>
           <Text style={styles.txttop}></Text>
-           <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="stepless" off="3speeds" title=""  readOnly={ userType.service}/>
+           <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="stepless" off="3speeds" title=""  readOnly={ userType.service}/>
         </View>
         <View
           style={{
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderRadius: 5,
     margin: 15,
-    marginBottom: 5,
+    marginBottom: 10,
     marginTop: 5,
   },
   rateView: {

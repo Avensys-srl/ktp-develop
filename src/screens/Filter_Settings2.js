@@ -17,7 +17,7 @@ import CustomStyles from '../styles/CustomStyles';
 
 const {width, height} = Dimensions.get('window');
 
-import AvenSwitch from '../component/AvenSwitch';
+import AvenTwoRadio from '../component/AvenTwoRadio';
 import AvenSlider from '../component/AvenSlider';
 import { userType } from "../configs";
 
@@ -33,7 +33,7 @@ const Filter_Settings2 = () => {
         {/* Header component */}
         <Header
           canGoBack={true}
-          title="Filter-setting"
+          title="Filteration"
           headerBG={1}
           optionsStar={1}
         />
@@ -42,7 +42,7 @@ const Filter_Settings2 = () => {
        
         <View style={styles.filterAlarmContainer}>
           <View>
-               <AvenSwitch value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Filter alarm activation" readOnly={ !userType.service}/>
+               <AvenTwoRadio value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Filter alarm activation" readOnly={ !userType.service}/>
           </View>
 
           
@@ -52,7 +52,7 @@ const Filter_Settings2 = () => {
 
         <View style={styles.filterAlarmContainer}>
           <View>
-           <AvenSwitch value={filterReplaced} onValueChange={setFilterReplaced} on="on" off="off" title="Filter replaced"  readOnly={ !userType.service}/>
+           <AvenTwoRadio value={filterReplaced} onValueChange={setFilterReplaced} on="on" off="off" title="Filter replaced"  readOnly={ !userType.service}/>
           </View>
 
        
