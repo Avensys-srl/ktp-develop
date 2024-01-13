@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
     right: -1,
   },
   pairedView: {
+
     justifyContent: 'center',
     alignItems: 'center',
     // width: Sizing.vw * 93,
@@ -180,6 +181,8 @@ const styles = StyleSheet.create({
   // },
 
   filterAlarmContainer: {
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
     margin: Sizing.vw * 4,
     // borderWidth: 2,
     borderColor: Colors.BLACK,
@@ -216,15 +219,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     // borderColor: 'red',
   },
-  toggleSwitchContainer: {
-    borderWidth: 2,
-    borderColor: Colors.BLACK,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 30,
-    marginTop: 18,
-    borderRadius: 12,
-  },
+
   threePointSliderTextContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',

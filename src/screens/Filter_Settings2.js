@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   mainContainer: {
-    width: Sizing.vw * 90,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
     paddingTop: Sizing.vh * 5,
   },
   filterAlarmContainer: {

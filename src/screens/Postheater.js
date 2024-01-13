@@ -118,6 +118,9 @@ const styles = StyleSheet.create({
   },
 
   filterAlarmContainer: {
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
+    // borderWidth: 1,
     margin: width * 0.04,
     marginHorizontal: width * 0.055,
     flexDirection: 'row',
@@ -140,15 +143,7 @@ const styles = StyleSheet.create({
     right: width * 0.025,
   },
 
-  pairedView: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: Sizing.vw * 93,
-    height: Sizing.vh * 12,
-    borderWidth: 0,
-    borderRadius: 5,
-    alignSelf: 'center',
-  },
+
 
   paringStatusContainer: {
     justifyContent: 'center',
@@ -162,17 +157,6 @@ const styles = StyleSheet.create({
     color: Colors.GREY500,
   },
 
-  refTempContainer: {
-    width: Sizing.vw * 90,
-    justifyContent: 'center',
-    height: Sizing.vh * 15,
-    borderRadius: 5,
-    alignSelf: 'center',
-    flexDirection: 'row',
-    textAlign: 'center',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
 
   refImg: {
     height: 30,

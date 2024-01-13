@@ -70,7 +70,8 @@ export const Accessories = () => {
         optionsStar={1}
         headerBG={1}
       />
-      <View style={{flex: 1, width: '100%'}}>
+      <View style={{flex: 1, width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 100, 
+          alignSelf: 'center',}}>
         {activeTab && userType.technician ? (
           <View style={styles.container}>
             {accessoriesName.map((item,index) => {
@@ -109,8 +110,9 @@ export const Accessories = () => {
         style={{
           flexDirection: 'row',
           justifyContent: 'space-around',
-          width: Sizing.vw * 85,
+          width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 85,
           alignSelf: 'center',
+          // borderWidth: 1,
         }}>
         <TouchableOpacity
           style={[
@@ -142,7 +144,8 @@ const styles = ScaledSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    width: Sizing.vw * 100,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+      alignSelf: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
     flex: 1,
@@ -152,7 +155,9 @@ const styles = ScaledSheet.create({
     flexDirection: 'row',
     borderWidth: 1,
     height: Sizing.vh * 5,
-    width: Sizing.vw * 48,
+    width:Sizing.screenWidth > 430 ? 220: Sizing.vw * 48, 
+     
+    // width: 
     alignItems: 'center',
     justifyContent: 'center',
     // marginVertical: '5@ms',

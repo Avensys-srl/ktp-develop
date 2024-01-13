@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     // borderWidth: 1,
-    width: Sizing.vw * 90,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
     padding: 0,
   },
   toggleSwitchContainer: {

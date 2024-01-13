@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { Colors, Sizing } from '.';
 
 const screenStyle = StyleSheet.create({
+  
   cardDesign: {
     container: {
       width: Sizing.vw * 100,

@@ -87,7 +87,7 @@ const AvenRangeSlider = (props) => {
 				   			}}
 				   			containerStyle={{
 				   				height: 25,
-				   				width: Sizing.vw * 90 - 30 - 8,
+				   				width:Sizing.screenWidth > 430 ? 430  - 30 - 8 : Sizing.vw * 90 - 30 - 8 ,
 				   				borderWidth: 2,
 				   				borderTopLeftRadius: 10,
 		                        borderTopRightRadius: 10,
@@ -166,7 +166,8 @@ const styles = StyleSheet.create({
     },
    
     bottomTitle: {
-    	width: Sizing.vw * 90 - 30 - 8,
+    	width:Sizing.screenWidth > 430 ? 430  - 30 - 8 : Sizing.vw * 90 - 30 - 8 ,
+    	selfAlign: "center",
     	paddingTop: 0, marginTop: 0,
     	flexDirection: 'row',
     	 alignItems: 'center',

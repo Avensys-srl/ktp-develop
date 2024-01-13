@@ -13,42 +13,33 @@ import Svg, {Rect} from 'react-native-svg';
 import {ImageSource} from '../common/imageSource';
 import {Colors, Sizing} from '../styles';
 import componentStyle from '../styles/componentStyle';
+import Slider from 'react-native-slider';
 
 const {width} = Dimensions.get('window');
 export const AvenVerticalProgress = ({VS, TS, Visible = true}) => {
-  const [progress, setProgress] = useState(VS / 100);
-
-  const panResponder = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: (_, gestureState) => {
-        const newProgress = Math.max(
-          0,
-          Math.min(1, 1 - gestureState.moveY / 150),
-        );
-        setProgress(newProgress);
-      },
-    }),
-  ).current;
-
+  const [progress, setProgress] = useState(Math.round(VS/2));
+  const step = 1;
   const increaseProgress = () => {
-    setProgress(prevProgress => Math.min(prevProgress + 0.1, 1.0));
+    if((progress + step ) > VS )
+    {
+       setProgress(VS);
+       return;
+    }
+    setProgress(progress + step);
   };
 
   const decreaseProgress = () => {
-    setProgress(prevProgress => Math.max(prevProgress - 0.1, 0.0));
+    if((progress - step ) < 0 )
+    {   setProgress(0); return; }
+    setProgress(progress - step);
   };
 
   const barWidth = Sizing.vw * 4;
-
-  const progressBarHeight = Sizing.vh * 15.8 * progress;
-  const percentage = Math.round(progress * 100);
 
   const {
     container,
     buttonContainer,
     button,
-    progressBarContainer,
     percentageText,
     txtlbl,
     borderVen,
@@ -66,23 +57,53 @@ export const AvenVerticalProgress = ({VS, TS, Visible = true}) => {
           <TouchableOpacity onPress={increaseProgress} style={button}>
             <Image source={ImageSource.fan} style={largeImg} />
           </TouchableOpacity>
-          <View style={progressBarContainer} {...panResponder.panHandlers}>
-            <Svg width={barWidth} height={150}>
-              <Rect
-                x={0}
-                y={Sizing.vh * 16.2 - progressBarHeight}
-                width={barWidth}
-                height={progressBarHeight}
-                rx={Sizing.vw * 2.5}
-                ry={Sizing.vw * 2.5}
-                fill={Colors.LIGHT_GREEN}
-              />
-            </Svg>
-          </View>
+
+          <Slider
+              value={progress}
+              step={step}
+              minimumValue={0}
+              maximumValue={VS}
+              style={{
+                borderWidth: 2,
+                height: Sizing.vw * 6,
+                width: Sizing.vh * 10,
+                transform: [{ rotate: '-90deg' }],
+                borderColor: Colors.LIGHT_GREEN,
+                borderRadius: 5,
+                overflow: 'hidden',
+                padding: 2,
+              }}              
+
+              thumbStyle = {{    
+                  width: 0,
+                  height: Sizing.vw * 6 - 8,
+                  borderTopLeftRadius: 100,
+                  borderTopRightRadius: 100,
+                  borderBottomLeftRadius: 100,
+                  borderBottomRightRadius: 100,
+                  backgroundColor: '#92D050' ,
+                  marginLeft: 10,
+              }}
+
+              trackStyle={{
+
+                   height: Sizing.vw * 6 - 8,
+                  // backgroundColor: 'black' ,
+              }}
+              minimumTrackStyle={{   
+                  height: Sizing.vw * 6 - 8,  
+                  
+                  overflow: 'hidden',             
+                  borderWidth: 2,                  
+                  backgroundColor: Colors.LIGHT_GREEN
+              }}
+              maximumTrackTintColor = 'transparent'
+              minimumTrackTintColor = {Colors.LIGHT_GREEN}
+          />
           <TouchableOpacity onPress={decreaseProgress} style={button}>
             <Image source={ImageSource.fan} style={smallImg} />
           </TouchableOpacity>
-          <Text style={[componentTitle, percentageText]}>{percentage}%</Text>
+          <Text style={[componentTitle, percentageText]}>{progress}%</Text>
           <View style={buttonContainer}></View>
         </View>
       </SafeAreaView>
@@ -93,5 +114,16 @@ export const AvenVerticalProgress = ({VS, TS, Visible = true}) => {
     );
   }
 };
+
+const styles = StyleSheet.create({
+   
+  
+  trackStyle: {
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: 'lightblue',
+  },
+
+});
 
 export default AvenVerticalProgress;

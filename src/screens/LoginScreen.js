@@ -139,7 +139,7 @@ export const LoginScreen = (props) => {
 
     return (
 	    <View style={styles.container}>
-         <ScrollView style={styles.scrollView}>
+        <ScrollView style={styles.scrollView}>
             <View style={styles.imgView}>
               <Image source={ImageSource.logoW} style={styles.imgLogo} />
             </View>
@@ -496,8 +496,8 @@ export const LoginScreen = (props) => {
               </View>
 
             </View>
-          </ScrollView>
-          <CustomBottomNavigation isLogin={isLogin}></CustomBottomNavigation>
+        </ScrollView>
+        <CustomBottomNavigation isLogin={isLogin}></CustomBottomNavigation>
       </View>
   	);
 };
@@ -506,8 +506,13 @@ const styles = ScaledSheet.create({
   container: {
     backgroundColor: Colors.BLACK,
     flex: 1,
+    
   },
    scrollView: {
+    // borderWidth: 10,
+    // borderColor: '#fff',
+    alignSelf: "center",
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.screenWidth,
     height: Sizing.vh * 95,
   },
   buttonContainer: {
@@ -515,11 +520,13 @@ const styles = ScaledSheet.create({
     borderWidth: 1,
     width: Sizing.vw * 78,
     alignSelf: 'center',
-    maxWidth: Sizing.vw * 90,
     borderRadius: 10,
   },
   imgView: {
-    width: Sizing.vw * 100,
+    alignSelf: 'center',
+   
+    width: Sizing.vw * 78,
+    justifyContent: "center",
     alignItems: 'center',
     marginTop: 20,
     marginBottom: 20,
@@ -552,7 +559,8 @@ const styles = ScaledSheet.create({
     marginTop: 10,
   },
   formView: {
-    width: Sizing.vw * 80,
+    
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 80,
     alignSelf: 'center',
   },
   txtFlbl: {

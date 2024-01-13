@@ -52,7 +52,6 @@ export const Services = () => {
 const Styles = ScaledSheet.create({
   container: {
     flex: 1,
-    // width: Sizing.vw * 100,
     backgroundColor: Colors.WHITE,
   },
 });

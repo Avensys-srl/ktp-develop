@@ -64,7 +64,8 @@ const CustomBottomNavigation = ({
 
 const styles = StyleSheet.create({
   mainContainer: {
-    width: Sizing.vw * 100,
+
+    // width: Sizing.vw * 100,
     alignItems: 'center',
     marginTop: 10,
     // flex:1,
@@ -72,7 +73,8 @@ const styles = StyleSheet.create({
   },
   container: {
     // flex:1,
-    width: Sizing.vw * 90,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderWidth: 1,

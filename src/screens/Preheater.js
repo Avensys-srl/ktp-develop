@@ -126,6 +126,8 @@ const styles = StyleSheet.create({
   },
   toggleSwitchMainContainer: {
     paddingHorizontal: width * 0.06,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 100,
+          alignSelf: 'center',
   },
   toggleSwitchContainer: {
     // borderWidth: 2,
@@ -146,8 +148,12 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   communicationRateContainer: {
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 100,
+          alignSelf: 'center',
+          // borderWidth: 1,
     marginTop: height * 0.02,
     marginBottom: height * 0.04,
+    alignItems: "center",
   },
   communicationText: {
     textAlign: 'center',

@@ -60,9 +60,11 @@ export const ServicesCard = ( props) => {
 const styles = ScaledSheet.create({
 
   container: {
-      width: Sizing.vw * 100,
+      width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 80,
+      alignSelf: 'center',
       paddingHorizontal: 2,
       alignItems: 'center',
+      // borderWidth: 1,
     },
     card: {
       flexDirection: 'row',
@@ -76,7 +78,9 @@ const styles = ScaledSheet.create({
       backgroundColor: Colors.BLACK,
       height: 37,
       justifyContent: 'space-between',
-      width:Sizing.vw*90,
+      width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+      alignSelf: 'center',
+      borderWidth: 1,
     },
     starImage: {
       height: 30,
@@ -92,10 +96,12 @@ const styles = ScaledSheet.create({
       fontSize: 19,
     },
     valuesContainer: {
-      width: Sizing.vw * 90,
+      width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+          alignSelf: 'center',
       flexDirection: 'row',
       flexWrap: 'wrap',
       marginTop: 5,
+      
     },
 
 });

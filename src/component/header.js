@@ -64,7 +64,8 @@ const styles = ScaledSheet.create({
     alignItems: 'center',
     height: Sizing.vh * 7,
     paddingHorizontal: '5@ms',
-    width: Sizing.vw * 90,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
     borderRadius: 12,
   },
   starArrowContainer: {

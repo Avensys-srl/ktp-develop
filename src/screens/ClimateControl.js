@@ -137,17 +137,11 @@ const styles = ScaledSheet.create({
   },
   dropdownContainer: {
     // borderWidth: 1,
-    width: Sizing.vw * 90,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+      alignSelf: 'center',
     flexDirection: 'row',
     // marginTop: height * 0.03,
     justifyContent: 'space-between',
-  },
-  progressbarContainer: {
-    flexDirection: 'row',
-    marginLeft: width * 0.07,
-    width: Sizing.vw * 80,
-    alignItems: 'center',
-    marginTop: height * 0.35,
   },
   lockImg: {
     width: 40,

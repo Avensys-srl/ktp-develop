@@ -87,7 +87,7 @@ const AvenImbalancingSlider = (props) => {
                     onValueChange={(value) => setSliderValue(value)}
                     style={{
                       height:26, 
-                      width: Sizing.vw * 70,
+                      width: Sizing.vw * 60,
                       borderWidth: 2, 
                       borderColor:"#92D050",
                       borderTopLeftRadius: 15,
@@ -105,7 +105,7 @@ const AvenImbalancingSlider = (props) => {
                       backgroundColor: "#fff", 
                       // width: '99%' 
                     }}
-                      thumbStyle={{ 
+                    thumbStyle={{ 
                         justifyContent: 'center', 
                         alignItems: 'center', 
                         marginLeft: 2,
@@ -134,8 +134,12 @@ const AvenImbalancingSlider = (props) => {
                   <Image source={ImageSource.home_out} style={img} />
                 </TouchableOpacity> 
               </View>
+              
               <View style={styles.bottomTitle}>
                   <Text style={styles.smlabel}>{ minValue }</Text><Text style={styles.smlabel}>{ maxValue }</Text>
+              </View>
+              <View style={styles.bottomImbalance}>
+                <Text style={{ color: Colors.BLACK }}>Imbalance</Text>
               </View>
       </View>
       {
@@ -172,7 +176,8 @@ const styles = StyleSheet.create({
     },
     sliderContainer:{
       // borderWidth: 2,
-      flex: 0.85,
+      width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 80,
+      alignSelf: 'center',
       // backgroundColor: 'blue'
     },
     topTitle: {
@@ -180,7 +185,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-     
+      // borderWidth: 1,
       // width: Sizing.vw * 30,
       // flex: 0.1,
       // backgroundColor: 'red',
@@ -190,9 +195,16 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
        alignItems: 'center',
         justifyContent: 'space-between',
+
       // flex: 0.1,
       // backgroundColor: 'red',
     },
+    bottomImbalance: {
+       flexDirection: 'row',
+       justifyContent: 'center',
+       // borderWidth: 1,
+     },
+
     rightTitle:{
       flexDirection:'row',
       alignItems: 'center',

@@ -12,9 +12,11 @@ let adjustedScreenWidth = screenWidth;
 //   adjustedScreenWidth = screenHeight * 0.5;
 // }
 console.log("screenHeight = ", screenHeight);
+console.log("screenWidth = ", screenWidth);
 const Sizing = {
   vw: screenWidth / 100,
   vh: screenHeight / 100,
+  screenWidth: screenWidth,
 };
 
 export default Sizing;

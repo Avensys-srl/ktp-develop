@@ -64,8 +64,8 @@ const AvenSlider = (props) => {
 			            maximumValue={maxValue  + 3 }
 			            onValueChange={(value) => setSliderValue(value)}
 			            style={{
-			            	height:26, 
-			            	width: Sizing.vw * 90 - 30 - 8,
+			            	height:26, 			            	
+			            	width: Sizing.screenWidth > 430 ? 430 - 30 - 8 : Sizing.vw * 90  - 30 - 8 ,
 			            	borderWidth: 2, 
 			            	borderColor:"#92D050",
 			            	borderTopLeftRadius: 15,
@@ -143,7 +143,8 @@ const AvenSlider = (props) => {
 const styles = StyleSheet.create({	
 
     container:{
-    	backgroundColor: '#fff'
+    	backgroundColor: '#fff',
+    	// borderWidth: 1,
 
     },
     sliderContainer:{

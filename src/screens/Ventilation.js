@@ -40,21 +40,24 @@ export const Ventilation = () => {
         headerBG={1}
         optionsStar={1}
       />
-      <ScrollView styles={{height: Sizing.vh * 75}}>
+      <ScrollView style={{height: Sizing.vh * 75, }}>
         <View style={styles.pairedView}>
           <Text style={styles.txttop}></Text>
            <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="stepless" off="3speeds" title=""  readOnly={ userType.service}/>
         </View>
-        <View
-          style={{
-            justifyContent: 'center',
-            flexDirection: 'row',
-            marginTop: 10,
-          }}>
-          <AvenVerticalProgress TS={isToggled ? 1 : 'Main'} VS={12} Visible={true} />
-          <AvenVerticalProgress TS={2} VS={45} Visible={isToggled} />
-          <AvenVerticalProgress TS={3} VS={87} Visible={isToggled} />
-          <AvenVerticalProgress TS={'boost'} VS={90} Visible={true}/>
+        <View style={{flexDirection: "column", justifyContent: 'center',  alignItems: 'center'}}>
+          <View
+            style={{
+              justifyContent: 'center',
+              flexDirection: 'row',
+              marginTop: 20,
+              width: Sizing.vw * 85
+            }}>
+            <AvenVerticalProgress TS={isToggled ? 1 : 'Main'} VS={12} Visible={true} />
+            <AvenVerticalProgress TS={2} VS={45} Visible={isToggled} />
+            <AvenVerticalProgress TS={3} VS={87} Visible={isToggled} />
+            <AvenVerticalProgress TS={'boost'} VS={90} Visible={true}/>
+          </View>
         </View>
         <View style={{marginBottom: 20, marginTop: 10, alignItems: "center"}}>
             <AvenTrippleBtn
@@ -66,10 +69,9 @@ export const Ventilation = () => {
               TbR={'CAF'}
             />
         </View>
-        <View style={styles.pairedViewNoBorder}>
-          
+        <View style={styles.pairedViewNoBorder}>          
           <AvenImbalancingSlider title=" " minValue="-50" maxValue="50" unit="°C"/>
-          <Text style={{ color: Colors.BLACK }}>Imbalance</Text>
+          
         </View>
       </ScrollView>
       <CustomBottomNavigation   OC={userType.service}/>
@@ -119,22 +121,13 @@ const styles = StyleSheet.create({
   pairedView: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: Sizing.vw * 93,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
     height: Sizing.vh * 7,
-    borderWidth: 0,
     borderRadius: 5,
     margin: 15,
     marginBottom: 10,
     marginTop: 5,
-  },
-  rateView: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: Sizing.vw * 93,
-    height: Sizing.vh * 13,
-    borderRadius: 5,
-    margin: 15,
-    marginTop: 0,
   },
   container: {
     // flex: 1,
@@ -147,7 +140,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
   },
   txttop: {
-    marginTop: 25,
+    // marginTop: 25,
   },
   iconClick: {
     marginRight: 10,
@@ -160,5 +153,6 @@ const styles = StyleSheet.create({
  
     marginBottom: 5,
     marginTop: 5,
+    // borderWidth: 1,
   },
 });

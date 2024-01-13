@@ -374,6 +374,7 @@ const componentStyle = StyleSheet.create({
     barContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
+      // borderWidth: 1,
       alignItems: 'center',
     },
     img: {
@@ -392,7 +393,8 @@ const componentStyle = StyleSheet.create({
       marginBottom: 6,
     },
     middleContainer: {
-      width: Sizing.vw * 90,
+      width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+          alignSelf: 'center',
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -483,12 +485,15 @@ const componentStyle = StyleSheet.create({
   // TrippleBtn
   TrippleBtn: {
     mainContainer: {
-      width: Sizing.vw * 85,
+      width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+      alignSelf: 'center',
       // borderWidth: 2,      
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
     btnContainerOuter: {
+      width: Sizing.screenWidth > 430 ? 100 : Sizing.vw * 25 ,
+      height: Sizing.screenWidth > 430 ? 100 : Sizing.vw * 25 ,
       borderWidth: 2,
       borderColor: Colors.LIGHT_GREEN,
       padding: 1,
@@ -498,10 +503,14 @@ const componentStyle = StyleSheet.create({
       flex: 1,
     },
     btnContainer: {
-      padding: 30,
+      // padding: 10,
+      width: Sizing.screenWidth > 430 ? 90 : Sizing.vw * 23 ,
+      height: Sizing.screenWidth > 430 ? 90 : Sizing.vw * 23 ,
       borderWidth: 2,
       borderColor: Colors.WHITE,
       borderRadius: 12,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   },
 
@@ -594,7 +603,7 @@ const componentStyle = StyleSheet.create({
       borderWidth: 2,
       borderColor: Colors.LIGHT_GREEN,
       padding: 10,
-      margin: 10,
+      margin: 5,
       justifyContent: 'center',
     },
     buttonContainer: {
@@ -606,15 +615,17 @@ const componentStyle = StyleSheet.create({
     button: {
       padding: 10,
       color: Colors.LIGHT_GREEN,
+      marginBottom: 20,
     },
     progressBarContainer: {
       borderWidth: 2,
       borderColor: Colors.LIGHT_GREEN,
-      borderRadius: Sizing.vw * 3,
-      overflow: 'hidden',
+      borderRadius: 15,
+      // overflow: 'hidden',
       alignItems: 'center',
-      width: Sizing.vw * 6,
-      height: Sizing.vh * 17,
+      height: Sizing.vw * 6,
+      width: Sizing.vh * 10,
+      // transform: [{ rotate: '-90deg' }], // Rotate the slider to make the track vertical
     },
     percentageText: {
       fontSize: 18,
@@ -629,11 +640,13 @@ const componentStyle = StyleSheet.create({
     smallImg: {
       height: 30,
       width: 30,
+      marginTop: 15,
     },
     largeImg: {
       height: 40,
-      width: 40,
-    },
+      width: 40,   
+      marginBottom: 10
+     },
   },
 
   

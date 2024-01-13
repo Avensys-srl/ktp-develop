@@ -118,6 +118,8 @@ const styles = StyleSheet.create({
   },
 
   filterAlarmContainer: {
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
     margin: width * 0.04,
     marginHorizontal: width * 0.055,
     flexDirection: 'row',

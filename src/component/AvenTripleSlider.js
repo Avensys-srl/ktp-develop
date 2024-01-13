@@ -116,9 +116,13 @@ const styles = StyleSheet.create({
     mainContainer:{
     	flexDirection: 'row',
     	backgroundColor: '#fff',
+
     },
     innerContainer: {
-    	width: Sizing.vw * 90 - Sizing.vw * 22 - 40 
+
+    	width:Sizing.screenWidth > 430 ? 430 - Sizing.vw * 22 - 40  : Sizing.vw * 90 - Sizing.vw * 22 - 40 ,
+          alignSelf: 'center',
+    	// borderWidth: 1,
 	 },
 	 pressable: {
 	   width: Sizing.vw * 23,
@@ -129,7 +133,8 @@ const styles = StyleSheet.create({
 	   
 	 },
 	 titles: {
-	 	width: Sizing.vw * 90 - Sizing.vw * 22 - 40 ,
+	 	width:Sizing.screenWidth > 430 ? 430 - Sizing.vw * 22 - 40  : Sizing.vw * 90 - Sizing.vw * 22 - 40 ,
+          alignSelf: 'center',
 	 	flexDirection: 'row',
 	 	alignItems: "center",
 	 	justifyContent: "space-between",
