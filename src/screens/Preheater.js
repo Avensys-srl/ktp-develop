@@ -99,17 +99,22 @@ const styles = StyleSheet.create({
   },
   mainComponentContainer: {
     position: 'relative',
+    // borderWidth: 1,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 100,
+    alignSelf: 'center',
+
   },
   filterAlarmContainer: {
+    // borderWidth: 1,
     margin: width * 0.04,
     marginHorizontal: width * 0.1,
     // borderWidth: 2,
     borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     borderRadius: 12,
-    marginStart: width * 0.06,
+    // marginStart: width * 0.06,
   },
   filterAlarmText: {
     textAlign: 'center',
@@ -127,7 +132,7 @@ const styles = StyleSheet.create({
   toggleSwitchMainContainer: {
     paddingHorizontal: width * 0.06,
     width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 100,
-          alignSelf: 'center',
+    alignSelf: 'center',
   },
   toggleSwitchContainer: {
     // borderWidth: 2,

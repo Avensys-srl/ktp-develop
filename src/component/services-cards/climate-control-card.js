@@ -44,7 +44,7 @@ export const ClimateControlCard = (props) => {
 
         {box && (
           <DropdownSetPoint
-           style= {{ width: Sizing.vw * 20}}
+           style= {{ width: Sizing.vw * 13}}
             data={[
               '10°C ',
               '11°C',
@@ -76,10 +76,10 @@ export const ClimateControlCard = (props) => {
 };
 
 const styles = ScaledSheet.create({
-  container: {},
+
   home: {
-    height: Sizing.vw * 11,
-    width: Sizing.vw * 10,
+    height: Sizing.vw * 8,
+    width: Sizing.vw * 7,
     resizeMode: 'contain',
     tintColor: Colors.BLACK,
   },
@@ -97,14 +97,7 @@ const styles = ScaledSheet.create({
     top: 0,
     position: 'absolute'
   },
-  image: {
-    height: Sizing.vh * 6,
-    width: Sizing.vw * 6,
-    resizeMode: 'contain',
-    tintColor: Colors.BLACK,
-    bottom: '20@ms',
-    left: '15@ms',
-  },
+  
   temperatureNumber: {
     fontSize: '20@ms',
     color: Colors.BLACK,

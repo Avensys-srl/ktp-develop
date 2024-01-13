@@ -14,7 +14,7 @@ export const Services = () => {
     // {title: 'general setting', route: null, disabled: true},
     {title: 'filteration', route: Routes.Filter, disabled: false},
     {title: 'ventilation', route: Routes.Ventilation, disabled: false},
-    {title: 'climate control', route: Routes.Climate, disabled: false},
+    {title: 'climate', route: Routes.Climate, disabled: false},
     {title: 'accessories', route: Routes.Accessories, disabled: false},
     // {title: 'communication', route: Routes.Communication, disabled: false},
     {title: 'scheduler', route: null, disabled: true},

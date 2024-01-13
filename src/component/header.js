@@ -51,6 +51,9 @@ const styles = ScaledSheet.create({
     alignItems: 'center',
     marginTop: 15,
     marginBottom:10,
+    // borderWidth: 1,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
   },
   image: {
     height: Sizing.vh * 20,

@@ -411,7 +411,7 @@ const componentStyle = StyleSheet.create({
       borderWidth: 2,
       margin: 5,
       backgroundColor: Colors.WHITE,
-      width: Sizing.vw * 20.5,
+      width: Sizing.vw * 15.5,
       height: Sizing.vh * 7.5,
       borderRadius: 12,
       borderColor: Colors.LIGHT_GREEN,
