@@ -33,7 +33,7 @@ const Filter_Settings2 = () => {
         {/* Header component */}
         <Header
           canGoBack={true}
-          title="Filteration"
+          title="Filtration"
           headerBG={1}
           optionsStar={1}
         />
@@ -73,6 +73,7 @@ const Filter_Settings2 = () => {
 
       <View style={styles.navigationContainer}>
         <CustomBottomNavigation  OC={userType.service} />
+        <Text style={styles.service}>service</Text>
       </View>
     </SafeAreaView>
   );
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     borderRadius: 6,
   },
   filterAlarmText: {
@@ -139,12 +140,16 @@ const styles = StyleSheet.create({
   },
   navigationContainer: {
     flex: 1,
-    alignItems: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'flex-end',
     marginBottom: Sizing.vh * 2,
   },
   calibrationContainer: {
-    marginTop: height * 0.14,
+    marginTop: height * 0.04,
+    // borderWidth: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   calibrationTextImgContainer: {
     flexDirection: 'row',
@@ -158,8 +163,15 @@ const styles = StyleSheet.create({
     marginRight: width * 0.05,
   },
   calibrationIconContainer: {
-    marginRight: width * 0.1,
+    // marginRight: width * 0.1,
+    // borderWidth: 1,
+
   },
+  service: {
+    // borderWidth: 1,
+    color: userType.service ?   Colors.RED: Colors.BLACK,
+    textAlign: 'center'
+  }
 });
 
 {

@@ -36,8 +36,18 @@ export const ClimateControl = () => {
         optionsStar={1}
       />
       <View style={styles.container}>
-        <View style={{marginTop: height * 0.12}}>
+        <View style={{marginTop: height * 0.12, flexDirection: "row", alignItems: "center"}}>
           <Text style={CustomStyles.ComponentTitles}>Set points</Text>
+          {
+            userType.service ? 
+               <TouchableOpacity  style={{justifyContent: 'center',  marginLeft: 8, alignSelf: 'flex-start' , marginRight:-48}} onPress={ () => setLocked1(!locked1) }>
+                    <Image
+                      style={styles.lockImg}
+                      source={locked1 ? ImageSource.lock : ImageSource.lockOpen}               
+                    />
+                </TouchableOpacity >            
+            : <></>
+          }
         </View>
 
         <View style={styles.dropdownContainer}>
@@ -61,47 +71,41 @@ export const ClimateControl = () => {
               iconText=""
             />
           </View>
-          {
-            userType.service ? 
-               <TouchableOpacity  style={{justifyContent: 'center', alignItems: 'flex-end'}} onPress={ () => setLocked1(!locked1) }>
-                    <Image
-                      style={styles.lockImg}
-                      source={locked1 ? ImageSource.lock : ImageSource.lockOpen}               
-                    />
-                </TouchableOpacity >            
-            : <></>
-          }
-
         </View>
       </View>
-      <Text style={[CustomStyles.ComponentTitles, {marginTop: Sizing.vh * 6}]}>
-        Summer winter change
-      </Text>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'center',      
-          position: 'relative',
-        }}>
-          <View style={{}}>
-            <ClimateControlCard
-              mainImg={ImageSource.house_2}
-              imageStyle={{}}
-              box={true}
-              tempNumber={`${dayTemp}°C `}
-              iconText=""
-            />
-          </View>
-          {
-            userType.service ? 
-               <TouchableOpacity  style={{justifyContent: 'center', alignItems: 'flex-end'}} onPress={ () => setLocked2(!locked2) }>
-                    <Image
-                      style={styles.lockImg}
-                      source={locked1 ? ImageSource.lock : ImageSource.lockOpen}               
-                    />
-                </TouchableOpacity >            
-            : <></>
-          }          
+      <View style={{flexDirection: "row",alignItems: "flex-start",marginTop: Sizing.vh * 6}}>
+            <View>
+                    <Text style={[CustomStyles.ComponentTitles, {marginTop: Sizing.vh * 0}]}>
+                      Summer winter change
+                    </Text>           
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        justifyContent: 'center',      
+                        position: 'relative',
+                    }}>
+                    <View style={{}}>
+                      <ClimateControlCard
+                        mainImg={ImageSource.house_2}
+                        imageStyle={{}}
+                        box={true}
+                        tempNumber={`${dayTemp}°C `}
+                        iconText=""
+                      />
+                    </View>                       
+                </View>
+            </View>
+             {
+              userType.service ? 
+                 <TouchableOpacity  style={{justifyContent: 'center', marginLeft: 8,  marginRight:-48}} onPress={ () => setLocked2(!locked2) }>
+                      <Image
+                        style={styles.lockImg}
+                        source={locked1 ? ImageSource.lock : ImageSource.lockOpen}               
+                      />
+                  </TouchableOpacity >            
+              : <></>
+            }   
+
       </View>
       <View style={styles.navigationContainer}>
         <CustomBottomNavigation  OC={userType.service} />
@@ -117,9 +121,10 @@ const styles = ScaledSheet.create({
     borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
     borderRadius: 10,
     backgroundColor: Colors.WHITE,
-    alignItems: "center"
+    alignItems: "center",
   },
   container: {
+    alignItems: "center",
     // flex: 1,
     // width: Sizing.vw * 100,
     // height: Sizing.vh * 100,

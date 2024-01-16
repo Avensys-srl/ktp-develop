@@ -76,7 +76,7 @@ export const Bypass = () => {
         <DividerLine />
 
         <View style={styles.pairedView}>
-          <AvenSlider title="Ref. outdoor  temperature: "  value={23} minValue="10" maxValue="35"   readOnly={ !userType.service}/>
+          <AvenSlider title="Ref. outdoor  temperature: "  value={22} minValue="10" maxValue="35"   readOnly={ !userType.service}/>
         </View>
 
         <DividerLine />
@@ -147,6 +147,8 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     borderRadius: 5,
     alignSelf: 'center',
+    margin: width * 0.04,
+    // marginTop: 22,
   },
   rateView: {
     justifyContent: 'center',
@@ -188,7 +190,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.BLACK,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     borderRadius: 12,
   },
   filterAlarmText: {

@@ -49,7 +49,28 @@ const AvenRangeSlider = (props) => {
 		<View style={styles.container}>
 			<View style={styles.sliderContainer} onLayout={ onLayoutHandler }>
 					<View style={styles.topTitle}>
-			            <Text style={styles.lglabel}>{title}</Text>			      
+			            <Text style={styles.lglabel}>{title}</Text>		
+			            {
+							showLock? <>
+								    {
+										locked ? 
+								    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+							            <Image
+							            	style={styles.image}
+						       				source={ImageSource.lock}       				
+							            />
+							        </TouchableOpacity > : 
+							         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+							            <Image
+							            	style={styles.image}
+						       				source={ImageSource.lockOpen}       				
+							            />
+							        </TouchableOpacity >
+									}
+
+							</>
+							: <></>
+						}	      
 			        </View>
 			        <View style={styles.lockContainer}>
 				   		<Slider
@@ -104,27 +125,7 @@ const AvenRangeSlider = (props) => {
 				   			}}
 				   			disabled = { locked }
 				   		/>
-				   		{
-							showLock? <>
-								    {
-										locked ? 
-								    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-							            <Image
-							            	style={styles.image}
-						       				source={ImageSource.lock}       				
-							            />
-							        </TouchableOpacity > : 
-							         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-							            <Image
-							            	style={styles.image}
-						       				source={ImageSource.lockOpen}       				
-							            />
-							        </TouchableOpacity >
-									}
-
-							</>
-							: <></>
-						}
+				   		
 				   	</View>
 			   		<View style={[styles.middleTitle]}>
 		            	<Text style={[styles.middlesmlabel, {left: Math.ceil(valueLow * unit)}]}>{ valueLow }</Text>
@@ -181,6 +182,7 @@ const styles = StyleSheet.create({
     	justifyContent: 'center',
     	fontSize: 18,
     	marginLeft: 8,
+    	marginRight: -38
     },
     middleTitle: {
     	flexDirection: "row",

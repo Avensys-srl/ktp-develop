@@ -25,12 +25,15 @@ const AvenTrippleSlider = (props) => {
 		headGradientColors: ['#92D050', '#92D050'],
 	};
 
+	let middle = Sizing.screenWidth > 430 ? 116  :  Sizing.vw * 24;
+	let right = Sizing.screenWidth > 430 ? 232  :  Sizing.vw * 50;
+
 	const { value, onValueChange, on, off} = props;
 	const animatedValue = useRef(new Animated.Value(0)).current;
 
 	const translateX = animatedValue.interpolate({
 		inputRange: [0, 1, 2],
-		outputRange: [2, Sizing.vw * 24, Sizing.vw * 50], //28// Adjust the distance of the switch head
+		outputRange: [2, middle,right], //28// Adjust the distance of the switch head
 	});
 
 	const showLock = props.readOnly ? 0 : 1;
@@ -57,6 +60,32 @@ const AvenTrippleSlider = (props) => {
 
 	return (
 		<View style={styles.mainContainer}>
+			<View style={styles.title_container}>
+				<View>
+					<Text style={styles.lglabel}>Operation</Text>
+				</View>
+				{
+					showLock? <>
+						    {
+								locked ? 
+						    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+					            <Image
+					            	style={styles.image}
+				       				source={ImageSource.lock}       				
+					            />
+					        </TouchableOpacity > : 
+					         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+					            <Image
+					            	style={styles.image}
+				       				source={ImageSource.lockOpen}       				
+					            />
+					        </TouchableOpacity >
+							}
+
+					</>
+					: <></>
+				}
+			</View>
 			<View style={styles.innerContainer}>
 				<View style={{ flex: 1, height: 26,flexDirection: "row", justifyContent: "space-between" ,paddingTop:1,borderWidth:2, borderColor:'#92D050',borderRadius:16}}>
 				    <Pressable onPress={() => toggleSwitch(0)} style={styles.pressable}>	
@@ -83,30 +112,7 @@ const AvenTrippleSlider = (props) => {
 				</View>
 			
 			</View>
-			<View>
-				<Text style={styles.lglabel}>Operation</Text>
-			</View>
-			{
-				showLock? <>
-					    {
-							locked ? 
-					    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-				            <Image
-				            	style={styles.image}
-			       				source={ImageSource.lock}       				
-				            />
-				        </TouchableOpacity > : 
-				         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-				            <Image
-				            	style={styles.image}
-			       				source={ImageSource.lockOpen}       				
-				            />
-				        </TouchableOpacity >
-						}
-
-				</>
-				: <></>
-			}
+			
 		</View>
 	);
 };
@@ -114,9 +120,13 @@ const AvenTrippleSlider = (props) => {
 const styles = StyleSheet.create({
 
     mainContainer:{
-    	flexDirection: 'row',
+    	// flexDirection: 'row',
     	backgroundColor: '#fff',
 
+    },
+    title_container: {
+    	flexDirection: 'row',
+    	justifyContent: 'center'
     },
     innerContainer: {
 
@@ -125,7 +135,8 @@ const styles = StyleSheet.create({
     	// borderWidth: 1,
 	 },
 	 pressable: {
-	   width: Sizing.vw * 23,
+	   width:Sizing.screenWidth > 430 ? (430 - Sizing.vw * 22 - 40) / 3 - 3 :  (Sizing.vw * 90 - Sizing.vw * 22 - 40) / 3 - 3 ,
+	 
 	   height: 26,
 	   borderRadius: 16,
 	   // borderWidth: 2,
@@ -171,7 +182,7 @@ const styles = StyleSheet.create({
     	height: 30,
     },
     lglabel:{
-    	width: Sizing.vw * 22,
+    	// width: Sizing.vw * 22,
     	fontSize: 18,
     	color: LightTheme.textColor,
     },

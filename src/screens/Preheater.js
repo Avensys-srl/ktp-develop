@@ -60,18 +60,18 @@ const Preheater = () => {
 
         <View style={styles.toggleSwitchMainContainer}>
           <View style={styles.toggleSwitchContainer}>
-            <AvenTwoRadio value={isPairedToggled} onValueChange={setIsPairedToggled} on="paired" off="unpaired" title=""  readOnly={ !userType.service}/>
+            <AvenTwoRadio value={isPairedToggled} onValueChange={setIsPairedToggled} on="paired" off="unpaired" title="Pairing"  readOnly={ !userType.service}/>
           </View>
           <DividerLine />
 
           <View style={styles.toggleSwitchContainer}>
-            <AvenTwoRadio value={isTempToggled} onValueChange={setIsTempToggled} on="" off="" title=""  readOnly={ !userType.service}/>
-            <Text style={styles.tempText}>temperature</Text>
+            <AvenTwoRadio value={isTempToggled} onValueChange={setIsTempToggled} on="supply" off="return" title="Temperature"  readOnly={ !userType.service}/>
+          
           </View>
           <DividerLine />
 
           <View style={styles.toggleSwitchContainer}>
-            <AvenTwoRadio value={isFreshToggled} onValueChange={setIsFreshToggled} on="fresh" off="exhaust" title=""  readOnly={ !userType.service}/>
+            <AvenTwoRadio value={isFreshToggled} onValueChange={setIsFreshToggled} on="fresh" off="exhaust" title=""  readOnly={ userType.service}/>
           </View>
           <DividerLine />
 
@@ -159,6 +159,7 @@ const styles = StyleSheet.create({
     marginTop: height * 0.02,
     marginBottom: height * 0.04,
     alignItems: "center",
+    // borderWidth: 1,
   },
   communicationText: {
     textAlign: 'center',

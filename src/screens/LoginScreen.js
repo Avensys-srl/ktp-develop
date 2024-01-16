@@ -518,7 +518,7 @@ const styles = ScaledSheet.create({
   buttonContainer: {
     borderColor: Colors.WHITE,
     borderWidth: 1,
-    width: Sizing.vw * 78,
+    width:Sizing.screenWidth > 430 ? 430 - 40  : Sizing.screenWidth * 77,
     alignSelf: 'center',
     borderRadius: 10,
   },
@@ -537,7 +537,7 @@ const styles = ScaledSheet.create({
   },
   row: {
     flexDirection: 'row',
-    width: Sizing.vw * 77,
+    width:Sizing.screenWidth > 430 ? 430 - 40  : Sizing.screenWidth * 77,
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 25,

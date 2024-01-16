@@ -34,57 +34,69 @@ const AvenTwoRadio = (props) => {
 
 	return (
 		<View style={styles.container}>
-			<View style={ styles.upperradios }>
-			    <View >
-			    	<RadioButton
-				        value="first"
-				        status={checked === false ? 'checked' : 'unchecked'}
-				        onPress={() => setSwitch(false)}
-				        uncheckedColor= { Colors.LIGHT_GREEN}
-				        color={Colors.LIGHT_GREEN } // Customize the color
-				        style={{ flexDirection: 'row', alignItems: 'center', margin:0,padding: 0 }}
+			<View style={styles.lock_container}>
+				<View style={{ alignItems: "center" }}>
+					<View style={styles.title_container}>
+						<Text style={styles.lglabel}>{title}</Text>				
+					</View>
+					<View style={ styles.upperradios }>
+						
+					    <View >
+					    	<RadioButton
+						        value="first"
+						        status={checked === false ? 'checked' : 'unchecked'}
+						        onPress={() => setSwitch(false)}
+						        uncheckedColor= { Colors.LIGHT_GREEN}
+						        color={Colors.LIGHT_GREEN } // Customize the color
+						        style={{ flexDirection: 'row', alignItems: 'center', margin:0,padding: 0 }}
 
-				    />
-				    <View style={styles.bottomTitle}>
-				    <Text style={styles.smlabel}>{off}</Text>
-				    </View>
-			    </View>
-			    <View>
-				    <RadioButton
-				        value="second"
-				        status={checked === true ? 'checked' : 'unchecked'}
-				        onPress={() => setSwitch(true)}
-				        uncheckedColor= { Colors.LIGHT_GREEN}
-				        color={ Colors.LIGHT_GREEN} // Customize the color
-				        style={{ borderWidth: 1, }}
-				     />
-				    <View style={styles.bottomTitle}>
-		            	<Text style={styles.smlabel}>{on}</Text>
-		            </View>
-		        </View>
+						    />
+						    <View style={styles.bottomTitle}>
+						    <Text style={styles.smlabel}>{off}</Text>
+						    </View>
+					    </View>
+					    <View>
+						    <RadioButton
+						        value="second"
+						        status={checked === true ? 'checked' : 'unchecked'}
+						        onPress={() => setSwitch(true)}
+						        uncheckedColor= { Colors.LIGHT_GREEN}
+						        color={ Colors.LIGHT_GREEN} // Customize the color
+						        style={{ borderWidth: 1, }}
+						     />
+						    <View style={styles.bottomTitle}>
+				            	<Text style={styles.smlabel}>{on}</Text>
+				            </View>
+				        </View>
+					</View>
+				
+				</View>
+				<View>
+
+					{
+						showLock? <>
+							    {
+									locked ? 
+							    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+						            <Image
+						            	style={styles.image}
+					       				source={ImageSource.lock}       				
+						            />
+						        </TouchableOpacity > : 
+						         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+						            <Image
+						            	style={styles.image}
+					       				source={ImageSource.lockOpen}       				
+						            />
+						        </TouchableOpacity >
+								}
+
+						</>
+						: <></>
+					}
+				</View>
 			</View>
-			<View><Text style={styles.lglabel}>{title}</Text></View>
-			{
-				showLock? <>
-					    {
-							locked ? 
-					    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-				            <Image
-				            	style={styles.image}
-			       				source={ImageSource.lock}       				
-				            />
-				        </TouchableOpacity > : 
-				         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-				            <Image
-				            	style={styles.image}
-			       				source={ImageSource.lockOpen}       				
-				            />
-				        </TouchableOpacity >
-						}
 
-				</>
-				: <></>
-			}
 		</View>
 	);
 };
@@ -114,9 +126,10 @@ const styles = StyleSheet.create({
     container:{
     	// width: 100,
     	// borderWidth: 1,
-    	flexDirection: 'row',
+    	flexDirection: 'column',
     	backgroundColor: '#fff',
-    	// marginBottom: Sizing.vh * 5,
+    	alignItems: 'center',
+    	alignSelf: 'center',
     },
     rightTitle:{
     	flexDirection:'row',
@@ -125,15 +138,23 @@ const styles = StyleSheet.create({
     	fontSize: 18,
     	marginLeft: 8,
     	marginTop: 2,
+    	marginRight: -38
     	// borderWidth: 1,
     },
     image: {
     	width: 30,
     	height: 30,
     },
+    lock_container: {
+    	flexDirection: 'row',
+    	// borderWidth: 1,
+    },
+    title_container: {
+    	alignItems: "center"
+    },
 
     lglabel:{
-    	paddingLeft: 8,
+    	// paddingLeft: 8,
     	fontSize: 18,
     	color: LightTheme.textColor,
     	marginTop: 3,

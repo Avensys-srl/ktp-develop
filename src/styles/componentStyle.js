@@ -378,8 +378,8 @@ const componentStyle = StyleSheet.create({
       alignItems: 'center',
     },
     img: {
-      height: 30,
-      width: 30,
+      height: 40,
+      width: 40,
     },
   },
 
@@ -638,14 +638,17 @@ const componentStyle = StyleSheet.create({
       borderTopRightRadius: 50,
     },
     smallImg: {
-      height: 30,
-      width: 30,
-      marginTop: 15,
+      height: 33,
+      width: 35,
+      // marginTop: 8,
     },
     largeImg: {
       height: 40,
-      width: 40,   
-      marginBottom: 10
+      width: 45,   
+      // marginBottom: 0
+      borderWidth: 20,
+      borderColor: "#fffff",
+      // backgroundColor: '#000000'
      },
   },
 

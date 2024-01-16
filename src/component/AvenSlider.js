@@ -52,7 +52,28 @@ const AvenSlider = (props) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.topTitle}>
-	            <Text style={styles.lglabel}>{title}{value}{unit}</Text>			      
+	            <Text style={styles.lglabel}>{title}{value}{unit}</Text>	
+	            {
+					showLock? <>
+						    {
+								locked ? 
+						    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+					            <Image
+					            	style={styles.image}
+				       				source={ImageSource.lock}       				
+					            />
+					        </TouchableOpacity > : 
+					         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+					            <Image
+					            	style={styles.image}
+				       				source={ImageSource.lockOpen}       				
+					            />
+					        </TouchableOpacity >
+							}
+
+					</>
+					: <></>
+				}		      
 	        </View>
 			<View style={styles.sliderContainer}>
 			    <View>    
@@ -61,7 +82,7 @@ const AvenSlider = (props) => {
 			            disabled={locked}
 			            step={1}
 			            minimumValue={minValue}
-			            maximumValue={maxValue  + 3 }
+			            maximumValue={maxValue }
 			            onValueChange={(value) => setSliderValue(value)}
 			            style={{
 			            	height:26, 			            	
@@ -114,27 +135,7 @@ const AvenSlider = (props) => {
 		            	<Text style={styles.smlabel}>{ minValue }</Text><Text style={styles.smlabel}>{ maxValue }</Text>
 		        	</View>
 		        </View>
-				{
-					showLock? <>
-						    {
-								locked ? 
-						    <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-					            <Image
-					            	style={styles.image}
-				       				source={ImageSource.lock}       				
-					            />
-					        </TouchableOpacity > : 
-					         <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-					            <Image
-					            	style={styles.image}
-				       				source={ImageSource.lockOpen}       				
-					            />
-					        </TouchableOpacity >
-							}
-
-					</>
-					: <></>
-				}
+				
 			</View>
 		</View>
 	);
@@ -172,6 +173,7 @@ const styles = StyleSheet.create({
     rightTitle:{
     	fontSize: 18,
     	marginLeft: 8,
+    	maringRight: -38
     },
     lglabel:{
     	fontSize: 18,

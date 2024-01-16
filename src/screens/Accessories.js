@@ -34,7 +34,7 @@ const ServicesTab = [
     data: ['BPD', 'EBPD2', 'EBPD'],
   },
   {
-    title: 'probs',
+    title: 'probes',
     route: Routes.Probs,
     disabled: false,
     data: [
@@ -71,9 +71,11 @@ export const Accessories = () => {
         headerBG={1}
       />
       <View style={{flex: 1, width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 100, 
-          alignSelf: 'center',}}>
+          alignSelf: 'center', }}>
         {activeTab && userType.technician ? (
-          <View style={styles.container}>
+          <ScrollView contentContainerStyle={{ flexDirection: 'row',
+    flexWrap: 'wrap',width: Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',}}>
             {accessoriesName.map((item,index) => {
               console.log('accs',item)
               return (
@@ -86,9 +88,9 @@ export const Accessories = () => {
                 />
               );
             })}
-          </View>
+          </ScrollView>
         ) : (
-          <ScrollView>
+          <ScrollView style={{marginBottom: 8,}}>
             {ServicesTab.map((item, index) => {
               console.log('index---', index);
               console.log('SRVICE',item)
@@ -142,14 +144,14 @@ export const Accessories = () => {
 
 const styles = ScaledSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
-      alignSelf: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'space-evenly',
+    width: Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    flex: 1,
-    alignSelf: 'center',
+    // flex: 1,
+    marginBottom: 8,
   },
   buttons: {
     flexDirection: 'row',

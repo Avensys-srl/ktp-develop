@@ -17,12 +17,13 @@ import Slider from 'react-native-slider';
 
 const {width} = Dimensions.get('window');
 export const AvenVerticalProgress = ({VS, TS, Visible = true}) => {
-  const [progress, setProgress] = useState(Math.round(VS/2));
-  const step = 1;
+  const [progress, setProgress] = useState(VS);
+  const step = 10;
+
   const increaseProgress = () => {
-    if((progress + step ) > VS )
+    if((progress + step ) > 100 )
     {
-       setProgress(VS);
+       setProgress(100);
        return;
     }
     setProgress(progress + step);
@@ -62,14 +63,14 @@ export const AvenVerticalProgress = ({VS, TS, Visible = true}) => {
               value={progress}
               step={step}
               minimumValue={0}
-              maximumValue={VS}
+              maximumValue={100}
               style={{
                 borderWidth: 2,
                 height: Sizing.vw * 6,
                 width: Sizing.vh * 10,
                 transform: [{ rotate: '-90deg' }],
                 borderColor: Colors.LIGHT_GREEN,
-                borderRadius: 5,
+                borderRadius: 15,
                 overflow: 'hidden',
                 padding: 2,
               }}              
@@ -86,7 +87,9 @@ export const AvenVerticalProgress = ({VS, TS, Visible = true}) => {
               }}
 
               trackStyle={{
-
+                   borderRadius: 12,
+                   marginLeft: 2,
+                   marginRight: -5,
                    height: Sizing.vw * 6 - 8,
                   // backgroundColor: 'black' ,
               }}

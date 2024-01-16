@@ -21,14 +21,14 @@ const Filter_Settings3 = () => {
     <SafeAreaView style={styles.mainSafeAreaView}>
       <Header
         canGoBack={true}
-        title="Filteration"
+        title="Filtration"
         headerBG={1}
         optionsStar={1}
       />
       <View style={styles.mainContainer}>
         <View style={styles.toggleSwitchContainer}>
         
-          <AvenTwoRadio value={isEnabled} onValueChange={setEnabled} on="time" off="pressure" title=""  readOnly={ !userType.service}/>
+          <AvenTwoRadio value={isEnabled} onValueChange={setEnabled} on="time" off="pressure" title="Clogged filter alarm"  readOnly={ !userType.service}/>
         </View>
 
         <View style={styles.progressbarContainer}>
@@ -43,6 +43,7 @@ const Filter_Settings3 = () => {
 
       <View style={styles.navigationContainer}>
         <CustomBottomNavigation  OC={userType.service}  />
+        <Text style={styles.service}>service</Text>
       </View>
     </SafeAreaView>
   );
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   },
   navigationContainer: {
     flex: 1,
-    alignItems: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'flex-end',
     marginBottom: Sizing.vh * 2,
 
@@ -91,4 +92,8 @@ const styles = StyleSheet.create({
   progressbarText: {
     marginBottom: 8,
   },
+  service: {
+    color: userType.service ?   Colors.RED: Colors.BLACK,
+    textAlign: 'center'
+  }
 });

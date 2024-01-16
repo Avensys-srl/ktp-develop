@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     marginHorizontal: width * 0.055,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
   },
 
   filterAlarmText: {

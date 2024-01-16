@@ -41,7 +41,7 @@ const Probs = () => {
     <SafeAreaView style={styles.mainContainer}>
       <Header
         canGoBack={true}
-        title="Probs"
+        title="Probes"
         optionsStar={1}
         headerBG={1}
       />
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     marginHorizontal: width * 0.055,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
   },
 
   filterAlarmText: {
@@ -232,7 +232,8 @@ const styles = StyleSheet.create({
 
   service: {
     color: userType.service ?   Colors.RED: Colors.BLACK,
-    textAlign: 'center'
+    textAlign: 'center',
+    // borderWidth: 1,
   }
 
 });

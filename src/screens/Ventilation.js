@@ -18,6 +18,7 @@ import AvenTwoRadio from '../component/AvenTwoRadio';
 import AvenImbalancingSlider from '../component/AvenImbalancingSlider';
 import AvenTrippleBtn from "../component/AvenTrippleBtn";
 import AvenVerticalProgress from '../component/AvenVerticalProgress';
+import AvenVerticalBar from '../component/AvenVerticalBar';
 import { userType } from "../configs";
 
 export const Ventilation = () => {
@@ -45,18 +46,22 @@ export const Ventilation = () => {
           <Text style={styles.txttop}></Text>
            <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="stepless" off="3speeds" title=""  readOnly={ userType.service}/>
         </View>
-        <View style={{flexDirection: "column", justifyContent: 'center',  alignItems: 'center'}}>
+        <View style={{flexDirection: "column", justifyContent: 'center',  marginTop: Sizing.vw * 3, marginBottom: Sizing.vw * 3}}>
           <View
             style={{
               justifyContent: 'center',
               flexDirection: 'row',
               marginTop: 20,
-              width: Sizing.vw * 85
+              width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 85 ,
+              alignSelf: 'center',
+              justifyContent: 'space-around',
+           
             }}>
-            <AvenVerticalProgress TS={isToggled ? 1 : 'Main'} VS={12} Visible={true} />
-            <AvenVerticalProgress TS={2} VS={45} Visible={isToggled} />
-            <AvenVerticalProgress TS={3} VS={87} Visible={isToggled} />
-            <AvenVerticalProgress TS={'boost'} VS={90} Visible={true}/>
+            <AvenVerticalBar TS={isToggled ? 'CO2' : 'Main'} VS={12} Visible={true} />
+
+            <AvenVerticalBar TS={"VOC"} VS={45} Visible={isToggled} />
+            <AvenVerticalBar TS={"RH"} VS={87} Visible={isToggled} />
+            <AvenVerticalBar TS={'boost'} VS={90} Visible={true}/>
           </View>
         </View>
         <View style={{marginBottom: 20, marginTop: 10, alignItems: "center"}}>
