@@ -100,7 +100,7 @@ const Postheater = () => {
           </View>
         </View>
       </ScrollView>
-      <CustomBottomNavigation OC={ userType.service } />
+      <CustomBottomNavigation OC={ userType.service }  isLogin={1}/>
       <Text style={styles.service}>service</Text>
     </SafeAreaView>
   );
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     // borderWidth: 1,
     margin: width * 0.04,
-    marginHorizontal: width * 0.055,
+    // marginHorizontal: width * 0.055,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

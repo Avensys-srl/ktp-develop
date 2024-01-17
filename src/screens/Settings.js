@@ -39,7 +39,7 @@ export const Settings = () => {
           );
         })}
       </View>
-      <CustomBottomNavigation  OC={userType.service} ></CustomBottomNavigation>
+      <CustomBottomNavigation  OC={userType.service}  isLogin={1}></CustomBottomNavigation>
     </SafeAreaView>
   );
 };
@@ -49,6 +49,8 @@ const Styles = ScaledSheet.create({
     // borderWidth: 1,
     flex: 1,
     // width: Sizing.vw * 100,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: "center",
     backgroundColor: Colors.WHITE,
   },
 });

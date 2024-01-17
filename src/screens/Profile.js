@@ -80,14 +80,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   opacityContainer: {
-    width: Sizing.vw * 100,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: "center",
     alignItems: 'center',
     marginTop: height * 0.01,
   },
   btnOpacity: {
     borderWidth: 2,
     borderColor: Colors.BLACK,
-    width: Sizing.vw * 70,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 70,
+    alignSelf: "center",
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 8,

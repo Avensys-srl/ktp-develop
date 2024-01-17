@@ -48,7 +48,7 @@ const AvenVerticalBar = ( { VS, TS, Visible = true }) => {
       <View style={styles.container}>
           <Text style={[componentTitle, txtlbl]}>{TS}</Text>
           <TouchableOpacity onPress={increaseProgress} style={{marginTop:8, marginBottom:8}}>
-            <Image source={ImageSource.fan} style={largeImg} />
+            <Image source={TS == "boost" ? ImageSource.fan : ''} style={largeImg} />
           </TouchableOpacity>
           <View style={styles.barout}>
               <View style={styles.barin}>
@@ -56,7 +56,7 @@ const AvenVerticalBar = ( { VS, TS, Visible = true }) => {
               </View>
           </View>
           <TouchableOpacity onPress={decreaseProgress} style={{marginTop:8, marginBottom:8}}>
-              <Image source={ImageSource.fan} style={smallImg} />
+              <Image source={TS == "boost" ? ImageSource.fan : ''} style={smallImg} />
           </TouchableOpacity>
           <Text style={[componentTitle, percentageText]}>{progress}%</Text>
       </View>

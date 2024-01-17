@@ -102,7 +102,15 @@ export const LoginScreen = (props) => {
     const [fireAlarm, setFireAlarm] = useState(initfireAlarm);
     const [isChecked, setIsChecked] = useState(false);
     const [isLogin, setIsLogin] = useState(0);
-
+    const [showLogin, setShowLogin] = useState(false);
+    const [marginTopValue, setMarginTopValue] = useState(5);
+    const handShowLogin = () => {
+        setShowLogin(!showLogin);
+        if(showLogin)
+          setMarginTopValue(5);
+        else
+          setMarginTopValue(0);
+    }
     const handleCheckBox = () => {
       setIsChecked(!isChecked);
     };
@@ -138,8 +146,8 @@ export const LoginScreen = (props) => {
 
 
     return (
-	    <View style={styles.container}>
-        <ScrollView style={styles.scrollView}>
+	    <View style={[styles.container ]}>
+        <ScrollView style={[styles.scrollView, {marginTop : Sizing.vh * marginTopValue}]}>
             <View style={styles.imgView}>
               <Image source={ImageSource.logoW} style={styles.imgLogo} />
             </View>
@@ -463,41 +471,46 @@ export const LoginScreen = (props) => {
             <TouchableOpacity
               onPress={resetToInitial}
               style={styles.TouchContainer}></TouchableOpacity>
-            <View style={styles.borderView}></View>
-            <Text style={styles.txtTitle}>Login</Text>
-            <View style={styles.formView}>
-              <View style={styles.formRow}>
-                <Text style={styles.txtFlbl}>User Name : </Text>
-                <TextInput style={styles.inputTxt} placeholder="" />
-              </View>
-              <View style={styles.formRow}>
-                <Text style={styles.txtFlbl}>Password : </Text>
-                <TextInput
-                  style={styles.inputTxt}
-                  placeholder=""
-                  secureTextEntry={true}
-                />
-              </View>
+            {
+              showLogin ? <>
+                  <View style={styles.borderView}></View>
+                  <Text style={styles.txtTitle}>Login</Text>
+                  <View style={styles.formView}>
+                    <View style={styles.formRow}>
+                      <Text style={styles.txtFlbl}>User Name : </Text>
+                      <TextInput style={styles.inputTxt} placeholder="" />
+                    </View>
+                    <View style={styles.formRow}>
+                      <Text style={styles.txtFlbl}>Password : </Text>
+                      <TextInput
+                        style={styles.inputTxt}
+                        placeholder=""
+                        secureTextEntry={true}
+                      />
+                    </View>
 
-              <View style={styles.formRow}>
-                <CustomCheckbox
-                  handleCheckBox={handleCheckBox}
-                  isChecked={isChecked}
-                  lable="Remember"
-                />
-              </View>
+                    <View style={styles.formRow}>
+                      <CustomCheckbox
+                        handleCheckBox={handleCheckBox}
+                        isChecked={isChecked}
+                        lable="Remember"
+                      />
+                    </View>
 
-              <View>
-                <TouchableOpacity
-                  style={styles.signInOpacity}
-                  onPress={handleLogin}>
-                  <Text style={styles.signInText}>Sign in</Text>
-                </TouchableOpacity>
-              </View>
+                    <View>
+                      <TouchableOpacity
+                        style={styles.signInOpacity}
+                        onPress={handleLogin}>
+                        <Text style={styles.signInText}>Sign in</Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+              </> : <></>
 
-            </View>
+            }
+            
         </ScrollView>
-        <CustomBottomNavigation isLogin={isLogin}></CustomBottomNavigation>
+        <CustomBottomNavigation isLogin={0} showLogin={handShowLogin}></CustomBottomNavigation>
       </View>
   	);
 };
@@ -506,21 +519,24 @@ const styles = ScaledSheet.create({
   container: {
     backgroundColor: Colors.BLACK,
     flex: 1,
-    
   },
-   scrollView: {
-    // borderWidth: 10,
+  scrollView: {
+    
+    // borderWidth: 1,
     // borderColor: '#fff',
     alignSelf: "center",
-    width:Sizing.screenWidth > 430 ? 430 : Sizing.screenWidth,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 77,
     height: Sizing.vh * 95,
   },
   buttonContainer: {
     borderColor: Colors.WHITE,
     borderWidth: 1,
-    width:Sizing.screenWidth > 430 ? 430 - 40  : Sizing.screenWidth * 77,
+    width:Sizing.screenWidth > 430 ? 430 - 40  : Sizing.vw * 77,
+    height: Sizing.screenWidth > 430 ? 430 - 40  : Sizing.vw * 77,
     alignSelf: 'center',
     borderRadius: 10,
+    // alignItems: "space-between",
+    justifyContent: "space-between",
   },
   imgView: {
     alignSelf: 'center',
@@ -528,21 +544,23 @@ const styles = ScaledSheet.create({
     width: Sizing.vw * 78,
     justifyContent: "center",
     alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: Sizing.vh * 5,
+    marginBottom: Sizing.vh * 5,
   },
   imgLogo: {
     width: 250,
     height: 80,
   },
   row: {
+    // borderWidth: 1,
+    borderColor: "#fff",
     flexDirection: 'row',
-    width:Sizing.screenWidth > 430 ? 430 - 40  : Sizing.screenWidth * 77,
+    width:Sizing.screenWidth > 430 ? 430 - 40  : Sizing.vw * 77,
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 25,
-    marginTop: 5,
-    marginBottom: 5,
+    // marginTop: 5,
+    // marginBottom: 5,
   },
   borderView: {
     backgroundColor: Colors.WHITE,
@@ -603,6 +621,7 @@ const styles = ScaledSheet.create({
     fontSize: 18,
     color: Colors.WHITE,
     fontWeight: 'bold',
+    marginRight: 8,
   },
  
 });

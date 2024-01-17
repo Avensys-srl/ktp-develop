@@ -5,7 +5,7 @@ import {
   View,
   Animated,
   SafeAreaView,
-  StyleSheet, Text, TouchableHighlight, Image, TouchableOpacity
+  StyleSheet, Text, TouchableOpacity, Image
 } from 'react-native';
 import Slider from 'react-native-slider';
 import { ImageSource } from '../common/imageSource';
@@ -27,20 +27,13 @@ const AvenImbalancingSlider = (props) => {
   // let value = (minValue + maxValue) / 2;
 
   const unit = props.unit;
-  // console.log("minValue = ", minValue);
-  const locking = props.readOnly ? 1 : 0;
+  const showLock = props.readOnly ? 0 : 1;
+  const [locked, setLocked] = useState(readOnly? true: false);
 
-  //locked image processing
-  const [locked, setLocked] = useState(true);
   // const [imgUrl, setImgUrl]  = useState('./assets/unlocked.png');
   const changeImg = () => {
     console.log("change image");
     setLocked(!locked);
-    // if(locked) {
-    //  setImgUrl('./assets/locked.png');
-    // }else{
-    //  setImgUrl('./assets/unlocked.png');
-    // }
   }
 
   const setSliderValue = ( val ) => {
@@ -72,7 +65,28 @@ const AvenImbalancingSlider = (props) => {
     <View style={styles.container}>
       <View style={styles.sliderContainer}>
               <View style={styles.topTitle}>
-                  <Text style={styles.lglabel}>{title}{value}{unit}</Text>            
+                  <Text style={styles.lglabeltitle}>{title}</Text><Text style={styles.lglabel}>{value}{unit}</Text>  
+                  {
+                    showLock? <>
+                          {
+                          locked ? 
+                          <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                                <Image
+                                  style={styles.image}
+                                  source={ImageSource.lock}               
+                                />
+                            </TouchableOpacity > : 
+                             <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                                <Image
+                                  style={styles.image}
+                                  source={ImageSource.lockOpen}               
+                                />
+                            </TouchableOpacity >
+                        }
+
+                    </>
+                    : <></>
+                  }          
               </View>
               <View style={barContainer}>
                 <TouchableOpacity onPress={() => handleImagePress(-step)}>
@@ -80,14 +94,14 @@ const AvenImbalancingSlider = (props) => {
                 </TouchableOpacity>
                 <Slider
                     value={value}
-                    disabled={locking}
+                    disabled={locked}
                     step={1}
                     minimumValue={minValue}
-                    maximumValue={maxValue  + 3 }
+                    maximumValue={maxValue}
                     onValueChange={(value) => setSliderValue(value)}
                     style={{
                       height:26, 
-                      width: Sizing.vw * 60,
+                      width: Sizing.screenWidth > 430 ? 430 - 100 : Sizing.vw * 80 - 100,
                       borderWidth: 2, 
                       borderColor:"#92D050",
                       borderTopLeftRadius: 15,
@@ -95,8 +109,7 @@ const AvenImbalancingSlider = (props) => {
                       borderBottomLeftRadius: 15,
                       borderBottomRightRadius: 15,
                       backgroundColor: "#fff",
-                      // paddingRight: 15,
-                        // paddingLeft: 15
+                     
                     }}
 
                     minimumTrackTintColor="transparent" 
@@ -138,31 +151,8 @@ const AvenImbalancingSlider = (props) => {
               <View style={styles.bottomTitle}>
                   <Text style={styles.smlabel}>{ minValue }</Text><Text style={styles.smlabel}>{ maxValue }</Text>
               </View>
-              <View style={styles.bottomImbalance}>
-                <Text style={{ color: Colors.BLACK }}>Imbalance</Text>
-              </View>
       </View>
-      {
-        locking? <>
-              {
-              locked ? 
-              <TouchableHighlight  style={styles.rightTitle} onPress={ () => changeImg() }>
-                    <Image
-                      style={styles.image}
-                    source={ImageSource.lockOpen}               
-                    />
-                </TouchableHighlight > : 
-                 <TouchableHighlight  style={styles.rightTitle} onPress={ () => changeImg() }>
-                    <Image
-                      style={styles.image}
-                    source={ImageSource.lock}               
-                    />
-                </TouchableHighlight >
-            }
-
-        </>
-        : <></>
-      }
+      
     </View>
   );
 };
@@ -193,9 +183,11 @@ const styles = StyleSheet.create({
    
     bottomTitle: {
       flexDirection: 'row',
-       alignItems: 'center',
-        justifyContent: 'space-between',
-
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginLeft: 10,
+      marginRight: 12,
+      // borderWidth: 1,
       // flex: 0.1,
       // backgroundColor: 'red',
     },
@@ -213,6 +205,7 @@ const styles = StyleSheet.create({
       marginLeft: 8,
     },
     lglabel:{
+      marginLeft: 8,
       paddingLeft: Sizing.vw * 3,
       paddingRight: Sizing.vw * 3,
       fontSize: 18,
@@ -224,6 +217,10 @@ const styles = StyleSheet.create({
        borderTopRightRadius: 15,
        borderBottomRightRadius: 15,
        borderBottomLeftRadius: 15
+    },
+    lglabeltitle: {
+      fontSize: 18,
+      color: LightTheme.textColor,
     },
     smlabel:{
       fontSize: 12,

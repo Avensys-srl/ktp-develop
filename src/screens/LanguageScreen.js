@@ -44,7 +44,7 @@ const LanguageScreen = () => {
       </View>
 
       <View style={styles.dropDownView}>
-        <Text style={[CustomStyles.ComponentTitles, {marginTop: 20}]}>
+        <Text style={[CustomStyles.ComponentTitles, {marginTop: 11, marginRight: 8}]}>
           Select Language:
         </Text>
         <AvenLangDropDown
@@ -54,7 +54,7 @@ const LanguageScreen = () => {
 
       
 
-      <CustomBottomNavigation  OC={userType.service} />
+      <CustomBottomNavigation  OC={userType.service}  isLogin={1}/>
     </SafeAreaView>
   );
 };
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   dropDownView: {
+    // borderWidth: 1,
     marginTop: 20,
     flex: 1,
     flexDirection: 'row',

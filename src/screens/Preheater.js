@@ -50,38 +50,33 @@ const Preheater = () => {
       />
 
       <ScrollView >
-        <View style={styles.mainComponentContainer}>
           <View style={styles.filterAlarmContainer}>
             <View>
               <AvenTwoRadio value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"  readOnly={ !userType.service}/>
             </View>
-          </View>          
-        </View>
-
-        <View style={styles.toggleSwitchMainContainer}>
-          <View style={styles.toggleSwitchContainer}>
+          </View>   
+          <View style={styles.filterAlarmContainer}>
             <AvenTwoRadio value={isPairedToggled} onValueChange={setIsPairedToggled} on="paired" off="unpaired" title="Pairing"  readOnly={ !userType.service}/>
           </View>
           <DividerLine />
 
-          <View style={styles.toggleSwitchContainer}>
+          <View style={styles.filterAlarmContainer}>
             <AvenTwoRadio value={isTempToggled} onValueChange={setIsTempToggled} on="supply" off="return" title="Temperature"  readOnly={ !userType.service}/>
           
           </View>
           <DividerLine />
 
-          <View style={styles.toggleSwitchContainer}>
-            <AvenTwoRadio value={isFreshToggled} onValueChange={setIsFreshToggled} on="fresh" off="exhaust" title=""  readOnly={ userType.service}/>
+          <View style={styles.filterAlarmContainer}>
+            <AvenTwoRadio value={isFreshToggled} onValueChange={setIsFreshToggled} on="fresh" off="exhaust" title="Sensors"  readOnly={ userType.service}/>
           </View>
           <DividerLine />
 
           <View style={styles.communicationRateContainer}>
             <AvenSlider title="communication rate [%] " value={50} minValue="0" maxValue="100" readOnly={true}/>
           </View>
-        </View>
       </ScrollView>
 
-      <CustomBottomNavigation OC={userType.service} />
+      <CustomBottomNavigation OC={userType.service}  isLogin={1}/>
       <Text style={styles.service}>service</Text>
     </SafeAreaView>
   );
@@ -107,7 +102,7 @@ const styles = StyleSheet.create({
   filterAlarmContainer: {
     // borderWidth: 1,
     margin: width * 0.04,
-    marginHorizontal: width * 0.1,
+    // marginHorizontal: width * 0.1,
     // borderWidth: 2,
     borderColor: Colors.BLACK,
     flexDirection: 'row',
@@ -130,7 +125,7 @@ const styles = StyleSheet.create({
     right: width * 0.02,
   },
   toggleSwitchMainContainer: {
-    paddingHorizontal: width * 0.06,
+    // paddingHorizontal: width * 0.06,
     width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 100,
     alignSelf: 'center',
   },
@@ -140,7 +135,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: height * 0.03,
-    marginTop: height * 0.02,
+    margin: width * 0.04,
     borderRadius: 12,
   },
   tempText: {

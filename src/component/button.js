@@ -89,7 +89,7 @@ const styles = ScaledSheet.create({
     borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '10@ms',
-    height: Sizing.vh * 10,
+    height: Sizing.vw * 20,
     width: Sizing.vw *20,
     alignItems: 'center',
     justifyContent: 'center',

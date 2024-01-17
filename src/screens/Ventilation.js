@@ -57,29 +57,35 @@ export const Ventilation = () => {
               justifyContent: 'space-around',
            
             }}>
-            <AvenVerticalBar TS={isToggled ? 'CO2' : 'Main'} VS={12} Visible={true} />
+            <AvenVerticalBar TS={!isToggled ? 'CO2' : 'Main'} VS={12} Visible={true} />
 
             <AvenVerticalBar TS={"VOC"} VS={45} Visible={isToggled} />
             <AvenVerticalBar TS={"RH"} VS={87} Visible={isToggled} />
             <AvenVerticalBar TS={'boost'} VS={90} Visible={true}/>
           </View>
         </View>
-        <View style={{marginBottom: 20, marginTop: 10, alignItems: "center"}}>
-            <AvenTrippleBtn
-              TBL={1}
-              TBR={0}
-              TBC={0}
-              TbL={'FSC'}
-              TbC={'CAP'}
-              TbR={'CAF'}
-            />
-        </View>
+        {
+
+          isToggled ?  
+          <View style={{marginBottom: 20, marginTop: 10, alignItems: "center"}}>
+              <AvenTrippleBtn
+                TBL={1}
+                TBR={0}
+                TBC={0}
+                TbL={'FSC'}
+                TbC={'CAP'}
+                TbR={'CAF'}
+              />
+          </View> : <></>
+        }
+
         <View style={styles.pairedViewNoBorder}>          
-          <AvenImbalancingSlider title=" " minValue="-50" maxValue="50" unit="°C"/>
+          <AvenImbalancingSlider title="Imbalance" minValue="-50" maxValue="50" unit="°C"  readOnly={ !userType.service}/>
           
         </View>
       </ScrollView>
-      <CustomBottomNavigation   OC={userType.service}/>
+      <CustomBottomNavigation   OC={userType.service}  isLogin={1}/>
+      <Text style={styles.service}>service</Text>
     </View>
   );
 };
@@ -135,9 +141,9 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   container: {
-    // flex: 1,
-    width: Sizing.vw * 100,
-    height: Sizing.vh * 97,
+    flex: 1,
+    // width: Sizing.vw * 100,
+    // height: Sizing.vh * 97,
     borderWidth: 2,
     borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
     borderRadius: 10,
@@ -155,9 +161,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // width: Sizing.vw * 90,
     height: Sizing.vh * 15,
- 
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
     marginBottom: 5,
     marginTop: 5,
     // borderWidth: 1,
   },
+  service: {
+    color: userType.service ?   Colors.RED: Colors.BLACK,
+    textAlign: 'center'
+  }
 });

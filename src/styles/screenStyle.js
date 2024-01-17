@@ -5,9 +5,12 @@ const screenStyle = StyleSheet.create({
   
   cardDesign: {
     container: {
-      width: Sizing.vw * 100,
+      // width: Sizing.vw * 100,
+      width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 100,
+      alignSelf: "center",
       paddingHorizontal: 2,
       alignItems: 'center',
+      // borderWidth: 3,
     },
     card: {
       flexDirection: 'row',
@@ -21,7 +24,8 @@ const screenStyle = StyleSheet.create({
       backgroundColor: Colors.BLACK,
       height: 37,
       justifyContent: 'space-between',
-      width:Sizing.vw*90,
+      width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+      alignSelf: "center",
     },
     starImage: {
       height: 30,

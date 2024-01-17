@@ -638,16 +638,16 @@ const componentStyle = StyleSheet.create({
       borderTopRightRadius: 50,
     },
     smallImg: {
-      height: 33,
-      width: 35,
+      height: 35,
+      width: 40,
       // marginTop: 8,
     },
     largeImg: {
-      height: 40,
-      width: 45,   
+      height: 45,
+      width: 50,   
       // marginBottom: 0
-      borderWidth: 20,
-      borderColor: "#fffff",
+      // borderWidth: 20,
+      // borderColor: "#fffff",
       // backgroundColor: '#000000'
      },
   },

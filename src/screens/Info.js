@@ -40,7 +40,7 @@ export const Info = () => {
           return <InfoText descr={item.descr} value={item.value} key={index}></InfoText>;
         })}
       </View>
-      <CustomBottomNavigation></CustomBottomNavigation>
+      <CustomBottomNavigation  isLogin={1}></CustomBottomNavigation>
     </>
   );
 };
@@ -48,7 +48,8 @@ export const Info = () => {
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    width: Sizing.vw * 90,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: "center",
     borderColor: Colors.BLACK,
     borderWidth: 0,
     alignSelf: 'center',

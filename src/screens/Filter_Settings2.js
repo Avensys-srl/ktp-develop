@@ -72,7 +72,7 @@ const Filter_Settings2 = () => {
       {/* Bottom navigation view */}
 
       <View style={styles.navigationContainer}>
-        <CustomBottomNavigation  OC={userType.service} />
+        <CustomBottomNavigation  OC={userType.service}  isLogin={1}/>
         <Text style={styles.service}>service</Text>
       </View>
     </SafeAreaView>

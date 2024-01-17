@@ -48,59 +48,33 @@ const Probs = () => {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>
-          {/* postcooler activation */}
-
-          <View style={{position: 'relative'}}>
-            <View style={styles.filterAlarmContainer}>
-                <AvenTwoRadio value={isEnabled} onValueChange={setEnabled} on="on" off="off" title="Postcooler activation"   readOnly={ !userType.service}/>
-            </View>
-             
-          </View>
-
-          {/* Toggle */}
-
+      
           <View style={styles.filterAlarmContainer}>
-              <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="yes" off="no" title="Parsing status"   readOnly={ !userType.service}/>
-          </View>
-
-          <DividerLine />
-
-          {/* ref temp */}
-
-          <View style={styles.filterAlarmContainer}>
-              <AvenSlider title="Reference temperature [°C]: "   value={50} minValue="0" maxValue="100"   readOnly={ !userType.service}/>
-          </View>
-
-          <DividerLine />
-
-          {/* Hysteresys */}
-          <View style={styles.filterAlarmContainer}>
-              <AvenRangeSlider title="Hysteresys[°C]" minValue={0} maxValue={35}   readOnly={ !userType.service}/>
+              <AvenSlider title="Boost airflow [%]: "   value={70} minValue="40" maxValue="100"   readOnly={ !userType.service}/>
           </View>
 
           <DividerLine />
 
           <View style={styles.filterAlarmContainer}>
-              <AvenTwoRadio value={isFresh} onValueChange={setIsFresh} on="fresh" off="exhaust" title="sensors"   readOnly={ !userType.service}/>
-           
+              <AvenSlider title="CO2 threshold [ppm]: "   value={1100} minValue="700" maxValue="1500"   readOnly={ !userType.service}/>
           </View>
 
           <DividerLine />
 
           <View style={styles.filterAlarmContainer}>
-            <AvenSlider title="Boost time [min]: "   value={55} minValue="10" maxValue="100"   readOnly={ !userType.service}/>
+              <AvenSlider title="VOC threshold [ppm]: "   value={55} minValue="10" maxValue="100"   readOnly={ !userType.service}/>
           </View>
 
           <DividerLine />
 
-          <View style={{marginBottom: height * 0.05, marginTop: height * 0.04}}>
-         
-
-        
+          <View style={styles.filterAlarmContainer}>
+              <AvenSlider title="RH threshold [%]: "   value={55} minValue="10" maxValue="100"   readOnly={ !userType.service}/>
           </View>
+
+
         </View>
       </ScrollView>
-      <CustomBottomNavigation OC={userType.service} />
+      <CustomBottomNavigation OC={userType.service}  isLogin={1}/>
       <Text style={styles.service}>service</Text>
     </SafeAreaView>
   );

@@ -44,7 +44,7 @@ export const Services = () => {
           );
         })}
       </View>
-      <CustomBottomNavigation ></CustomBottomNavigation>
+      <CustomBottomNavigation isLogin={1}></CustomBottomNavigation>
     </SafeAreaView>
   );
 };

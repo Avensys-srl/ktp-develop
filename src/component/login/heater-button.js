@@ -354,8 +354,8 @@ const styles = ScaledSheet.create({
     borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '10@ms',
-    height: Sizing.vh * 8.8,
-    width: Sizing.vw * 18,
+    height: Sizing.vw * 20,
+    width: Sizing.vw * 20,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -376,16 +376,16 @@ const styles = ScaledSheet.create({
   },
   diagonalImage1: {
     position: 'absolute',
-    top: Sizing.vh * 0.8,
-    left: Sizing.vw * 1,
+    top: Sizing.vw * 3,
+    left: Sizing.vw * 2,
   },
   diagonalImage2: {
     position: 'absolute',
-    bottom: Sizing.vh * 0.8,
-    right: Sizing.vw * 1,
+    bottom: Sizing.vw * 3,
+    right: Sizing.vw * 2,
   },
   diagonalImage: {
-    height: Sizing.vh * 3.2,
+    height: Sizing.vw * 5.5,
     width: Sizing.vw * 7,
   },
 });

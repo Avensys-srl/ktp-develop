@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import SelectDropdown from 'react-native-select-dropdown';
-import {View, StyleSheet, Dimensions, Image, Text} from 'react-native';
+// import SelectDropdown from 'react-native-select-dropdown';
+import {View, StyleSheet, Dimensions, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
 import {Colors, Sizing} from '../styles';
 import componentStyle from '../styles/componentStyle';
 import { ImageSource } from '../common/imageSource';
@@ -9,51 +9,88 @@ const {width, height} = Dimensions.get('window');
 
 const AvenLangDropDown = ({data, defalutValue}) => {
  
+    const [visible , setVisible] = useState( false );
+    const [selected, setSelected] = useState( defalutValue );
+    const toggleDropdown = () => {
+      setVisible(!visible);
+    }
 
-  const {btnStyle, itemStyle} = componentStyle.DropdownSetPoint;
+    const changeLanguage = ( item ) => {
+        setSelected(item);
+        toggleDropdown();
+    }
 
-  const maxItemsWithoutScroll = 5;
-  const maxDropdownHeight = Sizing.vh * 6 * maxItemsWithoutScroll;
-  
-
-  const handleSelect = (selectedItem) => {
-    onSelect(selectedItem);
-  };
-
-
-  return (
-    <View>
-      <SelectDropdown
-        data={data}
-        default = { <Image source={ImageSource.flag_uk} style={{ width: 20, height: 10, marginRight: 10 }} /> }
-        
-        rowTextForSelection={(item, index) => {
-          return  <Image source={item.image} style={{ width: 20, height: 15 }} />
-        }}
-        buttonTextAfterSelection={(selectedItem, index) => {
-          return <Image source={selectedItem.image} style={{ width: 30, height: 25}} />
-        }}
-
-        buttonStyle={btnStyle}
-        dropdownStyle={{
-          ...styles.ddStyle,
-          maxHeight:
-            data.length > maxItemsWithoutScroll ? maxDropdownHeight : null,
-        }}
-        itemTextStyle={itemStyle}
-      />
-    </View>
-  );
+    return (
+      <View>
+        <TouchableOpacity style={ styles.button } onPress={ toggleDropdown }>
+             <Image
+                style={styles.flag}
+                source={selected.image}               
+              />
+        </TouchableOpacity>
+        {
+          visible ? 
+              <View style={ styles.dropdown }>
+                  <ScrollView style={styles.scroll}>
+                  {
+                    data.map((item, index) => {
+                        return (                          
+                            <TouchableOpacity style={ styles.item } onPress={ () => changeLanguage(item) }>
+                              <Image
+                                style={styles.flag}
+                                source={item.image}               
+                              />
+                            </TouchableOpacity>
+                        );
+                    })
+                  }
+                  </ScrollView>
+              </View> 
+          : <></>
+        }
+      </View>
+    );
 };
 
 export default AvenLangDropDown;
 
 const styles = StyleSheet.create({
-  ddStyle: {
-    borderWidth: 2,
-    marginTop: 2,
-    borderRadius: 12,
+    button: {
+       width: 80,
+       height: 50,
+       borderWidth: 2,
+       borderColor: Colors.LIGHT_GREEN,
+       borderRadius: 10,
 
-    borderColor: Colors.LIGHT_GREEN,
-  },
+       alignItems: "center",
+       justifyContent: "center",
+    },
+
+    dropdown: {
+       marginTop: 5,
+       
+       width: 80,
+       height: 300,
+       borderWidth: 2,
+       borderColor: Colors.LIGHT_GREEN,
+       borderRadius: 10,
+    },
+    scroll: {
+        // borderWidth: 1,
+        showsVerticalScrollIndicator: true,
+    },
+    item : {
+       width: 80,
+       height: 50,
+       borderBottomWidth: 1,
+       borderColor: Colors.LIGHT_GREEN,
+       borderOpacity: 0.5,
+       alignItems: "center",
+       justifyContent: "center",
+       // borderWidth: 1,
+    },
+    flag: {
+      width: 50,
+      height: 35
+    }
 });

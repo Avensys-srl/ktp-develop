@@ -14,20 +14,17 @@ import {Colors, Sizing} from '../styles';
 
 // const {width, height} = Dimensions.get('window');
 
-const CustomBottomNavigation = ({
-  HI = ImageSource.HI,
-  PI = ImageSource.PI,
-  II = ImageSource.II,
-  SI = ImageSource.SI,
-  OC = 0,
-  isLogin = Number,
-}) => {
-  let OCColor = OC ? Colors.RED : Colors.BLACK;
+const CustomBottomNavigation = (props) => {
+  
+  let OCColor = props.OC ? Colors.RED : Colors.BLACK;
 
   const navigation = useNavigation();
 
   const navigateToSettings = () => {
-    navigation.navigate(Routes.Settings);
+    if(props.isLogin)
+        navigation.navigate(Routes.Settings);
+    else
+        props.showLogin();
   };
 
   const navigateToHome = () => {
@@ -45,17 +42,17 @@ const CustomBottomNavigation = ({
   return (
     <View style={styles.mainContainer}>
       <View style={[styles.container, {borderTopColor: OCColor, borderRightColor: OCColor, borderBottomColor: OCColor, borderLeftColor: OCColor}]}>
-        <TouchableOpacity onPress={navigateToHome} disabled={isLogin==0 ? true : false}>
-          <Image source={HI} style={styles.img} />
+        <TouchableOpacity onPress={navigateToHome} disabled={props.isLogin==0 ? true : false}>
+          <Image source={ImageSource.HI} style={styles.img} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToSettings} disabled={isLogin==0 ? true : false}>
-          <Image source={PI} style={styles.img} />
+        <TouchableOpacity onPress={navigateToSettings} >
+          <Image source={ImageSource.PI} style={styles.img} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToInfo} disabled={isLogin==0 ? true : false }>
-          <Image source={II} style={styles.img} />
+        <TouchableOpacity onPress={navigateToInfo} disabled={props.isLogin==0 ? true : false }>
+          <Image source={ImageSource.II} style={styles.img} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToService} disabled={isLogin==0 ? true : false}>
-          <Image source={SI} style={styles.img} />
+        <TouchableOpacity onPress={navigateToService} disabled={props.isLogin==0 ? true : false}>
+          <Image source={ImageSource.SI} style={styles.img} />
         </TouchableOpacity>
       </View>
     </View>

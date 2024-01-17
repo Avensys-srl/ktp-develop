@@ -93,7 +93,7 @@ export const Bypass = () => {
          
         </View>
       </ScrollView>
-      <CustomBottomNavigation OC={userType.service} />
+      <CustomBottomNavigation OC={userType.service}  isLogin={1}/>
       <Text style={styles.service}>service</Text>
     </SafeAreaView>
   );

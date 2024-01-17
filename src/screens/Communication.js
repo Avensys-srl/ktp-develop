@@ -13,7 +13,7 @@ import CustomBottomNavigation from '../component/CustomBottomNavigation';
 import ActivationButton from '../component/ActivationButton';
 import {Header} from '../component/header';
 import {Colors, Sizing} from '../styles';
-import AvenSwitch from "../component/AvenSwitch";
+import AvenTwoRadio from "../component/AvenTwoRadio";
 
 const {width, height} = Dimensions.get('window');
 import { userType } from "../configs";
@@ -36,7 +36,7 @@ export const Communication = ({navigation}) => {
         optionsStar={1}
       />
       <View style={styles.toggleAlign}>
-        <AvenSwitch value={isToggled} onValueChange={setIsToggled} on="BT" off="wifi" title=""/>
+        <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="BT" off="wifi" title="Communication"/>
        
       </View>
       <ActivationButton TAB={'Device Search'} rot={2} />
@@ -64,7 +64,7 @@ export const Communication = ({navigation}) => {
         {/* Whatever functionality blutetooth have, we have to put it in place of null */}
       </View>
       <View style={styles.navigationContainer}>
-        <CustomBottomNavigation style={styles.nav}  OC={userType.service} />
+        <CustomBottomNavigation style={styles.nav}  OC={userType.service}  isLogin={1}/>
       </View>
     </SafeAreaView>
   );

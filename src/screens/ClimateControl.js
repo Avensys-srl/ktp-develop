@@ -86,7 +86,9 @@ export const ClimateControl = () => {
                     }}>
                     <View style={{}}>
                       <ClimateControlCard
-                        mainImg={ImageSource.house_2}
+                        mainImg={ImageSource.home}
+                        leftImg={ImageSource.snowflake}
+                        rightImg={ImageSource.sun}
                         imageStyle={{}}
                         box={true}
                         tempNumber={`${dayTemp}°C `}
@@ -100,7 +102,7 @@ export const ClimateControl = () => {
                  <TouchableOpacity  style={{justifyContent: 'center', marginLeft: 8,  marginRight:-48}} onPress={ () => setLocked2(!locked2) }>
                       <Image
                         style={styles.lockImg}
-                        source={locked1 ? ImageSource.lock : ImageSource.lockOpen}               
+                        source={locked2 ? ImageSource.lock : ImageSource.lockOpen}               
                       />
                   </TouchableOpacity >            
               : <></>
@@ -108,7 +110,8 @@ export const ClimateControl = () => {
 
       </View>
       <View style={styles.navigationContainer}>
-        <CustomBottomNavigation  OC={userType.service} />
+        <CustomBottomNavigation  OC={userType.service}  isLogin={1}/>
+        <Text style={styles.service}>service</Text>
       </View>
     </SafeAreaView>
   );
@@ -137,7 +140,7 @@ const styles = ScaledSheet.create({
   },
   navigationContainer: {
     flex: 1,
-    alignItems: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'flex-end',
   },
   dropdownContainer: {
@@ -152,5 +155,9 @@ const styles = ScaledSheet.create({
     width: 40,
     height: 40,
     // marginRight: -Sizing.vw * 18,
-  }
+  },
+  service: {
+    color: userType.service ?   Colors.RED: Colors.BLACK,
+    textAlign: 'center'
+  },
 });
