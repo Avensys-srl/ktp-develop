@@ -49,7 +49,7 @@ const componentStyle = StyleSheet.create({
       alignItems: 'center',
     },
     titleText: {
-      color: Colors.RED,
+      color: Colors.BLACK,
       fontSize: 18,
     },
     svgStyle: {
@@ -378,8 +378,10 @@ const componentStyle = StyleSheet.create({
       alignItems: 'center',
     },
     img: {
-      height: 40,
-      width: 40,
+      marginTop: 7,
+      height: 56,
+      width: 56,
+      // borderWidth: 1,
     },
   },
 

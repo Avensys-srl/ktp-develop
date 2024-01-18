@@ -577,8 +577,8 @@ const styles = ScaledSheet.create({
     marginTop: 10,
   },
   formView: {
-    
-    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 80,
+    borderWidth: 1,
+    width:Sizing.screenWidth > 430 ? 430  - 40 : Sizing.vw * 77,
     alignSelf: 'center',
   },
   txtFlbl: {
@@ -586,6 +586,7 @@ const styles = ScaledSheet.create({
     fontSize: 18,
   },
   formRow: {
+
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,

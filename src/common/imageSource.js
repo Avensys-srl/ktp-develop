@@ -14,6 +14,7 @@ export const ImageSource = {
   setting: require('../assets/setting.png'),
   filter1: require('../assets/filter-1.png'),
   arrowDown: require('../assets/arrow-down.png'),
+  arrowUpBlack: require('../assets/arrow-up-black.png'),
   back: require('../assets/back.png'),
   lockOpen: require('../assets/lock-open.png'),
   callibration: require('../assets/callibration.png'),

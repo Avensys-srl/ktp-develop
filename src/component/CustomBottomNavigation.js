@@ -41,7 +41,7 @@ const CustomBottomNavigation = (props) => {
 
   return (
     <View style={styles.mainContainer}>
-      <View style={[styles.container, {borderTopColor: OCColor, borderRightColor: OCColor, borderBottomColor: OCColor, borderLeftColor: OCColor}]}>
+      <View style={[styles.container]}>
         <TouchableOpacity onPress={navigateToHome} disabled={props.isLogin==0 ? true : false}>
           <Image source={ImageSource.HI} style={styles.img} />
         </TouchableOpacity>

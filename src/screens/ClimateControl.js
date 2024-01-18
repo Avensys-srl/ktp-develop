@@ -75,7 +75,7 @@ export const ClimateControl = () => {
       </View>
       <View style={{flexDirection: "row",alignItems: "flex-start",marginTop: Sizing.vh * 6}}>
             <View>
-                    <Text style={[CustomStyles.ComponentTitles, {marginTop: Sizing.vh * 0}]}>
+                    <Text style={[CustomStyles.ComponentTitles, {marginTop: Sizing.vh * 0,}]}>
                       Summer winter change
                     </Text>           
                     <View
@@ -99,7 +99,7 @@ export const ClimateControl = () => {
             </View>
              {
               userType.service ? 
-                 <TouchableOpacity  style={{justifyContent: 'center', marginLeft: 8,  marginRight:-48}} onPress={ () => setLocked2(!locked2) }>
+                 <TouchableOpacity  style={{justifyContent: 'center', marginLeft: 8, marginTop:-6 , marginRight:-48}} onPress={ () => setLocked2(!locked2) }>
                       <Image
                         style={styles.lockImg}
                         source={locked2 ? ImageSource.lock : ImageSource.lockOpen}               

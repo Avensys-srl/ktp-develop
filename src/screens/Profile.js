@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   btnOpacity: {
     borderWidth: 2,
-    borderColor: Colors.BLACK,
+    borderColor: Colors.LIGHT_GREEN,
     width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 70,
     alignSelf: "center",
     alignItems: 'center',
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     // borderRadius: (width * 0.06) / 2,
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: Colors.BLUE,
+    borderColor: Colors.LIGHT_GREEN,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     width: width * 0.03,
     height: width * 0.03,
     borderRadius: (width * 0.03) / 2,
-    backgroundColor: Colors.RED,
+    backgroundColor: Colors.LIGHT_GREEN,
   },
   signedText: {
     fontSize: 24,

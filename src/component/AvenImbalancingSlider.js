@@ -64,34 +64,36 @@ const AvenImbalancingSlider = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.sliderContainer}>
-              <View style={styles.topTitle}>
-                  <Text style={styles.lglabeltitle}>{title}</Text><Text style={styles.lglabel}>{value}{unit}</Text>  
-                  {
-                    showLock? <>
-                          {
-                          locked ? 
-                          <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-                                <Image
-                                  style={styles.image}
-                                  source={ImageSource.lock}               
-                                />
-                            </TouchableOpacity > : 
-                             <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
-                                <Image
-                                  style={styles.image}
-                                  source={ImageSource.lockOpen}               
-                                />
-                            </TouchableOpacity >
-                        }
+          <View style={barContainer}>
+              <TouchableOpacity onPress={() => handleImagePress(-step)} style={{ height: 56, width: 56 , alignItems: 'center', justifyContent:'center'}}>
+                <Image source={ImageSource.home_in} style={img} />
+              </TouchableOpacity>
+              <View>
+                <View style={styles.topTitle}>
+                    <Text style={styles.lglabeltitle}>{title}</Text><Text style={styles.lglabel}>{value}{unit}</Text>  
+                    {
+                      showLock? <>
+                            {
+                            locked ? 
+                            <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                                  <Image
+                                    style={styles.image}
+                                    source={ImageSource.lock}               
+                                  />
+                              </TouchableOpacity > : 
+                               <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                                  <Image
+                                    style={styles.image}
+                                    source={ImageSource.lockOpen}               
+                                  />
+                              </TouchableOpacity >
+                          }
 
-                    </>
-                    : <></>
-                  }          
-              </View>
-              <View style={barContainer}>
-                <TouchableOpacity onPress={() => handleImagePress(-step)}>
-                  <Image source={ImageSource.home_in} style={img} />
-                </TouchableOpacity>
+                      </>
+                      : <></>
+                    }          
+                </View>
+                
                 <Slider
                     value={value}
                     disabled={locked}
@@ -101,7 +103,7 @@ const AvenImbalancingSlider = (props) => {
                     onValueChange={(value) => setSliderValue(value)}
                     style={{
                       height:26, 
-                      width: Sizing.screenWidth > 430 ? 430 - 100 : Sizing.vw * 80 - 100,
+                      // width: Sizing.screenWidth > 430 ? 430 - 150 : Sizing.vw * 80 - 150,
                       borderWidth: 2, 
                       borderColor:"#92D050",
                       borderTopLeftRadius: 15,
@@ -142,15 +144,14 @@ const AvenImbalancingSlider = (props) => {
                               }}
                           />
                       }
-                  />
-                <TouchableOpacity onPress={() => handleImagePress(step)}>
-                  <Image source={ImageSource.home_out} style={img} />
-                </TouchableOpacity> 
+                  />    
               </View>
+            <TouchableOpacity onPress={() => handleImagePress(step)}  style={{height: 56, width: 56 , alignItems: 'center', justifyContent:'center'}}>
+              <Image source={ImageSource.home_out} style={img} />
+            </TouchableOpacity> 
+          </View>           
               
-              <View style={styles.bottomTitle}>
-                  <Text style={styles.smlabel}>{ minValue }</Text><Text style={styles.smlabel}>{ maxValue }</Text>
-              </View>
+              
       </View>
       
     </View>
@@ -175,6 +176,8 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
+      width:Sizing.screenWidth > 430 ? 430 - 120 : Sizing.vw * 80 - 120,
+      marginBottom: 2,
       // borderWidth: 1,
       // width: Sizing.vw * 30,
       // flex: 0.1,
@@ -203,6 +206,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       fontSize: 18,
       marginLeft: 8,
+      // borderWidth: 1,
     },
     lglabel:{
       marginLeft: 8,
@@ -229,6 +233,7 @@ const styles = StyleSheet.create({
     image: {
       width: 30,
       height: 30,
+      // borderWidth: 1,
     }
 
 });

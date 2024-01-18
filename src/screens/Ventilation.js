@@ -44,7 +44,7 @@ export const Ventilation = () => {
       <ScrollView style={{height: Sizing.vh * 75, }}>
         <View style={styles.pairedView}>
           <Text style={styles.txttop}></Text>
-           <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="stepless" off="3speeds" title=""  readOnly={ userType.service}/>
+           <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="3speeds" off="stepless" title=""  readOnly={ userType.service}/>
         </View>
         <View style={{flexDirection: "column", justifyContent: 'center',  marginTop: Sizing.vw * 3, marginBottom: Sizing.vw * 3}}>
           <View
@@ -57,27 +57,24 @@ export const Ventilation = () => {
               justifyContent: 'space-around',
            
             }}>
-            <AvenVerticalBar TS={!isToggled ? 'CO2' : 'Main'} VS={12} Visible={true} />
+            <AvenVerticalBar TS={isToggled ? 'CO2' : 'Main'} VS={12} Visible={true} Probes={0}/>
 
-            <AvenVerticalBar TS={"VOC"} VS={45} Visible={isToggled} />
-            <AvenVerticalBar TS={"RH"} VS={87} Visible={isToggled} />
-            <AvenVerticalBar TS={'boost'} VS={90} Visible={true}/>
+            <AvenVerticalBar TS={"VOC"} VS={45} Visible={isToggled}  Probes={0}/>
+            <AvenVerticalBar TS={"RH"} VS={87} Visible={isToggled}  Probes={0}/>
+            <AvenVerticalBar TS={'boost'} VS={90} Visible={true} Probes={false}/>
           </View>
         </View>
-        {
-
-          isToggled ?  
-          <View style={{marginBottom: 20, marginTop: 10, alignItems: "center"}}>
-              <AvenTrippleBtn
-                TBL={1}
-                TBR={0}
-                TBC={0}
-                TbL={'FSC'}
-                TbC={'CAP'}
-                TbR={'CAF'}
-              />
-          </View> : <></>
-        }
+     
+        <View style={{marginBottom: 20, marginTop: 10, alignItems: "center"}}>
+            <AvenTrippleBtn
+              TBL={1}
+              TBR={0}
+              TBC={0}
+              TbL={'FSC'}
+              TbC={'CAP'}
+              TbR={'CAF'}
+            />
+        </View>
 
         <View style={styles.pairedViewNoBorder}>          
           <AvenImbalancingSlider title="Imbalance" minValue="-50" maxValue="50" unit="°C"  readOnly={ !userType.service}/>

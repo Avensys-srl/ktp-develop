@@ -23,7 +23,7 @@ const barWidth = Math.floor( cus_width / 3 );
 const barHeight = Math.floor( cus_height / 2 );
 
 
-const AvenVerticalBar = ( { VS, TS, Visible = true }) => {
+const AvenVerticalBar = ( { VS, TS, Visible = true , Probes}) => {
 
   // Ensure that progress is a number between 0 and 1
   const [progress, setProgress] = useState(VS);
@@ -48,7 +48,7 @@ const AvenVerticalBar = ( { VS, TS, Visible = true }) => {
       <View style={styles.container}>
           <Text style={[componentTitle, txtlbl]}>{TS}</Text>
           <TouchableOpacity onPress={increaseProgress} style={{marginTop:8, marginBottom:8}}>
-            <Image source={TS == "boost" ? ImageSource.fan : ''} style={largeImg} />
+            <Image source={ Probes ? ImageSource.arrowUpBlack : ImageSource.fan} style={largeImg} />
           </TouchableOpacity>
           <View style={styles.barout}>
               <View style={styles.barin}>
@@ -56,7 +56,7 @@ const AvenVerticalBar = ( { VS, TS, Visible = true }) => {
               </View>
           </View>
           <TouchableOpacity onPress={decreaseProgress} style={{marginTop:8, marginBottom:8}}>
-              <Image source={TS == "boost" ? ImageSource.fan : ''} style={smallImg} />
+              <Image source={ Probes ? ImageSource.arrowDown : ImageSource.fan } style={smallImg} />
           </TouchableOpacity>
           <Text style={[componentTitle, percentageText]}>{progress}%</Text>
       </View>

@@ -1,213 +1,159 @@
 import React, {useState} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   View,
-  Dimensions,
+  TouchableOpacity,
   Image,
+  Dimensions,
   ScrollView,
+  PanResponder,
 } from 'react-native';
-import {ImageSource} from '../common/imageSource';
-import {Colors, CustomStyles, Sizing} from '../styles';
 
-import {Header} from "../component/header";
-
-import AvenTwoRadio from "../component/AvenTwoRadio";
-import AvenSlider from '../component/AvenSlider';
-import AvenRangeSlider from "../component/AvenRangeSlider";
+import { Header } from "../component/header";
 import CustomBottomNavigation from '../component/CustomBottomNavigation';
-import DividerLine from '../component/DividerLine';
+import {Colors, Sizing} from '../styles';
 
-const {width, height} = Dimensions.get('window');
+import AvenTwoRadio from '../component/AvenTwoRadio';
+import AvenImbalancingSlider from '../component/AvenImbalancingSlider';
+import AvenTrippleBtn from "../component/AvenTrippleBtn";
+import AvenVerticalProgress from '../component/AvenVerticalProgress';
+import AvenVerticalBar from '../component/AvenVerticalBar';
 import { userType } from "../configs";
 
-const Probs = () => {
-  const initialState = true;
-  const [isEnabled, setEnabled] = useState(false);
+export const Probs = () => {
+  // Stato iniziale o stato ricevuto da altre fonti
+  const initialState = false;
+
+  // Usa uno stato per tenere traccia del valore del toggle button
   const [isToggled, setIsToggled] = useState(initialState);
-  const [isSensorToggled, setIsSensorToggled] = useState(initialState);
-  const [isFresh, setIsFresh] = useState(false);
 
+  // Funzione per aggiornare lo stato dal componente figlio
   const handleToggle = newValue => {
-    setIsToggled(!isToggled);
-  };
-
-  const handleSensorToggle = newValue => {
-    setIsSensorToggled(!isSensorToggled);
+    setIsToggled(newValue);
   };
 
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <View style={styles.container}>
       <Header
         canGoBack={true}
         title="Probes"
-        optionsStar={1}
         headerBG={1}
+        optionsStar={1}
       />
+      <ScrollView style={{height: Sizing.vh * 75, }}>
+        <View style={styles.pairedView}>
+          <Text style={styles.txttop}></Text>
+           <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="3speeds" off="stepless" title=""  readOnly={ userType.service}/>
+        </View>
+        <View style={{flexDirection: "column", justifyContent: 'center',  marginTop: Sizing.vw * 3, marginBottom: Sizing.vw * 3}}>
+          <View
+            style={{
+              justifyContent: 'center',
+              flexDirection: 'row',
+              marginTop: 20,
+              width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 85 ,
+              alignSelf: 'center',
+              justifyContent: 'space-around',
+           
+            }}>
+            <AvenVerticalBar TS={isToggled ? 'CO2' : 'Main'} VS={12} Visible={true} Probes={true}/>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View>
-      
-          <View style={styles.filterAlarmContainer}>
-              <AvenSlider title="Boost airflow [%]: "   value={70} minValue="40" maxValue="100"   readOnly={ !userType.service}/>
+            <AvenVerticalBar TS={"VOC"} VS={45} Visible={isToggled}  Probes={true}/>
+            <AvenVerticalBar TS={"RH"} VS={87} Visible={isToggled}  Probes={true}/>
+            <AvenVerticalBar TS={'boost'} VS={90} Visible={true} Probes={false}/>
           </View>
-
-          <DividerLine />
-
-          <View style={styles.filterAlarmContainer}>
-              <AvenSlider title="CO2 threshold [ppm]: "   value={1100} minValue="700" maxValue="1500"   readOnly={ !userType.service}/>
-          </View>
-
-          <DividerLine />
-
-          <View style={styles.filterAlarmContainer}>
-              <AvenSlider title="VOC threshold [ppm]: "   value={55} minValue="10" maxValue="100"   readOnly={ !userType.service}/>
-          </View>
-
-          <DividerLine />
-
-          <View style={styles.filterAlarmContainer}>
-              <AvenSlider title="RH threshold [%]: "   value={55} minValue="10" maxValue="100"   readOnly={ !userType.service}/>
-          </View>
-
-
+        </View>
+        <View style={styles.pairedViewNoBorder}>          
+          <AvenImbalancingSlider title="Imbalance" minValue="-50" maxValue="50" unit="°C"  readOnly={ !userType.service}/>
+          
         </View>
       </ScrollView>
-      <CustomBottomNavigation OC={userType.service}  isLogin={1}/>
+      <CustomBottomNavigation   OC={userType.service}  isLogin={1}/>
       <Text style={styles.service}>service</Text>
-    </SafeAreaView>
+    </View>
   );
 };
 
 export default Probs;
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    backgroundColor: Colors.WHITE,
-    borderWidth: 2,
-    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
-    borderRadius: 10,
-  },
-
-  filterAlarmContainer: {
-    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
-    alignSelf: 'center',
-    margin: width * 0.04,
-    marginHorizontal: width * 0.055,
+  bgheading: {
+    padding: 10,
+    backgroundColor: Colors.LIGHT_GREEN,
+    margin: 10,
+    borderRadius: 5,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+  },
+  headingTxt: {
+    color: Colors.WHITE,
+    fontSize: 20,
+  },
+  imgHead: {
+    width: 25,
+    height: 25,
+  },
+  subRow: {
+    flexDirection: 'row',
   },
 
-  filterAlarmText: {
-    textAlign: 'center',
-    marginBottom: height * 0.025,
-    fontSize: width * 0.04,
-    color: Colors.GREY500,
-  },
-
-  activationImg: {
-    width: 40,
-    height: 40,
+  circle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: Colors.GREEN,
+    borderWidth: 1,
+    borderColor: Colors.BLACK,
     position: 'absolute',
-    top: height * 0.015,
-    right: width * 0.025,
+    top: -1,
   },
-
+  leftCircle: {
+    left: -1,
+  },
+  rightCircle: {
+    right: -1,
+  },
   pairedView: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: Sizing.vw * 93,
-    height: Sizing.vh * 12,
-    borderWidth: 0,
-    borderRadius: 5,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
     alignSelf: 'center',
-  },
-
-  paringStatusContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  remainingDutyText: {
-    textAlign: 'center',
-    marginTop: height * 0.01,
-    fontSize: width * 0.04,
-    color: Colors.GREY500,
-  },
-
-  refTempContainer: {
-    width: Sizing.vw * 90,
-    justifyContent: 'center',
-    height: Sizing.vh * 15,
+    height: Sizing.vh * 7,
     borderRadius: 5,
-    alignSelf: 'center',
-    flexDirection: 'row',
-    textAlign: 'center',
-    alignItems: 'center',
-    marginBottom: 12,
+    margin: 15,
+    marginBottom: 10,
+    marginTop: 5,
   },
-
-  refImg: {
-    height: 30,
-    width: 30,
-  },
-
-  progressBarContainer: {
-    height: Sizing.vh * 9,
-    marginTop: -height * 0.02,
-  },
-
-  hysText: {
-    textAlign: 'center',
-    // marginBottom: -30,
-    zIndex: 2,
-  },
-
-  sensorContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  boostTimeContainer: {
-    justifyContent: 'center',
-    height: Sizing.vh * 15,
-    borderRadius: 5,
-    alignSelf: 'center',
-    flexDirection: 'row',
-    textAlign: 'center',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-
-  divider: {
-    height: 2,
-    backgroundColor: Colors.BLACK,
-    width: '100%',
+  container: {
     flex: 1,
+    // width: Sizing.vw * 100,
+    // height: Sizing.vh * 97,
+    borderWidth: 2,
+    borderColor:  userType.service ?   Colors.RED: Colors.BLACK,
+    borderRadius: 10,
+    // justifyContent: 'flex-end',
+    backgroundColor: Colors.WHITE,
   },
-
-  progressBarContainer1: {
-    height: height * 0.09,
-    marginTop: height * 0.02,
-    marginBottom: 24,
-    width: Sizing.vw * 90,
+  txttop: {
+    // marginTop: 25,
   },
-
-  refTempImg: {
-    width: 40,
-    height: 40,
-    position: 'absolute',
-    top: height * 0.025,
-    right: -width * 0.065,
+  iconClick: {
+    marginRight: 10,
   },
-
+  pairedViewNoBorder: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    // width: Sizing.vw * 90,
+    height: Sizing.vh * 15,
+    width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
+    alignSelf: 'center',
+    marginBottom: 5,
+    marginTop: 5,
+    // borderWidth: 1,
+  },
   service: {
     color: userType.service ?   Colors.RED: Colors.BLACK,
-    textAlign: 'center',
-    // borderWidth: 1,
+    textAlign: 'center'
   }
-
 });
