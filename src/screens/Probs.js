@@ -22,16 +22,7 @@ import AvenVerticalBar from '../component/AvenVerticalBar';
 import { userType } from "../configs";
 
 export const Probs = () => {
-  // Stato iniziale o stato ricevuto da altre fonti
-  const initialState = false;
-
-  // Usa uno stato per tenere traccia del valore del toggle button
-  const [isToggled, setIsToggled] = useState(initialState);
-
-  // Funzione per aggiornare lo stato dal componente figlio
-  const handleToggle = newValue => {
-    setIsToggled(newValue);
-  };
+  
 
   return (
     <View style={styles.container}>
@@ -41,32 +32,23 @@ export const Probs = () => {
         headerBG={1}
         optionsStar={1}
       />
-      <ScrollView style={{height: Sizing.vh * 75, }}>
-        <View style={styles.pairedView}>
-          <Text style={styles.txttop}></Text>
-           <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="3speeds" off="stepless" title=""  readOnly={ userType.service}/>
-        </View>
-        <View style={{flexDirection: "column", justifyContent: 'center',  marginTop: Sizing.vw * 3, marginBottom: Sizing.vw * 3}}>
+      <ScrollView style={{height: Sizing.vh * 75 }}>
+       
+        <View style={{height: Sizing.vh * 75,flexDirection: "column", justifyContent: 'center'}}>
           <View
             style={{
               justifyContent: 'center',
               flexDirection: 'row',
-              marginTop: 20,
               width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 85 ,
               alignSelf: 'center',
               justifyContent: 'space-around',
            
             }}>
-            <AvenVerticalBar TS={isToggled ? 'CO2' : 'Main'} VS={12} Visible={true} Probes={true}/>
-
-            <AvenVerticalBar TS={"VOC"} VS={45} Visible={isToggled}  Probes={true}/>
-            <AvenVerticalBar TS={"RH"} VS={87} Visible={isToggled}  Probes={true}/>
+            <AvenVerticalBar TS={'CO2'} VS={12} Visible={true} Probes={true}/>
+            <AvenVerticalBar TS={"VOC"} VS={45} Visible={true}  Probes={true}/>
+            <AvenVerticalBar TS={"RH"} VS={87} Visible={true}  Probes={true}/>
             <AvenVerticalBar TS={'boost'} VS={90} Visible={true} Probes={false}/>
           </View>
-        </View>
-        <View style={styles.pairedViewNoBorder}>          
-          <AvenImbalancingSlider title="Imbalance" minValue="-50" maxValue="50" unit="°C"  readOnly={ !userType.service}/>
-          
         </View>
       </ScrollView>
       <CustomBottomNavigation   OC={userType.service}  isLogin={1}/>

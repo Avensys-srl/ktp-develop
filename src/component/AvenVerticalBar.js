@@ -23,13 +23,20 @@ const barWidth = Math.floor( cus_width / 3 );
 const barHeight = Math.floor( cus_height / 2 );
 
 
-const AvenVerticalBar = ( { VS, TS, Visible = true , Probes}) => {
+const AvenVerticalBar = ( { VS, TS, Visible = true , Probes, readOnly}) => {
 
   // Ensure that progress is a number between 0 and 1
   const [progress, setProgress] = useState(VS);
   const step = 10;
+  const showLock = readOnly ? 0 : 1;
+  const [locked, setLocked] = useState(false);
+  const changeImg = () => {
+    console.log("change image");
+    setLocked(!locked);
+  }
 
   const increaseProgress = () => {
+    if( locked) return;
     if((progress + step ) > 100 )
     {
        setProgress(100);
@@ -39,27 +46,52 @@ const AvenVerticalBar = ( { VS, TS, Visible = true , Probes}) => {
   };
 
   const decreaseProgress = () => {
+    if( locked ) return;
     if((progress - step ) < 0 )
     {   setProgress(0); return; }
     setProgress(progress - step);
   };
   if (Visible) {
     return (
-      <View style={styles.container}>
-          <Text style={[componentTitle, txtlbl]}>{TS}</Text>
-          <TouchableOpacity onPress={increaseProgress} style={{marginTop:8, marginBottom:8}}>
-            <Image source={ Probes ? ImageSource.arrowUpBlack : ImageSource.fan} style={largeImg} />
-          </TouchableOpacity>
-          <View style={styles.barout}>
-              <View style={styles.barin}>
-                <View style={[styles.progress, { height: `${progress}%`}]} />
-              </View>
-          </View>
-          <TouchableOpacity onPress={decreaseProgress} style={{marginTop:8, marginBottom:8}}>
-              <Image source={ Probes ? ImageSource.arrowDown : ImageSource.fan } style={smallImg} />
-          </TouchableOpacity>
-          <Text style={[componentTitle, percentageText]}>{progress}%</Text>
-      </View>
+      <View style={{ alignItems: 'center', }}>
+        <View style={styles.container}>
+            <Text style={[componentTitle, txtlbl]}>{TS}</Text>
+            <TouchableOpacity onPress={increaseProgress} style={{marginTop:8, marginBottom:8}}>
+              <Image source={ Probes ? ImageSource.arrowUpBlack : ImageSource.fan} style={largeImg} />
+            </TouchableOpacity>
+            <View style={styles.barout}>
+                <View style={styles.barin}>
+                  <View style={[styles.progress, { height: `${progress}%`}]} />
+                </View>
+            </View>
+            <TouchableOpacity onPress={decreaseProgress} style={{marginTop:8, marginBottom:8}}>
+                <Image source={ Probes ? ImageSource.arrowDown : ImageSource.fan } style={smallImg} />
+            </TouchableOpacity>
+            <Text style={[componentTitle, percentageText]}>{progress}%</Text>
+            
+        </View>
+          {
+            showLock? <>
+                  {
+                  locked ? 
+                  <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                        <Image
+                          style={styles.image}
+                        source={ImageSource.lock}               
+                        />
+                    </TouchableOpacity > : 
+                     <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                        <Image
+                          style={styles.image}
+                        source={ImageSource.lockOpen}               
+                        />
+                    </TouchableOpacity >
+                }
+
+            </>
+            : <></>
+          }
+        </View>
     );
   } else {
     return <></>;
@@ -104,6 +136,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.LIGHT_GREEN,
     borderRadius: 100,
   },
+  image: {
+      width: 30,
+      height: 30,
+      marginTop: 8,
+    },
 });
 
 export default AvenVerticalBar;

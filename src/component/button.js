@@ -63,7 +63,7 @@ export const Button = props => {
       style={[
         styles.container,
         //  boxStyle,
-        {opacity: speed.text === text ? 1 : 0.5},
+        {opacity: speed.text === text ? 1 : 1},
       ]}
       onPress={() => {
         onPress()
@@ -89,8 +89,8 @@ const styles = ScaledSheet.create({
     borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '10@ms',
-    width:Sizing.screenWidth > 430 ? 80 : Sizing.vw * 20,
-    height:Sizing.screenWidth > 430 ? 80 : Sizing.vw * 20,
+    width:Sizing.screenWidth > 430 ? 110 : Sizing.vw * 20,
+    height:Sizing.screenWidth > 430 ? 110 : Sizing.vw * 20,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',

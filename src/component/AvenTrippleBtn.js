@@ -1,10 +1,11 @@
-import {Pressable, StyleSheet, Text, View, Dimensions} from 'react-native';
+import {Pressable, StyleSheet, Text, View, Dimensions, Image,TouchableOpacity} from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {Colors} from '../styles';
+import {Colors, Sizing} from '../styles';
 import componentStyle from '../styles/componentStyle';
 import CustomStyles from '../styles/CustomStyles';
+import {ImageSource} from '../common/imageSource';
 
-const AvenTrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
+const AvenTrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR, readOnly}) => {
   const [firstContainer, setFirstContainer] = useState(Colors.WHITE);
   const [secondContainer, setSecondContainer] = useState(Colors.WHITE);
   const [thirdContainer, setThirdContainer] = useState(Colors.WHITE);
@@ -27,27 +28,60 @@ const AvenTrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
 
   const {mainContainer, btnContainerOuter, btnContainer} =
     componentStyle.TrippleBtn;
+  
+  const showLock = readOnly ? 0 : 1;
+  const [locked, setLocked] = useState(false);
+  const changeImg = () => {
+    console.log("change image");
+    setLocked(!locked);
+  }
 
   return (
     <View style={mainContainer}>
-          <Pressable
-            onPress={() => (
-              setFirstContainer(Colors.LIGHT_GREEN),
-              setSecondContainer(Colors.WHITE),
-              setThirdContainer(Colors.WHITE)
-            )}>
-            <View style={btnContainerOuter}>
-              <View style={[btnContainer, {backgroundColor: `${firstContainer}`}]}>
-                <Text style={CustomStyles.ComponentTitlesBlack}>{TbL}</Text>
+          <View style={{flexDirection:'row', alignItems: 'center'}}>
+            <Pressable
+              
+              onPress={() => {
+                if(locked) return;
+                setFirstContainer(Colors.LIGHT_GREEN),
+                setSecondContainer(Colors.WHITE),
+                setThirdContainer(Colors.WHITE)
+              }}>
+              <View style={btnContainerOuter}>
+                <View style={[btnContainer, {backgroundColor: `${firstContainer}`}]}>
+                  <Text style={CustomStyles.ComponentTitlesBlack}>{TbL}</Text>
+                </View>
               </View>
-            </View>
-          </Pressable>
+            </Pressable>
+             {
+              showLock? <>
+                  {
+                    locked ? 
+                      <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                          <Image
+                            style={styles.image}
+                          source={ImageSource.lock}               
+                          />
+                      </TouchableOpacity > : 
+                       <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                          <Image
+                            style={styles.image}
+                          source={ImageSource.lockOpen}               
+                          />
+                      </TouchableOpacity >
+                  }
+
+              </>
+              : <></>
+            }
+          </View>
           <Pressable
-            onPress={() => (
+            onPress={() => {
+              if(locked) return;
               setFirstContainer(Colors.WHITE),
               setSecondContainer(Colors.LIGHT_GREEN),
               setThirdContainer(Colors.WHITE)
-            )}>
+            }}>
             <View style={btnContainerOuter}>
               <View style={[btnContainer, {backgroundColor: `${secondContainer}`}]}>
                 <Text style={CustomStyles.ComponentTitlesBlack}>{TbC}</Text>
@@ -55,11 +89,12 @@ const AvenTrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
             </View>
           </Pressable>
           <Pressable
-            onPress={() => (
+            onPress={() => {
+              if(locked) return;
               setFirstContainer(Colors.WHITE),
               setSecondContainer(Colors.WHITE),
               setThirdContainer(Colors.LIGHT_GREEN)
-            )}>
+            }}>
             <View style={btnContainerOuter}>
               <View style={[btnContainer, {backgroundColor: `${thirdContainer}`}]}>
                 <Text style={CustomStyles.ComponentTitlesBlack}>{TbR}</Text>
@@ -69,5 +104,20 @@ const AvenTrippleBtn = ({TBL, TBC, TBR, TbL, TbC, TbR}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+    image: {
+      width: 30,
+      height: 30,
+      // marginTop: 8,
+      // borderWidth: 1,
+    },
+    rightTitle:{
+      position: 'absolute',
+      marginTop: 2,
+      left: Sizing.screenWidth > 430 ? 100 + (32.5 - 15) : Sizing.vw * 25 + (Sizing.vw * 3.75 - 15),
+      // borderWidth: 1,
+    },
+});
 
 export default AvenTrippleBtn;

@@ -109,7 +109,7 @@ export const LoginScreen = (props) => {
         if(showLogin)
           setMarginTopValue(5);
         else
-          setMarginTopValue(0);
+          setMarginTopValue(5);
     }
     const handleCheckBox = () => {
       setIsChecked(!isChecked);
@@ -147,365 +147,371 @@ export const LoginScreen = (props) => {
 
     return (
 	    <View style={[styles.container ]}>
-        <ScrollView style={[styles.scrollView, {marginTop : Sizing.vh * marginTopValue}]}>
-            <View style={styles.imgView}>
-              <Image source={ImageSource.logoW} style={styles.imgLogo} />
-            </View>
-            <View style={styles.buttonContainer}>
-              <View style={styles.row}>
-                <Button
-                  text={3}
-                  onPress={() => {
-                    setFilterDetails(prv => ({
-                      ...prv,
-                      activated: false,
-                      checked: false,
-                    }));
-                    setPostHeater({
-                      timer: 5,
-                      disabled: false,
-                      flagForPairing: false,
-                      flagForAlarm: false,
-                      status: '',
-                      flagForPairingStatus: false,
-                      flagForAlarmStatus: true,
-                      activated: false,
-                    });
-                    setFireAlarm({
-                      timer: 5,
-                      disabled: false,
-                      accessoryFireAlarm: false,
-                      testFailedFireAlarm: false,
-                      pairingFireAlarm: false,
-                      status: '',
-                      accessoryCheck: true,
-                      testFailedCheck: true,
-                      pairingCheck: false,
-                      activated: false,
-                    });
-                    setPreHeater({
-                      timer: 5,
-                      disabled: false,
-                      flagForPairing: false,
-                      flagForAlarm: false,
-                      status: '',
-                      flagForPairingStatus: false,
-                      flagForAlarmStatus: true,
-                      activated: false,
-                    });
-                    setSpeed({
-                      currentSpeed: 80,
-                      text: 3,
-                      status: 'Current Speed is 80 %',
-                      activated: true,
-                    });
-                  }}
-                  onLongPress={() => {
-                    setFilterDetails(prv => ({
-                      ...prv,
-                      activated: false,
-                      checked: false,
-                    }));
-                    setPostHeater({
-                      timer: 5,
-                      disabled: false,
-                      flagForPairing: false,
-                      flagForAlarm: false,
-                      status: '',
-                      flagForPairingStatus: false,
-                      flagForAlarmStatus: true,
-                      activated: false,
-                    });
-                    setFireAlarm({
-                      timer: 5,
-                      disabled: false,
-                      accessoryFireAlarm: false,
-                      testFailedFireAlarm: false,
-                      pairingFireAlarm: false,
-                      status: '',
-                      accessoryCheck: true,
-                      testFailedCheck: true,
-                      pairingCheck: false,
-                      activated: false,
-                    });
-                    setPreHeater({
-                      timer: 5,
-                      disabled: false,
-                      flagForPairing: false,
-                      flagForAlarm: false,
-                      status: '',
-                      flagForPairingStatus: false,
-                      flagForAlarmStatus: true,
-                      activated: false,
-                    });
-                    setSpeed({
-                      currentSpeed: 100,
-                      text: 3,
-                      status: 'Boost Mode on for 30 Min',
-                      activated: true,
-                    });
-                  }}
-                  speed={speed}
-                />
-                <FilterButton
-                  checked={filterDetails.checked}
-                  onProcessStart={() => {
-                    setFilterDetails({disabled: true});
-                  }}
-                  onProcessComplete={() => {
-                    setFilterDetails(prv => {
-                      return {
-                        ...prv,
-                        status: ' Clean Filter Confirmed',
-                        activated: false,
-                        checked: false,
-                      };
-                    });
-                  }}
-                  onUpdateStatus={text => {
-                    setFilterDetails(prv => {
-                      return {...prv, status: text};
-                    });
-                  }}
-                />
-              </View>
-              <View style={styles.row}>
-                <Button
-                  text={2}
-                  onPress={() => {
-                    setFilterDetails(prv => ({
-                      ...prv,
-                      activated: false,
-                      checked: false,
-                    }));
-                    setPostHeater({
-                      timer: 5,
-                      disabled: false,
-                      flagForPairing: false,
-                      flagForAlarm: false,
-                      status: '',
-                      flagForPairingStatus: false,
-                      flagForAlarmStatus: true,
-                      activated: false,
-                    });
-                    setFireAlarm({
-                      timer: 5,
-                      disabled: false,
-                      accessoryFireAlarm: false,
-                      testFailedFireAlarm: false,
-                      pairingFireAlarm: false,
-                      status: '',
-                      accessoryCheck: true,
-                      testFailedCheck: true,
-                      pairingCheck: false,
-                      activated: false,
-                    });
-                    setPreHeater({
-                      timer: 5,
-                      disabled: false,
-                      flagForPairing: false,
-                      flagForAlarm: false,
-                      status: '',
-                      flagForPairingStatus: false,
-                      flagForAlarmStatus: true,
-                      activated: false,
-                    });
-                    setSpeed({
-                      currentSpeed: 50,
-                      text: 2,
-                      status: 'Current Speed is 50 %',
-                      activated: true,
-                    });
-                  }}
-                  speed={speed}
-                />
-                <HeaterButton
-                  disabled={true}
-                  flagForAlarm={preHeater.flagForAlarm}
-                  flagForPairing={preHeater.flagForPairing}
-                  flagForPostHeaterAlarm={postHeater.flagForAlarm}
-                  flagForPostHeaterPairing={postHeater.flagForPairing}
-                  diagonalImageSource1={ImageSource.heater}
-                  diagonalImageSource2={ImageSource.heater}
-                  details={preHeater.flagForPairing}
-                  onUpdatePreHeaterStatus={text => {
-                    if (text === 'paired after piaring process') {
-                      setPreHeater(prv => {
-                        return {
-                          ...prv,
-                          status: text,
-                          flagForPairingStatus: true,
-                          flagForAlarmStatus: false,
-                        };
-                      });
-                    } else {
-                      setPreHeater(prv => {
-                        return {
-                          ...prv,
-                          status: text,
-                        };
-                      });
-                    }
-                  }}
-                  onUpdatePostHeaterStatus={text => {
-                    if (text === 'pairing successful') {
-                      setPostHeater(prv => {
-                        return {
-                          ...prv,
-                          status: text,
-                          flagForPairingStatus: true,
-                          flagForAlarmStatus: false,
-                        };
-                      });
-                      setGeneralAlarm(prv => ({...prv, status: ''}));
-                    } else {
-                      setPostHeater(prv => {
-                        return {
-                          ...prv,
-                          status: text,
-                        };
-                      });
-                    }
-                  }}
-                />
-              </View>
-              <View style={styles.row}>
-                <Button
-                  text={1}
-                  onPress={() => {
-                    setFilterDetails(prv => ({
-                      ...prv,
-                      activated: false,
-                      checked: false,
-                    }));
-                    setPostHeater({
-                      timer: 5,
-                      disabled: false,
-                      flagForPairing: false,
-                      flagForAlarm: false,
-                      status: '',
-                      flagForPairingStatus: false,
-                      flagForAlarmStatus: true,
-                      activated: false,
-                    });
-                    setFireAlarm({
-                      timer: 5,
-                      disabled: false,
-                      accessoryFireAlarm: false,
-                      testFailedFireAlarm: false,
-                      pairingFireAlarm: false,
-                      status: '',
-                      accessoryCheck: true,
-                      testFailedCheck: true,
-                      pairingCheck: false,
-                      activated: false,
-                    });
-                    setPreHeater({
-                      timer: 5,
-                      disabled: false,
-                      flagForPairing: false,
-                      flagForAlarm: false,
-                      status: '',
-                      flagForPairingStatus: false,
-                      flagForAlarmStatus: true,
-                      activated: false,
-                    });
-                    setSpeed({
-                      currentSpeed: 20,
-                      text: 1,
-                      status: 'Current Speed is 20 %',
-                      activated: true,
-                    });
-                  }}
-                  speed={speed}
-                />
-                <TouchableOpacity style={styles.dot}></TouchableOpacity>
-                <AlarmButton
-                  alarmRunning={generalAlarm.alarmRunning}
-                  alarmNotRunning={generalAlarm.alarmNotRunning}
-                  flagForPairingFireAlarm={fireAlarm.pairingFireAlarm}
-                  flagForTestFailedFireAlarm={fireAlarm.testFailedFireAlarm}
-                  flagForAccessoryFireAlarm={fireAlarm.accessoryFireAlarm}
-                  diagonalImageSource1={ImageSource.warning}
-                  diagonalImageSource2={ImageSource.fire}
-                  onGenralAlarmProcessComplete={() => {
-                    setGeneralAlarm({
-                      timer: 5,
-                      disabled: false,
-                      alarmRunning: false,
-                      alarmNotRunning: false,
-                    });
-                  }}
-                  onFireAlarmProcessComplete={() => {
-                    setFireAlarm({
-                      timer: 5,
-                      disabled: false,
-                      accessoryFireAlarm: false,
-                      testFailedFireAlarm: false,
-                      pairingFireAlarm: false,
-                    });
-                  }}
-                  onUpdateStatusFireAlarm={text => {
-                    if (text === 'paired after piaring process') {
-                      setFireAlarm(prv => {
-                        return {
-                          ...prv,
-                          status: text,
-                          accessoryCheck: false,
-                          testFailedCheck: false,
-                          pairingCheck: true,
-                        };
-                      });
-                    } else {
-                      setFireAlarm(prv => {
-                        return {
-                          ...prv,
-                          status: text,
-                        };
-                      });
-                    }
-                  }}
-                />
-              </View>
-            </View>
-            <TouchableOpacity
-              onPress={resetToInitial}
-              style={styles.TouchContainer}></TouchableOpacity>
+        <ScrollView style={[styles.scrollView, {marginTop : Sizing.vh * marginTopValue}]}>            
             {
               showLogin ? <>
-                  <View style={styles.borderView}></View>
-                  <Text style={styles.txtTitle}>Login</Text>
-                  <View style={styles.formView}>
-                    <View style={styles.formRow}>
-                      <Text style={styles.txtFlbl}>User Name : </Text>
-                      <TextInput style={styles.inputTxt} placeholder="" />
-                    </View>
-                    <View style={styles.formRow}>
-                      <Text style={styles.txtFlbl}>Password : </Text>
-                      <TextInput
-                        style={styles.inputTxt}
-                        placeholder=""
-                        secureTextEntry={true}
-                      />
-                    </View>
+                  <View style={styles.imgView}>
+                    <Image source={ImageSource.logoW} style={styles.imgLogo} />
+                  </View>
+                  <View style={styles.loginContainer}>
+                    <Text style={styles.txtTitle}>Login</Text>
+                    <View style={styles.formView}>
+                      <View style={styles.formRow}>
+                        <Text style={styles.txtFlbl}>User Name : </Text>
+                        <TextInput style={styles.inputTxt} placeholder="" />
+                      </View>
+                      <View style={styles.formRow}>
+                        <Text style={styles.txtFlbl}>Password : </Text>
+                        <TextInput
+                          style={styles.inputTxt}
+                          placeholder=""
+                          secureTextEntry={true}
+                        />
+                      </View>
 
-                    <View style={styles.formRow}>
-                      <CustomCheckbox
-                        handleCheckBox={handleCheckBox}
-                        isChecked={isChecked}
-                        lable="Remember"
-                      />
-                    </View>
+                      <View style={styles.formRow}>
+                        <CustomCheckbox
+                          handleCheckBox={handleCheckBox}
+                          isChecked={isChecked}
+                          lable="Remember"
+                        />
+                      </View>
 
-                    <View>
-                      <TouchableOpacity
-                        style={styles.signInOpacity}
-                        onPress={handleLogin}>
-                        <Text style={styles.signInText}>Sign in</Text>
-                      </TouchableOpacity>
+                      <View>
+                        <TouchableOpacity
+                          style={styles.signInOpacity}
+                          onPress={handleLogin}>
+                          <Text style={styles.signInText}>Sign in</Text>
+                        </TouchableOpacity>
+                      </View>
                     </View>
                   </View>
-              </> : <></>
+              </> : <>
+                  <View style={styles.imgView}>
+                    <Image source={ImageSource.logoW} style={styles.imgLogo} />
+                  </View>
+                  <View style={styles.buttonContainer}>
+                    <View style={styles.row}>
+                      <Button
+                        text={3}
+                        onPress={() => {
+                          setFilterDetails(prv => ({
+                            ...prv,
+                            activated: false,
+                            checked: false,
+                          }));
+                          setPostHeater({
+                            timer: 5,
+                            disabled: false,
+                            flagForPairing: false,
+                            flagForAlarm: false,
+                            status: '',
+                            flagForPairingStatus: false,
+                            flagForAlarmStatus: true,
+                            activated: false,
+                          });
+                          setFireAlarm({
+                            timer: 5,
+                            disabled: false,
+                            accessoryFireAlarm: false,
+                            testFailedFireAlarm: false,
+                            pairingFireAlarm: false,
+                            status: '',
+                            accessoryCheck: true,
+                            testFailedCheck: true,
+                            pairingCheck: false,
+                            activated: false,
+                          });
+                          setPreHeater({
+                            timer: 5,
+                            disabled: false,
+                            flagForPairing: false,
+                            flagForAlarm: false,
+                            status: '',
+                            flagForPairingStatus: false,
+                            flagForAlarmStatus: true,
+                            activated: false,
+                          });
+                          setSpeed({
+                            currentSpeed: 80,
+                            text: 3,
+                            status: 'Current Speed is 80 %',
+                            activated: true,
+                          });
+                        }}
+                        onLongPress={() => {
+                          setFilterDetails(prv => ({
+                            ...prv,
+                            activated: false,
+                            checked: false,
+                          }));
+                          setPostHeater({
+                            timer: 5,
+                            disabled: false,
+                            flagForPairing: false,
+                            flagForAlarm: false,
+                            status: '',
+                            flagForPairingStatus: false,
+                            flagForAlarmStatus: true,
+                            activated: false,
+                          });
+                          setFireAlarm({
+                            timer: 5,
+                            disabled: false,
+                            accessoryFireAlarm: false,
+                            testFailedFireAlarm: false,
+                            pairingFireAlarm: false,
+                            status: '',
+                            accessoryCheck: true,
+                            testFailedCheck: true,
+                            pairingCheck: false,
+                            activated: false,
+                          });
+                          setPreHeater({
+                            timer: 5,
+                            disabled: false,
+                            flagForPairing: false,
+                            flagForAlarm: false,
+                            status: '',
+                            flagForPairingStatus: false,
+                            flagForAlarmStatus: true,
+                            activated: false,
+                          });
+                          setSpeed({
+                            currentSpeed: 100,
+                            text: 3,
+                            status: 'Boost Mode on for 30 Min',
+                            activated: true,
+                          });
+                        }}
+                        speed={speed}
+                      />
+                      <FilterButton
+                        checked={filterDetails.checked}
+                        onProcessStart={() => {
+                          setFilterDetails({disabled: true});
+                        }}
+                        onProcessComplete={() => {
+                          setFilterDetails(prv => {
+                            return {
+                              ...prv,
+                              status: ' Clean Filter Confirmed',
+                              activated: false,
+                              checked: false,
+                            };
+                          });
+                        }}
+                        onUpdateStatus={text => {
+                          setFilterDetails(prv => {
+                            return {...prv, status: text};
+                          });
+                        }}
+                      />
+                    </View>
+                    <View style={styles.row}>
+                      <Button
+                        text={2}
+                        onPress={() => {
+                          setFilterDetails(prv => ({
+                            ...prv,
+                            activated: false,
+                            checked: false,
+                          }));
+                          setPostHeater({
+                            timer: 5,
+                            disabled: false,
+                            flagForPairing: false,
+                            flagForAlarm: false,
+                            status: '',
+                            flagForPairingStatus: false,
+                            flagForAlarmStatus: true,
+                            activated: false,
+                          });
+                          setFireAlarm({
+                            timer: 5,
+                            disabled: false,
+                            accessoryFireAlarm: false,
+                            testFailedFireAlarm: false,
+                            pairingFireAlarm: false,
+                            status: '',
+                            accessoryCheck: true,
+                            testFailedCheck: true,
+                            pairingCheck: false,
+                            activated: false,
+                          });
+                          setPreHeater({
+                            timer: 5,
+                            disabled: false,
+                            flagForPairing: false,
+                            flagForAlarm: false,
+                            status: '',
+                            flagForPairingStatus: false,
+                            flagForAlarmStatus: true,
+                            activated: false,
+                          });
+                          setSpeed({
+                            currentSpeed: 50,
+                            text: 2,
+                            status: 'Current Speed is 50 %',
+                            activated: true,
+                          });
+                        }}
+                        speed={speed}
+                      />
+                      <HeaterButton
+                        disabled={true}
+                        flagForAlarm={preHeater.flagForAlarm}
+                        flagForPairing={preHeater.flagForPairing}
+                        flagForPostHeaterAlarm={postHeater.flagForAlarm}
+                        flagForPostHeaterPairing={postHeater.flagForPairing}
+                        diagonalImageSource1={ImageSource.heater}
+                        diagonalImageSource2={ImageSource.heater}
+                        details={preHeater.flagForPairing}
+                        onUpdatePreHeaterStatus={text => {
+                          if (text === 'paired after piaring process') {
+                            setPreHeater(prv => {
+                              return {
+                                ...prv,
+                                status: text,
+                                flagForPairingStatus: true,
+                                flagForAlarmStatus: false,
+                              };
+                            });
+                          } else {
+                            setPreHeater(prv => {
+                              return {
+                                ...prv,
+                                status: text,
+                              };
+                            });
+                          }
+                        }}
+                        onUpdatePostHeaterStatus={text => {
+                          if (text === 'pairing successful') {
+                            setPostHeater(prv => {
+                              return {
+                                ...prv,
+                                status: text,
+                                flagForPairingStatus: true,
+                                flagForAlarmStatus: false,
+                              };
+                            });
+                            setGeneralAlarm(prv => ({...prv, status: ''}));
+                          } else {
+                            setPostHeater(prv => {
+                              return {
+                                ...prv,
+                                status: text,
+                              };
+                            });
+                          }
+                        }}
+                      />
+                    </View>
+                    <View style={styles.row}>
+                      <Button
+                        text={1}
+                        onPress={() => {
+                          setFilterDetails(prv => ({
+                            ...prv,
+                            activated: false,
+                            checked: false,
+                          }));
+                          setPostHeater({
+                            timer: 5,
+                            disabled: false,
+                            flagForPairing: false,
+                            flagForAlarm: false,
+                            status: '',
+                            flagForPairingStatus: false,
+                            flagForAlarmStatus: true,
+                            activated: false,
+                          });
+                          setFireAlarm({
+                            timer: 5,
+                            disabled: false,
+                            accessoryFireAlarm: false,
+                            testFailedFireAlarm: false,
+                            pairingFireAlarm: false,
+                            status: '',
+                            accessoryCheck: true,
+                            testFailedCheck: true,
+                            pairingCheck: false,
+                            activated: false,
+                          });
+                          setPreHeater({
+                            timer: 5,
+                            disabled: false,
+                            flagForPairing: false,
+                            flagForAlarm: false,
+                            status: '',
+                            flagForPairingStatus: false,
+                            flagForAlarmStatus: true,
+                            activated: false,
+                          });
+                          setSpeed({
+                            currentSpeed: 20,
+                            text: 1,
+                            status: 'Current Speed is 20 %',
+                            activated: true,
+                          });
+                        }}
+                        speed={speed}
+                      />
+                      <TouchableOpacity style={styles.dot}></TouchableOpacity>
+                      <AlarmButton
+                        alarmRunning={generalAlarm.alarmRunning}
+                        alarmNotRunning={generalAlarm.alarmNotRunning}
+                        flagForPairingFireAlarm={fireAlarm.pairingFireAlarm}
+                        flagForTestFailedFireAlarm={fireAlarm.testFailedFireAlarm}
+                        flagForAccessoryFireAlarm={fireAlarm.accessoryFireAlarm}
+                        diagonalImageSource1={ImageSource.warning}
+                        diagonalImageSource2={ImageSource.fire}
+                        onGenralAlarmProcessComplete={() => {
+                          setGeneralAlarm({
+                            timer: 5,
+                            disabled: false,
+                            alarmRunning: false,
+                            alarmNotRunning: false,
+                          });
+                        }}
+                        onFireAlarmProcessComplete={() => {
+                          setFireAlarm({
+                            timer: 5,
+                            disabled: false,
+                            accessoryFireAlarm: false,
+                            testFailedFireAlarm: false,
+                            pairingFireAlarm: false,
+                          });
+                        }}
+                        onUpdateStatusFireAlarm={text => {
+                          if (text === 'paired after piaring process') {
+                            setFireAlarm(prv => {
+                              return {
+                                ...prv,
+                                status: text,
+                                accessoryCheck: false,
+                                testFailedCheck: false,
+                                pairingCheck: true,
+                              };
+                            });
+                          } else {
+                            setFireAlarm(prv => {
+                              return {
+                                ...prv,
+                                status: text,
+                              };
+                            });
+                          }
+                        }}
+                      />
+                    </View>
+                  </View>
+                  <TouchableOpacity
+                    onPress={resetToInitial}
+                    style={styles.TouchContainer}>
+                  </TouchableOpacity>
+              </>
 
             }
             
@@ -523,7 +529,7 @@ const styles = ScaledSheet.create({
   scrollView: {
     
     // borderWidth: 1,
-    // borderColor: '#fff',
+    borderColor: '#fff',
     alignSelf: "center",
     width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 77,
     height: Sizing.vh * 95,
@@ -535,12 +541,19 @@ const styles = ScaledSheet.create({
     height: Sizing.screenWidth > 430 ? 430 - 40  : Sizing.vw * 77,
     alignSelf: 'center',
     borderRadius: 10,
-    // alignItems: "space-between",
-    justifyContent: "space-between",
+    alignItems: "space-around",
+    justifyContent: "space-around",
+  },
+  loginContainer: {
+    width: Sizing.screenWidth > 430 ? 430 - 40  : Sizing.vw * 77,
+    height: Sizing.screenWidth > 430 ? 430 - 40  : Sizing.vw * 77,
+    alignSelf: 'center',
+    borderColor: Colors.WHITE,
+    // borderWidth: 1,
+    justifyContent: 'center'
   },
   imgView: {
-    alignSelf: 'center',
-   
+    alignSelf: 'center',   
     width: Sizing.vw * 78,
     justifyContent: "center",
     alignItems: 'center',

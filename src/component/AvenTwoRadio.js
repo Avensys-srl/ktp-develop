@@ -16,7 +16,7 @@ import {Colors, Sizing} from '../styles';
 const AvenTwoRadio = (props) => {
 
 	const [checked, setChecked] = useState(props.value);
-	const { value, onValueChange, on, off ,title} = props;    
+	const { value, onValueChange, on, off ,title, disabled = false} = props;    
 
 	//locked image processing
 	const showLock = props.readOnly ? 0 : 1;
@@ -27,7 +27,8 @@ const AvenTwoRadio = (props) => {
 	}
 
 	const setSwitch = ( status ) => {
-		if(locked) return;
+		if(locked || props.disabled ) return;
+
 		setChecked(status);
 		onValueChange(status);
 	}

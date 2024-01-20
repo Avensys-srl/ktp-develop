@@ -20,6 +20,7 @@ import AvenTrippleBtn from "../component/AvenTrippleBtn";
 import AvenVerticalProgress from '../component/AvenVerticalProgress';
 import AvenVerticalBar from '../component/AvenVerticalBar';
 import { userType } from "../configs";
+import {ImageSource} from '../common/imageSource';
 
 export const Ventilation = () => {
   // Stato iniziale o stato ricevuto da altre fonti
@@ -30,8 +31,16 @@ export const Ventilation = () => {
 
   // Funzione per aggiornare lo stato dal componente figlio
   const handleToggle = newValue => {
+    if(locked) return;
     setIsToggled(newValue);
   };
+
+  const showLock = userType.service ? 1 : 0;
+  const [locked, setLocked] = useState(false);
+  const changeImg = () => {
+    console.log("change image");
+    setLocked(!locked);
+  }
 
   return (
     <View style={styles.container}>
@@ -43,8 +52,30 @@ export const Ventilation = () => {
       />
       <ScrollView style={{height: Sizing.vh * 75, }}>
         <View style={styles.pairedView}>
-          <Text style={styles.txttop}></Text>
-           <AvenTwoRadio value={isToggled} onValueChange={setIsToggled} on="3speeds" off="stepless" title=""  readOnly={ userType.service}/>
+            <View style={{  flexDirection:'row', alignItems: 'center'}}>
+               <AvenTwoRadio value={isToggled} onValueChange={handleToggle} on="3speeds" off="stepless" title=""  readOnly={ userType.service} disabled={locked}/>
+               {
+                  showLock? <>
+                      {
+                        locked ? 
+                          <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                              <Image
+                                style={styles.image}
+                              source={ImageSource.lock}               
+                              />
+                          </TouchableOpacity > : 
+                           <TouchableOpacity  style={styles.rightTitle} onPress={ () => changeImg() }>
+                              <Image
+                                style={styles.image}
+                              source={ImageSource.lockOpen}               
+                              />
+                          </TouchableOpacity >
+                      }
+
+                  </>
+                  : <></>
+                }
+            </View>
         </View>
         <View style={{flexDirection: "column", justifyContent: 'center',  marginTop: Sizing.vw * 3, marginBottom: Sizing.vw * 3}}>
           <View
@@ -57,11 +88,11 @@ export const Ventilation = () => {
               justifyContent: 'space-around',
            
             }}>
-            <AvenVerticalBar TS={isToggled ? 'CO2' : 'Main'} VS={12} Visible={true} Probes={0}/>
+            <AvenVerticalBar TS={isToggled ? 'CO2' : 'Main'} VS={12} Visible={true} Probes={0}   readOnly={ !userType.service}/>
 
-            <AvenVerticalBar TS={"VOC"} VS={45} Visible={isToggled}  Probes={0}/>
-            <AvenVerticalBar TS={"RH"} VS={87} Visible={isToggled}  Probes={0}/>
-            <AvenVerticalBar TS={'boost'} VS={90} Visible={true} Probes={false}/>
+            <AvenVerticalBar TS={"VOC"} VS={45} Visible={isToggled}  Probes={0}   readOnly={ !userType.service}/>
+            <AvenVerticalBar TS={"RH"} VS={87} Visible={isToggled}  Probes={0}   readOnly={ !userType.service}/>
+            <AvenVerticalBar TS={'boost'} VS={90} Visible={true} Probes={false}   readOnly={ !userType.service}/>
           </View>
         </View>
      
@@ -73,6 +104,7 @@ export const Ventilation = () => {
               TbL={'FSC'}
               TbC={'CAP'}
               TbR={'CAF'}
+              readOnly={ !userType.service}
             />
         </View>
 
@@ -131,7 +163,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width:Sizing.screenWidth > 430 ? 430 : Sizing.vw * 90,
     alignSelf: 'center',
-    height: Sizing.vh * 7,
+    // height: Sizing.vh * 7,
     borderRadius: 5,
     margin: 15,
     marginBottom: 10,
@@ -154,6 +186,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   pairedViewNoBorder: {
+
     justifyContent: 'center',
     alignItems: 'center',
     // width: Sizing.vw * 90,
@@ -167,5 +200,20 @@ const styles = StyleSheet.create({
   service: {
     color: userType.service ?   Colors.RED: Colors.BLACK,
     textAlign: 'center'
-  }
+  },
+   image: {
+      width: 30,
+      height: 30,
+      marginTop: 8,
+    },
+  rightTitle:{
+    flexDirection:'row',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    fontSize: 18,
+    marginLeft: 8,
+    marginTop: 2,
+    marginRight: -38
+    // borderWidth: 1,
+  },
 });

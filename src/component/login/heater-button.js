@@ -307,7 +307,7 @@ export const HeaterButton = props => {
     <View style={styles.container}>
       <View style={styles.diagonalLine}></View>
       <TouchableOpacity
-        disabled={disabled}
+        disabled={false}
         style={styles.diagonalImage1}
         // onPress={() => {
         //   if (flagForPairing) {
@@ -354,8 +354,8 @@ const styles = ScaledSheet.create({
     borderColor: Colors.WHITE,
     borderWidth: 1,
     borderRadius: '10@ms',
-    width:Sizing.screenWidth > 430 ? 80 : Sizing.vw * 20,
-    height:Sizing.screenWidth > 430 ? 80 : Sizing.vw * 20,
+    width:Sizing.screenWidth > 430 ? 110 : Sizing.vw * 24,
+    height:Sizing.screenWidth > 430 ? 110 : Sizing.vw * 24,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -376,16 +376,16 @@ const styles = ScaledSheet.create({
   },
   diagonalImage1: {
     position: 'absolute',
-    top: Sizing.screenWidth > 430 ? 10 : Sizing.vw * 3,
-    left: Sizing.screenWidth > 430 ? 10 : Sizing.vw * 3,
+    top:  Sizing.screenWidth > 430 ? 15 : Sizing.vw * 3.3,
+    left:  Sizing.screenWidth > 430 ? 15 : Sizing.vw * 3.3,
   },
   diagonalImage2: {
     position: 'absolute',
-    bottom: Sizing.screenWidth > 430 ? 10 : Sizing.vw * 3,
-    right: Sizing.screenWidth > 430 ? 10 : Sizing.vw * 3,
+    bottom:  Sizing.screenWidth > 430 ? 15 : Sizing.vw * 3.3,
+    right:  Sizing.screenWidth > 430 ? 15 : Sizing.vw * 3.3,
   },
   diagonalImage: {
-    height: Sizing.vw * 5,
-    width: Sizing.vw * 5,
+    height: Sizing.vw * 7,
+    width: Sizing.vw * 7
   },
 });

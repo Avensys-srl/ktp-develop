@@ -40,7 +40,7 @@ export const ClimateControl = () => {
           <Text style={CustomStyles.ComponentTitles}>Set points</Text>
           {
             userType.service ? 
-               <TouchableOpacity  style={{justifyContent: 'center',  marginLeft: 8, alignSelf: 'flex-start' , marginRight:-48}} onPress={ () => setLocked1(!locked1) }>
+               <TouchableOpacity  style={{justifyContent: 'center',  marginLeft: 8, marginTop: -5, alignSelf: 'flex-start' , marginRight:-48}} onPress={ () => setLocked1(!locked1) }>
                     <Image
                       style={styles.lockImg}
                       source={locked1 ? ImageSource.lock : ImageSource.lockOpen}               
